@@ -53,6 +53,8 @@ menu:
     url: /example/
   - title: Documentation
     url: /docs/
+  - title: Algorithms
+    url: /algorithms/
   - title: About Me
     url: /about/
 
@@ -133,11 +135,11 @@ defaults:
       layout: plain
       sitemap: false
 
-  # # You can use the following to enable comments on all posts.
-  # - scope:
-  #     type:            posts
-  #   values:
-  #     comments:        true
+  # You can use the following to enable comments on all posts.
+  - scope:
+      type: posts
+    values:
+      comments: true
 
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
@@ -171,7 +173,7 @@ kramdown:
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-# disqus:                <username>
+disqus: hyunjinno
 
 # Setting a tinyletter username will enable the newsletter subscription box.
 # PRO version only!

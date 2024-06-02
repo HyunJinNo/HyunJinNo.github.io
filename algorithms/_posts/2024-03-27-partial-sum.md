@@ -64,7 +64,7 @@ comments: true
 
 ## How to Use
 - <b>부분 합 계산하기</b>
-  ```Java
+  ```java
   // psum 계산하기
 
   int[] scores = new int { 10, 20, 30, 40, 50 };
@@ -75,7 +75,7 @@ comments: true
       psum[i] += psum[i - 1] + scores[i];
   }
   ```
-  ```Java
+  ```java
   // scores[a]부터 scores[b]까지의 합 구하기
 
   /**
@@ -94,7 +94,7 @@ comments: true
   }
   ```
 - <b>부분 합으로 분산 계산하기</b>
-  ```Java
+  ```java
   // 특정 구간의 분산(Variance) 계산하기
 
   /**
@@ -112,7 +112,7 @@ comments: true
   }
   ```
 - <b>2차원 배열에서의 부분 합</b>
-  ```Java
+  ```java
   // 2차원 배열에서의 부분 합 계산하기
 
   /**

@@ -9,9 +9,8 @@ image:
     1060w: /assets/img/algorithms/computer.jpg
     530w:  /assets/img/algorithms/computer.jpg
     265w:  /assets/img/algorithms/computer.jpg
-#related_posts:
-#  - example/_posts/2017-11-23-example-content-ii.md
-#  - /example/2012-02-07-example-content/
+related_posts:
+  - None
 sitemap: false
 comments: true
 ---

@@ -37,8 +37,8 @@ keywords: []
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo: /assets/img/icon/icon-512.png
-favicon: /assets/img/icon/favicon.ico
+logo: /assets/img/icon/book-logo.png
+favicon: /assets/img/icon/book.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
@@ -88,12 +88,12 @@ remote_theme: hydecorp/hydejack@v9
 
 # Sidebar image and theme color of the site.
 accent_image: /assets/img/background/library.jpg
-accent_color: rgb(255, 193, 7)
+accent_color: rgb(104, 146, 212)
 
 # This is used for the `theme-color` meta tag,
 # which changes the background color of the browser UI in certain browsers.
 # Defaults to `accent_color`.
-theme_color: rgb(88, 57, 39)
+theme_color: rgb(97, 63, 43)
 
 # The string encoding which fonts to fetch from Google Fonts.
 # See: <https://hydejack.com/docs/configuration/>

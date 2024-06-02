@@ -62,3 +62,18 @@ redirect_from:
   - 주요 활동: 제 26차 체스 k리그(2022년 하반기), 제 27차 체스 k리그(2023년 상반기), 제 28차 체스 k리그(2023년 하반기) 킹즈갬빗 소속 출전
 - 수상 경력
   - 성적 장학금 수상 2회 - 2018.09, 2019.03
+
+<br />
+<br />
+<br />
+
+## Comments
+<hr />
+<script
+  src="https://utteranc.es/client.js"
+  repo="HyunJinNo/HyunJinNo.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>

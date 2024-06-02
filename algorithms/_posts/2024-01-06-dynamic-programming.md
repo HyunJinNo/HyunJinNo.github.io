@@ -102,3 +102,18 @@ comments: true
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Dynamic%20programming/BLOCKGAME.java" target="_blank">BLOCKGAME</a>
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Dynamic%20programming/SUSHI.java" target="_blank">SUSHI</a>
 - GENIUS
+
+<br />
+<br />
+<br />
+
+## Comments
+<hr />
+<script
+  src="https://utteranc.es/client.js"
+  repo="HyunJinNo/HyunJinNo.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>

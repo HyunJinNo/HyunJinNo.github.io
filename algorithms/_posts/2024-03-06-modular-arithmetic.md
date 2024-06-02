@@ -47,3 +47,18 @@ comments: true
 
 ## Examples
 - <a href="https://github.com/HyunJinNo/Algorithm/tree/main/%EB%B0%B1%EC%A4%80/Gold/11401.%E2%80%85%EC%9D%B4%ED%95%AD%E2%80%85%EA%B3%84%EC%88%98%E2%80%853" target="_blank">11401. 이항 계수 3</a>
+
+<br />
+<br />
+<br />
+
+## Comments
+<hr />
+<script
+  src="https://utteranc.es/client.js"
+  repo="HyunJinNo/HyunJinNo.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>

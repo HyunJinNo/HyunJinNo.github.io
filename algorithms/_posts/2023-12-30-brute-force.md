@@ -48,3 +48,18 @@ comments: true
 - 모든 순열(Permutation) 만들기
 - 모든 조합(Combination) 만들기
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Brute-force/ZIMBABWE.java" target="_blank">ZIMBABWE</a>
+
+<br />
+<br />
+<br />
+
+## Comments
+<hr />
+<script
+  src="https://utteranc.es/client.js"
+  repo="HyunJinNo/HyunJinNo.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>

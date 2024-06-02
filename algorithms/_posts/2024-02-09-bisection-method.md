@@ -30,3 +30,18 @@ comments: true
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Bisection%20method/ROOTS.java" target="_blank">ROOTS</a>
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Bisection%20method/LOAN.java" target="_blank">LOAN</a>
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Bisection%20method/RATIO.java" target="_blank">RATIO</a>
+
+<br />
+<br />
+<br />
+
+## Comments
+<hr />
+<script
+  src="https://utteranc.es/client.js"
+  repo="HyunJinNo/HyunJinNo.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>

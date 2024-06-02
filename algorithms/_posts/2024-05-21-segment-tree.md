@@ -154,3 +154,18 @@ comments: true
 
 ## Examples
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Segment%20Tree/MORDOR.ts" target="_blank">MORDOR</a>
+
+<br />
+<br />
+<br />
+
+## Comments
+<hr />
+<script
+  src="https://utteranc.es/client.js"
+  repo="HyunJinNo/HyunJinNo.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>

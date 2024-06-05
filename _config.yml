@@ -54,6 +54,8 @@ menu:
     url: /algorithms/
   - title: Design Patterns
     url: /design-patterns/
+  - title: Raspberry Pi
+    url: /raspberry-pi/
   - title: About Me
     url: /about/
 

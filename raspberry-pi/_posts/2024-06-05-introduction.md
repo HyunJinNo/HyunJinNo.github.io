@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is Raspberry Pi?
+title: 라즈베리파이란?
 description: >
   Raspberry Pi에 대해 소개하는 페이지입니다.
 image: 
@@ -14,6 +14,8 @@ related_posts:
 sitemap: false
 comments: false
 ---
+
+# 라즈베리파이란?
 
 <br />
 <br />

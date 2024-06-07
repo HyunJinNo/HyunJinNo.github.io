@@ -19,65 +19,65 @@ comments: false
 
 ## APT(Advanced Package Tool)란?
 
-**APT(Advanced Packaging Tool)**란 리눅스 배포판 중 데비안 계열에서 사용하는 패키지 관리자입니다. 우분투, 리눅스 민드, 칼리 리눅스 등 데비안에서 파생된 배포판에서도 사용되며, 주로 터미널을 통해 패키지를 설치하거나 제거, 업그레이드 할 때 사용합니다.
+**APT(Advanced Packaging Tool)**란 리눅스 배포판 중 데비안 계열에서 사용하는 패키지 관리자입니다. 우분투, 리눅스 민트, 칼리 리눅스 등 데비안에서 파생된 배포판에서도 사용되며, 주로 터미널을 통해 패키지를 설치하거나 제거, 업그레이드 할 때 사용합니다.
 
 ## 주요 명령어
 
 ### 패키지 리스트 업데이트
 `apt update`는 설치 가능한 패키지 리스트를 최신화할 때 사용하는 명령어입니다.
 주의할 점은 설치된 패키지 목록을 실제로 최신 버전으로 업데이트하는 것이 아니라 **설치 가능한 패키지 리스트**를 최신화한다는 점입니다.
-```
+```bash
 sudo apt update
 ```
 
 ### 패키지 업그레이드
 `apt upgrade`는 설치된 패키지들 중에서 업그레이드 가능한 패키지들을 최신 버전으로 업그레이드하는 명령어입니다.
-```
+```bash
 sudo apt upgrade
 ```
 
 ### 사용 가능한 모든 패키지 목록 확인
 `apt list`는 사용 가능한 모드 패키지 목록을 확인하는데 사용하는 명령어입니다.
-```
-sudo pat list
+```bash
+sudo apt list
 ```
 
 ### 설치된 패키지 목록 확인
 `apt list --installed`는 설치된 패키지 목록만 확인할 때 사용하는 명령어입니다.
-```
+```bash
 sudo apt list --installed
 ```
 
 ### 업그레이드 가능한 패키지 목록 확인
 업그레이드 대상 패키지 목록을 확인하려면 다음 명령어를 입력합니다.
-```
+```bash
 sudo apt list --upgradable
 ```
 
 ### 패키지 설치
 `apt install`은 패키지를 설치할 때 사용하는 명령어입니다.
-```
+```bash
 sudo apt install [package_name]
 ```
 명령 한 번으로 여러 패키지를 설치하려면 다음과 같이 공백으로 구분합니다.
-```
+```bash
 sudo apt install [package_name1] [package_name2]
 ```
 
 ### 패키지 삭제
 `apt remove`는 패키지를 삭제할 때 사용하는 명령어입니다.
 패키지를 삭제하더라고 일부 구성 파일이 남을 수 있습니다.
-```
+```bash
 sudo apt remove [package_name]
 ```
 명령 한 번으로 여러 패키지를 삭제하려면 다음과 같이 공백으로 구분합니다.
-```
+```bash
 sudo ap remove [package_name1] [package_name2]
 ```
 
 ### 구성 파일까지 포함해서 패키지 제거
 `apt purge`를 사용하면 구성 파일까지 포함해서 패키지를 제거할 수 있습니다.
-```
+```bash
 sudo apt purge [package_name1]
 ```
 

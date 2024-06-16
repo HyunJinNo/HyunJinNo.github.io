@@ -56,6 +56,8 @@ menu:
     url: /design-patterns/
   - title: Raspberry Pi
     url: /raspberry-pi/
+  - title: MySQL
+    url: /mysql/
   - title: About Me
     url: /about-me/
 

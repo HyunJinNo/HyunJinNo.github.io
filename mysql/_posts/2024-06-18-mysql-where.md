@@ -11,7 +11,7 @@ image:
     265w:  /assets/img/mysql/harddisk.jpg
 related_posts:
   - None
-sitemap: false
+sitemap: true
 comments: false
 ---
 

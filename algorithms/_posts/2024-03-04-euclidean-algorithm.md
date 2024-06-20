@@ -11,8 +11,8 @@ image:
     265w:  /assets/img/algorithms/computer.jpg
 related_posts:
   - None
-sitemap: false
-comments: true
+sitemap: true
+comments: false
 ---
 
 # Euclidean Algorithm

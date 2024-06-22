@@ -14,8 +14,16 @@ related_posts:
 sitemap: true
 comments: false
 ---
+<i>Environment</i> 
+- <i>Programming Language: Java</i>
 
-# Composite Pattern
+## Index
+- [Index](#index)
+- [Introduction](#introduction)
+- [Characteristics](#characteristics)
+- [Related patterns](#related-patterns)
+- [How to Use (Example)](#how-to-use-example)
+- [Comments](#comments)
 
 ## Introduction
 - **Purpose**

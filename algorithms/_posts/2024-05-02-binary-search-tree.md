@@ -14,8 +14,13 @@ related_posts:
 sitemap: true
 comments: false
 ---
+<i>Environment</i> 
+- <i>OS: Windows 11</i>
 
-# Binary Search Tree
+## 목차
+- [목차](#목차)
+- [Introduction](#introduction)
+- [Comments](#comments)
 
 ## Introduction
 - <b>Definition</b>

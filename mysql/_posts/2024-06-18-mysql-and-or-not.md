@@ -14,8 +14,16 @@ related_posts:
 sitemap: true
 comments: false
 ---
+<i>Environment</i> 
+- <i>MySQL v8.0.34</i>
 
-# MySQL AND, OR, NOT 연산자
+## 목차
+- [목차](#목차)
+- [MySQL AND, OR, NOT 연산자](#mysql-and-or-not-연산자)
+    - [설명](#설명)
+    - [문법](#문법)
+- [Comments](#comments)
+
 ## MySQL AND, OR, NOT 연산자
 
 #### 설명

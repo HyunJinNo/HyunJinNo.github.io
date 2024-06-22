@@ -9,8 +9,6 @@ redirect_from:
   - /download/
 ---
 
-# About Me
-
 <!--author-->
 
 ## 개인 정보
@@ -36,11 +34,11 @@ redirect_from:
 - <a href="https://mica-walk-152.notion.site/13822f011df84d2684728c0fd0ea9e80?v=12c5244d29e5489eab704a8659621d62" target="_blank">Notion</a>
 
 ## Skills
-- Front-end: HTML, CSS, JavaScript, TypeScript, Sass, React, Next.js, Redux
+- Front-end: HTML, CSS, JavaScript, TypeScript, Sass, Tailwind CSS, React, Next.js, Redux, Zustand
 - Back-end: Node.js, Express.js, Python, Flask
 - Database: MySQL, MariaDB, Firebase
 - Mobile: Android, Kotlin, Java, Retrofit2, Flutter, Dart
-- Deployment: Raspberry Pi, AWS EC2, Vercel
+- Deployment: Raspberry Pi, AWS EC2, Vercel, Nginx
 - Version Control: Git, GitHub
 
 ## 수상 경력

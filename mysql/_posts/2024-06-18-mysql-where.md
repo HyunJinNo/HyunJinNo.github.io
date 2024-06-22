@@ -14,8 +14,17 @@ related_posts:
 sitemap: true
 comments: false
 ---
+<i>Environment</i> 
+- <i>MySQL v8.0.34</i>
 
-# MySQL WHERE절
+## 목차
+- [목차](#목차)
+- [MySQL WHERE절](#mysql-where절)
+    - [설명](#설명)
+    - [문법](#문법)
+    - [WHERE절에서 사용 가능한 연산자](#where절에서-사용-가능한-연산자)
+- [Comments](#comments)
+
 ## MySQL WHERE절
 
 #### 설명

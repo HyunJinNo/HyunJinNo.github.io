@@ -14,8 +14,14 @@ related_posts:
 sitemap: true
 comments: false
 ---
+<i>Environment</i> 
+- <i>OS: Windows 11</i>
 
-# Bisection Method
+## 목차
+- [목차](#목차)
+- [Introduction](#introduction)
+- [Examples](#examples)
+- [Comments](#comments)
 
 ## Introduction
 - **Definition**

@@ -10,7 +10,7 @@ image:
     530w:  /assets/img/back-end/back-end.jpg
     265w:  /assets/img/back-end/back-end.jpg
 related_posts:
-  - None
+  - /back-end/2024-06-26-expressjs-typeorm/
 sitemap: true
 comments: false
 ---
@@ -109,7 +109,7 @@ npx tsc --init
 먼저 프로젝트 최상단 디렉토리 내에 `src` 디렉토리를 생성하고 `express-generator`를 사용하여 생성된 `app.js` 파일과 `routes` 디렉토리를 삭제합니다.
 
 #### app.ts 파일 생성
-`app.js` 파일을 생성하고 해당 파일 내에 다음 코드를 입력합니다.
+`app.ts` 파일을 생성하고 해당 파일 내에 다음 코드를 입력합니다.
 
 ```ts
 import express, { NextFunction, Request, Response } from "express";

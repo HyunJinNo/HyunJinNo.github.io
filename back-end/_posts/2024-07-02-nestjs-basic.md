@@ -199,8 +199,7 @@ src
 |           ├── blog.module.ts
 |           ├── blog.service.ts
 |           └── dtos
-|               └── dtos
-|                   └── blog.dto.ts
+|               └── blog.dto.ts
 └── (...)
 ```
 

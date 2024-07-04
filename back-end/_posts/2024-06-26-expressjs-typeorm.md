@@ -20,8 +20,8 @@ comments: false
 - <i>reflect-metadata v0.2.2</i>
 - <i>mysql2 v3.10.1</i>
 
-## 목차
-- [목차](#목차)
+<h2> 목차 </h2>
+
 - [Step 1 - TypeORM 관련 패키지 설치](#step-1---typeorm-관련-패키지-설치)
 - [Step 2 - 폴더 구조](#step-2---폴더-구조)
 - [Step 3 - TypeScript Configuration](#step-3---typescript-configuration)

@@ -11,6 +11,7 @@ image:
     265w:  /assets/img/back-end/back-end.jpg
 related_posts:
   - /back-end/2024-06-22-expressjs-typescript/
+  - /back-end/2024-07-10-nestjs-typeorm/
 sitemap: true
 comments: false
 ---
@@ -97,21 +98,21 @@ env 파일은 환경 변수 파일을 의미하며 API 키나 DB 관련 정보 �
 
 ```
 # DB 관련 데이터
-DB_PORT = [데이터베이스 포트 번호 (MySQL 데이터베이스의 기본 포트는 3306입니다.) ]
-DB_USER = [데이터베이스 사용자 이름]
-DB_HOST = [데이터베이스 호스트]
-DB_PASSWORD = [데이터베이스 비밀번호]
-DB_DATABASE = [사용하고자 하는 데이터베이스 이름]
+DB_PORT=[데이터베이스 포트 번호 (MySQL 데이터베이스의 기본 포트는 3306입니다.) ]
+DB_USERNAME=[데이터베이스 사용자 이름]
+DB_HOST=[데이터베이스 호스트]
+DB_PASSWORD=[데이터베이스 비밀번호]
+DB_DATABASE=[사용하고자 하는 데이터베이스 이름]
 ```
 
 예시를 들자면 다음과 같습니다.
 
 ```
-DB_PORT = 3306
-DB_USER = "username"
-DB_HOST = "localhost"
-DB_PASSWORD = "password"
-DB_DATABASE = "test"
+DB_PORT=3306
+DB_USERNAME="username"
+DB_HOST="localhost"
+DB_PASSWORD="password"
+DB_DATABASE="test"
 ```
 
 ## Step 5 - entity 생성
@@ -153,7 +154,7 @@ const AppDataSource = new DataSource({
   type: "mysql",
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
-  username: process.env.DB_USER,
+  username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   entities: [Person],

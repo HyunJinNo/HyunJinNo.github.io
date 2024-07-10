@@ -80,8 +80,7 @@ rules: {
 `nest-cli`로 생성한 프로젝트 구조는 다음과 같습니다.
 
 ```
-src
-├── app
+├── src
 |   ├── app.controller.spec.ts  // 컨트롤러 테스트 코드
 |   ├── app.controller.ts       // 컨트롤러
 |   ├── app.module.ts           // 모듈
@@ -142,7 +141,7 @@ export class AppController {
 
   constructor(private readonly appService: AppService) {}
 
-  @Get() // GET 요청 처리 데코레이턴
+  @Get() // GET 요청 처리 데코레이터
   getHello(): string {
     return this.appService.getHello();
   }
@@ -186,8 +185,7 @@ export class AppModule {}
 먼저 다음과 같이 모듈 단위로 애플리케이션을 구성합니다.
 
 ```
-src
-├── app
+├── src
 |   ├── app.controller.spec.ts  
 |   ├── app.controller.ts       
 |   ├── app.module.ts           

@@ -60,6 +60,8 @@ menu:
     url: /front-end/
   - title: Back-end
     url: /back-end/
+  - title: Naver Boostcamp 9th
+    url: /naver-boostcamp-9th/
   - title: MySQL
     url: /mysql/
   - title: About Me

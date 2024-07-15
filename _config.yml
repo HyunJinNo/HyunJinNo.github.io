@@ -60,6 +60,8 @@ menu:
     url: /front-end/
   - title: Back-end
     url: /back-end/
+  - title: Naver Boostcamp 9th
+    url: /naver-boostcamp-9th/
   - title: MySQL
     url: /mysql/
   - title: About Me
@@ -101,7 +103,7 @@ accent_color: rgb(104, 146, 212)
 # This is used for the `theme-color` meta tag,
 # which changes the background color of the browser UI in certain browsers.
 # Defaults to `accent_color`.
-theme_color: rgb(97, 63, 43)
+theme_color: rgb(0, 0, 0)
 
 # The string encoding which fonts to fetch from Google Fonts.
 # See: <https://hydejack.com/docs/configuration/>

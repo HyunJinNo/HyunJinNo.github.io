@@ -37,8 +37,8 @@ keywords: []
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo: /assets/img/icon/book-logo.png
-favicon: /assets/img/icon/book.png
+logo: /assets/img/icon/falling-star-logo.png
+favicon: /assets/img/icon/falling-star.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
@@ -60,8 +60,6 @@ menu:
     url: /front-end/
   - title: Back-end
     url: /back-end/
-  - title: Naver Boostcamp 9th
-    url: /naver-boostcamp-9th/
   - title: MySQL
     url: /mysql/
   - title: About Me
@@ -97,7 +95,7 @@ remote_theme: hydecorp/hydejack@v9
 # ----------------------------------------------------------------------------------------
 
 # Sidebar image and theme color of the site.
-accent_image: /assets/img/background/library.jpg
+accent_image: /assets/img/background/background.jpg
 accent_color: rgb(104, 146, 212)
 
 # This is used for the `theme-color` meta tag,
@@ -405,21 +403,21 @@ jekyll_compose:
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/background/library.jpg
+        path: /assets/img/background/background.jpg
     posts:
       layout: post
       description: >
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/background/library.jpg
+        path: /assets/img/background/background.jpg
     projects:
       layout: project
       description: >
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/background/library.jpg
+        path: /assets/img/background/background.jpg
       links:
         - title: Project Link
           url: https://example.com

@@ -10,12 +10,12 @@ image:
     530w: /assets/img/chess/dgt-pi-chess-computer/pic0.jpg
     265w: /assets/img/chess/dgt-pi-chess-computer/pic0.jpg
 related_posts:
-  - None
+  - /chess/2022-06-03-dgt-bluetooth-e-board/
 sitemap: true
 comments: false
 ---
 
-> 해당 게시글은 제가 2022년 6월 3일 [체스 카페 마법사에 제자 : 네이버 카페](https://cafe.naver.com/chesssystem)에 [작성한 글](https://cafe.naver.com/chesssystem?iframe_url_utf8=%2FArticleRead.nhn%253Fclubid%3D10294651%2526articleid%3D31298)을 옮겨온 것입니다.
+> 해당 게시글은 제가 2022년 12월 24일 [체스 카페 마법사에 제자 : 네이버 카페](https://cafe.naver.com/chesssystem)에 [작성한 글](https://cafe.naver.com/chesssystem?iframe_url_utf8=%2FArticleRead.nhn%253Fclubid%3D10294651%2526articleid%3D31298)을 옮겨온 것입니다.
 
 <h2> 목차 </h2>
 
@@ -26,7 +26,7 @@ comments: false
 
 해당 글에서 사용한 E-Board에 대해서는 아래 글을 참고
 
-<a href="https://cafe.naver.com/chesssystem?iframe_url_utf8=%2FArticleRead.nhn%253Fclubid%3D10294651%2526articleid%3D30548" target="_blank">DGT Bluetooth Rosewood e-board 구매 후기</a>
+[DGT Bluetooth Rosewood e-board 구매 후기](2022-06-03-dgt-bluetooth-e-board.md)
 
 <br />
 <img src="/assets/img/chess/dgt-pi-chess-computer/pic1.jpg" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>

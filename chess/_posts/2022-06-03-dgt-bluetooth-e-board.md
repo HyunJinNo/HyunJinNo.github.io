@@ -10,7 +10,7 @@ image:
     530w: /assets/img/chess/dgt-bluetooth-e-board/pic2.jpg
     265w: /assets/img/chess/dgt-bluetooth-e-board/pic2.jpg
 related_posts:
-  - None
+  - /chess/2022-12-24-dgt-pi-chess-computer/
 sitemap: true
 comments: false
 ---

@@ -46,6 +46,7 @@ comments: false
   - [JSON](#json)
     - [개념](#개념-5)
     - [JSON 구조](#json-구조)
+- [참고 자료](#참고-자료)
 - [Comments](#comments)
 
 ## 학습한 내용
@@ -249,6 +250,25 @@ JSON 구조의 특징은 다음과 같습니다.
 - 날짜 및 시간 데이터를 지원하지 않습니다.
 - 주석을 사용할 수 없습니다.
 - 객체 내에 또 다른 객체나 배열을 사용할 수 있습니다. 마찬가지로 배열 내에 또 다른 배열을 사용할 수 있습니다.
+
+## 참고 자료
+
+- `파일 시스템`
+  - https://blog.naver.com/kangdydtjs/222402981630
+  - https://security-nanglam.tistory.com/228
+  - https://lgana1021.tistory.com/79
+  - https://namu.wiki/w/%ED%8C%8C%EC%9D%BC%20%EC%8B%9C%EC%8A%A4%ED%85%9C
+- `HTTP`
+  - https://velog.io/@bky373/Web-HTTP%EC%99%80-HTTPS-%EC%B4%88%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC
+  - https://jangjjolkit.tistory.com/12
+  - https://namu.wiki/w/HTTP
+  - https://hongong.hanbit.co.kr/http-%EC%83%81%ED%83%9C-%EC%BD%94%EB%93%9C-%ED%91%9C-1xx-5xx-%EC%A0%84%EC%B2%B4-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%A6%AC/
+- `SQL`
+  - https://aws.amazon.com/ko/what-is/sql/
+- `Database`
+  - https://aws.amazon.com/ko/what-is/database/
+- `CSV`
+  - https://ko.wikipedia.org/wiki/CSV_(%ED%8C%8C%EC%9D%BC_%ED%98%95%EC%8B%9D)
 
 ## Comments
 

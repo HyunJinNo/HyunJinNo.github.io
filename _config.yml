@@ -60,8 +60,10 @@ menu:
     url: /front-end/
   - title: Back-end
     url: /back-end/
-  - title: Naver Boostcamp 9th
+  - title: 네이버 부스트캠프 웹・모바일 9기
     url: /naver-boostcamp-9th/
+  - title: Computer Science
+    url: /cs/
   - title: MySQL
     url: /mysql/
   - title: Chess
@@ -92,7 +94,7 @@ paginate_path: /:num/
 # Theme
 # ---------------------------------------------------------------------------------------
 
-#theme: jekyll-theme-hydejack
+theme: jekyll-theme-hydejack
 remote_theme: hydecorp/hydejack@v9
 
 # Customizaton

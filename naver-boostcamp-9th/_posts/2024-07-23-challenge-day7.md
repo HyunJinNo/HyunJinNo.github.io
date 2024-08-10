@@ -24,7 +24,7 @@ comments: false
   - [소프트웨어 테스트(Software Test)](#소프트웨어-테스트software-test)
   - [소프트웨어 테스트 유형](#소프트웨어-테스트-유형)
   - [단위 테스트(Unit Test)](#단위-테스트unit-test)
-  - [정규 표현식(Regular Expression)](#정규-표현식regular-expression)
+  - [정규 표현식 (Regular Expression)](#정규-표현식-regular-expression)
   - [Jest 사용 방법](#jest-사용-방법)
     - [Step 1 - Jest 설치하기](#step-1---jest-설치하기)
     - [Step 2 - package.json 스크립트 설정하기](#step-2---packagejson-스크립트-설정하기)
@@ -81,9 +81,11 @@ comments: false
 - 작은 코드 조각(단위)을 검증하고(validate)
 - 자동화된 (automatic) 진짜 코드
 
-### 정규 표현식(Regular Expression)
+### 정규 표현식 (Regular Expression)
 
-**작성 예정**
+정규 표현식에 대해서는 다음 링크에 작성하였습니다.
+
+[정규 표현식 (Regular Expression)](../../cs/2024-08-09-regular-expression)
 
 ### Jest 사용 방법
 

@@ -3,18 +3,20 @@ layout: post
 title: Nest.js 기초 사용 방법
 description: >
   Nest.js 기초 사용 방법에 대해 설명하는 페이지입니다.
-image: 
+image:
   path: /assets/img/back-end/back-end.jpg
   srcset:
     1060w: /assets/img/back-end/back-end.jpg
-    530w:  /assets/img/back-end/back-end.jpg
-    265w:  /assets/img/back-end/back-end.jpg
+    530w: /assets/img/back-end/back-end.jpg
+    265w: /assets/img/back-end/back-end.jpg
 related_posts:
   - /back-end/2024-06-26-expressjs-typeorm/
 sitemap: true
 comments: false
 ---
+
 <i>Environment</i>
+
 - <i>Node.js v20.11.1</i>
 - <i>@nestjs/cli v10.3.2</i>
 - <i>reflect-metadata v0.2.2</i>
@@ -42,6 +44,7 @@ comments: false
 - [Comments](#comments)
 
 ## Step 1 - Nest.js 애플리케이션 생성
+
 다음 명령어를 입력하여 `@nestjs.cli`를 사용하여 Nest.js 애플리케이션을 생성합니다.
 
 ```bash
@@ -55,11 +58,12 @@ npx @nestjs/cli new [프로젝트 이름]
 ```
 
 ## Step 2 - eslintrc 설정 파일 수정
-자신이 사용하는 운영체제에 따라 다음과 같이 `Delete `␍` eslint (prettier/prettier)` 오류가 발생할 수 있습니다. 
+
+자신이 사용하는 운영체제에 따라 다음과 같이 `Delete `␍` eslint (prettier/prettier)` 오류가 발생할 수 있습니다.
 
 <img src="/assets/img/back-end/nestjs-basic/nestjs1.png" alt="nestjs1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
 
-이 오류가 발생하는 경우 `.eslintrc.js` 파일을 열고 다음과 같이 `endOfLine`에 내용을 추가하거나 변경하면 됩니다. 
+이 오류가 발생하는 경우 `.eslintrc.js` 파일을 열고 다음과 같이 `endOfLine`에 내용을 추가하거나 변경하면 됩니다.
 
 ```javascript
 rules: {
@@ -86,14 +90,16 @@ rules: {
 |   ├── app.module.ts           // 모듈
 |   ├── app.service.ts          // 서비스
 |   └── main.ts                 // 서비스 메인 파일
-├── .gitignore                  // git 버전 관리에서 제외할 목록 지정 
+├── .gitignore                  // git 버전 관리에서 제외할 목록 지정
 ├── .prettierrc                 // 코드 포매팅 관련 설정 파일
 ├── nest-cli.json               // nest-cli 설정
 └── (...)
 ```
 
 ### Nest.js의 Naming 규칙
+
 Nest.js의 Naming Convention은 다음과 같습니다.
+
 - 파일명은 `.`으로 연결하며, 모듈이 둘 이상의 단어로 구성되어 있으면 `대시`로 연결합니다.
   ```
   // <모듈명>.<컴포넌트명>.ts
@@ -109,11 +115,12 @@ Nest.js의 Naming Convention은 다음과 같습니다.
 - 인터페이스를 사용해서 타입을 정의하고 구체적인 내용을 클래스를 만들어 인터페이스를 상속하는 방식으로 작성합니다.
 
 ### main.ts
+
 main.ts 파일은 Nest.js 서버의 시작점이 되는 파일입니다. Nest.js에서는 진입점을 `bootstrap()`으로 하는 것이 관례입니다.
 
 ```typescript
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
 
 // Nest.js를 실행시키는 함수
 // Nest.js에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
@@ -129,11 +136,12 @@ bootstrap();
 ```
 
 ### <모듈명>.controller.ts
+
 컨트롤러는 유저가 보낸 HTTP 요청을 어떤 코드에서 처리할지 결정하는 역할을 합니다.
 
 ```typescript
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get } from "@nestjs/common";
+import { AppService } from "./app.service";
 
 @Controller() // 컨트롤러 데코레이터
 export class AppController {
@@ -149,27 +157,29 @@ export class AppController {
 ```
 
 ### <모듈명>.service.ts
+
 서비스는 비즈니스 로직을 담는 파일입니다.
 
 ```typescript
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class AppService {
   getHello(): string {
-    return 'Hello World! 안녕하세요!';
+    return "Hello World! 안녕하세요!";
   }
 }
 ```
 
 ### <모듈명>.module.ts
+
 모듈은 수평적으로 흩어진 Provider와 Controller들을 논리적인 기능이나 도메인에 따라 하나로 묶어주는 역할을 하며, 재사용성을 높여줍니다.
 
 ```typescript
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { BlogModule } from './blog/blog.module';
+import { Module } from "@nestjs/common";
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { BlogModule } from "./blog/blog.module";
 
 // 모듈 데코레이터
 @Module({
@@ -181,17 +191,18 @@ export class AppModule {}
 ```
 
 ## Step 4 - Blog API 만들기
-데이터베이스를 사용하지 않는 간단한 Blog API를 만들어 보겠습니다. 
+
+데이터베이스를 사용하지 않는 간단한 Blog API를 만들어 보겠습니다.
 먼저 다음과 같이 모듈 단위로 애플리케이션을 구성합니다.
 
 ```
 ├── src
-|   ├── app.controller.spec.ts  
-|   ├── app.controller.ts       
-|   ├── app.module.ts           
-|   ├── app.service.ts          
-|   ├── main.ts                 
-|   └── modules 
+|   ├── app.controller.spec.ts
+|   ├── app.controller.ts
+|   ├── app.module.ts
+|   ├── app.service.ts
+|   ├── main.ts
+|   └── modules
 |       └── blog
 |           ├── blog.controller.ts
 |           ├── blog.module.ts
@@ -214,44 +225,44 @@ import {
   Param,
   Post,
   Put,
-} from '@nestjs/common';
-import { BlogService } from './blog.service';
-import { PostDto } from './dtos/blog.dto';
+} from "@nestjs/common";
+import { BlogService } from "./blog.service";
+import { PostDto } from "./dtos/blog.dto";
 
-@Controller('blog') // 클래스에 붙이는 Controller 데코레이터
+@Controller("blog") // 클래스에 붙이는 Controller 데코레이터
 export class BlogController {
   constructor(private readonly blogService: BlogService) {}
 
   @Get() // GET 요청 처리하기
   getAllPost() {
-    console.log('모든 게시글 가져오기');
+    console.log("모든 게시글 가져오기");
     return this.blogService.getAllPosts();
   }
 
   @Post() // POST 요청 처리하기
   createPost(@Body() postDto: PostDto) {
     // HTTP 요청의 body 내용을 post에 할당
-    console.log('게시글 작성');
+    console.log("게시글 작성");
     this.blogService.createPost(postDto);
-    return 'success';
+    return "success";
   }
 
-  @Get('/:id') // GET 요청에 URL 매개변수에 id가 있는 요청 처리
-  getPost(@Param('id') id: string) {
-    console.log('게시글 하나 가져오기');
+  @Get("/:id") // GET 요청에 URL 매개변수에 id가 있는 요청 처리
+  getPost(@Param("id") id: string) {
+    console.log("게시글 하나 가져오기");
     return this.blogService.getPost(id);
   }
 
-  @Delete('/:id') // DELETE 방식에 URL 매개변수로 id가 있는 요청 처리
-  deletePost(@Param('id') id: string) {
-    console.log('게시글 삭제');
+  @Delete("/:id") // DELETE 방식에 URL 매개변수로 id가 있는 요청 처리
+  deletePost(@Param("id") id: string) {
+    console.log("게시글 삭제");
     this.blogService.delete(id);
-    return 'success';
+    return "success";
   }
 
-  @Put('/:id') // PUT 방식에 URL 매개변수로 전달된 id가 있는 요청 처리
-  updatePost(@Param('id') id: string, @Body() postDto: PostDto) {
-    console.log('게시글 업데이트', id, postDto);
+  @Put("/:id") // PUT 방식에 URL 매개변수로 전달된 id가 있는 요청 처리
+  updatePost(@Param("id") id: string, @Body() postDto: PostDto) {
+    console.log("게시글 업데이트", id, postDto);
     return this.blogService.updatePost(id, postDto);
   }
 }
@@ -260,12 +271,11 @@ export class BlogController {
 위의 코드에서 `Get`, `Post`, `Delete`, `Put` 등의 데코레이터는 모두 함수에 붙이는 것으로, HTTP 요청 방식에 따라 해당 데코레이터가 붙은 함수를 실행합니다.
 `@Body`는 함수의 body로 오는 값을 매개변수에 할당하며, `@Param`은 URL param의 값을 함수 매개변수에 할당합니다.
 
-
 ### blog.service.ts
 
 ```typescript
-import { Injectable } from '@nestjs/common';
-import { PostDto } from './dtos/blog.dto';
+import { Injectable } from "@nestjs/common";
+import { PostDto } from "./dtos/blog.dto";
 
 @Injectable()
 export class BlogService {
@@ -314,9 +324,9 @@ Blog API 로직을 위와 같이 service 파일에 작성합니다.
 ### blog.module.ts
 
 ```typescript
-import { Module } from '@nestjs/common';
-import { BlogController } from './blog.controller';
-import { BlogService } from './blog.service';
+import { Module } from "@nestjs/common";
+import { BlogController } from "./blog.controller";
+import { BlogService } from "./blog.service";
 
 @Module({
   imports: [],
@@ -351,10 +361,10 @@ export interface PostDto {
 작성한 Blog 모듈을 사용하기 위해 다음과 같이 app 디렉토리의 최상위 모듈 파일에 모듈을 import 합니다.
 
 ```typescript
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { BlogModule } from './modules/blog/blog.module';
+import { Module } from "@nestjs/common";
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { BlogModule } from "./modules/blog/blog.module";
 
 // 모듈 데코레이터
 @Module({
@@ -365,10 +375,9 @@ import { BlogModule } from './modules/blog/blog.module';
 export class AppModule {}
 ```
 
-
 ## Step 5 - Postman으로 테스트하기
 
-### 서버 실행하기 
+### 서버 실행하기
 
 Postman을 사용하여 위의 API가 잘 작동하는지 확인하도록 하겠습니다. 먼저 다음 명령어를 입력하여 서버를 시작합니다.
 
@@ -394,8 +403,8 @@ npm run start:prod // production 모드로 실행할 때 사용
 
 <img src="/assets/img/back-end/nestjs-basic/nestjs4.png" alt="nestjs1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
 
-
 ## Comments
+
 <hr />
 <script
   src="https://utteranc.es/client.js"

@@ -3,18 +3,20 @@ layout: post
 title: Nest.js + TypeORM + MySQL 설정 방법
 description: >
   Nest.js + TypeORM + MySQL 설정 방법에 대해 설명하는 페이지입니다.
-image: 
+image:
   path: /assets/img/back-end/back-end.jpg
   srcset:
     1060w: /assets/img/back-end/back-end.jpg
-    530w:  /assets/img/back-end/back-end.jpg
-    265w:  /assets/img/back-end/back-end.jpg
+    530w: /assets/img/back-end/back-end.jpg
+    265w: /assets/img/back-end/back-end.jpg
 related_posts:
   - /back-end/2024-06-26-expressjs-typeorm/
 sitemap: true
 comments: false
 ---
+
 <i>Environment</i>
+
 - <i>Node.js v20.11.1</i>
 - <i>typeorm v0.3.20</i>
 - <i>@nestjs/typeorm v10.0.2</i>
@@ -39,7 +41,9 @@ comments: false
 - [Comments](#comments)
 
 ## Step 1 - TypeORM 관련 패키지 설치
+
 다음 명령어를 입력하여 TypeORM과 MySQL을 사용하기 위한 database driver를 설치합니다.
+
 - `typeorm`: Node.js에서 JavaScript와 TypeScript로 사용할 수 있는 데이터베이스 ORM (Object-Relational Mapping) 라이브러리
 - `@nestjs/typeorm`: Nest.js에서 TypeORM을 사용하기 위해 설치하는 모듈
 - `mysql2`: MySQL 모듈
@@ -50,6 +54,7 @@ npm install typeorm @nestjs/typeorm mysql2 @nestjs/config
 ```
 
 ## Step 2 - 폴더 구조
+
 먼저 다음과 같이 Nest.js 폴더 구조를 생성합니다.
 
 ```
@@ -73,9 +78,11 @@ npm install typeorm @nestjs/typeorm mysql2 @nestjs/config
 ## Step 3 - .env 파일 생성
 
 ### .env 파일이란?
+
 env 파일은 환경 변수 파일을 의미하며 API 키나 DB 관련 정보 등 외부에 노출되면 안되고 개발자만 알아야하는 정보들을 저장하는데 사용됩니다.
 
 ### .env 파일 설정
+
 다음과 같이 프로젝트 최상위 디렉토리에 `.env` 파일을 생성하고 다음과 같이 MySQL 데이터베이스 관련 데이터를 입력합니다.
 
 ```
@@ -134,19 +141,20 @@ export class AppModule {}
 
 위와 같이 `ConfigModule.forRoot()` 함수를 통해 ConfigModule을 설정할 수 있습니다. 해당 함수에는 여러 가지 옵션이 있습니다.
 
-| 옵션                | 설명         |
-|---------------------|-------------|
+| 옵션                | 설명                                                                                                                                                |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **cache**           | **메모리 환경 변수를 캐시할지 여부를 나타냅니다. ConfigService()의 get() 함수를 사용할 때 캐시에서 먼저 불러오게 되므로 성능상의 이점이 있습니다.** |
-| **isGlobal**        | **true이면 global module로 등록되어, 다른 모듈에서 임포트를 따로 하지 않고 사용할 수 있습니다.** |
-| ignoreEnvFile       | true이면 .env 파일이 무시됩니다. |
-| ignoreEnvVars       | true이면 환경 변수가 무효가 됩니다. |
-| **envFilePath**     | **환경 변수 파일(들)의 경로를 지정합니다.** |
-| encoding            | 환경 변수 파일의 인코딩 |
-| validate            | 환경 변수의 유효성 검증 함수 |
-| **load**            | **커스텀 환경 설정 파일을 로딩 시에 사용합니다. (ts 파일, YAML 파일 등)** |
-| **expandVariables** | **확장 변수의 사용 여부를 나타냅니다.** |
+| **isGlobal**        | **true이면 global module로 등록되어, 다른 모듈에서 임포트를 따로 하지 않고 사용할 수 있습니다.**                                                    |
+| ignoreEnvFile       | true이면 .env 파일이 무시됩니다.                                                                                                                    |
+| ignoreEnvVars       | true이면 환경 변수가 무효가 됩니다.                                                                                                                 |
+| **envFilePath**     | **환경 변수 파일(들)의 경로를 지정합니다.**                                                                                                         |
+| encoding            | 환경 변수 파일의 인코딩                                                                                                                             |
+| validate            | 환경 변수의 유효성 검증 함수                                                                                                                        |
+| **load**            | **커스텀 환경 설정 파일을 로딩 시에 사용합니다. (ts 파일, YAML 파일 등)**                                                                           |
+| **expandVariables** | **확장 변수의 사용 여부를 나타냅니다.**                                                                                                             |
 
 ## Step 5 - entity 생성
+
 다음과 같이 `/src/entities` 디렉토리에 `user.entity.ts` 파일을 생성하고 다음과 같이 entity를 생성합니다.
 
 ```typescript
@@ -160,7 +168,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-} from 'typeorm';
+} from "typeorm";
 
 @Entity() // 엔티티 객체임을 알려주기 위한 데코레이터
 export class User {
@@ -188,7 +196,9 @@ export class User {
 ```
 
 ## Step 6 - 데이터베이스 설정하기
+
 ### TypeOrmModule.forRoot()
+
 `app.module.ts` 파일에서 다음과 같이 데이터베이스를 설정합니다.
 
 ```typescript
@@ -202,7 +212,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [
 
     (...)
-    
+
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST,
@@ -225,7 +235,8 @@ export class AppModule {}
 
 위의 코드에서 `imports` 안에 `UserModule`을 선언하였습니다. 또한 `entities` 안에 사용할 엔티티인 `User`을 지정하였습니다.
 
-또한 `TypeOrmModule.forRoot()`에는 많은 옵션들이 존재합니다. 주요 옵션에 대해 설명하자면 다음과 같습니다. 
+또한 `TypeOrmModule.forRoot()`에는 많은 옵션들이 존재합니다. 주요 옵션에 대해 설명하자면 다음과 같습니다.
+
 - `type`: 사용하고자 하는 데이터베이스 종류
 - `host`: 데이터베이스 호스트
 - `port`: 데이터베이스 포트 번호
@@ -244,16 +255,17 @@ export class AppModule {}
 ## Step 7 - User 모듈 설정하기
 
 ### user.module.ts
+
 다음과 같이 `user.module.ts` 파일을 생성합니다.
 
 ```typescript
 /* src/modules/user/user.module.ts */
 
-import { Module } from '@nestjs/common';
-import { UserController } from './user.controller';
-import { UserService } from './user.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from 'src/entities/user.entity';
+import { Module } from "@nestjs/common";
+import { UserController } from "./user.controller";
+import { UserService } from "./user.service";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { User } from "src/entities/user.entity";
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
@@ -280,38 +292,38 @@ import {
   Param,
   Post,
   Put,
-} from '@nestjs/common';
-import { UserService } from './user.service';
-import { User } from 'src/entities/user.entity';
+} from "@nestjs/common";
+import { UserService } from "./user.service";
+import { User } from "src/entities/user.entity";
 
-@Controller('user') // 컨트롤러 설정 데코레이터
+@Controller("user") // 컨트롤러 설정 데코레이터
 export class UserController {
   constructor(private readonly userService: UserService) {} // 유저 서비스 주입
 
   // 유저 생성
-  @Post('/create')
+  @Post("/create")
   createUser(@Body() user: User) {
     return this.userService.createUser(user);
   }
 
   // 한 명의 유저 찾기
-  @Get('/getUser/:email')
-  async getUser(@Param('email') email: string) {
+  @Get("/getUser/:email")
+  async getUser(@Param("email") email: string) {
     const user = await this.userService.getUser(email);
     console.log(user);
     return user;
   }
 
   // 유저 정보 업데이트
-  @Put('/update/:email')
-  updateUser(@Param('email') email: string, @Body() user: User) {
+  @Put("/update/:email")
+  updateUser(@Param("email") email: string, @Body() user: User) {
     console.log(user);
     return this.userService.updateUser(email, user);
   }
 
   // 유저 삭제
-  @Delete('/delete/:email')
-  deleteUser(@Param('email') email: string) {
+  @Delete("/delete/:email")
+  deleteUser(@Param("email") email: string) {
     return this.userService.deleteUser(email);
   }
 }
@@ -324,16 +336,16 @@ TypeORM 라이브러리에서는 `Repository` 클래스를 지원합니다. 다�
 ```typescript
 /* src/modules/user/user.service.ts */
 
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm'; // Repository 주입 데코레이저
-import { User } from 'src/entities/user.entity';
-import { Repository } from 'typeorm'; // Repository 임포트
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm"; // Repository 주입 데코레이저
+import { User } from "src/entities/user.entity";
+import { Repository } from "typeorm"; // Repository 임포트
 
 @Injectable() // 의존성 주입을 위한 데코레이터
 export class UserService {
   // Repository 주입
   constructor(
-    @InjectRepository(User) private userRepository: Repository<User>,
+    @InjectRepository(User) private userRepository: Repository<User>
   ) {}
 
   // 유저 생성
@@ -373,11 +385,13 @@ export class UserService {
 <a href="https://typeorm.delightful.studio/classes/_repository_repository_.repository.html" target="_blank">Repository | typeorm</a>
 
 ## Step 8 - Postman 사용 및 테스트
+
 `Postman`을 사용하여 API를 요청한 예시는 다음과 같습니다.
 
-<img src="/assets/img/back-end/nestjs-typeorm/nestjs-typeorm1.png" alt="nestjs-typeorm1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/> 
+<img src="/assets/img/back-end/nestjs-typeorm/nestjs-typeorm1.png" alt="nestjs-typeorm1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
 
 ## Comments
+
 <hr />
 <script
   src="https://utteranc.es/client.js"

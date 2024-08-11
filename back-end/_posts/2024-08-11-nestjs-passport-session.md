@@ -270,8 +270,8 @@ import { SessionSerializer } from "./session.serializer";
 
 @Module({
   imports: [UserModule, PassportModule.register({ session: true })],
-  controllers: [AuthController, LocalStrategy, SessionSerializer],
-  providers: [AuthService],
+  controllers: [AuthController],
+  providers: [AuthService, LocalStrategy, SessionSerializer],
 })
 export class AuthModule {}
 ```

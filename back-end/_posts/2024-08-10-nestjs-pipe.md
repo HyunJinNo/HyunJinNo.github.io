@@ -118,9 +118,9 @@ export class UpdateUserDto {
 
 ## 참고 자료
 
-- [Pipes | NestJS - A progressive Node.js framework](https://docs.nestjs.com/pipes)
-- [Validation | NestJS - A progressive Node.js framework](https://docs.nestjs.com/techniques/validation)
-- [class-validator](https://github.com/typestack/class-validator)
+- <a href="https://docs.nestjs.com/pipes" target="_blank">Pipes | NestJS - A progressive Node.js framework</a>
+- <a href="https://docs.nestjs.com/techniques/validation" target="_blank">Validation | NestJS - A progressive Node.js framework</a>
+- <a href="https://github.com/typestack/class-validator" target="_blank">class-validator</a>
 
 ## Comments
 

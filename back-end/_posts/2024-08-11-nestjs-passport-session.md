@@ -24,6 +24,8 @@ comments: false
 - [Step 3 - Guard 구현하기](#step-3---guard-구현하기)
 - [Step 4 - LocalStrategy 구현하기](#step-4---localstrategy-구현하기)
 - [Step 5 - SessionSerializer 구현하기](#step-5---sessionserializer-구현하기)
+- [Step 6 - 모듈에 설정 추가하기](#step-6---모듈에-설정-추가하기)
+- [Step 7 - Controller 설정하기](#step-7---controller-설정하기)
 - [Comments](#comments)
 
 ## 패스포트(Passport)란?
@@ -63,7 +65,7 @@ npm install --save-dev @types/passport-local @types/express-session
 
 ## Step 2 - 패스포트와 세션 설정하기
 
-다음과 같이 `main.ts`에서 패스포트와 세션 설정 코드를 추가합니다.
+다음과 같이 `main.ts`에 패스포트와 세션 설정 코드를 추가합니다.
 
 ```typescript
 (...)
@@ -108,7 +110,7 @@ bootstrap();
 
 ## Step 3 - Guard 구현하기
 
-다음과 같이 로그인에 사용할 가드와 로그인 후 인증에 사용할 가드를 구현합니다.
+다음과 같이 **로그인에 사용할 가드**와 **로그인 후 인증에 사용할 가드**를 구현합니다.
 
 ```typescript
 // auth.guard.ts
@@ -151,6 +153,8 @@ export class AuthenticatedGuard implements CanActivate {
 
 ## Step 4 - LocalStrategy 구현하기
 
+다음과 같이 유저 아이디와 패스워드로 인증하는 LocalStrategy를 생성합니다.
+
 ```typescript
 // local.strategy.ts
 
@@ -177,7 +181,26 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
 }
 ```
 
+`PassportStrategy(Strategy)`는 믹스인이라고 불리는 방법으로, 클래스의 일부만 확장하고 싶을 때 사용합니다. 또한 local-strategy에는 인증 시 사용하는 필드명이 username, password로 정해져 있습니다. 위의 코드에서는 email, password로 인증하게 되므로 usernameField를 email로 변경하였습니다.
+
+추가적으로 위에서 사용한 local-strategy 인증 방법 이외에도 다양한 strategy가 있습니다.
+
+| 인증 방법   | 패키지명          | 설명                                             |
+| ----------- | ----------------- | ------------------------------------------------ |
+| Local       | passport-local    | 유저명과 패스워드를 사용해 인증                  |
+| OAuth       | passport-oauth    | 페이스북, 구글, 트위터 등의 외부 서비스에서 인증 |
+| SAML        | passport-saml     | SAML 신원 제공자에서 인증, OneLogin, Okta 등     |
+| JWT         | passport-jwt      | JSON Web Token을 사용해 인증                     |
+| AWS Cognito | passport-cognito  | AWS의 Cognito user pool을 사용해 인증            |
+| LDAP        | passport-ldapauth | LDAP 디렉토리를 사용해 인증                      |
+
+이외의 인증 방법에 대해서는 다음 링크를 참고하시길 바랍니다.
+
+<a href="https://www.passportjs.org/" target="_blank">Passport.js</a>
+
 ## Step 5 - SessionSerializer 구현하기
+
+다음과 같이 세션에 정보를 저장하거나, 세션에서 정보를 가져오는 SessionSerializer를 생성합니다.
 
 ```typescript
 // session.serializer.ts
@@ -219,6 +242,62 @@ export class SessionSerializer extends PassportSerializer {
     done(null, userInfo);
   }
 }
+```
+
+위의 코드에서 `PassportStrategy`는 `serializeUser()`, `deserializeUser()`, `getPassportInstance()`를 제공합니다. 각 메서드에 대해 설명하자면 다음과 같습니다.
+
+- `serializeUser()`
+  - 세션에 정보를 저장합니다.
+- `deserializeUser()`
+  - 세션에서 가져온 정보로 유저 정보를 반환합니다.
+- `getPassportUser()`
+  - 패스포트 인스턴스를 가져옵니다. 패스포트 인스턴스의 데이터가 필요한 경우 사용합니다.
+
+또한 `payload`는 세션에서 꺼내온 값을 의미하며, 세션 정보가 없는 경우 `403 에러`를 응답합니다.
+
+## Step 6 - 모듈에 설정 추가하기
+
+다음과 같이 모듈에 세션을 사용할 수 있도록 설정을 추가합니다. `{ session: true }`을 지정하여 세션을 사용할 수 있게 해줍니다.
+
+```typescript
+import { Module } from "@nestjs/common";
+import { AuthController } from "./auth.controller";
+import { AuthService } from "./auth.service";
+import { UserModule } from "../user/user.module";
+import { PassportModule } from "@nestjs/passport";
+import { LocalStrategy } from "./local.strategy";
+import { SessionSerializer } from "./session.serializer";
+
+@Module({
+  imports: [UserModule, PassportModule.register({ session: true })],
+  controllers: [AuthController, LocalStrategy, SessionSerializer],
+  providers: [AuthService],
+})
+export class AuthModule {}
+```
+
+## Step 7 - Controller 설정하기
+
+마지막으로 로그인 테스트를 위한 메서드들을 추가합니다.
+
+```typescript
+// auth.controller.ts
+
+  (...)
+
+  @UseGuards(LocalAuthGuard)
+  @Post('login3')
+  login3(@Request() req) {
+    return req.user;
+  }
+
+  @UseGuards(AuthenticatedGuard)
+  @Get('test-guard2')
+  testGuardWithSession(@Request() req) {
+    return req.user;
+  }
+
+  (...)
 ```
 
 ## Comments

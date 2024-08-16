@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Nest.js 패스포트 및 세션 사용 방법
+title: NestJS 패스포트 및 세션 사용 방법
 description: >
-  Nest.js에서 패스포트 및 세션 사용 방법에 대해 설명하는 페이지입니다.
+  NestJS에서 패스포트 및 세션 사용 방법에 대해 설명하는 페이지입니다.
 image:
   path: /assets/img/back-end/back-end.jpg
 related_posts:
@@ -30,7 +30,7 @@ comments: false
 
 ## 패스포트(Passport)란?
 
-`Nest.js`에서 `패스포트(Passport)`는 다양한 인증 전략을 간편하게 구현할 수 있게 해주는 인증 미들웨어입니다. 패스포트는 로컬(Local), OAuth, JWT(JSON Web Token) 등 다양한 인증 방식을 지원합니다. 패스포트를 사용하면 인증 로직을 쉽게 분리해서 개발할 수 있습니다.
+`NestJS`에서 `패스포트(Passport)`는 다양한 인증 전략을 간편하게 구현할 수 있게 해주는 인증 미들웨어입니다. 패스포트는 로컬(Local), OAuth, JWT(JSON Web Token) 등 다양한 인증 방식을 지원합니다. 패스포트를 사용하면 인증 로직을 쉽게 분리해서 개발할 수 있습니다.
 
 `strategy`는 패스포트에서 인증 로직 수행을 담당하는 클래스를 의미하며, 패스포트 사용 시 인증 로직은 `Strategy` 파일을 생성해서 사용합니다.
 
@@ -40,7 +40,7 @@ comments: false
 
 세션 기반 인증 시스템에서 사용자가 로그인을 하면, 서버는 세션 저장소에 사용자의 정보를 조회하고 세션 ID를 발급합니다. 발급된 ID는 주로 브라우저의 쿠키에 저장합니다. 그 다음에 사용자가 다른 요청을 보낼 때마다 서버는 세션 저장소에서 세션을 조회한 후 로그인 여부를 결정하여 작업을 처리하고 응답을 합니다. 세션 저장소는 주로 메모리, 디스크, 데이터베이스 등을 사용합니다.
 
-`Nest.js`에서 `세션(Session)`은 사용자 인증 및 상태 관리를 위한 방법 중 하나로, 세션을 통해 서버는 사용자의 상태를 유지하고, 로그인 상태나 기타 사용자 정보를 지속적으로 관리할 수 있습니다. 세션을 사용하면 서버 자원을 사용하는 것이므로 서버에 부하를 주는 단점이 있지만, 중요한 정보에 대해 위조, 변조, 탈취가 불가능하므로 보안적인 측면에서 더 안전합니다.
+`NestJS`에서 `세션(Session)`은 사용자 인증 및 상태 관리를 위한 방법 중 하나로, 세션을 통해 서버는 사용자의 상태를 유지하고, 로그인 상태나 기타 사용자 정보를 지속적으로 관리할 수 있습니다. 세션을 사용하면 서버 자원을 사용하는 것이므로 서버에 부하를 주는 단점이 있지만, 중요한 정보에 대해 위조, 변조, 탈취가 불가능하므로 보안적인 측면에서 더 안전합니다.
 
 ## Step 1 - 패키지 설치하기
 
@@ -73,8 +73,8 @@ npm install --save-dev @types/passport-local @types/express-session
 import * as session from "express-session";
 import * as passport from "passport";
 
-// Nest.js를 실행시키는 함수
-// Nest.js에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
+// NestJS를 실행시키는 함수
+// NestJS에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
 async function bootstrap() {
 
   (...)

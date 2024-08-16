@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Nest.js 가드 사용 방법
+title: NestJS 가드 사용 방법
 description: >
-  Nest.js에서 가드 사용 방법에 대해 설명하는 페이지입니다.
+  NestJS에서 가드 사용 방법에 대해 설명하는 페이지입니다.
 image:
   path: /assets/img/back-end/back-end.jpg
 related_posts:
@@ -25,7 +25,7 @@ comments: false
 
 ## 가드 (Guards)
 
-`Nest.js`에서 인증할 때 `가드(Guards)`라는 미들웨어를 보편적으로 사용합니다. `가드`는 특정 조건에 따라 요청을 처리할지 거부할지를 결정하는 데 사용되며, 주로 인증 및 권한 부여와 같은 보안 관련 작업을 처리하는 데 초점을 맞춥니다. 가드는 @Injectable 데코레이터가 붙어 있고 CanActivate 인터페이스를 구현한 클래스를 의미합니다. @UseGuards 데코레이터를 사용하여 가드를 사용할 수 있습니다.
+`NestJS`에서 인증할 때 `가드(Guards)`라는 미들웨어를 보편적으로 사용합니다. `가드`는 특정 조건에 따라 요청을 처리할지 거부할지를 결정하는 데 사용되며, 주로 인증 및 권한 부여와 같은 보안 관련 작업을 처리하는 데 초점을 맞춥니다. 가드는 @Injectable 데코레이터가 붙어 있고 CanActivate 인터페이스를 구현한 클래스를 의미합니다. @UseGuards 데코레이터를 사용하여 가드를 사용할 수 있습니다.
 
 ## Step 1 - cookie-parser 패키지
 
@@ -44,8 +44,8 @@ npm install cookie-parser @types/cookie-parser
 
 import * as cookieParser from "cookie-parser";
 
-// Nest.js를 실행시키는 함수
-// Nest.js에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
+// NestJS를 실행시키는 함수
+// NestJS에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
 async function bootstrap() {
   (...)
 

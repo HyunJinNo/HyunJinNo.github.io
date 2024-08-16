@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Nest.js 기초 사용 방법
+title: NestJS 기초 사용 방법
 description: >
-  Nest.js 기초 사용 방법에 대해 설명하는 페이지입니다.
+  NestJS 기초 사용 방법에 대해 설명하는 페이지입니다.
 image:
   path: /assets/img/back-end/back-end.jpg
   srcset:
@@ -23,10 +23,10 @@ comments: false
 
 <h2> 목차 </h2>
 
-- [Step 1 - Nest.js 애플리케이션 생성](#step-1---nestjs-애플리케이션-생성)
+- [Step 1 - NestJS 애플리케이션 생성](#step-1---nestjs-애플리케이션-생성)
 - [Step 2 - eslintrc 설정 파일 수정](#step-2---eslintrc-설정-파일-수정)
 - [Step 3 - Folder Structure / Architecture 확인하기](#step-3---folder-structure--architecture-확인하기)
-  - [Nest.js의 Naming 규칙](#nestjs의-naming-규칙)
+  - [NestJS의 Naming 규칙](#nestjs의-naming-규칙)
   - [main.ts](#maints)
   - [\<모듈명\>.controller.ts](#모듈명controllerts)
   - [\<모듈명\>.service.ts](#모듈명servicets)
@@ -43,9 +43,9 @@ comments: false
   - [게시글 조회](#게시글-조회)
 - [Comments](#comments)
 
-## Step 1 - Nest.js 애플리케이션 생성
+## Step 1 - NestJS 애플리케이션 생성
 
-다음 명령어를 입력하여 `@nestjs.cli`를 사용하여 Nest.js 애플리케이션을 생성합니다.
+다음 명령어를 입력하여 `@nestjs.cli`를 사용하여 NestJS 애플리케이션을 생성합니다.
 
 ```bash
 npx @nestjs/cli new [프로젝트 이름]
@@ -96,9 +96,9 @@ rules: {
 └── (...)
 ```
 
-### Nest.js의 Naming 규칙
+### NestJS의 Naming 규칙
 
-Nest.js의 Naming Convention은 다음과 같습니다.
+NestJS의 Naming Convention은 다음과 같습니다.
 
 - 파일명은 `.`으로 연결하며, 모듈이 둘 이상의 단어로 구성되어 있으면 `대시`로 연결합니다.
   ```
@@ -116,14 +116,14 @@ Nest.js의 Naming Convention은 다음과 같습니다.
 
 ### main.ts
 
-main.ts 파일은 Nest.js 서버의 시작점이 되는 파일입니다. Nest.js에서는 진입점을 `bootstrap()`으로 하는 것이 관례입니다.
+main.ts 파일은 NestJS 서버의 시작점이 되는 파일입니다. NestJS에서는 진입점을 `bootstrap()`으로 하는 것이 관례입니다.
 
 ```typescript
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 
-// Nest.js를 실행시키는 함수
-// Nest.js에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
+// NestJS를 실행시키는 함수
+// NestJS에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
 async function bootstrap() {
   // NestFactory를 사용해서 NestApplication 객체 생성
   const app = await NestFactory.create(AppModule);

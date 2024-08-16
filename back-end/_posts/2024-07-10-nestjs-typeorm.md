@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Nest.js + TypeORM + MySQL 설정 방법
+title: NestJS + TypeORM + MySQL 설정 방법
 description: >
-  Nest.js + TypeORM + MySQL 설정 방법에 대해 설명하는 페이지입니다.
+  NestJS + TypeORM + MySQL 설정 방법에 대해 설명하는 페이지입니다.
 image:
   path: /assets/img/back-end/back-end.jpg
   srcset:
@@ -45,9 +45,9 @@ comments: false
 다음 명령어를 입력하여 TypeORM과 MySQL을 사용하기 위한 database driver를 설치합니다.
 
 - `typeorm`: Node.js에서 JavaScript와 TypeScript로 사용할 수 있는 데이터베이스 ORM (Object-Relational Mapping) 라이브러리
-- `@nestjs/typeorm`: Nest.js에서 TypeORM을 사용하기 위해 설치하는 모듈
+- `@nestjs/typeorm`: NestJS에서 TypeORM을 사용하기 위해 설치하는 모듈
 - `mysql2`: MySQL 모듈
-- `@nestjs/config`: Nest.js에서 Node.js 서버의 포트, DB 관련 정보 등 다양한 정보를 .env 파일로 관리할 수 있게 해주는 라이브러리로 내부적으로는 `dotenv` 모듈을 사용합니다.
+- `@nestjs/config`: NestJS에서 Node.js 서버의 포트, DB 관련 정보 등 다양한 정보를 .env 파일로 관리할 수 있게 해주는 라이브러리로 내부적으로는 `dotenv` 모듈을 사용합니다.
 
 ```bash
 npm install typeorm @nestjs/typeorm mysql2 @nestjs/config
@@ -55,7 +55,7 @@ npm install typeorm @nestjs/typeorm mysql2 @nestjs/config
 
 ## Step 2 - 폴더 구조
 
-먼저 다음과 같이 Nest.js 폴더 구조를 생성합니다.
+먼저 다음과 같이 NestJS 폴더 구조를 생성합니다.
 
 ```
 ├── node_modules

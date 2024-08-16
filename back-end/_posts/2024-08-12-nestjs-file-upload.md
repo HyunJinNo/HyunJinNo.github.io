@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Nest.js 파일 업로드
+title: NestJS 파일 업로드
 description: >
-  Nest.js에서 파일 업로드 기능을 구현하는 방법을 설명하는 페이지입니다.
+  NestJS에서 파일 업로드 기능을 구현하는 방법을 설명하는 페이지입니다.
 image:
   path: /assets/img/back-end/back-end.jpg
 related_posts:
@@ -115,7 +115,7 @@ export const multerOptions = {
 
 ## Step 4 - 정적 파일 서비스하기
 
-`정적 파일(Static File)`이란 <b>텍스트, 이미지, 동영상 같이 한 번 저장되면 변경되지 않는 파일</b>을 의미합니다. `Nest.js`에서 정적 파일을 서비스하기 위해 다음 명령어를 입력하여 패키지를 설치합니다.
+`정적 파일(Static File)`이란 <b>텍스트, 이미지, 동영상 같이 한 번 저장되면 변경되지 않는 파일</b>을 의미합니다. `NestJS`에서 정적 파일을 서비스하기 위해 다음 명령어를 입력하여 패키지를 설치합니다.
 
 ```bash
 npm install @nestjs/serve-static

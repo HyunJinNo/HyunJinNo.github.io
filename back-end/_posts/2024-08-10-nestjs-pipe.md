@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Nest.js 파이프 사용 방법
+title: NestJS 파이프 사용 방법
 description: >
-  Nest.js에서 파이프 사용 방법에 대해 설명하는 페이지입니다.
+  NestJS에서 파이프 사용 방법에 대해 설명하는 페이지입니다.
 image:
   path: /assets/img/back-end/back-end.jpg
 related_posts:
@@ -32,7 +32,7 @@ comments: false
 
 ## 파이프 (Pipe)
 
-`Nest.js`에서 `파이프(Pipe)`란 입력 데이터의 변환 및 유효성 검사를 담당하는 클래스를 의미합니다. 파이프는 컨트롤러가 처리하기 전에 데이터에 대해 특정한 작업을 수행합니다. 파이프는 주로 두 가지 목적으로 사용됩니다.
+`NestJS`에서 `파이프(Pipe)`란 입력 데이터의 변환 및 유효성 검사를 담당하는 클래스를 의미합니다. 파이프는 컨트롤러가 처리하기 전에 데이터에 대해 특정한 작업을 수행합니다. 파이프는 주로 두 가지 목적으로 사용됩니다.
 
 - `데이터 변환 (Transformation)`
   - 입력 데이터를 원하는 형식으로 변환합니다.
@@ -43,7 +43,7 @@ comments: false
 
 ## 파이프로 유효성 검증하기
 
-파이프로 유효성을 검증하는 방법으로는 `Nest.js`의 내장 파이프 중 하나인 `ValidationPipe`를 사용하는 방법이 있습니다.
+파이프로 유효성을 검증하는 방법으로는 `NestJS`의 내장 파이프 중 하나인 `ValidationPipe`를 사용하는 방법이 있습니다.
 
 ### Step 1 - 패키지 설치
 
@@ -68,8 +68,8 @@ npm install class-validator class-transformer
 ```typescript
 import { ValidationPipe } from "@nestjs/common";
 
-// Nest.js를 실행시키는 함수
-// Nest.js에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
+// NestJS를 실행시키는 함수
+// NestJS에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
 async function bootstrap() {
 
   (...)

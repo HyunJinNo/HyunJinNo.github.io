@@ -3,19 +3,21 @@ layout: post
 title: Express.js + TypeORM + MySQL 설정 방법
 description: >
   Express.js + TypeORM + MySQL 설정 방법에 대해 설명하는 페이지입니다.
-image: 
+image:
   path: /assets/img/back-end/back-end.jpg
   srcset:
     1060w: /assets/img/back-end/back-end.jpg
-    530w:  /assets/img/back-end/back-end.jpg
-    265w:  /assets/img/back-end/back-end.jpg
+    530w: /assets/img/back-end/back-end.jpg
+    265w: /assets/img/back-end/back-end.jpg
 related_posts:
   - /back-end/2024-06-22-expressjs-typescript/
   - /back-end/2024-07-10-nestjs-typeorm/
 sitemap: true
 comments: false
 ---
+
 <i>Environment</i>
+
 - <i>Node.js v20.11.1</i>
 - <i>typeorm v0.3.20</i>
 - <i>reflect-metadata v0.2.2</i>
@@ -39,7 +41,9 @@ comments: false
 - [Comments](#comments)
 
 ## Step 1 - TypeORM 관련 패키지 설치
+
 다음 명령어를 입력하여 TypeORM과 MySQL을 사용하기 위한 database driver를 설치합니다.
+
 - `typeorm`: Node.js에서 JavaScript와 TypeScript로 사용할 수 있는 데이터베이스 ORM (Object-Relational Mapping) 라이브러리
 - `reflect-metadata`: 데코레이터 구문을 분석하고 SQL 쿼리를 작성하는데 사용
 - `mysql2`: MySQL 모듈
@@ -50,6 +54,7 @@ npm install typeorm reflect-metadata mysql2 dotenv
 ```
 
 ## Step 2 - 폴더 구조
+
 먼저 다음과 같이 express.js 폴더 구조를 생성합니다.
 
 ```
@@ -72,28 +77,30 @@ npm install typeorm reflect-metadata mysql2 dotenv
 ```
 
 ## Step 3 - TypeScript Configuration
+
 `TypeORM`에서 `reflect-metadata` 라이브러리를 사용할 수 있도록 `tsconfig.json` 파일을 열고 `compilerOptions` 항목에 다음 옵션들을 추가합니다.
 
 ```json
 {
   "compilerOptions": {
-    
     // ...
-    
-    "experimentalDecorators": true, /* Enable experimental support for legacy experimental decorators. */
-    "emitDecoratorMetadata": true, /* Emit design-type metadata for decorated declarations in source files. */
+
+    "experimentalDecorators": true /* Enable experimental support for legacy experimental decorators. */,
+    "emitDecoratorMetadata": true /* Emit design-type metadata for decorated declarations in source files. */
 
     // ...
-  },
+  }
 }
 ```
 
 ## Step 4 - .env 파일 생성
 
 ### .env 파일이란?
+
 env 파일은 환경 변수 파일을 의미하며 API 키나 DB 관련 정보 등 외부에 노출되면 안되고 개발자만 알아야하는 정보들을 저장하는데 사용됩니다.
 
 ### .env 파일 설정
+
 다음과 같이 프로젝트 최상위 디렉토리에 `.env` 파일을 생성하고 다음과 같이 MySQL 데이터베이스 관련 데이터를 입력합니다.
 
 ```
@@ -116,6 +123,7 @@ DB_DATABASE="test"
 ```
 
 ## Step 5 - entity 생성
+
 다음과 같이 `/src/entity` 디렉토리에 `Person.ts` 파일을 생성하고 다음과 같이 entity를 생성합니다.
 
 ```typescript
@@ -138,7 +146,9 @@ export class Person {
 ```
 
 ## Step 6 - DataSource Configuration
+
 ### DataSource 객체 생성
+
 `/src/db` 디렉토리에 `data-source.ts` 파일을 생성하고 다음과 같이 DataSource 옵션을 입력합니다.
 
 ```typescript
@@ -166,7 +176,8 @@ const AppDataSource = new DataSource({
 export default AppDataSource;
 ```
 
-주요 옵션에 대해 설명하자면 다음과 같습니다. 
+주요 옵션에 대해 설명하자면 다음과 같습니다.
+
 - `type`: 사용하고자 하는 데이터베이스 종류
 - `host`: 데이터베이스 호스트
 - `port`: 데이터베이스 포트 번호
@@ -183,6 +194,7 @@ export default AppDataSource;
 <a href="https://typeorm.io/data-source-options" target="_blank">Data Source Options | TypeORM</a>
 
 ### 초기화
+
 `app.ts` 파일을 열고 다음과 같이 database connection에 대한 초기화를 진행합니다.
 
 ```typescript
@@ -229,6 +241,7 @@ app.listen(port, () => {
 ## Step 7 - TypeORM 사용 예시
 
 ### Repository 사용
+
 `Repository`를 사용하여 데이터베이스를 연동한 예시는 다음과 같습니다.
 
 ```typescript
@@ -246,7 +259,6 @@ router.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.send("홈");
 });
 ```
-
 
 ```typescript
 /* src/routes/person.ts */
@@ -333,11 +345,13 @@ router.delete(
 ```
 
 ### Postman 사용
+
 `Postman`을 사용하여 API를 요청한 예시는 다음과 같습니다.
 
-<img src="/assets/img/back-end/expressjs-typeorm/expressjs-typeorm1.png" alt="expressjs-typeorm1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/> 
+<img src="/assets/img/back-end/expressjs-typeorm/expressjs-typeorm1.png" alt="expressjs-typeorm1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
 
 ## Comments
+
 <hr />
 <script
   src="https://utteranc.es/client.js"

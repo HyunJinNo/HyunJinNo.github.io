@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Nest.js socket.io 사용 방법
+title: NestJS socket.io 사용 방법
 description: >
-  Nest.js에서 socket.io 사용 방법을 설명하는 페이지입니다.
+  NestJS에서 socket.io 사용 방법을 설명하는 페이지입니다.
 image:
   path: /assets/img/back-end/back-end.jpg
 related_posts:

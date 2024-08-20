@@ -31,6 +31,10 @@ comments: false
     - [Cascading](#cascading)
     - [주요 개념](#주요-개념)
   - [Client-Side Rendering (CSR)](#client-side-rendering-csr)
+    - [개념](#개념-2)
+    - [동작 방식](#동작-방식)
+    - [장점](#장점)
+    - [단점](#단점)
   - [Server-Side Rendering (SSR)](#server-side-rendering-ssr)
 - [참고 자료](#참고-자료)
 - [Comments](#comments)
@@ -112,9 +116,101 @@ CSS의 `Cascading` 개념은 여러 스타일 규칙이 충돌할 때 어떤 규
 
 #### 주요 개념
 
+**선택자 (Selector)**
+
+CSS에서 `선택자 (Selector)`는 스타일을 적용할 HTML 요소를 선택하는 데 사용됩니다. 선택자를 사용하는 방법은 다음과 같습니다.
+
+- `태그 선택자`
+
+  특정 HTML 태그에 스타일을 적용합니다.
+
+  ```css
+  p {
+    color: blue;
+  }
+  ```
+
+- `클래스 선택자`
+
+  특정 클래스 속성을 가진 요소에 스타일을 적용합니다.
+
+  ```css
+  .myClass {
+    color: blue;
+  }
+  ```
+
+- `아이디 선택자`
+
+  특정 아이디 속성을 가진 요소에 스타일을 적용합니다.
+
+  ```css
+  #myId {
+    color: blue;
+  }
+  ```
+
+- `복합 선택자`
+
+  여러 선택자를 조합하여 특정 요소를 더 정교하게 선택합니다.
+
+  ```css
+  div > p {
+    color: blue;
+  }
+  ```
+
+**속성(Property)과 값(Value)**
+
+CSS에서 속성은 스타일을 지정할 항목을 의미하고, 값은 그 스타일의 구체적인 세부 사항을 정의합니다.
+
+아래 예시에서 `color` 속성은 글자 색상을 정의하고, `font-size`는 글자 크기를 정의합니다.
+
+```css
+p {
+  color: blue;
+  font-size: 1rem;
+}
+```
+
 ### Client-Side Rendering (CSR)
 
+#### 개념
+
+`클라이언트 사이드 렌더링(CSR)`이란 웹 애플리케이션의 UI를 브라우저에서 직접 렌더링하는 방식입니다. 이 방법은 `싱글 페이지 애플리케이션(Single Page Application, SPA)`에서 많이 사용됩니다.
+
+#### 동작 방식
+
+CSR의 동작 방식은 다음과 같습니다.
+
+1. 사용자가 웹 사이트를 처음 방문하면 브라우저는 서버에 요청을 보냅니다.
+2. 서버는 HTML 파일, CSS 파일, JavaSCript 파일과 같은 정적 리소스를 클라이언트(브라우저)로 보냅니다.
+3. 브라우저에서 HTML을 로드한 후, JavaScript 파일을 다운로드하고 실행합니다.
+4. JavaScript 코드는 웹 애플리케이션의 로직을 처리하고 API를 통해 서버로부터 데이터를 가져옵니다.
+5. 가져온 데이터와 JavaScript 로직에 따라 브라우저는 `DOM(Document Object Model)`을 동적으로 업데이트하고, 이를 통해 사용자가 보는 UI를 생성합니다.
+6. JavaScript 코드를 통해 사용자는 애플리케이션과 상호작용하게 됩니다.
+
+#### 장점
+
+- `빠른 사용자 경험`
+
+  웹 페이지의 초기 로드 후에는 페이지 간의 전환 속도가 빠릅니다. 서버로부터 전체 페이지를 다시 로드하는 대신, 필요한 데이터만 요청하여 UI를 동적으로 업데이트하기 때문에 더 빠른 사용자 경험을 제공합니다.
+
+- `싱글 페이지 애플리케이션(SPA)`
+
+  전체 애플리케이션이 하나의 HTML 페이지 내에서 작동합니다. 또한 사용자는 페이지 전환 없이 콘텐츠를 탐색할 수 있습니다.
+
+#### 단점
+
 ### Server-Side Rendering (SSR)
+
+- `초기 로딩 속도`
+
+  JavaScript 파일이 큰 경우, 다운로드되고 실행되기 전까지 사용자에게 빈 화면이 보여질 수 있습니다. 즉, 초기 페이지 로딩 시간이 길어질 수 있습니다.
+
+- `검색 엔진 최적화(SEO)`
+
+  검색 엔진이 JavaScript를 제대로 실행하지 못하면 CSR 기반 웹 사이트의 콘텐츠를 크롤링하거나 인덱싱하는 데 어려움을 겪을 수 있습니다. 최근에서 Google을 비롯한 주요 검색 엔진이 JavaScript를 실행할 수 있도록 개선되었지만, 여전히 SSR(Server-Side Rendering)만큼 효율적이지 않습니다.
 
 ## 참고 자료
 
@@ -124,6 +220,9 @@ CSS의 `Cascading` 개념은 여러 스타일 규칙이 충돌할 때 어떤 규
   - <a href="https://ko.wikipedia.org/wiki/%ED%95%98%EC%9D%B4%ED%8D%BC%ED%85%8D%EC%8A%A4%ED%8A%B8" target="_blank">하이퍼텍스트</a>
 - `CSS`
   - <a href="https://www.w3schools.com/css/css_intro.asp" target="_blank">https://www.w3schools.com/css/css_intro.asp</a>
+  - <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_selectors" target="_blank">https://developer.mozilla.org/ko/docs/Web/CSS/CSS_selectors</a>
+- `CSR & SSR`
+  - <a href="https://velog.io/@jhyun_k/%EC%84%9C%EB%B2%84%EC%82%AC%EC%9D%B4%EB%93%9C%EB%A0%8C%EB%8D%94%EB%A7%81-vs-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%82%AC%EC%9D%B4%EB%93%9C%EB%A0%8C%EB%8D%94%EB%A7%81-SSR%EA%B3%BC-CSR" target="_blank">https://velog.io/@jhyun_k/%EC%84%9C%EB%B2%84%EC%82%AC%EC%9D%B4%EB%93%9C%EB%A0%8C%EB%8D%94%EB%A7%81-vs-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%82%AC%EC%9D%B4%EB%93%9C%EB%A0%8C%EB%8D%94%EB%A7%81-SSR%EA%B3%BC-CSR</a>
 
 ## Comments
 

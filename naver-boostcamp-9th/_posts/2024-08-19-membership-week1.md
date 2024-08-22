@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 멤버십 1일차 학습 정리
+title: 멤버십 1주차 학습 정리
 description: >
-  네이버 부스트캠프 9기 멤버십 1일차 학습 정리 페이지입니다.
+  네이버 부스트캠프 9기 멤버십 1주차 학습 정리 페이지입니다.
 image:
   path: /assets/img/naver-boostcamp-9th/naver-boostcamp-9th.jpg
   srcset:

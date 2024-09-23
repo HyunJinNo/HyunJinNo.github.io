@@ -86,8 +86,8 @@ npm install typeorm reflect-metadata mysql2 dotenv
     // ...
 
     "experimentalDecorators": true /* Enable experimental support for legacy experimental decorators. */,
-    "emitDecoratorMetadata": true /* Emit design-type metadata for decorated declarations in source files. */
-
+    "emitDecoratorMetadata": true /* Emit design-type metadata for decorated declarations in source files. */,
+    "strictPropertyInitialization": false /* Check for class properties that are declared but not set in the constructor. */
     // ...
   }
 }
@@ -132,16 +132,16 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
 export class Person {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @Column("varchar", { length: 100 })
-  name!: string;
+  name: string;
 
   @Column("int")
-  age!: number;
+  age: number;
 
   @Column("varchar", { length: 100, unique: true })
-  email!: string;
+  email: string;
 }
 ```
 
@@ -210,32 +210,30 @@ import "reflect-metadata";
 AppDataSource.initialize()
   .then(() => {
     // here you can start to work with your database
-    console.log("Data Source has been initialized!");
+    const app = express();
+    const port = Number(process.env.PORT ?? 4000);
+
+    // JSON 형태의 요청(request) body를 파싱(parse)하기 위해 사용하는 미들웨어(middleware) 적용
+    // req.body를 사용하려면 JSON 미들웨어를 사용해야 합니다.
+    // 사용하지 않으면 undefined 반환.
+    app.use(express.json());
+
+    // POST 요청 시 content 타입이 application/x-www-form-urlencoded인 경우 파싱
+    // JSON 미들웨어와 함께 사용
+    app.use(express.urlencoded({ extended: true }));
+
+    // HTTP에서 Body를 파싱하기 위한 설정
+    app.use(bodyParser.json());
+
+    app.use(router);
+
+    app.listen(port, () => {
+      console.log();
+      console.log(`  [Local] http://localhost:${port}/`);
+      console.log();
+    });
   })
   .catch((error) => console.log(error));
-
-const app = express();
-const port = Number(process.env.PORT ?? 4000);
-
-// JSON 형태의 요청(request) body를 파싱(parse)하기 위해 사용하는 미들웨어(middleware) 적용
-// req.body를 사용하려면 JSON 미들웨어를 사용해야 합니다.
-// 사용하지 않으면 undefined 반환.
-app.use(express.json());
-
-// POST 요청 시 content 타입이 application/x-www-form-urlencoded인 경우 파싱
-// JSON 미들웨어와 함께 사용
-app.use(express.urlencoded({ extended: true }));
-
-// HTTP에서 Body를 파싱하기 위한 설정
-app.use(bodyParser.json());
-
-app.use(router);
-
-app.listen(port, () => {
-  console.log();
-  console.log(`  [Local] http://localhost:${port}/`);
-  console.log();
-});
 ```
 
 ## Step 7 - TypeORM 사용 예시

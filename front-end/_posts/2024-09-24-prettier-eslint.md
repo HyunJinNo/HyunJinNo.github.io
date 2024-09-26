@@ -17,7 +17,7 @@ comments: false
 
 <i>Environment</i>
 
-- <i>eslint v9.11.0</i>
+- <i>eslint v9.11.1</i>
 
 <h2>목차</h2>
 
@@ -29,13 +29,14 @@ comments: false
   - [.prettierrc 파일 생성하기](#prettierrc-파일-생성하기)
   - [Editor: Format On Save](#editor-format-on-save)
 - [Step 3 - ESLint 설정하기](#step-3---eslint-설정하기)
-  - [.eslint.config.mjs 파일 생성하기](#eslintconfigmjs-파일-생성하기)
+  - [ESLint 설치하기](#eslint-설치하기)
+  - [.eslint.config.mjs 파일 설정하기](#eslintconfigmjs-파일-설정하기)
 - [참고 자료](#참고-자료)
 - [Comments](#comments)
 
 ## 개요
 
-이번 글에서는 VSCode에서 Prettier와 ESLint 설정 방법에 대해 설명하겠습니다.
+이번 글에서는 VSCode에서 Prettier와 ESLint 설정 방법에 대해 설명하겠습니다. <b>ESLint의 경우 v9.11.1 버전을 기준으로 설명하겠습니다.</b>
 
 ## Prettier란?
 
@@ -188,13 +189,136 @@ Prettier 규칙을 설정하려면 다음과 같이 `.prettierrc` 설정 파일�
 
 ## Step 3 - ESLint 설정하기
 
-작성 예정
+<b>이 글에서 다루는 ESLint 설정 방법은 `v9.11.1` 버전을 기준으로 설명합니다. 다른 버전을 사용하고 있다면 설정 방법이 다를 수 있습니다.</b>
 
-### .eslint.config.mjs 파일 생성하기
+### ESLint 설치하기
+
+먼저 다음 명령어를 입력하여 ESLint 설치 및 ESLint 초기화를 진행합니다.
+
+```bash
+npx eslint --init
+```
+
+해당 명령어를 실행하면 몇 가지 질문이 나옵니다. 자신이 사용하고 있는 프로젝트에 맞는 설정을 진행하면 됩니다. 저의 경우, 이번 글에서 제가 사용한 설정에 대해 밑줄 표시를 하였습니다.
+
+- <b>How would you like to use ESLint? (ESLint를 어떻게 사용할 건가요?)</b>
+  - To check syntax only
+  - <b><u>To check syntax and find problems</u></b>
+- <b>What type of modules does your project use? (프로젝트에서 사용하는 모듈 타입은 무엇인가요?)</b>
+  - <b><u>JavaScript modules (import/export)</u></b>
+  - CommonJS (require/exports)
+  - None of these
+- <b>Which framework does your project use? (사용 중인 프레임워크는 무엇인가요?)</b>
+  - React
+  - Vue.js
+  - <b><u>None of these</u></b>
+- <b>Does your project use TypeScript? (프로젝트에서 타입스크립트를 사용하나요?)</b>
+  - No
+  - <b><u>Yes</u></b>
+- <b>Where does your code run? (코드가 실행되는 환경은 무엇인가요?)</b>
+  - Browser
+  - <b><u>Node</u></b>
+- <b>Would you like to install them now? (지금 패키지를 설치할까요?)</b> - No / <b><u>Yes</u></b>
+
+모든 선택이 끝나면 자동으로 패키지가 설치된 후, 설정 파일이 생성됩니다.
+
+### .eslint.config.mjs 파일 설정하기
+
+위의 초기화 과정이 끝나면 다음과 같은 `eslint.config.mjs` 파일이 생성됩니다.
+
+```javascript
+// eslint.config.mjs
+
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import tseslint from "typescript-eslint";
+
+export default [
+  { files: ["**/*.{js,mjs,cjs,ts}"] },
+  { languageOptions: { globals: globals.node } },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+];
+```
+
+위의 설정은 ESLint 플러그인에서 자체적으로 제공하는 기본 또는 추천 설정을 적용한다는 의미입니다.
+
+위의 설정 파일을 수정하여 프로젝트에서 사용하는 코드 스타일 규칙과 사용자 정의 규칙을 설정할 수 있습니다. ESLint 설정 예시는 다음과 같습니다.
+
+```javascript
+// eslint.config.mjs
+
+export default [
+  {
+    files: ["**/*.js", "**/*.ts", "**/*.tsx"], // ESLint를 적용할 파일 패턴 설정
+    languageOptions: {
+      ecmaVersion: "latest", // 최신 ECMAScript 버전 사용
+      sourceType: "module", // 모듈 사용
+    },
+    extends: [
+      "eslint:recommended", // ESLint 기본 추천 규칙 사용
+      "plugin:@typescript-eslint/recommended", // TypeScript 지원 규칙 사용
+      "plugin:react/recommended", // React 관련 규칙 사용
+    ],
+    plugins: ["@typescript-eslint", "react"], // 추가 플러그인
+    rules: {
+      // 원하는 규칙 설정 (예시)
+      "no-unused-vars": "warn", // 사용되지 않는 변수에 대한 경고
+      "react/prop-types": "off", // PropTypes 사용 안 할 경우 비활성화
+      semi: ["error", "always"], // 세미콜론 필수
+      quotes: ["error", "double"], // 큰 따옴표 사용
+    },
+    ignores: [".dist/*"], // ESLint를 적용하지 않을 파일 및 폴더 지정
+  },
+];
+```
+
+ESLint 설정 시 주로 사용되는 속성들에 대해 설명하자면 다음과 같습니다.
+
+- `files`
+
+  ESLint를 적용할 파일 패턴을 지정하는 부분입니다. 위의 예시에서는 `.js` 파일, `.ts` 파일, `.tsx`에 대해 ESLint를 적용합니다.
+
+- `languageOptions`
+
+  Lint를 위해 파일이 어떤 방식으로 구성되는지에 대한 설정을 지정하는 부분입니다.
+
+  - `ecmaVersion`
+
+    ECMAScript 버전을 지정함으로써 어떤 문법을 사용할 것인지를 설정하는 부분입니다.
+
+  - `sourceType`
+
+    소스 코드가 모듈 형태로 작성되었는지 여부를 지정하는 부분입니다. `module`로 지정하면 ECMAScript modules (ESM)을 사용한다는 의미이고, `commonjs`로 지정하면 CommonJS 파일이라는 의미입니다.
+
+  - `globals`
+  - `parser`
+  - `parserOptions`
+
+- `extends`
+
+  미리 정의된 규칙을 가져와 프로젝트에 적용하는 부분입니다. 여러 플러그인의 권장 규칙들을 불러올 때 사용됩니다.
+
+- `plugins`
+
+  ESLint에 추가적인 기능과 규칙을 제공하는 플러그인을 사용하는 부분입니다.
+
+- `rules`
+
+  개별 규칙을 정의하거나 덮어쓰는 부분입니다. 특정 규칙을 활성화, 경고, 에러로 설정할 수 있습니다.
+
+- `ignores`
+
+  특정 파일이나 폴더를 ESLint 검사 대상에서 제외하는 부분입니다.
+
+이외에도 ESLint 설정 시 사용할 수 있는 옵션들이 많이 있습니다. 사용할 수 있는 옵션들에 대해서는 다음 링크를 참고하시길 바랍니다.
+
+<a href="https://eslint.org/docs/latest/" target="_blank">Documentation - ESLint - Pluggable JavaScript Linter</a>
 
 ## 참고 자료
 
 - <a href="https://prettier.io/" target="_blank">Prettier · Opinionated Code Formatter</a>
+- <a href="https://eslint.org/" target="_blank">Find and fix problems in your JavaScript code - ESLint - Pluggable JavaScript Linter</a>
 
 ## Comments
 

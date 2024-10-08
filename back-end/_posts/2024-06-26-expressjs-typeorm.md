@@ -23,8 +23,9 @@ comments: false
 - <i>reflect-metadata v0.2.2</i>
 - <i>mysql2 v3.10.1</i>
 
-<h2> 목차 </h2>
+<h2>목차</h2>
 
+- [개요](#개요)
 - [Step 1 - TypeORM 관련 패키지 설치](#step-1---typeorm-관련-패키지-설치)
 - [Step 2 - 폴더 구조](#step-2---폴더-구조)
 - [Step 3 - TypeScript Configuration](#step-3---typescript-configuration)
@@ -39,6 +40,10 @@ comments: false
   - [Repository 사용](#repository-사용)
   - [Postman 사용](#postman-사용)
 - [Comments](#comments)
+
+## 개요
+
+이번 글에서는 Express.js 애플리케이션에 TypeORM 적용 방법에 대해 설명하겠습니다.
 
 ## Step 1 - TypeORM 관련 패키지 설치
 
@@ -61,8 +66,8 @@ npm install typeorm reflect-metadata mysql2 dotenv
 ├── node_modules
 ├── public
 ├── src
-│   ├── db
-│   │   └── data-source.ts
+│   ├── database
+│   │   └── dataSource.ts
 │   ├── entity
 │   │   └── Person.ts
 │   ├── routes
@@ -116,10 +121,10 @@ DB_DATABASE=[사용하고자 하는 데이터베이스 이름]
 
 ```
 DB_PORT=3306
-DB_USERNAME="username"
-DB_HOST="localhost"
-DB_PASSWORD="password"
-DB_DATABASE="test"
+DB_USERNAME=username
+DB_HOST=localhost
+DB_PASSWORD=password
+DB_DATABASE=test
 ```
 
 ## Step 5 - entity 생성
@@ -149,7 +154,7 @@ export class Person {
 
 ### DataSource 객체 생성
 
-`/src/db` 디렉토리에 `data-source.ts` 파일을 생성하고 다음과 같이 DataSource 옵션을 입력합니다.
+`/src/database` 디렉토리에 `dataSource.ts` 파일을 생성하고 다음과 같이 DataSource 옵션을 입력합니다.
 
 ```typescript
 // data source and all connection configuration
@@ -201,7 +206,7 @@ export default AppDataSource;
 import express from "express";
 import { router } from "./routes";
 import bodyParser from "body-parser";
-import AppDataSource from "./db/data-source";
+import AppDataSource from "./database/dataSource";
 import "reflect-metadata";
 
 // to initialize the initial connection with the database, register all entities
@@ -229,11 +234,11 @@ AppDataSource.initialize()
 
     app.listen(port, () => {
       console.log();
-      console.log(`  [Local] http://localhost:${port}/`);
+      console.log(`  [Local] http://localhost:${port}`);
       console.log();
     });
   })
-  .catch((error) => console.log(error));
+  .catch((err) => console.error(err));
 ```
 
 ## Step 7 - TypeORM 사용 예시
@@ -346,7 +351,7 @@ router.delete(
 
 `Postman`을 사용하여 API를 요청한 예시는 다음과 같습니다.
 
-<img src="/assets/img/back-end/expressjs-typeorm/expressjs-typeorm1.png" alt="expressjs-typeorm1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+<img src="/assets/img/back-end/expressjs-typeorm/expressjs-typeorm1.png" alt="expressjs-typeorm1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Comments
 

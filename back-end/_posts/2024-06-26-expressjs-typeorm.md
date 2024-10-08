@@ -267,7 +267,7 @@ router.get("/", (req: Request, res: Response, next: NextFunction) => {
 /* src/routes/person.ts */
 
 import express, { NextFunction, Request, Response } from "express";
-import AppDataSource from "../db/data-source";
+import AppDataSource from "../database/dataSource";
 import { Person } from "../entity/Person";
 
 export const router = express.Router();

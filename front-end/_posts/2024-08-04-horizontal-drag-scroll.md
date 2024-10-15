@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Next.js 좌우 드래그 스크롤 구현 방법
+title: 좌우 드래그 스크롤 구현 방법
 description: >
-  Next.js 좌우 드래그 스크롤 구현 방법에 대해 설명하는 페이지입니다.
+  좌우 드래그 스크롤 구현 방법에 대해 설명하는 페이지입니다.
 image:
   path: /assets/img/front-end/front-end.jpg
   srcset:
@@ -27,7 +27,7 @@ comments: false
 - [Step 3 - 마우스 드래그 이벤트 정의하기](#step-3---마우스-드래그-이벤트-정의하기)
 - [Step 4 - 터치 드래그 이벤트 정의하기](#step-4---터치-드래그-이벤트-정의하기)
 - [Step 5 - 최종 코드](#step-5---최종-코드)
-- [Step 6 - 좌우드래그 스크롤 적용하기](#step-6---좌우드래그-스크롤-적용하기)
+- [Step 6 - 좌우 드래그 스크롤 적용하기](#step-6---좌우-드래그-스크롤-적용하기)
 - [Step 7 - 테스트 결과](#step-7---테스트-결과)
 - [참고 자료](#참고-자료)
 - [Comments](#comments)
@@ -151,7 +151,6 @@ const onDragEnd = (e: MouseEvent<HTMLDivElement>) => {
 ```typescript
 // 터치 드래그 시작
 const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
-  e.preventDefault();
   setIsDragging(true);
 
   const x = e.touches[0].pageX;
@@ -162,7 +161,6 @@ const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
 
 // 터치 드래그 동작 중
 const onTouchMove = (e: TouchEvent<HTMLDivElement>) => {
-  e.preventDefault();
   if (!isDragging) {
     return;
   }
@@ -175,8 +173,7 @@ const onTouchMove = (e: TouchEvent<HTMLDivElement>) => {
 };
 
 // 터치 드래그 종료
-const onTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
-  e.preventDefault();
+const onTouchEnd = () => {
   if (!isDragging) {
     return;
   }
@@ -188,6 +185,8 @@ const onTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
   setIsDragging(false);
 };
 ```
+
+터치 드래그 이벤트의 경우 마우스 드래그 이벤트를 정의할 때 사용한 `e.preventDefault()`를 호출하지 않습니다. `e.preventDefault()`를 호출하면 Link나 버튼 등을 터치할 때 정상적으로 동작하지 않게 됩니다.
 
 ## Step 5 - 최종 코드
 
@@ -258,7 +257,6 @@ export default function useDragScroll(): useDragScrollType {
 
   // 터치 드래그 시작
   const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
-    e.preventDefault();
     setIsDragging(true);
 
     const x = e.touches[0].pageX;
@@ -269,7 +267,6 @@ export default function useDragScroll(): useDragScrollType {
 
   // 터치 드래그 동작 중
   const onTouchMove = (e: TouchEvent<HTMLDivElement>) => {
-    e.preventDefault();
     if (!isDragging) {
       return;
     }
@@ -282,8 +279,7 @@ export default function useDragScroll(): useDragScrollType {
   };
 
   // 터치 드래그 종료
-  const onTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  const onTouchEnd = () => {
     if (!isDragging) {
       return;
     }
@@ -307,7 +303,7 @@ export default function useDragScroll(): useDragScrollType {
 }
 ```
 
-## Step 6 - 좌우드래그 스크롤 적용하기
+## Step 6 - 좌우 드래그 스크롤 적용하기
 
 다음과 같이 좌우 드래그 스크롤을 적용할 HTML 태그 요소에 이벤트를 등록합니다.
 

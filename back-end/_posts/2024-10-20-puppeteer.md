@@ -176,7 +176,7 @@ const browser = await puppeteer.launch({
 
 ### 언론사별 뉴스 데이터 가져오기
 
-**작성 중...**
+다음과 같이 언론사별 뉴스 데이터를 스크래핑하는 코드를 작성합니다.
 
 ```typescript
 const getPressList = async (page: Page) => {
@@ -275,7 +275,12 @@ const getPressList = async (page: Page) => {
 };
 ```
 
+위의 코드에서 `waitForSelector`는 지정한 선택자가 DOM 나타날 때까지 기다리는 함수입니다. 페이지가 완전히 로드되지 않았거나, 동적으로 렌더링되는 요소를 너무 빨리 가져오려고 하면 데이터를 가져오는데 실패할 수 있습니다. 따라서 Puppeteer의 `waitForSelector`를 사용하여 특정 DOM 요소가 완전히 렌더링된 후에 데이터를 가져오도록 설정합니다.
+또한 `evaluate` 함수는 브라우저 환경, 즉 웹 페이지 내에서 자바스크립트 코드를 실행하여 특정 DOM 요소의 데이터를 가져오는데 사용됩니다.
+
 ### 최신 뉴스 데이터 가져오기
+
+최신 뉴스 데이터를 가져오는 코드는 언론사별 뉴스 데이터를 가져오는 코드와 크게 다르지 않습니다. 다음과 같이 해당 웹 페이지로 이동한 후 웹 스크래핑을 진행하면 됩니다.
 
 ```typescript
 const getLatestNewsList = async (page: Page) => {
@@ -311,6 +316,8 @@ const getLatestNewsList = async (page: Page) => {
 ```
 
 ### 전체 코드
+
+전체 코드는 다음과 같습니다.
 
 ```typescript
 import puppeteer, { executablePath, Page } from "puppeteer-core";
@@ -465,6 +472,13 @@ const getLatestNewsList = async (page: Page) => {
 ```
 
 ## Step 3 - 웹 스크래핑하기
+
+위에서 작성한 웹 스크래핑 코드를 통해 웹 스크래핑한 결과는 다음과 같습니다.
+
+<video width="720" controls> 
+<source src="/assets/video/back-end/puppeteer/video1.mp4" type="video/mp4" />
+Your browser does not support the video tag.
+</video>
 
 ## 참고 자료
 

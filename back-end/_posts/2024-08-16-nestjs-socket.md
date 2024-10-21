@@ -43,7 +43,7 @@ comments: false
 
 `socket.io`의 특징은 다음과 같습니다.
 
-- **브라우저 호환성(Brower Compatibility)**
+- **브라우저 호환성(Browser Compatibility)**
 
   `socket.io`는 다양한 브라우저 환경에서 호환성을 보장합니다. 웹소켓을 지원하지 않는 브라우저에서는 `롱폴링(Long Polling)`과 같은 다른 대체 통신 방식을 사용하여 연결을 유지합니다.
 
@@ -420,6 +420,7 @@ socket.on("notice", (data) => {
 ## 참고 자료
 
 - <a href="https://docs.nestjs.com/websockets/gateways" target="_blank">Gateways | NestJS - A progressive Node.js framework</a>
+- <a href="https://socket.io" target="_blank">Socket.IO</a>
 
 ## Comments
 

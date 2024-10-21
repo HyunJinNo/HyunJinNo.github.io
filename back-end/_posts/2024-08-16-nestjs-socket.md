@@ -15,7 +15,7 @@ comments: false
 
 - <i>Node.js v20.11.1</i>
 
-<h2> 목차 </h2>
+<h2>목차</h2>
 
 - [개요](#개요)
 - [socket.io란?](#socketio란)

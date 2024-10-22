@@ -15,7 +15,7 @@ comments: false
 
 - <i>Node.js v20.11.1</i>
 
-<h2> 목차 </h2>
+<h2>목차</h2>
 
 - [가드 (Guards)](#가드-guards)
 - [Step 1 - cookie-parser 패키지](#step-1---cookie-parser-패키지)

@@ -20,7 +20,7 @@ comments: false
 - <i>class-transformer v0.5.1</i>
 - <i>class-validator v0.14.1</i>
 
-<h2> 목차 </h2>
+<h2>목차</h2>
 
 - [파이프 (Pipe)](#파이프-pipe)
 - [파이프로 유효성 검증하기](#파이프로-유효성-검증하기)

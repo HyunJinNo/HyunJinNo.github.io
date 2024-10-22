@@ -22,8 +22,9 @@ comments: false
 - <i>@nestjs/typeorm v10.0.2</i>
 - <i>mysql2 v3.10.2</i>
 
-<h2> 목차 </h2>
+<h2>목차</h2>
 
+- [이번 글에서는 NestJS에서 TypeORM 사용 방법에 대해 설명하겠습니다.](#이번-글에서는-nestjs에서-typeorm-사용-방법에-대해-설명하겠습니다)
 - [Step 1 - TypeORM 관련 패키지 설치](#step-1---typeorm-관련-패키지-설치)
 - [Step 2 - 폴더 구조](#step-2---폴더-구조)
 - [Step 3 - .env 파일 생성](#step-3---env-파일-생성)
@@ -39,6 +40,8 @@ comments: false
   - [user.service.ts](#userservicets)
 - [Step 8 - Postman 사용 및 테스트](#step-8---postman-사용-및-테스트)
 - [Comments](#comments)
+
+## 이번 글에서는 NestJS에서 TypeORM 사용 방법에 대해 설명하겠습니다.
 
 ## Step 1 - TypeORM 관련 패키지 설치
 
@@ -388,7 +391,7 @@ export class UserService {
 
 `Postman`을 사용하여 API를 요청한 예시는 다음과 같습니다.
 
-<img src="/assets/img/back-end/nestjs-typeorm/nestjs-typeorm1.png" alt="nestjs-typeorm1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+<img src="/assets/img/back-end/nestjs-typeorm/nestjs-typeorm1.png" alt="nestjs-typeorm1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Comments
 

@@ -15,7 +15,7 @@ comments: false
 
 - <i>Node.js v20.11.1</i>
 
-<h2> 목차 </h2>
+<h2>목차</h2>
 
 - [Step 1 - @types/multer 패키지 설치하기](#step-1---typesmulter-패키지-설치하기)
 - [Step 2 - 단일 파일 업로드 API 구현하기](#step-2---단일-파일-업로드-api-구현하기)

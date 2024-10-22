@@ -21,16 +21,17 @@ comments: false
 - <i>@nestjs/cli v10.3.2</i>
 - <i>reflect-metadata v0.2.2</i>
 
-<h2> 목차 </h2>
+<h2>목차</h2>
 
+- [개요](#개요)
 - [Step 1 - NestJS 애플리케이션 생성](#step-1---nestjs-애플리케이션-생성)
 - [Step 2 - eslintrc 설정 파일 수정](#step-2---eslintrc-설정-파일-수정)
 - [Step 3 - Folder Structure / Architecture 확인하기](#step-3---folder-structure--architecture-확인하기)
   - [NestJS의 Naming 규칙](#nestjs의-naming-규칙)
   - [main.ts](#maints)
-  - [\<모듈명\>.controller.ts](#모듈명controllerts)
-  - [\<모듈명\>.service.ts](#모듈명servicets)
-  - [\<모듈명\>.module.ts](#모듈명modulets)
+  - [모듈명.controller.ts](#모듈명controllerts)
+  - [모듈명.service.ts](#모듈명servicets)
+  - [모듈명.module.ts](#모듈명modulets)
 - [Step 4 - Blog API 만들기](#step-4---blog-api-만들기)
   - [blog.controller.ts](#blogcontrollerts)
   - [blog.service.ts](#blogservicets)
@@ -42,6 +43,10 @@ comments: false
   - [게시글 작성](#게시글-작성)
   - [게시글 조회](#게시글-조회)
 - [Comments](#comments)
+
+## 개요
+
+이번 글에서는 NestJS 기초 사용 방법에 대해 설명하도록 하겠습니다.
 
 ## Step 1 - NestJS 애플리케이션 생성
 
@@ -61,7 +66,7 @@ npx @nestjs/cli new [프로젝트 이름]
 
 자신이 사용하는 운영체제에 따라 다음과 같이 `Delete `␍` eslint (prettier/prettier)` 오류가 발생할 수 있습니다.
 
-<img src="/assets/img/back-end/nestjs-basic/nestjs1.png" alt="nestjs1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+<img src="/assets/img/back-end/nestjs-basic/nestjs1.png" alt="nestjs1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 이 오류가 발생하는 경우 `.eslintrc.js` 파일을 열고 다음과 같이 `endOfLine`에 내용을 추가하거나 변경하면 됩니다.
 
@@ -106,7 +111,7 @@ NestJS의 Naming Convention은 다음과 같습니다.
   blog.controller.ts
   my-first.controller.ts
   ```
-- 클래스명은 `Camel Case`로 표기합니다.
+- 클래스명은 `Pascal Case`로 표기합니다.
   ```
   // <모듈명><컴포넌트명>
   BlogController
@@ -135,7 +140,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-### <모듈명>.controller.ts
+### 모듈명.controller.ts
 
 컨트롤러는 유저가 보낸 HTTP 요청을 어떤 코드에서 처리할지 결정하는 역할을 합니다.
 
@@ -156,7 +161,7 @@ export class AppController {
 }
 ```
 
-### <모듈명>.service.ts
+### 모듈명.service.ts
 
 서비스는 비즈니스 로직을 담는 파일입니다.
 
@@ -171,7 +176,7 @@ export class AppService {
 }
 ```
 
-### <모듈명>.module.ts
+### 모듈명.module.ts
 
 모듈은 수평적으로 흩어진 Provider와 Controller들을 논리적인 기능이나 도메인에 따라 하나로 묶어주는 역할을 하며, 재사용성을 높여줍니다.
 
@@ -395,13 +400,13 @@ npm run start:prod // production 모드로 실행할 때 사용
 
 ### 게시글 작성
 
-<img src="/assets/img/back-end/nestjs-basic/nestjs2.png" alt="nestjs1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+<img src="/assets/img/back-end/nestjs-basic/nestjs2.png" alt="nestjs1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-<img src="/assets/img/back-end/nestjs-basic/nestjs3.png" alt="nestjs1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+<img src="/assets/img/back-end/nestjs-basic/nestjs3.png" alt="nestjs1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ### 게시글 조회
 
-<img src="/assets/img/back-end/nestjs-basic/nestjs4.png" alt="nestjs1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+<img src="/assets/img/back-end/nestjs-basic/nestjs4.png" alt="nestjs1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Comments
 

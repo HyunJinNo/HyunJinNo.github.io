@@ -15,7 +15,7 @@ comments: false
 
 - <i>Node.js v20.11.1</i>
 
-<h2> 목차 </h2>
+<h2>목차</h2>
 
 - [패스포트(Passport)란?](#패스포트passport란)
 - [세션(Session)이란?](#세션session이란)

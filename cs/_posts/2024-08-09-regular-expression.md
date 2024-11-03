@@ -11,7 +11,7 @@ sitemap: true
 comments: false
 ---
 
-<h2> 목차</h2>
+<h2>목차</h2>
 
 - [정규 표현식(Regular Expression)이란?](#정규-표현식regular-expression이란)
 - [정규 표현식 문법](#정규-표현식-문법)

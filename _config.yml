@@ -64,6 +64,8 @@ menu:
     url: /naver-boostcamp-9th/
   - title: Computer Science
     url: /cs/
+  - title: etc.
+    url: /etc/
   - title: MySQL
     url: /mysql/
   - title: Chess
@@ -94,7 +96,7 @@ paginate_path: /:num/
 # Theme
 # ---------------------------------------------------------------------------------------
 
-#theme: jekyll-theme-hydejack
+theme: jekyll-theme-hydejack
 remote_theme: hydecorp/hydejack@v9
 
 # Customizaton

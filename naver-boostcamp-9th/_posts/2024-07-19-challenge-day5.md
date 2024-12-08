@@ -21,7 +21,7 @@ comments: false
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhyunjinno.github.io%2Fnaver-boostcamp-9th%2F2024-07-18-challenge-day5%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-<h2> 목차 </h2>
+<h2>목차</h2>
 
 - [개요](#개요)
 - [베이직 과정](#베이직-과정)
@@ -40,15 +40,15 @@ comments: false
 
 이번 네이버 부스트캠프 9기에서는 **베이직** 과정이 신설되었습니다. **1차 문제 해결력 테스트** 결과에 따라 `2차 문자 해결력 테스트 직행자`, `베이직 입과자`, `탈락자`로 나누어졌습니다. 저는 **2차 문제 해결력 테스트 직행자**였지만 2차 문제 해결력 테스트 직행자도 베이직 참여를 권유하고 있었기 때문에 베이직 과정에 참여하기로 결정하였습니다. 카카오톡 오픈채팅방에서도 베이직 과정에 참여하겠다는 사람이 많았고, 실제로 베이직 참여자가 대략 1000명 정도 되었습니다.
 
-<img src="/assets/img/naver-boostcamp-9th/day5/pic0.png" alt="pic0" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+<img src="/assets/img/naver-boostcamp-9th/day5/pic0.png" alt="pic0" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-결론부터 말씀드리자면 베이직 과정에 참여한 것은 매우 만족스러웠습니다. 예전까지만 해도 저는 프로그래밍을 할 때 개발 과정에만 집중했지만 이번 베이직 과정을 진행하면서 문제 해결 과정에서 필요한 **구현 역량**뿐만 아니라 **설계 역량**을 키울 기회가 되었다는 점에서 큰 도움이 되었다고 생각합니다. 또한 같은 미션을 다른 캠퍼분들이 어떻게 수행했는지 확인하면서 문제 해결에 필요한 아이디어를 얻는 방법 만약에 다른 분들도 네이버 부스트캠프에 참여하신다면 베이직에 참여하시는 것을 추천드립니다.
+결론부터 말씀드리자면 베이직 과정에 참여한 것은 매우 만족스러웠습니다. 예전까지만 해도 저는 프로그래밍을 할 때 개발 과정에만 집중했지만 이번 베이직 과정을 진행하면서 문제 해결 과정에서 필요한 **구현 역량**뿐만 아니라 **설계 역량**을 키울 기회가 되었다는 점에서 큰 도움이 되었다고 생각합니다. 또한 같은 미션을 다른 캠퍼분들이 어떻게 수행했는지 확인하면서 문제 해결에 필요한 아이디어를 얻는 방법도 학습할 수 있었습니다. 만약에 다른 분들도 네이버 부스트캠프에 참여하신다면 베이직에 참여하시는 것을 추천드립니다.
 
-<img src="/assets/img/naver-boostcamp-9th/day5/pic1.png" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+<img src="/assets/img/naver-boostcamp-9th/day5/pic1.png" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 2주 동안 꾸준히 베이직 미션을 수행하여 위와 같이 베이직을 수료했다는 이메일을 받았습니다.
 
-<img src="/assets/img/naver-boostcamp-9th/day5/pic2.png" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+<img src="/assets/img/naver-boostcamp-9th/day5/pic2.png" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 2차 문제 해결력 테스트 결과 챌린지에 입과하게 되었습니다.
 

@@ -32,7 +32,8 @@ comments: false
   - [JDK 설치하기](#jdk-설치하기)
   - [VSCode 설치하기](#vscode-설치하기)
   - [Android Studio 설치하기](#android-studio-설치하기)
-- [Step 2 - 애플리케이션 생성하기](#step-2---애플리케이션-생성하기)
+- [Step 2 - React Native 애플리케이션 생성하기](#step-2---react-native-애플리케이션-생성하기)
+- [Step 3 - React Native 애플리케이션 실행하기](#step-3---react-native-애플리케이션-실행하기)
 - [참고 자료](#참고-자료)
 - [Comments](#comments)
 
@@ -64,6 +65,8 @@ npm -v
 Android를 대상으로 `React Native` 개발 환경을 설정하기 위해선 `Java SE Development Kit (JDK)`가 필요합니다. Android 개발을 하려면 `JDK 11` 이상이 필요합니다. 공식 문서에서는 높은 버전의 JDK를 사용하면 문제가 발생할 수 있으므로 `JDK 17`을 권장하고 있습니다.
 
 <img src="/assets/img/front-end/react-native-basic/pic2.png" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+<br/>
 
 공식 문서에서 권장하는 대로 `JDK 17`을 설치하겠습니다. 다음 링크에 접속하여 `openJDK 17` 압축 파일을 다운로드합니다.
 
@@ -138,15 +141,128 @@ java --version
 
 <br/>
 
-터미널을 열고 다음 명령어를 입력하여 환경 변수가 잘 설정되었는지 확인합니다.
+터미널을 열고 다음 명령어를 입력하여 환경 변수와 ADB가 잘 설정되었는지 확인합니다.
 
 ```bash
 Get-ChildItem -Path Env:\
+adb --version
 ```
 
 <img src="/assets/img/front-end/react-native-basic/pic12.png" alt="pic12" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-## Step 2 - 애플리케이션 생성하기
+<img src="/assets/img/front-end/react-native-basic/pic13.png" alt="pic13" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+## Step 2 - React Native 애플리케이션 생성하기
+
+> 만약 전역으로 react-native-cli 패키지를 설치한 경우 다음 명령어를 입력하여 삭제합니다.
+>
+> ```bash
+> npm uninstall -g react-native-cli @react-native-community/cli
+> ```
+
+다음 명령어를 입력하여 React Native 애플리케이션을 생성합니다. [프로젝트 이름] 부분에 원하는 프로젝트 이름을 입력하면 됩니다.
+
+```bash
+npx @react-native-community/cli@latest init <프로젝트 이름>
+```
+
+## Step 3 - React Native 애플리케이션 실행하기
+
+생성된 애플리케이션을 실행하기 위해선 `Android Studio`에서 Virtual Device를 설치하여 사용하거나, 실제 안드로이드 기기가 필요합니다. 이번 글에서는 실제 안드로이드 기기에서 애플리케이션을 실행하겠습니다.
+
+먼저 안드로이드 기기에서 `설정 > 개발자 옵션`으로 들어간 후 `USB 디버깅`을 활성화합니다. 만약 개발자 옵션이 보이지 않는 경우 `설정 -> 휴대전화 정보 > 소프트웨어 정보`에 들어간 후 `빌드번호` 항목을 여러 번 탭합니다.
+
+<img src="/assets/img/front-end/react-native-basic/pic14.png" alt="pic14" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+<br/>
+
+이후 안드로이드 기기를 컴퓨터와 USB로 연결한 후 터미널에서 다음 명령어를 입력하여 기기가 ADB에 연결되었는지 확인합니다.
+
+```bash
+adb devices
+```
+
+<img src="/assets/img/front-end/react-native-basic/pic15.png" alt="pic15" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+<br/>
+
+기기에 애플리케이션을 설치하기 위해 다음과 같이 `adb reverse` 명령어를 사용합니다.
+
+```bash
+adb reverse tcp:8081 tcp:8081
+```
+
+<img src="/assets/img/front-end/react-native-basic/pic16.png" alt="pic16" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+<br/>
+
+이후 다음 명령어를 입력하여 애플리케이션을 설치하고 실행할 수 있습니다.
+
+```bash
+npm run start
+```
+
+Metro가 실행된 후 키보드 자판에서 `a`를 눌러 안드로이드 앱을 실행시킵니다.
+
+```
+PS C:\Users\user\vscode\solitour_mobile> npm run start
+
+> solitour_mobile@0.0.1 start
+> react-native start
+
+info Welcome to React Native v0.76
+info Starting dev server on port 8081...
+
+                        ▒▒▓▓▓▓▒▒
+                     ▒▓▓▓▒▒░░▒▒▓▓▓▒
+                  ▒▓▓▓▓░░░▒▒▒▒░░░▓▓▓▓▒
+                 ▓▓▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▓▓
+                 ▓▓░░░░░▒▓▓▓▓▓▓▒░░░░░▓▓
+                 ▓▓░░▓▓▒░░░▒▒░░░▒▓▒░░▓▓
+                 ▓▓░░▓▓▓▓▓▒▒▒▒▓▓▓▓▒░░▓▓
+                 ▓▓░░▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓
+                 ▓▓▒░░▒▒▓▓▓▓▓▓▓▓▒░░░▒▓▓
+                  ▒▓▓▓▒░░░▒▓▓▒░░░▒▓▓▓▒
+                     ▒▓▓▓▒░░░░▒▓▓▓▒
+                        ▒▒▓▓▓▓▒▒
+
+
+                Welcome to Metro v0.81.0
+              Fast - Scalable - Integrated
+
+
+info Dev server ready
+
+i - run on iOS
+a - run on Android
+r - reload app
+d - open Dev Menu
+j - open DevTools
+
+info Opening app on Android...
+info A dev server is already running for this project on port 8081.
+info Installing the app...
+
+(...생략)
+
+> Task :app:installDebug
+Installing APK 'app-debug.apk' on 'SM-G955N - 9' for :app:debug
+Installed on 1 device.
+
+BUILD SUCCESSFUL in 1m 45s
+121 actionable tasks: 23 executed, 98 up-to-date
+info Connecting to the development server...
+info Starting the app on "ce0817180ab3d4770d"...
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.solitour_mobile/.MainActivity }
+ BUNDLE  ./index.js
+
+ (NOBRIDGE) LOG  Bridgeless mode is enabled
+ (NOBRIDGE) LOG  Running "solitour_mobile" with {"rootTag":11,"initialProps":{},"fabric":true}
+ INFO
+ 💡 JavaScript logs will be removed from Metro in React Native 0.77! Please use React Native DevTools as your default tool. Tip: Type j in the terminal to open (requires Google Chrome or Microsoft Edge).
+```
+
+<img src="/assets/img/front-end/react-native-basic/pic17.png" alt="pic17" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 참고 자료
 

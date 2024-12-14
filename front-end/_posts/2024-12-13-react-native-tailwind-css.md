@@ -41,7 +41,7 @@ comments: false
   - [Step 1 - Tailwind React Native Classnames 설치하기](#step-1---tailwind-react-native-classnames-설치하기)
   - [Step 2 - Tailwind CSS 설정하기](#step-2---tailwind-css-설정하기-1)
   - [Step 3 - twrnc 사용하기](#step-3---twrnc-사용하기)
-- [Step 4 - Customization](#step-4---customization)
+  - [Step 4 - Customization](#step-4---customization)
 - [prettier-plugin-tailwindcss 설정하기](#prettier-plugin-tailwindcss-설정하기)
   - [패키지 설치하기](#패키지-설치하기)
   - [Prettier 설정하기](#prettier-설정하기)
@@ -266,7 +266,7 @@ const App = () => {
 export default App;
 ```
 
-## Step 4 - Customization
+### Step 4 - Customization
 
 만약 커스텀 스타일을 선언하고 적용하고 싶다면 먼저 다음과 같이 `tailwind.config.js`에 커스텀 스타일을 정의합니다.
 

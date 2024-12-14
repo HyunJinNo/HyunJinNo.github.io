@@ -199,6 +199,39 @@ adb reverse tcp:8081 tcp:8081
 이후 다음 명령어를 입력하여 애플리케이션을 설치하고 실행할 수 있습니다.
 
 ```bash
+npm run android
+```
+
+```bash
+PS C:\Users\user\vscode\solitour_mobile> npm run android
+
+> solitour_mobile@0.0.1 android
+> react-native run-android
+
+info Installing the app...
+
+> Configure project :react-native-reanimated
+Android gradle plugin: 8.6.0
+Gradle: 8.10.2
+
+(...생략)
+
+> Task :app:installDebug
+Installing APK 'app-debug.apk' on 'SM-G955N - 9' for :app:debug
+Installed on 1 device.
+
+BUILD SUCCESSFUL in 1m 18s
+121 actionable tasks: 23 executed, 98 up-to-date
+<-------------> 0% WAITING
+> IDLE
+info Connecting to the development server...
+info Starting the app on "ce0817180ab3d4770d"...
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.solitour_mobile/.MainActivity }
+```
+
+또는 다음 과정을 통해 실행시킬 수도 있습니다.
+
+```bash
 npm run start
 ```
 

@@ -41,6 +41,7 @@ comments: false
   - [Step 1 - Tailwind React Native Classnames 설치하기](#step-1---tailwind-react-native-classnames-설치하기)
   - [Step 2 - Tailwind CSS 설정하기](#step-2---tailwind-css-설정하기-1)
   - [Step 3 - twrnc 사용하기](#step-3---twrnc-사용하기)
+- [Step 4 - Customization](#step-4---customization)
 - [prettier-plugin-tailwindcss 설정하기](#prettier-plugin-tailwindcss-설정하기)
   - [패키지 설치하기](#패키지-설치하기)
   - [Prettier 설정하기](#prettier-설정하기)
@@ -265,6 +266,64 @@ const App = () => {
 export default App;
 ```
 
+## Step 4 - Customization
+
+만약 커스텀 스타일을 선언하고 적용하고 싶다면 먼저 다음과 같이 `tailwind.config.js`에 커스텀 스타일을 정의합니다.
+
+```javascript
+/* tailwind.config.js */
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        "primary-green": "#26B888",
+        "primary-green-ripple": "#069868",
+        "primary-red": "#DA1E28",
+        gray: "#F5F5F5",
+        green: "#ECF4E2",
+        lightGreen: "#F2F6EC",
+        lightGray: "#F8F8F8",
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+이후 `tailwind.ts` 파일을 생성한 후 다음과 같이 작성합니다. `require` 내에 `tailwind.config.js` 파일의 경로를 지정하면 됩니다.
+
+```typescript
+import { create } from "twrnc";
+
+const tw = create(require(`../../tailwind.config.js`));
+
+export default tw;
+```
+
+마지막으로 방금 생성한 `tw` 함수를 사용하면 됩니다.
+
+```typescript
+/* App.tsx */
+
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
+import tw from "./libs/tailwind";
+
+const App = () => {
+  return <View style={tw`text-primary-green`}>TEST</View>;
+};
+
+export default App;
+```
+
 ## prettier-plugin-tailwindcss 설정하기
 
 `prettier-plugin-tailwindcss`를 적용하기 위해선 `Prettier` 버전이 `v3` 이상이어야 합니다. 또한 `ESM`만 사용할 수 있다는 점을 주의합니다.
@@ -317,6 +376,7 @@ npm install --save-dev prettier prettier-plugin-tailwindcss
 ## 참고 자료
 
 - <a href="https://www.nativewind.dev/" target="_blank">Home | NativeWind</a>
+- <a href="https://github.com/jaredh159/tailwind-react-native-classnames" target="_blank">Tailwind React Native Classnames</a>
 
 ## Comments
 

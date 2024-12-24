@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?wknj80');
-  src:  url('fonts/icomoon.eot?wknj80#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?wknj80') format('truetype'),
-    url('fonts/icomoon.woff?wknj80') format('woff'),
-    url('fonts/icomoon.svg?wknj80#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?62mm6w');
+  src:  url('fonts/icomoon.eot?62mm6w#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?62mm6w') format('truetype'),
+    url('fonts/icomoon.woff?62mm6w') format('woff'),
+    url('fonts/icomoon.svg?62mm6w#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -1171,14 +1171,20 @@
 .icon-indent-increase:before {
   content: "\ea7d";
 }
-.icon-indent-decrease:before {
-  content: "\ea7e";
-}
 .icon-share:before {
   content: "\ea7f";
 }
-.icon-new-tab:before {
+.icon-indent-decrease:before {
   content: "\ea80";
+}
+.icon-new-tab:before {
+  content: "\ea7e";
+}
+.icon-new-tab1:before {
+  content: "\eaed";
+}
+.icon-new-tab2:before {
+  content: "\eaee";
 }
 .icon-embed:before {
   content: "\ea81";

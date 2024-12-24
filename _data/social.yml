@@ -208,3 +208,7 @@ download:
   icon: icon-box-add
 notion:
   name: Notion
+  icon: icon-notion
+figma:
+  name: figma
+  icon: icon-figma

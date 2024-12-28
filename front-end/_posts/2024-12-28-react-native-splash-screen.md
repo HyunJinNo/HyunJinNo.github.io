@@ -126,7 +126,9 @@ android.enableJetifier=true
 
 스플래시 화면을 구현한 예시는 다음과 같습니다.
 
-<video width="480" controls> 
+<br/>
+
+<video width="360" controls> 
 <source src="/assets/video/front-end/react-native-splash-screen/video1.mp4" type="video/mp4" />
 Your browser does not support the video tag.
 </video>

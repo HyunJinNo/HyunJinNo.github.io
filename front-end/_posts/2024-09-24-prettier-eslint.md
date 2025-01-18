@@ -167,7 +167,7 @@ Prettier 규칙을 설정하려면 다음과 같이 `.prettierrc` 설정 파일�
 
 ### Editor: Format On Save
 
-파일을 저장할 떄마다 자동으로 코드 포맷팅을 적용하려면 VSCode 설정에서 다음과 같이 `Editor: Format On Save` 항목을 체크하면 됩니다.
+파일을 저장할 때마다 자동으로 코드 포맷팅을 적용하려면 VSCode 설정에서 다음과 같이 `Editor: Format On Save` 항목을 체크하면 됩니다.
 
 <img src="/assets/img/front-end/prettier-eslint/pic3.png" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 

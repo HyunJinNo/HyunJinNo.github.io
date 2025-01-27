@@ -66,8 +66,6 @@ menu:
     url: /cs/
   - title: etc.
     url: /etc/
-  - title: MySQL
-    url: /mysql/
   - title: Chess
     url: /chess/
   - title: About Me

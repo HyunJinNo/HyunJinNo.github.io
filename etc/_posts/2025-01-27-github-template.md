@@ -252,5 +252,3 @@ Issue Template을 생성한 후 GitHub Repository의 `Issues` 탭을 클릭한 �
   crossorigin="anonymous"
   async
 ></script>
-```
-````

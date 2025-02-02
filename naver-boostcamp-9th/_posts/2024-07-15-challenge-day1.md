@@ -47,7 +47,7 @@ comments: false
 |                           | git revert -m <commit-ish>         | Revert merge commit                                |
 | [Synchronize]             |                                    |                                                    |
 |                           | git fetch                          | Get the latest changes from origin                 |
-|                           | git pull --rebase                  | Get the latest changes from origin                 |
+|                           | git pull --rebase                  | Get the latest changes from origin and rebase      |
 
 ### JSDoc 기초 사용법
 

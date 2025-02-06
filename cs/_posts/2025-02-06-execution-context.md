@@ -18,8 +18,14 @@ comments: false
 - [개요](#개요)
 - [실행 컨텍스트란?](#실행-컨텍스트란)
 - [실행 컨텍스트 종류](#실행-컨텍스트-종류)
-- [실행 컨텍스트 생성 예시](#실행-컨텍스트-생성-예시)
+- [실행 컨텍스트와 콜 스택](#실행-컨텍스트와-콜-스택)
 - [실행 컨텍스트의 구성 요소](#실행-컨텍스트의-구성-요소)
+- [실행 컨텍스트의 생성 및 실행 과정](#실행-컨텍스트의-생성-및-실행-과정)
+  - [생성 단계 (Creation Phase)](#생성-단계-creation-phase)
+    - [VariableEnvironment와 LexicalEnvironment 생성](#variableenvironment와-lexicalenvironment-생성)
+    - [this 바인딩 결정](#this-바인딩-결정)
+    - [outerEnvironmentReference 설정](#outerenvironmentreference-설정)
+  - [실행 단계 (Execution Phase)](#실행-단계-execution-phase)
 - [참고 자료](#참고-자료)
 - [Comments](#comments)
 
@@ -47,7 +53,7 @@ comments: false
 
   `eval()` 함수로 실행되는 코드에 대해 생성되지만, 보안과 성능 문제로 거의 사용되지 않습니다.
 
-## 실행 컨텍스트 생성 예시
+## 실행 컨텍스트와 콜 스택
 
 실행 컨텍스트가 콜 스택에 어떤 순서로 쌓이는지 다음 자바스크립트 코드를 통해 확인해보도록 하겠습니다.
 
@@ -137,6 +143,28 @@ outer 함수의 실행이 종료되면 콜 스택에서 outer 실행 컨텍스�
 - `ThisBinding`
 
   실행 컨텍스트가 생성될 때, 해당 컨텍스트 내에서 사용될 this 식별자가 가리키는 대상 객체가 결정됩니다. 실행 컨텍스트 활성화 당시에 this가 지정되지 않은 경우 this에는 전역 객체가 저장됩니다.
+
+## 실행 컨텍스트의 생성 및 실행 과정
+
+실행 컨텍스트는 크게 `생성 단계(Creation Phase)`와 `실행 단계(Execution Phase)`로 구분됩니다.
+
+### 생성 단계 (Creation Phase)
+
+#### VariableEnvironment와 LexicalEnvironment 생성
+
+먼저 코드가 실행되기 전에 자바스크립트 엔진은 현재 실행 컨텍스트에 포함된 모든 식별자(변수, 함수, 매개변수 등)를 `EnvironmentRecord`에 등록합니다. 이 때 `var`로 선언된 변수는 선언과 동시에 초기값(undefined)으로 설정되며, 함수 선언문은 함수 전체(선언과 정의)가 등록되어 호이스팅됩니다.
+
+#### this 바인딩 결정
+
+실행 컨텍스트의 종류와 함수 호출 방식에 따라 this가 결정됩니다.
+
+#### outerEnvironmentReference 설정
+
+현재 실행 컨텍스트가 속한 상위 스코프의 `LexicalEnvironment`가 할당되어 스코프 체인이 형성됩니다.
+
+### 실행 단계 (Execution Phase)
+
+코드의 각 줄이 실제로 실행되면서 변수에 값이 할당되고 함수가 호출되며 실제 연산이 진행됩니다.
 
 ## 참고 자료
 

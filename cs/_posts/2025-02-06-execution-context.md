@@ -11,7 +11,7 @@ sitemap: true
 comments: false
 ---
 
-<i>last modified at: 2025. 02. 05.</i>
+<i>last modified at: 2025. 02. 06.</i>
 
 <h2>목차</h2>
 
@@ -37,7 +37,7 @@ comments: false
 
 - `전역 실행 컨텍스트(Global Execution Context)`
 
-  페이지나 스크립트가 로드될 때 자동으로 생성되며, 브라우저에서는 `window` 객체와 연결되고 Node.js에서는 `global` 객체와 연결됩니다.
+  페이지나 스크립트가 로드될 때 자동으로 생성되며, 브라우저에서는 `window` 객체와 연결되고 Node.js에서는 `global` 객체와 연결됩니다. 전역 실행 컨텍스트는 변수 객체를 생성하는 대신 전역 객체를 활용하며, 전역 객체에는 브라우저의 `window` 객체, Node.js의 `global` 객체 등이 있습니다. 이들은 자바스크립트 `내장 객체(Native Object)`가 아닌 `호스트 객체(Host Object)`로 분류됩니다.
 
 - `함수 실행 컨텍스트(Function Execution COntext)`
 
@@ -107,14 +107,43 @@ outer 함수의 실행이 종료되면 콜 스택에서 outer 실행 컨텍스�
 
 ## 실행 컨텍스트의 구성 요소
 
-- VariableEnvironment
-- LexicalEnvironment
-  - EnvironmentRecord
-  - outerEnvironmentReference
+어떤 실행 컨텍스트가 생성될 때 자바스크립트 엔진은 해당 실행 컨텍스트에 관련된 코드들을 실행하는 데 필요한 환경 정보들을 수집해서 실행 컨텍스트 객체에 저장합니다. 실행 컨텍스트의 구성 요소들은 다음과 같습니다.
+
+- `VariableEnvironment`
+
+  현재 실행 컨텍스트 내의 식별자(변수)와 함수 선언 등 <b>초기 상태</b> 정보를 저장합니다. 선언 시점의 `LexicalEnvironment`의 스냅샷(Snapshot)을 저장하며, 변경 사항은 반영하지 않습니다. 실행 컨텍스트를 생성할 때 `VariableEnvironment`에 정보를 먼저 담은 다음, 이를 그대로 복사해서 `LexicalEnvironment`를 만듭니다.
+
+  `VariableEnvironment` 내부는 `environmentRecord(snapshot)`와 `outerEnvironmentReference(snapshot)`으로 구성됩니다. `VariableEnvironment`는 스냅샷 유지 목적으로 사용되고, 주로 아래의 `LexicalEnvironment`를 활용합니다.
+
+  - `environmentRecord(snapshot)`
+  - `outerEnvironmentReference(snapshot)`
+
+- `LexicalEnvironment`
+
+  처음에는 `VariableEnvironment`와 동일하지만 변경 사항이 실시간으로 반영됩니다. `LexicalEnviroment`는 다음 두 부분으로 구성됩니다.
+
+  - `environmentRecord`
+
+    `environmentRecord`에는 현재 실행 컨텍스트와 관련된 코드의 식별자 정보들이 저장됩니다. 여기서 식별자란, 컨텍스트를 구성하는 함수에 지정된 매개변수 식별자, 선언한 함수가 있는 경우 그 함수 자체, var로 선언된 변수의 식별자 등을 의미합니다. 실행 컨텍스트 내부 전체를 처음부터 끝까지 확인하면서 순서대로 수집합니다.
+
+    코드 실행 전에 자바스크립트 엔진이 먼저 모든 식별자 정보를 수집하는 [호이스팅 (Hoisting)](../2025-02-05-hoisting) 현상이 바로 이 과정에서 발생합니다.
+
+  - `outerEnvironmentReference`
+
+    `스코프(Scope)`란 <b>식별자에 대한 유효범위</b>를 의미합니다. 스코프의 개념은 대부분의 언어에서 존재하지만, ES5까지의 자바스크립트는 특이하게도 오직 함수에 의해서만 스코프가 생성됩니다.
+
+    `outerEnvironmentReference`는 현재 실행 컨텍스트가 속한 상위 스코프(LexicalEnvironment)를 참조하는 포인터로, `스코프 체인(Scope Chain)`을 형성해 상위 스코프를 참조합니다. `outerEnvironmentReference`는 <b>현재 호출된 함수가 선언될 당시의 LexicalEnvironment를 참조</b>합니다. 만약 현재 실행 컨텍스트 내에서 식별자를 찾지 못하면 이 참조를 따라 상위 컨텍스트에서 변수를 검색하게 됩니다. 또한 여러 스코프에서 동일한 식별자를 선언한 경우, 무조건 스코프 체인 상에서 가장 먼저 발견된 식별자에만 접근 가능하게 됩니다.
+
+- `ThisBinding`
+
+  실행 컨텍스트가 생성될 때, 해당 컨텍스트 내에서 사용될 this 식별자가 가리키는 대상 객체가 결정됩니다. 실행 컨텍스트 활성화 당시에 this가 지정되지 않은 경우 this에는 전역 객체가 저장됩니다.
 
 ## 참고 자료
 
-- ?
+- <a href="https://velog.io/@ghost1434/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8" target="_blank">실행 컨텍스트</a>
+- <a href="https://www.yes24.com/Product/Goods/78586788" target="_blank">코어 자바스크립트 - 예스 24</a>
+- <a href="https://gamguma.dev/post/2022/04/js_execution_context" target="_blank">JS Execution Context (실행 컨텍스트) 란?</a>
+- <a href="https://junilhwang.github.io/TIL/Javascript/Domain/Execution-Context/" target="_blank">자바스크립트 실행 컨텍스트</a>
 
 ## Comments
 

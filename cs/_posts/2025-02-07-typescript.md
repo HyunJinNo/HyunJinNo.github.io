@@ -28,12 +28,15 @@ comments: false
   - [void](#void)
   - [never](#never)
   - [Union](#union)
-  - [Narrowing](#narrowing)
-    - [typeof](#typeof)
-    - [instanceof](#instanceof)
-    - [in](#in)
-    - [is](#is)
+  - [타입 가드](#타입-가드)
+    - [typeof 연산자](#typeof-연산자)
+    - [instanceof 연산자](#instanceof-연산자)
+    - [in 연산자](#in-연산자)
+    - [is - 사용자 정의 타입 가드](#is---사용자-정의-타입-가드)
+    - [Non-null assertion 연산자](#non-null-assertion-연산자)
   - [타입 단언](#타입-단언)
+    - [\<타입\> 문법](#타입-문법)
+    - [as 문법](#as-문법)
   - [타입 추론](#타입-추론)
   - [unknown](#unknown)
 - [참고 자료](#참고-자료)
@@ -307,21 +310,119 @@ anyValue = "Hello, World!";
 anyValue = true;
 ```
 
-### Narrowing
+### 타입 가드
 
-`Narrowing`이란 타입의 범위를 좁히는 작업을 의미합니다. 타입의 범위를 좁히는 데 사용하는 검사 방법을 `타입 가드(Type Guard)`라 하며, 값 할당 또는 조건문으로 검사해 타입의 범위를 좁힙니다. 조건문에 사용할 수 있는 연산자로 `typeof`, `instanceof`, `in`, `is`가 있습니다.
+`Type Narrowing`이란 타입의 범위를 좁히는 작업을 의미합니다. 타입의 범위를 좁히는 데 사용하는 검사 방법을 `타입 가드(Type Guard)`라 하며, 값 할당 또는 조건문으로 검사해 타입의 범위를 좁힙니다. 타입 가드를 선언하는 방법으로 `typeof`, `instanceof`, `in` 등이 있습니다.
 
-#### typeof
+#### typeof 연산자
 
-#### instanceof
+`typeof` 연산자를 사용하면 원시 타입(`string`, `number`, `boolean`, `symbol`, `bigint`, `function`, `object`, `undefined`)를 구별할 수 있습니다. 단, `typeof`는 객체 타입(`object`, `array`, `null`)을 구별하기 어렵습니다.
 
-#### in
+```typescript
+function printLength(value: string | number) {
+  if (typeof value === "string") {
+    console.log(value.length);
+  } else {
+    console.log(value.toFixed(2));
+  }
+}
+```
 
-#### is
+#### instanceof 연산자
+
+`instanceof` 연산자를 사용하면 객체가 특정 클래스의 인스턴스인지 확인할 수 있습니다. 단, `instanceof`는 클래스 기반 객체에서만 사용 가능하며, 인터페이스나 일반 객체에는 사용할 수 없습니다.
+
+```typescript
+class Cat {
+  meow() {
+    console.log("meow");
+  }
+}
+
+class Dog {
+  bark() {
+    console.log("bark");
+  }
+}
+
+function makeSound(animal: Cat | Dog) {
+  if (animal instanceof Cat) {
+    animal.meow();
+  } else {
+    animal.bark();
+  }
+}
+```
+
+#### in 연산자
+
+`in` 연산자를 사용하면 객체가 특정 속성을 가지고 있는지 확인할 수 있습니다. `in` 연산자는 인터페이스, 객체 리터럴, 클래스 등 여러 곳에서 활용할 수 있습니다.
+
+```typescript
+type Person = { name: string; age: number };
+type Robot = { model: string; battery: number };
+
+function printInfo(entity: Person | Robot) {
+  if ("name" in entity) {
+    console.log(entity.name);
+  } else {
+    console.log(entity.model);
+  }
+}
+```
+
+#### is - 사용자 정의 타입 가드
+
+`is` 키워드는 `사용자 정의 타입 가드(User-Defined Type Guards)`를 정의하는데 사용됩니다. 함수를 활용하여 타입 검사를 직접 수행하고 특정 타입임을 보장하는 방식으로, 더 복잡한 조건에서도 `Type Narrowing`을 적용할 수 있습니다.
+
+```typescript
+type Person = { name: string };
+type Robot = { model: string };
+type Entity = Person | Robot;
+
+function isPerson(entity: Entity): entity is Person {
+  return (entity as Person).name !== undefined;
+}
+
+function PrintInfo(entity: Entity) {
+  if (isPerson(entity)) {
+    console.log(entity.name);
+  } else {
+    console.log(entity.model);
+  }
+}
+
+const person: Person = { name: "TEST" };
+PrintInfo(person); // "TEST"
+```
+
+#### Non-null assertion 연산자
+
+`!`
 
 ### 타입 단언
 
-`타입 단언(Type Assertion)`
+`타입 단언(Type Assertion)`은 컴파일러에게 특정 값의 타입을 알려주는 것을 말합니다. 타입을 강제 변환하는 것이 아니라, 컴파일러가 타입을 추론하는 방식에 개입하는 역할을 합니다.
+
+타입 단언에는 두 가지 문법이 존재합니다.
+
+#### <타입> 문법
+
+`<타입>` 형식으로 타입 단언을 선언할 수 있습니다. 다만 해당 방식은 JSX 문법과 충돌할 수 있으며, 제네릭(Generic)과 헷갈릴 수 있으므로 사용이 지양됩니다.
+
+```typescript
+let value: any = "Hello, World!";
+let strLength: number = (<string>value).length;
+```
+
+#### as 문법
+
+`as` 문법을 통해 타입 단언을 선언할 수 있습니다.
+
+```typescript
+let value: any = "Hello, World!";
+let strLength: number = (value as string).length;
+```
 
 ### 타입 추론
 
@@ -335,6 +436,7 @@ anyValue = true;
 - <a href="https://www.heropy.dev/p/WhqSC8" target="_blank">한눈에 보는 타입스크립트 | HEROPY.DEV</a>
 - <a href="https://www.yes24.com/Product/Goods/118379776" target="_blank">Node.js 백엔드 개발자 되기 - 예스24</a>
 - <a href="https://www.w3schools.com/typescript/index.php" target="_blank">TypeScript Tutorial</a>
+- <a href="https://devwiki.co.kr/post/typescript-is" target="_blank">TypeScript "is" Keyword (User-Defined Type Guards)</a>
 
 ## Comments
 

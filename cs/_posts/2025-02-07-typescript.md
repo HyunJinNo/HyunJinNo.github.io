@@ -11,7 +11,7 @@ sitemap: true
 comments: false
 ---
 
-<i>last modified at: 2025. 02. 09.</i>
+<i>last modified at: 2025. 02. 10.</i>
 
 <h2>목차</h2>
 
@@ -25,9 +25,11 @@ comments: false
   - [기본 타입](#기본-타입)
   - [배열과 튜플](#배열과-튜플)
   - [any](#any)
+  - [unknown](#unknown)
   - [void](#void)
   - [never](#never)
   - [Union](#union)
+  - [Intersection](#intersection)
   - [타입 가드](#타입-가드)
     - [typeof 연산자](#typeof-연산자)
     - [instanceof 연산자](#instanceof-연산자)
@@ -37,8 +39,10 @@ comments: false
   - [타입 단언](#타입-단언)
     - [\<타입\> 문법](#타입-문법)
     - [as 문법](#as-문법)
+  - [타입 별칭](#타입-별칭)
+  - [리터럴 타입](#리터럴-타입)
+  - [enum](#enum)
   - [타입 추론](#타입-추론)
-  - [unknown](#unknown)
 - [참고 자료](#참고-자료)
 - [Comments](#comments)
 
@@ -280,6 +284,19 @@ anyValue = "Hello, World!";
 anyValue = true;
 ```
 
+### unknown
+
+`any`와 같이 최상위 타입인 `unknown` 타입은 알 수 없는 타입을 의미합니다. `any`와 같이 `unknown`에는 어떤 타입의 값도 할당할 수 있지만, `unknown` 타입은 `any` 타입 외의 어떤 타입에도 할당할 수 없습니다. `unknown` 타입을 `any` 타입 외에 어떤 타입에 할당하려면 `타입 단언`이나 `타입 가드`가 필요하므로 `any` 타입보다 더 안전합니다.
+
+```typescript
+let a: any = 123;
+let b: unknown = 123;
+
+let c: number = a;
+let d: number = b as number;
+let e: number = b; // Error: Type 'unknown' is not assignable to type 'number'.ts(2322)
+```
+
 ### void
 
 `void`는 함수의 반환값에 지정하는 타입으로, 함수의 반환값이 없는 경우(실제로는 `undefined`를 반환)에 사용합니다.
@@ -308,6 +325,28 @@ function throwError(message: string): never {
 let anyValue: number | string | boolean = 10;
 anyValue = "Hello, World!";
 anyValue = true;
+```
+
+### Intersection
+
+`&`를 사용해 2개 이상의 타입을 조합하는 경우를 `Intersection`이라고 합니다. 여러 개의 타입 중 하나만 만족하면 되는 `Union`과 달리, `Intersection`은 조합한 모든 타입을 만족해야 합니다. `Union`이 `or`에 해당한다면, `Intersection`은 `and`에 해당합니다.
+
+```typescript
+type Cup = { size: number };
+type Brand = { brandName: string };
+type BrandedCup = Cup & Brand;
+
+let brandedCup: BrandedCup = {
+  size: 100,
+  brandName: "BrandName",
+};
+```
+
+`Intersection`을 잘못 사용하면 다음과 같이 값을 할당할 수 없는 타입을 만드는 실수를 할 수 있습니다. `Intersection`을 사용할 때 주의해야 합니다.
+
+```typescript
+type Impossible = number & string;
+let impossible: Impossible = 10; // Error: Type '10' is not assignable to type 'never'.ts(2322)
 ```
 
 ### 타입 가드
@@ -392,13 +431,23 @@ function PrintInfo(entity: Entity) {
   }
 }
 
-const person: Person = { name: "TEST" };
-PrintInfo(person); // "TEST"
+const person: Person = { name: "HyunJinNo" };
+PrintInfo(person); // "HyunJinNo"
 ```
 
 #### Non-null assertion 연산자
 
-`!`
+`!`를 사용하는 Non-null assertion 연산자를 사용하여 피연산자의 값이 `null`이나 `undefined`가 아님을 단언할 수 있습니다.
+
+```typescript
+function printLength1(str: string | undefined | null) {
+  console.log(str.length); // Error: 'str' is possibly 'null' or 'undefined'.ts(18049)
+}
+
+function printLength2(str: string | undefined | null) {
+  console.log(str!.length);
+}
+```
 
 ### 타입 단언
 
@@ -424,11 +473,37 @@ let value: any = "Hello, World!";
 let strLength: number = (value as string).length;
 ```
 
-### 타입 추론
+### 타입 별칭
+
+`type` 키워드를 사용하여 타입 별칭을 만들 수 있습니다.
+
+```typescript
+type Length = number | string;
+
+let len: Length = 10;
+len = "10km";
+```
+
+### 리터럴 타입
+
+`리터럴 타입(Literal Type)`이란 기본 타입의 값들을 조합해서 한정적인 값들만 나타내는 타입입니다. 다음과 같이 `size`가 `10`, `20`, `30`만 있다고 가정할 때 `10`, `20`, `30`만 허용하는 리터럴 타입을 정의할 수 있습니다.
+
+```typescript
+type Size = 10 | 20 | 30;
+
+let size1: Size = 10;
+let size2: Size = 20;
+let size3: Size = 30;
+let size4: Size = 40; // Error: Type '40' is not assignable to type 'Size'.ts(2322)
+```
+
+### enum
 
 // TODO
 
-### unknown
+### 타입 추론
+
+// TODO
 
 ## 참고 자료
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 타입스크립트 (TypeScript)
+title: 타입스크립트 (TypeScript) (작성 중)
 description: >
-  타입스크립트(TypeScript)에 대해 설명하는 페이지입니다.
+  타입스크립트(TypeScript)에 대해 정리한 페이지입니다.
 image:
   path: /assets/img/cs/study.jpg
 related_posts:
@@ -41,6 +41,10 @@ comments: false
     - [as 문법](#as-문법)
   - [타입 별칭](#타입-별칭)
   - [리터럴 타입](#리터럴-타입)
+  - [인터페이스](#인터페이스)
+  - [클래스](#클래스)
+  - [readonly](#readonly)
+  - [satisfies](#satisfies)
   - [enum](#enum)
   - [타입 추론](#타입-추론)
 - [참고 자료](#참고-자료)
@@ -49,6 +53,8 @@ comments: false
 ## 개요
 
 `타입스크립트(TypeScript)`에 대해 정리한 페이지입니다.
+
+<b>타입스크립트 개념이 방대하므로 지속적으로 업데이트하는 중입니다.</b>
 
 ## 타입스크립트란?
 
@@ -496,6 +502,157 @@ let size2: Size = 20;
 let size3: Size = 30;
 let size4: Size = 40; // Error: Type '40' is not assignable to type 'Size'.ts(2322)
 ```
+
+### 인터페이스
+
+`인터페이스(Interface)`는 `타입 별칭`보다 더 읽기 쉬운 오류 메세지, 더 빠른 컴파일러 성능, 클래스와 함께 사용할 수 있는 장점을 제공합니다.
+
+`type`과 `interface`를 비교하면 다음과 같습니다.
+
+| type                                                        | interface                                   |
+| ----------------------------------------------------------- | ------------------------------------------- |
+| 기존 타입 또는 새 타입을 생성하는데 사용                    | 객체 타입의 구조를 정의하는데 사용          |
+| 다른 타입 또는 인터페이스를 상속하거나 구현할 수 없음       | 다른 인터페이스를 상속하거나 구현할 수 있음 |
+| 리터럴 타입, Union 타입, Intersection 타입을 사용할 수 있음 | `extends` 키워드로 인터페이스 확장이 가능함 |
+| 간단한 타입 별칭을 생성할 때 적합                           | 잘 정의된 구조의 객체 타입을 정의할 때 적합 |
+
+`type`과 `interface`를 사용한 예시는 다음과 같습니다.
+
+```typescript
+type PersonType = { name: string; age: number };
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+let personType: PersonType = { name: "HyunJinNo", age: 27 };
+
+let person: Person = { name: "HyunJinNo", age: 27 };
+```
+
+다음과 같이 `extends` 키워드를 사용하여 인터페이스 확장이 가능합니다.
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Man extends Person {
+  height: number;
+}
+
+const man: Man = {
+  name: "HyunJinNo",
+  age: 27,
+  height: 182.8,
+};
+```
+
+### 클래스
+
+`class` 키워드를 사용하여 클래스를 정의할 수 있습니다.
+
+```typescript
+class Person {
+  constructor(private firstName: string, private lastName: string) {}
+
+  getName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+const person = new Person("HyunJin", "No");
+console.log(person.getName()); // "HyunJin No"
+```
+
+위의 코드에서 `constructor(private firstName: string, private lastName: string) {}`는 다음 코드와 동일합니다.
+
+```typescript
+class Person {
+  private firstName: string;
+  private lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  getName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+const person = new Person("HyunJin", "No");
+console.log(person.getName()); // "HyunJin No"
+```
+
+`implements` 키워드를 사용하여 인터페이스를 구현할 수 있습니다.
+
+```typescript
+interface IPerson {
+  firstName: string;
+  lastName: string;
+  getName: () => string;
+}
+
+class Person implements IPerson {
+  constructor(public firstName: string, public lastName: string) {}
+
+  getName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+const person = new Person("HyunJin", "No");
+console.log(person.getName()); // "HyunJin No"
+```
+
+`abstract` 키워드를 사용하여 추상 클래스를 정의할 수 있습니다.
+
+```typescript
+interface IPerson {
+  firstName: string;
+  lastName: string;
+  getName: () => string;
+}
+
+abstract class Person implements IPerson {
+  constructor(public firstName: string, public lastName: string) {}
+
+  abstract getName(): string;
+}
+
+class Man extends Person {
+  getName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+const man = new Man("HyunJin", "No");
+console.log(man.getName()); // "HyunJin No"
+```
+
+### readonly
+
+`readonly` 키워드를 사용하면 처음 속성의 값이 결정되면 이후에는 변경할 수 없는 `읽기 전용 속성`을 정의할 수 있습니다.
+
+```typescript
+interface Person {
+  readonly name: string;
+  age: number;
+}
+
+let person: Person = { name: "HyunJinNo", age: 27 };
+
+person.age = 28;
+person.name = "HyunJin"; // Error: Cannot assign to 'name' because it is a read-only property.ts(2540)
+```
+
+### satisfies
+
+// TODO
 
 ### enum
 

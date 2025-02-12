@@ -46,10 +46,17 @@ comments: false
     - [implements](#implements)
     - [abstract](#abstract)
     - [접근 제한자](#접근-제한자)
+  - [readonly](#readonly)
   - [유틸리티 타입](#유틸리티-타입)
     - [Partial](#partial)
-    - [](#)
-    - [readonly](#readonly)
+    - [Required](#required)
+    - [Record](#record)
+    - [Omit](#omit)
+    - [Pick](#pick)
+    - [Exclude](#exclude)
+    - [ReturnType](#returntype)
+    - [Parameters](#parameters)
+    - [Readonly](#readonly-1)
   - [데코레이터](#데코레이터)
   - [satisfies](#satisfies)
   - [enum](#enum)
@@ -667,28 +674,7 @@ console.log(man.getName()); // "HyunJin No"
 | `protected` | 클래스 내부 또는 자식 클래스에서만 접근 가능 |
 | `private`   | 클래스 내부에서만 접근 가능                  |
 
-### 유틸리티 타입
-
-`유틸리티 타입(Utility Types)`은 기본 타입을 변환하거나 조작하는 데 사용할 수 있는 타입입니다. 유틸리티 타입을 사용하면 간결한 방식으로 타입을 정의하거나 이미 정의된 타입을 변환할 수 있습니다.
-
-#### Partial
-
-`Partial` 키워드를 사용하면 객체 내 모든 프로퍼티를 `선택적 속성(Optional Property)`으로 변경할 수 있습니다.
-
-```typescript
-interface Point {
-  x: number;
-  y: number;
-}
-
-const point: Partial<Point> = { x: 1 };
-console.log(point.x); // 1
-console.log(point.y); // undefined
-```
-
-####
-
-#### readonly
+### readonly
 
 `readonly` 키워드를 사용하면 처음 속성의 값이 결정되면 이후에는 변경할 수 없는 `읽기 전용 속성`을 정의할 수 있습니다.
 
@@ -701,6 +687,145 @@ interface Person {
 let person: Person = { name: "HyunJinNo", age: 27 };
 
 person.age = 28;
+person.name = "HyunJin"; // Error: Cannot assign to 'name' because it is a read-only property.ts(2540)
+```
+
+### 유틸리티 타입
+
+`유틸리티 타입(Utility Types)`은 기본 타입을 변환하거나 조작하는 데 사용할 수 있는 타입입니다. 유틸리티 타입을 사용하면 간결한 방식으로 타입을 정의하거나 이미 정의된 타입을 변환할 수 있습니다.
+
+#### Partial
+
+`Partial`을 사용하면 객체 내 모든 프로퍼티를 `선택적 속성(Optional Property)`으로 변경할 수 있습니다.
+
+```typescript
+interface Point {
+  x: number;
+  y: number;
+}
+
+const point: Partial<Point> = { x: 1 };
+console.log(point.x); // 1
+console.log(point.y); // undefined
+```
+
+#### Required
+
+`Required`를 사용하면 객체 내 모든 프로퍼티를 필수 속성으로 변경할 수 있습니다.
+
+```typescript
+interface Point {
+  x: number;
+  y?: number;
+}
+
+const point: Required<Point> = { x: 1, y: 2 };
+console.log(point.x); // 1
+console.log(point.y); // 2
+```
+
+#### Record
+
+`Record`를 사용하면 특정 key 타입과 value 타입을 갖는 객체 타입을 정의할 수 있습니다.
+
+```typescript
+// Record<string, number> === { [key: string]: number }
+const peopleAgeInfo: Record<string, number> = {
+  Alice: 21,
+  Bob: 22,
+};
+```
+
+#### Omit
+
+`Omit`을 사용하면 한 객체 타입에서 특정 프로퍼티를 제외한 새로운 타입을 정의할 수 있습니다.
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+  location: string;
+  gender: string;
+}
+
+const person: Omit<Person, "location" | "gender"> = {
+  name: "HyunJinNo",
+  age: 27,
+};
+```
+
+#### Pick
+
+`Pick`을 사용하면 한 객체 타입에서 특정 프로퍼티만 존재하는 객체 타입을 정의할 수 있습니다.
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+  location: string;
+  gender: string;
+}
+
+const person: Pick<Person, "name" | "age"> = {
+  name: "HyunJinNo",
+  age: 27,
+};
+```
+
+#### Exclude
+
+`Exclude`를 사용하면 `Union` 타입에서 특정 타입을 제외한 새로운 `Union` 타입을 정의할 수 있습니다.
+
+```typescript
+type Type1 = 10 | 20 | 30;
+type Type2 = Exclude<Type1, 20>; // type Type2 = 10 | 30;
+
+type Type3 = string | number | boolean;
+let value: Exclude<Type3, number> = "string";
+value = true;
+```
+
+#### ReturnType
+
+`ReturnType`을 사용하면 특정 함수의 반환 타입으로 구성된 타입을 정의할 수 있습니다.
+
+```typescript
+const myFunc = () => {
+  return "a";
+};
+
+type MyType = ReturnType<typeof myFunc>;
+const value1: MyType = "a";
+const value2: ReturnType<typeof myFunc> = "b";
+```
+
+#### Parameters
+
+`Parameters`를 사용하면 함수의 매개변수 타입들의 튜플 타입을 정의할 수 있습니다.
+
+```typescript
+type MyType1 = (s: string, flag: boolean) => void;
+type MyType2 = (num: number) => number;
+
+type MyType3 = Parameters<MyType1>;
+const value: MyType3 = ["string", true];
+```
+
+#### Readonly
+
+`Readonly`를 사용하면 객체 내 모든 프로퍼티를 `읽기 전용(readonly)`으로 변경할 수 있습니다.
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+const person: Readonly<Person> = {
+  name: "HyunJinNo",
+  age: 27,
+};
+
 person.name = "HyunJin"; // Error: Cannot assign to 'name' because it is a read-only property.ts(2540)
 ```
 
@@ -729,6 +854,7 @@ person.name = "HyunJin"; // Error: Cannot assign to 'name' because it is a read-
 - <a href="https://www.yes24.com/Product/Goods/118379776" target="_blank">Node.js 백엔드 개발자 되기 - 예스24</a>
 - <a href="https://www.w3schools.com/typescript/index.php" target="_blank">TypeScript Tutorial</a>
 - <a href="https://devwiki.co.kr/post/typescript-is" target="_blank">TypeScript "is" Keyword (User-Defined Type Guards)</a>
+- <a href="https://typescript-kr.github.io/" target="_blank">소개 · GitBook</a>
 
 ## Comments
 

@@ -11,7 +11,7 @@ sitemap: true
 comments: false
 ---
 
-<i>last modified at: 2025. 02. 10.</i>
+<i>last modified at: 2025. 02. 12.</i>
 
 <h2>목차</h2>
 
@@ -43,7 +43,14 @@ comments: false
   - [리터럴 타입](#리터럴-타입)
   - [인터페이스](#인터페이스)
   - [클래스](#클래스)
-  - [readonly](#readonly)
+    - [implements](#implements)
+    - [abstract](#abstract)
+    - [접근 제한자](#접근-제한자)
+  - [유틸리티 타입](#유틸리티-타입)
+    - [Partial](#partial)
+    - [](#)
+    - [readonly](#readonly)
+  - [데코레이터](#데코레이터)
   - [satisfies](#satisfies)
   - [enum](#enum)
   - [타입 추론](#타입-추론)
@@ -52,11 +59,15 @@ comments: false
 
 ## 개요
 
+<hr />
+
 `타입스크립트(TypeScript)`에 대해 정리한 페이지입니다.
 
 <b>타입스크립트 개념이 방대하므로 지속적으로 업데이트하는 중입니다.</b>
 
 ## 타입스크립트란?
+
+<hr />
 
 `타입스크립트(TypeScript)`란 자바스크립트에 타입을 추가한 언어입니다. 타입스크립트는 타입을 지정하지 않고 인터프리터가 타입을 유추하는 `동적 타입` 언어인 자바스크립트와 달리, 타입이 같지 않다면 컴파일 에러를 내는 `강 타입` 언어입니다. 확장자로는 `.ts`를 사용하며, 자바스크립트로 컴파일(트랜스파일)되는 언어입니다.
 
@@ -67,6 +78,8 @@ comments: false
 > `강 타입`: <b>타입이 같지 않다면 컴파일 에러</b>를 내는 언어
 
 ## 타입스크립트의 이점
+
+<hr />
 
 타입스크립트를 사용하면 다음과 같은 이점이 있습니다.
 
@@ -103,6 +116,8 @@ comments: false
   타입스크립트 코드 작성 시에 IDE에서 함수 정의와 함수 매개변수 타입을 알고 있기 때문에 <b>코드 자동 완성, 잘못된 변수/함수 사용에 대한 에러 알림</b>과 같은 피드백을 받을 수 있습니다. 이를 통해 순수 자바스크립트를 사용하는 것에 비해 생산성이 크게 향상됩니다.
 
 ## 타입스크립트 개발 환경 구축 방법
+
+<hr />
 
 터미널에서 다음 명령어를 입력하여 타입스크립트를 전역으로 설치합니다.
 
@@ -175,6 +190,8 @@ npm install -g ts-node
 <img src="/assets/img/cs/typescript/pic5.png" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 타입스크립트 문법
+
+<hr />
 
 ### 변수 선언
 
@@ -588,6 +605,8 @@ const person = new Person("HyunJin", "No");
 console.log(person.getName()); // "HyunJin No"
 ```
 
+#### implements
+
 `implements` 키워드를 사용하여 인터페이스를 구현할 수 있습니다.
 
 ```typescript
@@ -608,6 +627,8 @@ class Person implements IPerson {
 const person = new Person("HyunJin", "No");
 console.log(person.getName()); // "HyunJin No"
 ```
+
+#### abstract
 
 `abstract` 키워드를 사용하여 추상 클래스를 정의할 수 있습니다.
 
@@ -634,7 +655,40 @@ const man = new Man("HyunJin", "No");
 console.log(man.getName()); // "HyunJin No"
 ```
 
-### readonly
+#### 접근 제한자
+
+타입스크립트에는 클래스 내에 변수와 메서드에서 사용할 수 있는 `접근 제한자(Access Modifiers)`들이 있습니다. 접근 제한자가 있는 변수와 메서드는 클래스 외부에서 해당 클래스의 구현을 공개할지 여부를 결정합니다. 접근 제한자는 타입스크립트의 기능으로, 자바스크립트로 컴파일된 후에는 제거됩니다.
+
+타입스크립트에서 사용할 수 있는 접근 제한자의 종류는 다음과 같습니다.
+
+| 접근 제한자 | 설명                                         |
+| ----------- | -------------------------------------------- |
+| `public`    | 모든 곳에서 접근 가능(기본값)                |
+| `protected` | 클래스 내부 또는 자식 클래스에서만 접근 가능 |
+| `private`   | 클래스 내부에서만 접근 가능                  |
+
+### 유틸리티 타입
+
+`유틸리티 타입(Utility Types)`은 기본 타입을 변환하거나 조작하는 데 사용할 수 있는 타입입니다. 유틸리티 타입을 사용하면 간결한 방식으로 타입을 정의하거나 이미 정의된 타입을 변환할 수 있습니다.
+
+#### Partial
+
+`Partial` 키워드를 사용하면 객체 내 모든 프로퍼티를 `선택적 속성(Optional Property)`으로 변경할 수 있습니다.
+
+```typescript
+interface Point {
+  x: number;
+  y: number;
+}
+
+const point: Partial<Point> = { x: 1 };
+console.log(point.x); // 1
+console.log(point.y); // undefined
+```
+
+####
+
+#### readonly
 
 `readonly` 키워드를 사용하면 처음 속성의 값이 결정되면 이후에는 변경할 수 없는 `읽기 전용 속성`을 정의할 수 있습니다.
 
@@ -650,6 +704,10 @@ person.age = 28;
 person.name = "HyunJin"; // Error: Cannot assign to 'name' because it is a read-only property.ts(2540)
 ```
 
+### 데코레이터
+
+// TODO
+
 ### satisfies
 
 // TODO
@@ -663,6 +721,8 @@ person.name = "HyunJin"; // Error: Cannot assign to 'name' because it is a read-
 // TODO
 
 ## 참고 자료
+
+<hr />
 
 - <a href="https://velog.io/@jee/%EA%B0%95%ED%83%80%EC%9E%85%EA%B3%BC-%EC%95%BD%ED%83%80%EC%9E%85-%ED%98%B9%EC%9D%80-%EC%A0%95%EC%A0%81%ED%83%80%EC%9E%85%EA%B3%BC-%EB%8F%99%EC%A0%81%ED%83%80%EC%9E%85" target="_blank">강타입과 약타입 혹은 정적타입과 동적타입</a>
 - <a href="https://www.heropy.dev/p/WhqSC8" target="_blank">한눈에 보는 타입스크립트 | HEROPY.DEV</a>

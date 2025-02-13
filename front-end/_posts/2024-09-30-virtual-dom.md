@@ -110,7 +110,7 @@ comments: false
 
 - <a href="https://ko.legacy.reactjs.org/docs/reconciliation.html" target="_blank">재조정 (Reconciliation) – React</a>
 - <a href="https://yceffort.kr/2022/04/deep-dive-in-react-rendering" target="_blank">리액트의 렌더링은 어떻게 일어나는가?</a>
-- <a href="https://hyunjinlee.com/blog/%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EB%A0%8C%EB%8D%94%EB%A7%81%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%9D%B4%ED%95%B4" target="_blank">리액트 렌더링에 대한 이해>
+- <a href="https://hyunjinlee.com/blog/%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EB%A0%8C%EB%8D%94%EB%A7%81%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%9D%B4%ED%95%B4" target="_blank">리액트 렌더링에 대한 이해</a>
 
 ## Comments
 

@@ -189,7 +189,7 @@ export const useSurveyContentItemList = (
 };
 ```
 
-<video width="360" controls> 
+<video controls> 
 <source src="/assets/video/front-end/debounce-throttle/video1.mp4" type="video/mp4" />
 Your browser does not support the video tag.
 </video>

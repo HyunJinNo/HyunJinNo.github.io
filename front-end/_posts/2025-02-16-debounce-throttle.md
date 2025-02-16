@@ -20,9 +20,11 @@ comments: false
 - [Debounce](#debounce)
   - [동작 원리](#동작-원리)
   - [useDebounce 구현하기](#usedebounce-구현하기)
+  - [사용 예시](#사용-예시)
 - [Throttle](#throttle)
   - [동작 원리](#동작-원리-1)
   - [useThrottle 구현하기](#usethrottle-구현하기)
+  - [사용 예시](#사용-예시-1)
 - [참고 자료](#참고-자료)
 - [Comments](#comments)
 
@@ -112,6 +114,86 @@ timeout.current = setTimeout(() => {
 
 마지막 이벤트가 발생한 후 일정 시간이 지난 후에 함수를 실행하는 코드입니다.
 
+### 사용 예시
+
+```typescript
+/* useSurveyContentItemList.ts */
+
+import { BACKEND_URL } from "@env";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useDebounce } from "@src/hooks/common/useDebounce";
+import { getNewAccessToken } from "@src/libs/getNewAccessToken";
+import { ContentTitleSchema } from "@src/libs/zod/ContentTitleSchema";
+import { SurveyContent, SurveyContentList } from "@src/types/survey";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import EncryptedStorage from "react-native-encrypted-storage";
+
+export const useSurveyContentItemList = (
+  contentCategory: "DRAMA" | "ARTIST" | "MOVIE" | "ENTERTAINMENT"
+) => {
+  const { data } = useSuspenseQuery<SurveyContentList>({
+    queryKey: ["surveyContentItemList", contentCategory],
+    queryFn: async () => {
+      const accessToken = await EncryptedStorage.getItem("access_token");
+      const response = await fetch(
+        `${BACKEND_URL}/api/media?type=${contentCategory}&page=0&size=636`,
+        { method: "GET", headers: { Cookie: `access_token=${accessToken}` } }
+      );
+
+      if (response.status === 401) {
+        await getNewAccessToken();
+        throw new Error("Access token has expired.");
+      }
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch data.");
+      }
+
+      return await response.json();
+    },
+    staleTime: 1000 * 60 * 10,
+    gcTime: 1000 * 60 * 30,
+    retry: 1,
+  });
+
+  const methods = useForm<{ title: string }>({
+    resolver: zodResolver(ContentTitleSchema),
+    defaultValues: { title: "" },
+    mode: "onChange",
+  });
+
+  const [surveyContentList, setSurveyContentList] = useState<SurveyContent[]>(
+    data.content
+  );
+
+  const handleFiltering = useDebounce(
+    () =>
+      setSurveyContentList(
+        data.content.filter((content) =>
+          content.mediaName
+            .replaceAll(" ", "")
+            .includes(methods.watch("title").replaceAll(" ", ""))
+        )
+      ),
+    300
+  );
+
+  useEffect(() => {
+    handleFiltering();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [methods.watch("title")]);
+
+  return { surveyContentList, methods };
+};
+```
+
+<video width="360" controls> 
+<source src="/assets/video/front-end/debounce-throttle/video1.mp4" type="video/mp4" />
+Your browser does not support the video tag.
+</video>
+
 ## Throttle
 
 <hr />
@@ -180,6 +262,77 @@ timeout.current = setTimeout(() => {
 ```
 
 함수 호출 후 일정 시간이 지난 후에 함수를 실행할 수 있도록 타이머를 설정하는 부분입니다.
+
+### 사용 예시
+
+```typescript
+/* LobbyItem.tsx */
+
+"use client";
+
+import { Room } from "@/types/room";
+import UsersIcon from "../common/icons/UsersIcon";
+import { ROOM_STATUS } from "@/constants/roomStatus";
+import { useSocketStore } from "@/stores/socketStore";
+import { useThrottle } from "@/hooks/utils/useThrottle";
+
+interface LobbyItemProps {
+  room: Room;
+  setTargetRoom: () => void;
+}
+
+const LobbyItem = ({ room, setTargetRoom }: LobbyItemProps) => {
+  const { socket } = useSocketStore();
+
+  const enterRoom = useThrottle(() => {
+    setTargetRoom();
+    socket?.emit("enter-room", { roomId: room.roomId });
+  }, 2000);
+
+  return (
+    <div
+      className={[
+        `${
+          (room.participants === room.capacity || room.status === "RUNNING") &&
+          "opacity-50"
+        }`,
+        "flex h-60 flex-col justify-between rounded-3xl border border-slate-200 bg-slate-600/50 p-6 duration-300 hover:bg-slate-400/50",
+      ].join(" ")}
+    >
+      <div className="flex h-8 w-20 items-center justify-center rounded-2xl border border-blue-200 bg-blue-50 text-xs text-blue-800">
+        {ROOM_STATUS[room.status]}
+      </div>
+      <div className="flex flex-col gap-3">
+        <h2 className="line-clamp-2 text-lg text-white">{room.title}</h2>
+        <p className="text-sm text-slate-200">{room.owner}</p>
+        <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center gap-2">
+            <UsersIcon />
+            <p className="text-white">
+              {room.participants} /{" "}
+              <span className="font-bold">{room.capacity}</span>
+            </p>
+          </div>
+          {room.participants === room.capacity || room.status === "RUNNING" ? (
+            <div className="flex h-9 w-[7.5rem] cursor-not-allowed items-center justify-center rounded-2xl bg-white text-sm font-semibold text-slate-800">
+              참가하기
+            </div>
+          ) : (
+            <button
+              className="flex h-9 w-[7.5rem] items-center justify-center rounded-2xl bg-white text-sm font-semibold text-slate-800 hover:scale-105"
+              onClick={() => enterRoom()}
+            >
+              참가하기
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LobbyItem;
+```
 
 ## 참고 자료
 

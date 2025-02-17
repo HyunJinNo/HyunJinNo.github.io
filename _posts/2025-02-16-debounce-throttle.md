@@ -1,7 +1,7 @@
 ---
 title: Debounce와 Throttle
 description: Debounce와 Throttle에 대해 정리한 페이지입니다.
-date: 2025-02-16 18:00:00 +/-TTTT
+date: 2025-02-16 18:00:00 +0900
 categories: [Front-end]
 tags: [typescript, debounce, throttle]
 math: true

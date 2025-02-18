@@ -236,6 +236,6 @@ Your browser does not support the video format. Please try a different browser.
 <hr />
 
 - <a href="https://reactnative.dev/docs/modal" target="_blank">Modal · React Native</a>
-- <a href="https://reactnative.dev/docs/virtualizedlist" target="_blank">Virtualizedlist · React Native</a>
+- <a href="https://reactnative.dev/docs/virtualizedlist" target="_blank">VirtualizedList · React Native</a>
 - <a href="https://reactnative.dev/docs/flatlist" target="_blank">FlatList · React Native</a>
 - <a href="https://mycodings.fly.dev/blog/2024-06-29-react-native-tutorial-8-list-rendering-flatlist-sectionlist" target="_blank">리액트 네이티브 강좌. 8편 - 리스트 렌더링하기 그리고 FlatList, SectionList 사용하기</a>

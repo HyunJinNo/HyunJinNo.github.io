@@ -476,8 +476,8 @@ const getLatestNewsList = async (page: Page) => {
 위에서 작성한 웹 스크래핑 코드를 통해 웹 스크래핑한 결과는 다음과 같습니다.
 
 <video width="720" controls> 
-<source src="/assets/video/back-end/puppeteer/video1.mp4" type="video/mp4" />
-Your browser does not support the video tag.
+<source src="/assets/video/back-end/puppeteer/video1.webm" type="video/webm" />
+Your browser does not support the video format. Please try a different browser.
 </video>
 
 ## 참고 자료

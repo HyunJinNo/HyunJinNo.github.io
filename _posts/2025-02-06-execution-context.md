@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/cs/study.jpg
+  path: /assets/img/cs/study.webp
 comments: true
 ---
 

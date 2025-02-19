@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/naver-boostcamp-9th/naver-boostcamp-9th.jpg
+  path: /assets/img/naver-boostcamp-9th/naver-boostcamp-9th.webp
 comments: true
 ---
 

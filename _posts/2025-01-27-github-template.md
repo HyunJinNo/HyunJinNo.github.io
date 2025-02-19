@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/etc/github-template/github-log.jpg
+  path: /assets/img/etc/github-template/github-log.webp
 comments: true
 ---
 

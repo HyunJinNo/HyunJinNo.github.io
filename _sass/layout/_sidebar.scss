@@ -17,7 +17,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
   overflow-y: auto;
   width: v.$sidebar-width;
   // background: var(--sidebar-bg);
-  background-image: url('/assets/img/background/background2.jpg'); /*사용하고 싶은 이미지 경로*/
+  background-image: url('/assets/img/background/background.webp'); /*사용하고 싶은 이미지 경로*/
   border-right: 1px solid var(--sidebar-border-color);
   background-size: cover;
   background-position: center;

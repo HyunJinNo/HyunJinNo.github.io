@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/raspberry-pi/raspberry-pi.jpg
+  path: /assets/img/raspberry-pi/raspberry-pi.webp
 comments: true
 ---
 

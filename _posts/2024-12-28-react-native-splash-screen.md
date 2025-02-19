@@ -130,8 +130,8 @@ android.enableJetifier=true
 <br/>
 
 <video width="360" controls> 
-<source src="/assets/video/front-end/react-native-splash-screen/video1.mp4" type="video/mp4" />
-Your browser does not support the video tag.
+<source src="/assets/video/front-end/react-native-splash-screen/video1.webm" type="video/webm" />
+Your browser does not support the video format. Please try a different browser.
 </video>
 
 ## 참고 자료

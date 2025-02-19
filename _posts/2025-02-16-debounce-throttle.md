@@ -176,8 +176,8 @@ export const useSurveyContentItemList = (
 ```
 
 <video controls> 
-<source src="/assets/video/front-end/debounce-throttle/video1.mp4" type="video/mp4" />
-Your browser does not support the video tag.
+<source src="/assets/video/front-end/debounce-throttle/video1.webm" type="video/webm" />
+Your browser does not support the video format. Please try a different browser.
 </video>
 
 ## Throttle

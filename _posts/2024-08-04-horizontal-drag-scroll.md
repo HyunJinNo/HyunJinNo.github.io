@@ -334,8 +334,8 @@ const scrollHook = useDragScroll();
 좌우 드래그 스크롤을 적용한 테스트 결과는 다음과 같습니다.
 
 <video width="480" controls> 
-<source src="/assets/video/front-end/drag-scroll/video1.mp4" type="video/mp4" />
-Your browser does not support the video tag.
+<source src="/assets/video/front-end/drag-scroll/video1.webm" type="video/webm" />
+Your browser does not support the video format. Please try a different browser.
 </video>
 
 ## 참고 자료

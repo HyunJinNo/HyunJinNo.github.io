@@ -30,9 +30,9 @@ comments: true
 
 먼저 사용자가 주소창에 URL을 입력하면 브라우저는 URL을 IP 주소로 변환하기 위해 `DNS(Domain Name System)` 서버에 쿼리를 보냅니다. DNS 서버는 도메인 이름을 IP 주소로 변환하여 브라우저에 반환하고, 브라우저는 해당 IP 주소를 통해 서버에 HTTP/HTTPS 요청을 보냅니다. 요청을 받은 서버는 HTML 문서와 함께 CSS, JavaScript, 이미지 등 웹 페이지를 구성하는 모든 리소스를 클라이언트로 전달합니다.
 
-<img src="/assets/img/front-end/browser-rendering-process/pic1.png" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/browser-rendering-process/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-<img src="/assets/img/front-end/browser-rendering-process/pic2.png" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/browser-rendering-process/pic2.webp" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ### Step 2 - HTML 파싱 및 DOM 트리 생성
 

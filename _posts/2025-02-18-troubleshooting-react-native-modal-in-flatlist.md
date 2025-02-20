@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/front-end/react-native-basic/react-native-logo.png
+  path: /assets/img/front-end/react-native-logo.webp
 comments: true
 ---
 

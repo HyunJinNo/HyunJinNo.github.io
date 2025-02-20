@@ -117,12 +117,12 @@ npm install puppeteer-core
 이번 글에서는 웹 스크래핑 예시로 네이버 뉴스 데이터를 추출해 보겠습니다. 다음 두 웹 페이지에서 언론사별 뉴스와 최신 뉴스 데이터를 추출하겠습니다.
 
 <figure>
-<img src="/assets/img/back-end/puppeteer/pic1.png" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/back-end/puppeteer/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption><a href="https://www.naver.com/" target="_blank">https://www.naver.com/</a></figcaption>
 </figure>
 
 <figure>
-<img src="/assets/img/back-end/puppeteer/pic2.png" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/back-end/puppeteer/pic2.webp" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption><a href="https://news.naver.com/main/list.naver?mode=LSD&mid=sec&sid1=001&listType=title" target="_blank">https://news.naver.com/main/list.naver?mode=LSD&mid=sec&sid1=001&listType=title</a></figcaption>
 </figure>
 

@@ -23,7 +23,7 @@ Notion</p></blockquote>
 
 <a href="https://hyunjinno.notion.site/Team-Project-Template-d0f1e6799c51403dae045d8202df250f" target="_blank">Team Project Template</a>
 
-<img src="/assets/img/etc/notion-team-project-template/pic1.png" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/etc/notion-team-project-template/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 템플릿 미리보기
 
@@ -31,4 +31,4 @@ Notion</p></blockquote>
 
 ### Info.
 
-<img src="/assets/img/etc/notion-team-project-template/pic2.png" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/etc/notion-team-project-template/pic2.webp" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>

@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/design-patterns/laptop.webp
+  path: /assets/img/design-patterns/laptop.avif
 comments: true
 ---
 

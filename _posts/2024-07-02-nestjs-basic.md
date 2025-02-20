@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/back-end/back-end.webp
+  path: /assets/img/back-end/back-end.avif
 comments: true
 ---
 
@@ -42,7 +42,7 @@ npx @nestjs/cli new [프로젝트 이름]
 
 자신이 사용하는 운영체제에 따라 다음과 같이 `Delete `␍` eslint (prettier/prettier)` 오류가 발생할 수 있습니다.
 
-<img src="/assets/img/back-end/nestjs-basic/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/back-end/nestjs-basic/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 이 오류가 발생하는 경우 `.eslintrc.js` 파일을 열고 다음과 같이 `endOfLine`에 내용을 추가하거나 변경하면 됩니다.
 
@@ -375,10 +375,10 @@ npm run start:prod // production 모드로 실행할 때 사용
 
 ### 게시글 작성
 
-<img src="/assets/img/back-end/nestjs-basic/pic2.webp" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/back-end/nestjs-basic/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-<img src="/assets/img/back-end/nestjs-basic/pic3.webp" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/back-end/nestjs-basic/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ### 게시글 조회
 
-<img src="/assets/img/back-end/nestjs-basic/pic4.webp" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/back-end/nestjs-basic/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>

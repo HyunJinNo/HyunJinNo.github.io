@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/front-end/front-end.webp
+  path: /assets/img/front-end/front-end.avif
 comments: true
 ---
 

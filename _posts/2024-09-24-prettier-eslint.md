@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/front-end/front-end.webp
+  path: /assets/img/front-end/front-end.avif
 comments: true
 ---
 
@@ -34,9 +34,9 @@ eslint v9.11.1 </p></blockquote>
 
 먼저 다음과 같이 VSCode에서 Extensions 탭을 클릭하여 `Prettier - Code formatter`와 `ESLint`를 검색하여 설치합니다.
 
-<img src="/assets/img/front-end/prettier-eslint/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/prettier-eslint/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-<img src="/assets/img/front-end/prettier-eslint/pic2.webp" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/prettier-eslint/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Step 2 - Prettier 설정하기
 
@@ -153,23 +153,23 @@ Prettier 규칙을 설정하려면 다음과 같이 `.prettierrc` 설정 파일�
 
 파일을 저장할 때마다 자동으로 코드 포맷팅을 적용하려면 VSCode 설정에서 다음과 같이 `Editor: Format On Save` 항목을 체크하면 됩니다.
 
-<img src="/assets/img/front-end/prettier-eslint/pic3.webp" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/prettier-eslint/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-<img src="/assets/img/front-end/prettier-eslint/pic4.webp" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/prettier-eslint/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br />
 
 이후 `Default Formatter`를 `Prettier - Code formatter`로 변경합니다.
 
-<img src="/assets/img/front-end/prettier-eslint/pic5.webp" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/prettier-eslint/pic5.avif" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br />
 
 마지막으로 `settings.json` 파일을 확인하여 `"editor.formatOnSave": true`로 설정되어 있는지 확인합니다.
 
-<img src="/assets/img/front-end/prettier-eslint/pic6.webp" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/prettier-eslint/pic6.avif" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-<img src="/assets/img/front-end/prettier-eslint/pic7.webp" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/prettier-eslint/pic7.avif" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Step 3 - ESLint 설정하기
 

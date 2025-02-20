@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/front-end/react-native-logo.webp
+  path: /assets/img/front-end/react-native-logo.avif
 comments: true
 ---
 
@@ -35,7 +35,7 @@ npm install react-native-splash-screen
 
 다음과 같이 `android/app/src/main/res/drawable` 폴더에 스플래시 화면에 표시할 이미지를 추가합니다.
 
-<img src="/assets/img/front-end/react-native-splash-screen/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-splash-screen/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Step 3 - 스플래시 화면 생성하기
 

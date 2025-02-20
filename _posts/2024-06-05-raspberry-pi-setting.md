@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/raspberry-pi/raspberry-pi.webp
+  path: /assets/img/raspberry-pi/raspberry-pi.avif
 comments: true
 ---
 
@@ -33,7 +33,7 @@ OS: Raspberry Pi OS (64 bit) </p></blockquote>
 
 ### Raspberry Pi Imager 설치하기
 
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem" />
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem" />
 
 Install 버튼을 눌러 Raspberry Pi Imager를 설치합니다.
 
@@ -41,7 +41,7 @@ Install 버튼을 눌러 Raspberry Pi Imager를 설치합니다.
 
 먼저 자신의 PC에 SD카드를 삽입합니다. 그리고 방금 설치한 Raspberry Pi Imager를 실행합니다.
 
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic2.webp" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ### 디바이스 선택
 
@@ -55,7 +55,7 @@ Install 버튼을 눌러 Raspberry Pi Imager를 설치합니다.
 
 **저장소 선택**을 클릭하여 OS를 설치하려는 SD카드를 선택합니다.
 
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic3.webp" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ### 다음
 
@@ -63,28 +63,28 @@ Install 버튼을 눌러 Raspberry Pi Imager를 설치합니다.
 
 ### OS 커스터마이징
 
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic4.webp" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 이미지 설치에 앞서 os 커스터마이징을 진행합니다. 추후 PuTTY를 사용하여 원격 접속을 위해 필요합니다.
 
 <br />
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic5.webp" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic5.avif" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 위와 같이 <b>사용자 이름 및 비밀번호 설정</b>, <b>무선 LAN 설정</b> 등이 가능합니다. 무선 LAN 설정의 경우, 원격 접속하려는 PC와 동일한 WI-FI를 선택하면 됩니다.
 
 <br />
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic6.webp" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem" />
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic6.avif" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem" />
 
 추후 원격접속을 통해 Raspberry Pi를 사용할 수 있도록 <b>SSH 사용</b>을 선택합니다.
 
 ### 설치
 
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic7.webp" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic7.avif" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 설치가 완료될 때까지 대기합니다.
 
 <br />
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic8.webp" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic8.avif" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 설치가 완료되면 SD카드를 PC에서 제거한 뒤 Raspberry Pi에 삽입합니다.
 
@@ -108,17 +108,17 @@ Putty는 윈도우 환경에서 리눅스 서버나 다른 원격 시스템에 S
 
 설치한 PuTTY를 실행합니다.
 
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic9.webp" alt="pic9" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic9.avif" alt="pic9" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 Home Name (or IP address) 부분에 위에서 확인한 IP 주소를 입력합니다. 그리고 Port 부분에는 `22`를 입력합니다.
 
 Open 버튼을 누르면 아래와 같은 화면이 나타난다면 접속에 성공한 것입니다.
 
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic10.webp" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic10.avif" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br />
 
 OS 커스터마이징 부분에서 설정한 아이디와 비밀번호를 순서대로 입력합니다.
 아래와 같은 화면이 나타난다면 원격 접속이 완료된 것입니다.
 
-<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic11.webp" alt="pic11" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic11.avif" alt="pic11" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>

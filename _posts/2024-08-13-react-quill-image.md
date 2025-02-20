@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/front-end/front-end.webp
+  path: /assets/img/front-end/front-end.avif
 comments: true
 ---
 
@@ -525,7 +525,7 @@ const QuillEditorContainer = dynamic(
 
 테스트 결과는 다음과 같습니다.
 
-<img src="/assets/img/front-end/react-quill-image/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-quill-image/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 더 알아보기
 

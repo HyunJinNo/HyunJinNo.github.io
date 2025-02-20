@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/front-end/react-native-logo.webp
+  path: /assets/img/front-end/react-native-logo.avif
 comments: true
 ---
 
@@ -44,13 +44,13 @@ node -v
 npm -v
 ```
 
-<img src="/assets/img/front-end/react-native-basic/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ### JDK 설치하기
 
 Android를 대상으로 `React Native` 개발 환경을 설정하기 위해선 `Java SE Development Kit (JDK)`가 필요합니다. Android 개발을 하려면 `JDK 11` 이상이 필요합니다. 공식 문서에서는 높은 버전의 JDK를 사용하면 문제가 발생할 수 있으므로 `JDK 17`을 권장하고 있습니다.
 
-<img src="/assets/img/front-end/react-native-basic/pic2.webp" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
@@ -59,25 +59,25 @@ Android를 대상으로 `React Native` 개발 환경을 설정하기 위해선 `
 <a href="https://jdk.java.net/java-se-ri/17" target="_blank">Java Platform, Standard Edition 17 Reference
 Implementations</a>
 
-<img src="/assets/img/front-end/react-native-basic/pic3.webp" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
 다운로드한 파일을 다음과 같이 압축 해제합니다.
 
-<img src="/assets/img/front-end/react-native-basic/pic4.webp" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
 이후 `시스템 환경 변수 편집 > 환경 변수`으로 이동한 후 다음과 같이 변수 이름에 `JAVA_HOME`을, 변수 값에 방금 설치한 `openJDK 17`의 경로를 지정하여 새로운 시스템 변수를 생성합니다.
 
-<img src="/assets/img/front-end/react-native-basic/pic5.webp" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic5.avif" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
 이후 시스템 변수 path의 편집 버튼을 누른 뒤 다음과 같이 `%JAVA_HOME%\bin`을 추가합니다.
 
-<img src="/assets/img/front-end/react-native-basic/pic6.webp" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic6.avif" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
@@ -87,7 +87,7 @@ Implementations</a>
 java --version
 ```
 
-<img src="/assets/img/front-end/react-native-basic/pic7.webp" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic7.avif" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ### VSCode 설치하기
 
@@ -105,25 +105,25 @@ java --version
 `Android Studio`를 설치한 후 SDK Manager 항목을 클릭합니다. 이후 `SDK Platforms`에서 `Show Package Details`을 체크한 후 `Android SDK Platform 35`와
 `Intel x86 Atom_64 System Image` 항목을 체크합니다.
 
-<img src="/assets/img/front-end/react-native-basic/pic8.webp" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic8.avif" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
 그 후 `SDK Tools` 탭에서 `Show Package Details`을 체크한 후 `Android SDK Build-Tools`의 `35.0.0` 항목을 체크한 후 Apply 버튼을 클릭하여 Android SDK와 관련된 빌드 도구들을 설치합니다.
 
-<img src="/assets/img/front-end/react-native-basic/pic9.webp" alt="pic9" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic9.avif" alt="pic9" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
 이후 `시스템 환경 변수 편집 > 환경 변수`으로 이동한 후 다음과 같이 변수 이름에 `ANDROID_HOME`을, 변수 값에 방금 설치한 `Android SDK`의 경로를 지정하여 새로운 사용자 변수를 생성합니다.
 
-<img src="/assets/img/front-end/react-native-basic/pic10.webp" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic10.avif" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
 이후 사용자 변수 path의 편집 버튼을 누른 뒤 다음과 같이 `platform-tools` 경로를 추가합니다.
 
-<img src="/assets/img/front-end/react-native-basic/pic11.webp" alt="pic11" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic11.avif" alt="pic11" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
@@ -134,9 +134,9 @@ Get-ChildItem -Path Env:\
 adb --version
 ```
 
-<img src="/assets/img/front-end/react-native-basic/pic12.webp" alt="pic12" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic12.avif" alt="pic12" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-<img src="/assets/img/front-end/react-native-basic/pic13.webp" alt="pic13" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic13.avif" alt="pic13" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Step 2 - React Native 애플리케이션 생성하기
 
@@ -158,7 +158,7 @@ npx @react-native-community/cli@latest init <프로젝트 이름>
 
 먼저 안드로이드 기기에서 `설정 > 개발자 옵션`으로 들어간 후 `USB 디버깅`을 활성화합니다. 만약 개발자 옵션이 보이지 않는 경우 `설정 -> 휴대전화 정보 > 소프트웨어 정보`에 들어간 후 `빌드번호` 항목을 여러 번 탭합니다.
 
-<img src="/assets/img/front-end/react-native-basic/pic14.webp" alt="pic14" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic14.avif" alt="pic14" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
@@ -168,7 +168,7 @@ npx @react-native-community/cli@latest init <프로젝트 이름>
 adb devices
 ```
 
-<img src="/assets/img/front-end/react-native-basic/pic15.webp" alt="pic15" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic15.avif" alt="pic15" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
@@ -178,7 +178,7 @@ adb devices
 adb reverse tcp:8081 tcp:8081
 ```
 
-<img src="/assets/img/front-end/react-native-basic/pic16.webp" alt="pic16" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic16.avif" alt="pic16" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <br/>
 
@@ -281,7 +281,7 @@ Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.L
  💡 JavaScript logs will be removed from Metro in React Native 0.77! Please use React Native DevTools as your default tool. Tip: Type j in the terminal to open (requires Google Chrome or Microsoft Edge).
 ```
 
-<img src="/assets/img/front-end/react-native-basic/pic17.webp" alt="pic17" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/react-native-basic/pic17.avif" alt="pic17" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 참고 자료
 

@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/chess/dgt-pi-chess-computer/pic0.webp
+  path: /assets/img/chess/dgt-pi-chess-computer/pic0.avif
 comments: true
 ---
 
@@ -25,42 +25,42 @@ comments: true
 <a href="../dgt-bluetooth-e-board">DGT Bluetooth Rosewood e-board 구매 후기</a>
 
 <br />
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 최근 몇 달간 높은 환율로 인해 비싼 가격에 부담을 느껴 망설이고 있었는데 houseofstaunton.com에서 크리스마스를 맞이하여 25% 할인해주는 것을 보고 바로 구매하였습니다.
 
 <br />
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic2.webp" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>DGT Pi Chess Computer for DGT Boards</figcaption>
 </figure>
 
 <br />
 DGT Pi를 구매했더니 다음 Catalog가 왔습니다. 비싼 가격이 인상적...
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic3.webp" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic4.webp" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic5.webp" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic5.avif" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>2022 Chess Catalog</figcaption>
 </figure>
 
 <br />
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic6.webp" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic6.avif" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>개봉 직후의 모습</figcaption>
 </figure>
 
 <br />
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic7.webp" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic7.avif" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>내용물</figcaption>
 </figure>
 
 <br />
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic8.webp" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic8.avif" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>DGT Pi를 사용하기 위해 필요한 AA 건전지 2개</figcaption>
 </figure>
 
@@ -68,29 +68,29 @@ DGT Pi를 사용하려면 AA 건전지 2개가 필요합니다. 설명서에 따
 
 <br />
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic9.webp" alt="pic9" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic9.avif" alt="pic9" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>DGT Pi를 사용하기 위해 필요한 케이블. 케이블없이 시계로만 사용할 수 있지만, 컴퓨터로 사용할 경우 반드시 필요합니다.</figcaption>
 </figure>
 
 <br />
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic10.webp" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic10.avif" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic11.webp" alt="pic11" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic11.avif" alt="pic11" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic12.webp" alt="pic12" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic12.avif" alt="pic12" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>시계로 사용할 때의 설명서</figcaption>
 </figure>
 
 시계로 사용할 때의 정보도 많이 있지만 이번 글에서는 생략하도록 하겠습니다.
 
 <br />
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic13.webp" alt="pic13" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic13.avif" alt="pic13" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic14.webp" alt="pic14" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic14.avif" alt="pic14" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic15.webp" alt="pic15" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic15.avif" alt="pic15" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>DGP Pi 관련 설명서</figcaption>
 </figure>
 
@@ -98,27 +98,27 @@ DGT Pi를 E-Board와 연결해서 사용할 때의 설명서입니다. 연결 �
 
 <br />
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic16.webp" alt="pic16" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic16.avif" alt="pic16" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>정면</figcaption>
 </figure>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic17.webp" alt="pic17" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic17.avif" alt="pic17" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>후면</figcaption>
 </figure>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic18.webp" alt="pic18" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic18.avif" alt="pic18" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>측면1</figcaption>
 </figure>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic19.webp" alt="pic19" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic19.avif" alt="pic19" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>측면2</figcaption>
 </figure>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic20.webp" alt="pic20" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic20.avif" alt="pic20" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>하단면</figcaption>
 </figure>
 
@@ -126,31 +126,31 @@ DGT Pi를 E-Board와 연결해서 사용할 때의 설명서입니다. 연결 �
 
 <br />
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic21.webp" alt="pic21" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic21.avif" alt="pic21" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>USB 케이블로 E-Board와 연결 가능</figcaption>
 </figure>
 
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic22.webp" alt="pic22" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic22.avif" alt="pic22" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic23.webp" alt="pic23" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic23.avif" alt="pic23" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>시계로 사용할 때의 모습 (18th option)</figcaption>
 </figure>
 
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic24.webp" alt="pic24" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic24.avif" alt="pic24" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic25.webp" alt="pic25" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic25.avif" alt="pic25" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>컴퓨터로 사용할 때 반드시 전원을 연결해야 합니다. (+ 건전지도 반드시 있어야 함)</figcaption>
 </figure>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic26.webp" alt="pic26" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic26.avif" alt="pic26" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>USB로 연결한 상태</figcaption>
 </figure>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic27.webp" alt="pic27" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic27.avif" alt="pic27" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>Bluetooth로 연결한 상태. Bluetooth E-Board와 Bluetooth로 연결 가능</figcaption>
 </figure>
 
@@ -158,29 +158,29 @@ DGT Pi는 USB 또는 Bluetooth 둘 중 하나의 방식을 선택해서 연결�
 
 <br />
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic28.webp" alt="pic28" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic28.avif" alt="pic28" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>Mode 설정할 때 모습</figcaption>
 </figure>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic29.webp" alt="pic29" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic29.avif" alt="pic29" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>Engine을 StockFish8 (난이도는 20 = 약 Elo rating 3100)으로 설정한 모습</figcaption>
 </figure>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic30.webp" alt="pic30" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic30.avif" alt="pic30" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>DGT Pi가 Black로 첫 수로 Nf6를 선택한 모습</figcaption>
 </figure>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic31.webp" alt="pic31" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic31.avif" alt="pic31" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>대국 중에 +버튼을 누르면 Best move 확인 가능</figcaption>
 </figure>
 
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic32.webp" alt="pic32" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic32.avif" alt="pic32" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 <figure>
-<img src="/assets/img/chess/dgt-pi-chess-computer/pic33.webp" alt="pic33" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/chess/dgt-pi-chess-computer/pic33.avif" alt="pic33" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 <figcaption>대국 중에 -버튼을 누르면 해당 포지션의 평가치 확인 가능</figcaption>
 </figure>
 

@@ -17,8 +17,6 @@ Algorithm</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Definition**
   - **부분 합(Partial Sum) 또는 누적 합(Prefix Sum)** 이란 배열의 각 위치에 대해 배열의 시작부터 현재 위치까지의 원소의 합을 구하는 것을 말한다.
   - 배열 scores[]에 대해 부분 합 psum[]의 각 원소를 다음과 같이 정의할 수 있다.
@@ -64,8 +62,6 @@ Algorithm</p></blockquote>
   - psum을 미리 계산해 두면 scores[]의 특정 구간의 합을 <b>O(1)</b>에 구할 수 있다. <b>scores[a]부터 scores[b]까지의 합</b>은 <code><b>psum[b] - psum[a - 1]</b></code>으로 계산할 수 있다.
 
 ## How to Use
-
-<hr />
 
 - <b>부분 합 계산하기</b>
 
@@ -145,7 +141,5 @@ Algorithm</p></blockquote>
   ```
 
 ## Examples
-
-<hr />
 
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Partial%20Sum%20(Prefix%20Sum)/CHRISTMAS.ts" target="_blank">CHRISTMAS</a>

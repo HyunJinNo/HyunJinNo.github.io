@@ -21,13 +21,9 @@ react-native v0.76.5 </p></blockquote>
 
 ## ✅ 개요
 
-<hr />
-
 React Native 프로젝트에서 FlatList 내 Modal을 사용하면서 발생한 문제를 해결한 과정에 대해 기록한 페이지입니다.
 
 ## ❓ 문제
-
-<hr />
 
 ### ⚠️ 오류
 
@@ -58,8 +54,6 @@ Your browser does not support the video format. Please try a different browser.
 - 2025년 2월 18일, 오후 2시 30분
 
 ## 📖 해결 과정
-
-<hr />
 
 먼저 문제가 발생하는 상황에 대해 분석하였습니다. 문제 상황을 분석한 결과 Modal 컴포넌트를 포함하는 상위 컴포넌트가 TextInput을 클릭함으로써 키보드에 의해 가려질 때 Modal이 화면이 사라지는 것을 확인하였습니다. 이는 다음과 같이 `React Native`의 `FlatList`를 사용함으로써 발생한 문제였습니다.
 
@@ -232,8 +226,6 @@ Your browser does not support the video format. Please try a different browser.
 </video>
 
 ## 📚 참고 자료
-
-<hr />
 
 - <a href="https://reactnative.dev/docs/modal" target="_blank">Modal · React Native</a>
 - <a href="https://reactnative.dev/docs/virtualizedlist" target="_blank">VirtualizedList · React Native</a>

@@ -17,8 +17,6 @@ Design Pattern, Java</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Purpose**
   - Allows for the **dynamic wrapping** of objects in order to **modify their existing responsibilities** and behaviors.
 - **Use When**
@@ -45,8 +43,6 @@ Design Pattern, Java</p></blockquote>
   - hard to understand if not familiar with the pattern
 
 ## How to Use (Example)
-
-<hr />
 
 - **Decorated Class**
 

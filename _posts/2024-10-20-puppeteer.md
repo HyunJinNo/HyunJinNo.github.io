@@ -22,19 +22,13 @@ Puppeteer-core v23.5.3 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 `Puppeteer` 라이브러리를 활용하여 `웹 스크래핑(Web Scraping)`하는 방법에 대해 설명하겠습니다.
 
 ## Puppeteer란?
 
-<hr />
-
 `Puppeteer` 라이브러리는 Headless Chrome 또는 Headless Chromium 브라우저를 제어하기 위한 Node.js 라이브러리입니다. Puppeteer는 주로 웹 스크래핑, UI 테스트 자동화, 스크린샷 및 PDF 생성 등 다양한 작업에 활용됩니다. Puppeteer는 기본적으로 백그라운드에서 headless(= No visible UI)로 동작하지만, 원한다면 headless 모드를 비활성화해서 실제 브라우저 창을 띄워서 동작하도록 할 수 있습니다.
 
 ## Puppeteer의 주요 기능
-
-<hr />
 
 Puppeteer의 주요 기능은 다음과 같습니다.
 
@@ -67,8 +61,6 @@ Puppeteer의 주요 기능은 다음과 같습니다.
   `Single Page Application(SPA)`에서 네트워크 요청이 완료된 이후에 페이지를 처리하는 기능을 지원합니다.
 
 ## Step 1 - Puppeteer 설치하기
-
-<hr />
 
 Puppeteer를 설치하기 위해선 다음 두 가지 명령어 중 하나를 입력하면 됩니다.
 
@@ -111,8 +103,6 @@ npm install puppeteer-core
 저의 경우 개발 환경에 이미 Chrome이 설치되어 있기 때문에 파일 크기를 줄이기 위해 `puppeteer-core`를 설치하였습니다. 또한 제가 자주 사용하는 `Raspberry Pi`의 경우 `Raspberry Pi OS Full 버전`이 설치되어 있으며, Chromium이 기본적으로 설치되어 있기 때문에 브라우저 설치가 불필요하므로 `puppeteer-core`를 선택하였습니다.
 
 ## Step 2 - 웹 스크래핑 코드 작성하기
-
-<hr />
 
 이번 글에서는 웹 스크래핑 예시로 네이버 뉴스 데이터를 추출해 보겠습니다. 다음 두 웹 페이지에서 언론사별 뉴스와 최신 뉴스 데이터를 추출하겠습니다.
 
@@ -471,8 +461,6 @@ const getLatestNewsList = async (page: Page) => {
 
 ## Step 3 - 웹 스크래핑하기
 
-<hr />
-
 위에서 작성한 웹 스크래핑 코드를 통해 웹 스크래핑한 결과는 다음과 같습니다.
 
 <video width="720" controls> 
@@ -481,7 +469,5 @@ Your browser does not support the video format. Please try a different browser.
 </video>
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://pptr.dev/" target="_blank">Puppeteer | Puppeteer</a>

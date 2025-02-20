@@ -17,8 +17,6 @@ Design Pattern, Java</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Purpose**
   - Identifies the **framework of an algorithm**, allowing implementing classes to define the actual behavior.
 - **Use When**
@@ -28,8 +26,6 @@ Design Pattern, Java</p></blockquote>
   - Most or all subclasses need to implement the behavior.
 
 ## Characteristics
-
-<hr />
 
 - The template pattern **defines the steps of an algorithm** and **allows the subclasses to implement one or more of the steps**.
 - Encapsulates an algorithm by creating a template for it.
@@ -43,13 +39,9 @@ Design Pattern, Java</p></blockquote>
 
 ## Hook Method
 
-<hr />
-
 - A **hook** is a method that is declared in the abstract class, but only given an empty or default implementation.
 
 ## How to Use (Example)
-
-<hr />
 
 - **Superclass**
 

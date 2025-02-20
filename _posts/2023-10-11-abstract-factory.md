@@ -17,8 +17,6 @@ Design Pattern, Java</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Purpose**
   - Provide an **interface that delegates creation calls** to one or more concrete classes in order to deliver **specific objects.**
 - **Use When**
@@ -33,8 +31,6 @@ Design Pattern, Java</p></blockquote>
 
 ## Participants
 
-<hr />
-
 - **AbstractFactory**
   - Declares an interface for operations that create abstract product objects.
 - **ConcreteFactory**
@@ -48,8 +44,6 @@ Design Pattern, Java</p></blockquote>
   - **Uses only interfaces** declared by AbstractFactory and AbstractProduct classes.
 
 ## How to Use (Example)
-
-<hr />
 
 - **Abstract Factory**
 

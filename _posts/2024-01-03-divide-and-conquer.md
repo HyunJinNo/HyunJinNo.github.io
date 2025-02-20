@@ -17,8 +17,6 @@ Algorithm</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Definition**
   - **분할 정복(Divide & Conquer)** 은 가장 유명한 알고리즘 디자인 패러다임으로, 분할 정복 알고리즘들은 주어진 문제를 둘 이상의 부분 문제로 나눈 뒤 각 문제에 대한 답을 **재귀 호출**을 이용해 계산하고, 각 부분 문제의 답으로부터 전체 문제의 답을 계산해낸다.
   - 일반적인 재귀 호출이 문제를 한 조각과 나머지 전체로 나누는 것과 달리, **분할 정복은 문제를 거의 같은 크기의 부분 문제로 나눈다**.
@@ -34,15 +32,11 @@ Algorithm</p></blockquote>
 
 ## How to Use
 
-<hr />
-
 1. 문제를 더 작은 문제로 분할한다.
 2. 각 문제에 대한 답을 재귀 호출을 통해 계산한다.
 3. 각 문제에 대해 계산한 답을 원래 문제에 대한 답으로 병합한다.
 
 ## Examples
-
-<hr />
 
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Divide%20And%20Conquer/QUADTREE.java" target="_blank">QUADTREE</a>
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Divide%20And%20Conquer/FENCE.java" target="_blank">FENCE</a>

@@ -23,21 +23,15 @@ typeorm v0.3.20 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 `Express.js`에서 `socket.io`를 활용하여 채팅 애플리케이션을 만드는 방법을 설명하겠습니다. 웹소켓에 대한 개념의 경우 다음 링크에 작성하였으니 참고하시길 바랍니다.
 
 <a href="../websocket">웹소켓 (WebSocket)</a>
 
 ## socket.io란?
 
-<hr />
-
 `socket.io`란 웹소켓을 기반으로 서버와 클라이언트의 양방향 통신을 지원하는 라이브러리입니다. 주로 실시간 웹 애플리케이션을 개발할 때 자주 사용되는 JavaScript 라이브러리입니다. 기본적으로 웹소켓을 지원하며, 웹소켓을 지원하지 않는 브라우저에서는 롱폴링 방식을 사용한 통신을 지원합니다. 또한 재접속, 브로드캐스트, 멀티플렉싱(채팅방) 기능도 제공합니다.
 
 ## socket.io의 특징
-
-<hr />
 
 `socket.io`의 특징은 다음과 같습니다.
 
@@ -66,8 +60,6 @@ typeorm v0.3.20 </p></blockquote>
   네임스페이스 내에서 클라이언트를 그룹으로 묶어 특정 그룹(룸)으로 메세지를 보낼 수 있습니다. 예를 들어, 같은 채팅방에 있는 사용자들에게만 메세지를 전송할 때 유용합니다.
 
 ## Step 1 - 서버 설정하기
-
-<hr />
 
 ### socket.io 패키지 설치하기
 
@@ -258,8 +250,6 @@ chatNamespace.on("connection", async (socket) => {
 
 ## Step 2 - 클라이언트 설정하기
 
-<hr />
-
 ### socket.io-client 패키지 설치하기
 
 먼저 다음 명령어를 입력하여 `socket.io-client` 패키지를 설치합니다.
@@ -397,14 +387,10 @@ const sendMessage = () => {
 
 ## Step 3 - 테스트 결과
 
-<hr />
-
 테스트 결과는 다음과 같습니다.
 
 <img src="/assets/img/back-end/expressjs-socket/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://socket.io" target="_blank">Socket.IO</a>

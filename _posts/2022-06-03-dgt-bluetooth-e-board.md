@@ -20,8 +20,6 @@ comments: true
 
 ## 본문
 
-<hr />
-
 아마존에 재고가 들어온 것을 보자마자 빠르게 구매하였습니다.
 
 <img src="/assets/img/chess/dgt-bluetooth-e-board/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>

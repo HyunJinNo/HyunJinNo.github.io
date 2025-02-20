@@ -20,13 +20,9 @@ OS: Raspberry Pi OS (64 bit)</p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 `GitHub Actions`로 CI/CD 구축 방법에 대해 설명하겠습니다.
 
 ## CI/CD란?
-
-<hr />
 
 CI/CD는 소프트웨어 개발 및 배포 프로세스를 자동화하고 효율화하는 방법론으로, `Continuous Integration(지속적 통합)`과 `Continuous Deployment(지속적 배포)`를 의미합니다.
 
@@ -39,8 +35,6 @@ CI는 새로운 코드 변경 사항을 정기적으로 빌드 및 테스트되�
 CD는 코드가 통합된 후 프로덕션 환경에 배포하는 것을 자동화하는 것을 의미합니다. CD를 활용하면 개발자가 코드를 푸시할 때마다 자동으로 프로덕션에 배포되어, 사용자가 변경 사항을 바로 확인할 수 있습니다. 또한 배포 과정의 오류가 줄어들고, 배포 속도가 빨라진다는 장점이 있습니다.
 
 ## GitHub Actions란?
-
-<hr />
 
 `GitHub Actions`란 GitHub에서 제공하는 `CI/CD(Continuous Integration/Continuous Deployment)` 서비스로, 프로젝트 내의 workflow를 자동화할 수 있게 도와줍니다. 이를 통해 코드 빌드, 테스트, 배포 등의 작업을 GitHub Repository 내에서 직접 설정하고 실행할 수 있습니다. GitHub Actions는 GitHub의 YAML 기반 설정 파일을 통해 다양한 이벤트(Ex. Push, Pull Request 등)에 따라 실행되도록 workflow를 구성할 수 있습니다.
 
@@ -70,8 +64,6 @@ GitHub Actions 구성 요소는 다음과 같습니다.
 
 ## Step 1 - GitHub Actions 시작하기
 
-<hr />
-
 GitHub Actions을 사용하려면 먼저 yml 설정 파일을 생성해야 합니다. yml 설정 파일은 GitHub Repository에서 직접 만들어도 되고, 아니면 VSCode에서 만들어도 됩니다.
 
 ### GitHub Repository에서 만들기
@@ -95,8 +87,6 @@ GitHub Actions을 사용하려면 먼저 yml 설정 파일을 생성해야 합�
 <img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic10.webp" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Step 2 - Workflow 작성하기
-
-<hr />
 
 다음 예시는 Next.js 애플리케이션을 Raspberry Pi에 배포하고자 CI/CD를 구축한 예시입니다.
 
@@ -232,8 +222,6 @@ GitHub Secrets를 사용하려면 먼저 다음과 같이 GitHub Repository 내�
 
 ## Step 3 - CI/CD 테스트하기
 
-<hr />
-
 CI/CD 테스트 결과는 다음과 같습니다.
 
 <img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic8.webp" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
@@ -241,8 +229,6 @@ CI/CD 테스트 결과는 다음과 같습니다.
 <img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic9.webp" alt="pic9" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://docs.github.com/ko/actions" target="_blank">GitHub Actions 설명서</a>
 - <a href="https://github.com/marketplace?type=actions" target="_blank">GitHub Marketplace</a>

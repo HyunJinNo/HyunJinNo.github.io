@@ -25,13 +25,9 @@ class-validator v0.14.1 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 NestJS에서 파이프 사용 방법에 대해 정리한 페이지입니다.
 
 ## 파이프 (Pipe)
-
-<hr />
 
 `NestJS`에서 `파이프(Pipe)`란 입력 데이터의 변환 및 유효성 검사를 담당하는 클래스를 의미합니다. 파이프는 컨트롤러가 처리하기 전에 데이터에 대해 특정한 작업을 수행합니다. 파이프는 주로 두 가지 목적으로 사용됩니다.
 
@@ -43,8 +39,6 @@ NestJS에서 파이프 사용 방법에 대해 정리한 페이지입니다.
   - 유효하지 않은 데이터가 들어오면 요청을 거부하고, 예외를 발생시킬 수 있습니다.
 
 ## 파이프로 유효성 검증하기
-
-<hr />
 
 파이프로 유효성을 검증하는 방법으로는 `NestJS`의 내장 파이프 중 하나인 `ValidationPipe`를 사용하는 방법이 있습니다.
 
@@ -120,8 +114,6 @@ export class UpdateUserDto {
 <a href="https://github.com/typestack/class-validator?tab=readme-ov-file#validation-decorators" target="_blank">https://github.com/typestack/class-validator?tab=readme-ov-file#validation-decorators</a>
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://docs.nestjs.com/pipes" target="_blank">Pipes | NestJS - A progressive Node.js framework</a>
 - <a href="https://docs.nestjs.com/techniques/validation" target="_blank">Validation | NestJS - A progressive Node.js framework</a>

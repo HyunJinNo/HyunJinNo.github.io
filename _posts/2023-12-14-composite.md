@@ -17,8 +17,6 @@ Design Pattern, Java</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Purpose**
   - Facilitates the creation of **object hierarchies** where each object can be treated independently or as a set of nested objects through the same interface.
 - **Use When**
@@ -26,8 +24,6 @@ Design Pattern, Java</p></blockquote>
   - **Objects and compositions of objects** should be treated uniformly.
 
 ## Characteristics
-
-<hr />
 
 - composes objects into **tree** structures to represent **whole-part hierarchies**.
 - lets clients **treat** individual objects and compositions of objects **uniformly**.
@@ -38,8 +34,6 @@ Design Pattern, Java</p></blockquote>
     - since any attempt to perform a child operation on a leaf component will be caught at **compile-time**. However, we lose transparency because now leaf and composite components have different interfaces.
 
 ## Related patterns
-
-<hr />
 
 - **Composite vs Decorator**
   - Both have similar structure diagrams
@@ -52,8 +46,6 @@ Design Pattern, Java</p></blockquote>
   - Provide a way to access the elements of an **aggregate object (=typically uses composite pattern)** sequentially without exposing its underlying representation
 
 ## How to Use (Example)
-
-<hr />
 
 - **Component**
   ```java

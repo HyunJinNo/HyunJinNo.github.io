@@ -23,13 +23,9 @@ mysql2 v3.10.1 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 Express.js 애플리케이션에 TypeORM 적용 방법에 대해 설명하겠습니다.
 
 ## Step 1 - TypeORM 관련 패키지 설치
-
-<hr />
 
 다음 명령어를 입력하여 TypeORM과 MySQL을 사용하기 위한 database driver를 설치합니다.
 
@@ -43,8 +39,6 @@ npm install typeorm reflect-metadata mysql2 dotenv
 ```
 
 ## Step 2 - 폴더 구조
-
-<hr />
 
 먼저 다음과 같이 express.js 폴더 구조를 생성합니다.
 
@@ -69,8 +63,6 @@ npm install typeorm reflect-metadata mysql2 dotenv
 
 ## Step 3 - TypeScript Configuration
 
-<hr />
-
 `TypeORM`에서 `reflect-metadata` 라이브러리를 사용할 수 있도록 `tsconfig.json` 파일을 열고 `compilerOptions` 항목에 다음 옵션들을 추가합니다.
 
 ```json
@@ -87,8 +79,6 @@ npm install typeorm reflect-metadata mysql2 dotenv
 ```
 
 ## Step 4 - .env 파일 생성
-
-<hr />
 
 ### .env 파일이란?
 
@@ -119,8 +109,6 @@ DB_DATABASE=test
 
 ## Step 5 - entity 생성
 
-<hr />
-
 다음과 같이 `/src/entity` 디렉토리에 `Person.ts` 파일을 생성하고 다음과 같이 entity를 생성합니다.
 
 ```typescript
@@ -143,8 +131,6 @@ export class Person {
 ```
 
 ## Step 6 - DataSource Configuration
-
-<hr />
 
 ### DataSource 객체 생성
 
@@ -194,8 +180,6 @@ export default AppDataSource;
 
 ### 초기화
 
-<hr />
-
 `app.ts` 파일을 열고 다음과 같이 database connection에 대한 초기화를 진행합니다.
 
 ```typescript
@@ -238,8 +222,6 @@ AppDataSource.initialize()
 ```
 
 ## Step 7 - TypeORM 사용 예시
-
-<hr />
 
 ### Repository 사용
 

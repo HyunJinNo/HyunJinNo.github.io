@@ -21,13 +21,9 @@ Regex, JavaScript</p></blockquote>
 
 ## 정규 표현식(Regular Expression)이란?
 
-<hr />
-
 `정규 표현식(Regular Expression, RegEx 또는  RegExp)`이란 문자열에서 특정 패턴을 찾거나, 치환하거나, 추출하는 데 사용되는 일종의 형식 언어를 말합니다. 주로 텍스트 검색, 텍스트 처리, 데이터 검증 등에 사용됩니다.
 
 ## 정규 표현식 문법
-
-<hr />
 
 ### 문자 클래스
 
@@ -95,8 +91,6 @@ Regex, JavaScript</p></blockquote>
 - `^\d{3}-\d{3,4}-\d{4}$`: 전화번호
 
 ## 자바스크립트 정규 표현식
-
-<hr />
 
 ### 정규 표현식 생성
 
@@ -186,8 +180,6 @@ console.log(index); // 16
 ```
 
 ## 참고 자료
-
-<hr />
 
 - [https://namu.wiki/w/%EC%A0%95%EA%B7%9C%20%ED%91%9C%ED%98%84%EC%8B%9D](https://namu.wiki/w/%EC%A0%95%EA%B7%9C%20%ED%91%9C%ED%98%84%EC%8B%9D)
 - [https://inpa.tistory.com/entry/JS-%F0%9F%93%9A-%EC%A0%95%EA%B7%9C%EC%8B%9D-RegExp-%EB%88%84%EA%B5%AC%EB%82%98-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-%EC%89%BD%EA%B2%8C-%EC%A0%95%EB%A6%AC#%EC%A0%95%EA%B7%9C%EC%8B%9D\_%EA%B5%AC%EC%84%B1](https://inpa.tistory.com/entry/JS-%F0%9F%93%9A-%EC%A0%95%EA%B7%9C%EC%8B%9D-RegExp-%EB%88%84%EA%B5%AC%EB%82%98-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-%EC%89%BD%EA%B2%8C-%EC%A0%95%EB%A6%AC#%EC%A0%95%EA%B7%9C%EC%8B%9D_%EA%B5%AC%EC%84%B1)

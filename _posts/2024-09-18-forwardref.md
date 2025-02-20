@@ -17,13 +17,9 @@ TypeScript, Next.js, ForwardRef</p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 React에서 컴포넌트에 `ref`를 전달할 때 사용하는 고차 함수인 `forwardRef` 사용 방법에 대해 설명하겠습니다.
 
 ## ref란?
-
-<hr />
 
 ### 개념
 
@@ -63,13 +59,9 @@ TypeScript, Next.js, ForwardRef</p></blockquote>
 
 ## forwardRef란?
 
-<hr />
-
 `forwardRef`란 React에서 컴포넌트에 `ref`를 전달하기 위해 사용하는 고차 함수입니다. 기본적으로 함수형 컴포넌트를 사용하는 경우, 부모 컴포넌트에서 자식 컴포넌트로 `ref`를 전달할 수 없지만, `forwardRef`를 사용하면 부모 컴포넌트에서 자식 컴포넌트로 `ref`를 전달할 수 있습니다. 이를 통해 자식 컴포넌트의 DOM 요소나 다른 컴포넌트의 인스턴스에 직접 접근할 수 있습니다.
 
 ## Step 1 - 자식 컴포넌트
-
-<hr />
 
 TypeScript에서 `forwardRef`를 사용할 때, `props`와 `ref`의 타입을 명시적으로 지정해야 합니다. `ref`는 전달된 DOM 요소나 컴포넌트 인스턴스의 타입을 정의하고, `props`는 해당 컴포넌트에 전달될 프로퍼티를 정의하면 됩니다.
 
@@ -93,8 +85,6 @@ export default MyChildComponent;
 
 ## Step 2 - displayName 설정하기
 
-<hr />
-
 TypeScript에서 `forwardRef`를 사용할 때 **Component definition is missing display name**라는 오류가 발생합니다. 이는 `forwardRef`를 호출할 때 익명 함수를 넘기게 되면 React 개발자 도구에서 해당 컴포넌트의 이름을 알 수 없기 때문에 해당 경고가 발생하는 것입니다. 이를 해결하기 위해 `forwardRef`로 래핑된 컴포넌트에 이름을 `displayName`을 사용하여 설정하면 됩니다.
 
 ```typescript
@@ -117,8 +107,6 @@ export default MyChildComponent;
 ```
 
 ## Step 3 - 부모 컴포넌트
-
-<hr />
 
 부모 컴포넌트에서는 `useRef`를 사용하여 `ref`를 생성하고, 해당 `ref`를 자식 컴포넌트로 전달합니다.
 

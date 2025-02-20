@@ -17,14 +17,10 @@ Algorithm</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Definition**
   - **에라토스테네스의 체(Sieve of Eratosthenes)** 는 주어진 수 n 이하의 모든 소수를 찾아내는데 자주 사용되는 방법이다.
 
 ## How to Use
-
-<hr />
 
 1. 먼저 2부터 n까지의 수를 전부 한 목록에 쓴다.
 2. 그 다음에 이 목록에서 지워지지 않은 수들을 순회하며 각 수의 배수를 지우는 과정을 반복한다. 이 때 지워지지 않은 수를 찾을 때 n이 아니라 sqrt(n)까지만 찾는다.
@@ -32,8 +28,6 @@ Algorithm</p></blockquote>
 4. 이와 같은 과정을 반복하고 나면 결과적으로 남은 수들은 모두 소수가 된다.
 
 ## Examples
-
-<hr />
 
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/Silver%20III/1929.%E2%80%85%EC%86%8C%EC%88%98%E2%80%85%EA%B5%AC%ED%95%98%EA%B8%B0/%EC%86%8C%EC%88%98%E2%80%85%EA%B5%AC%ED%95%98%EA%B8%B0.kt" target="_blank">소수 구하기.kt</a>
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Number%20Theory/Sieve%20of%20Eratosthenes/Sieve_of_Eratosthenes.js" target="_blank">비트마스크를 사용하는 에라토스테네스의 체</a>

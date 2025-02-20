@@ -17,14 +17,10 @@ Algorithm</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Definition**
   - **모듈라 연산(Modular Arithmetic)** 은 모듈로(Modulus) M에 도달하면 다시 0으로 돌아가는 정수들을 가지고 하는 연산을 말한다.
 
 ## How to Use
-
-<hr />
 
 - **모듈라 덧셈, 뺄셈, 곱셈**
   ```java
@@ -50,7 +46,5 @@ Algorithm</p></blockquote>
     ```
 
 ## Examples
-
-<hr />
 
 - <a href="https://github.com/HyunJinNo/Algorithm/tree/main/%EB%B0%B1%EC%A4%80/Gold/11401.%E2%80%85%EC%9D%B4%ED%95%AD%E2%80%85%EA%B3%84%EC%88%98%E2%80%853" target="_blank">11401. 이항 계수 3</a>

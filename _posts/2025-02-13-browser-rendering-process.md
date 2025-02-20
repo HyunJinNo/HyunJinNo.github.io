@@ -16,13 +16,9 @@ comments: true
 
 ## 개요
 
-<hr />
-
 브라우저 렌더링 과정에 대해 정리한 페이지입니다.
 
 ## 브라우저 렌더링 과정
-
-<hr />
 
 `브라우저 렌더링(Browser Rendring)`은 HTML, CSS, JavaScript 등의 웹 페이지 자원을 화면에 그리는 과정을 말합니다. 그리고 `브라우저 렌더링 과정(Browser Rendering Process)`은 웹 페이지를 사용자에게 보여주기 위해 거치는 일련의 과정으로 여러 단계로 구성됩니다. 브라우저 렌더링 과정은 <b>네트워크 요청 → HTML/CSS 파싱 → DOM/CSSOM 생성 → 렌더 트리 생성 → 레이아웃 계산 → 페인팅 → 합성</b>의 순서로 진행됩니다. 브라우저 렌더링 과정을 단계별로 설명하자면 다음과 같습니다.
 
@@ -81,8 +77,6 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 `CSSOM(CSS O
   레이아웃 변화 없이 색상, 배경 등 스타일만 변경되면 리페인트만 일어나며, 레이아웃 재계산없이 다시 화면을 그립니다.
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://developer.mozilla.org/ko/docs/Web/Performance/How_browsers_work" target="_blank">웹페이지를 표시한다는 것: 브라우저는 어떻게 동작하는가 - 웹 성능 | MDN</a>
 - <a href="https://f-lab.kr/insight/understanding-browser-rendering-process-20240711" target="_blank">브라우저 렌더링 과정 이해하기</a>

@@ -20,13 +20,9 @@ OS: Raspberry Pi OS (64 bit) </p></blockquote>
 
 ## 개요
 
-<hr />
-
 라즈베리파이 초기 설정 방법에 대해 정리한 페이지입니다.
 
 ## Step 1 - Raspberry Pi Imager 설치
-
-<hr />
 
 ### Raspberry Pi Imager 설치 파일 다운로드
 
@@ -42,8 +38,6 @@ OS: Raspberry Pi OS (64 bit) </p></blockquote>
 Install 버튼을 눌러 Raspberry Pi Imager를 설치합니다.
 
 ## Step 2 - 운영체제 설치
-
-<hr />
 
 먼저 자신의 PC에 SD카드를 삽입합니다. 그리고 방금 설치한 Raspberry Pi Imager를 실행합니다.
 
@@ -95,8 +89,6 @@ Install 버튼을 눌러 Raspberry Pi Imager를 설치합니다.
 설치가 완료되면 SD카드를 PC에서 제거한 뒤 Raspberry Pi에 삽입합니다.
 
 ## Step 3 - Raspberry Pi 실행 및 접속
-
-<hr />
 
 ### 실행
 

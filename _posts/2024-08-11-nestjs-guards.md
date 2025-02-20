@@ -20,19 +20,13 @@ Node.js v20.11.1 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 NestJS에서 가드 사용 방법에 대해 정리한 페이지입니다.
 
 ## 가드 (Guards)
 
-<hr />
-
 `NestJS`에서 인증할 때 `가드(Guards)`라는 미들웨어를 보편적으로 사용합니다. `가드`는 특정 조건에 따라 요청을 처리할지 거부할지를 결정하는 데 사용되며, 주로 인증 및 권한 부여와 같은 보안 관련 작업을 처리하는 데 초점을 맞춥니다. 가드는 @Injectable 데코레이터가 붙어 있고 CanActivate 인터페이스를 구현한 클래스를 의미합니다. @UseGuards 데코레이터를 사용하여 가드를 사용할 수 있습니다.
 
 ## Step 1 - cookie-parser 패키지
-
-<hr />
 
 `cookie-parser` 패키지는 HTTP 헤더에서 쿠키를 읽기 위해 사용하는 패키지입니다. 다음 명령어를 입력하여 `cookie-parser` 패키지를 설치합니다.
 
@@ -64,8 +58,6 @@ bootstrap();
 ```
 
 ## Step 2 - Guard 클래스 작성하기
-
-<hr />
 
 가드를 사용하려면 다음과 같이 `CanActivate` 인터페이스를 구현해야 합니다. `CanActivate` 인터페이스를 구현하려면 `canActivate()` 메서드를 구현해야 합니다. `canActivate()`는 `boolean` 또는 `Promise<boolean>`을 반환하며 true일 경우 핸들러 메서드를 실행하고 false이면 `403 Forbidden` 에러를 응답합니다.
 
@@ -118,8 +110,6 @@ export class LoginGuard implements CanActivate {
 위의 코드에서 `context`는 `ExecutionContext` 타입으로 주로 Request나 Response 객체를 가져올 때 사용합니다. `context.switchToHttp().getRequest()`와 같이 Request 객체를 가져올 수 있습니다. **가드 내에서 응답에 쿠키를 설정할 수 없다는 점을 주의합니다. 또한 가드는 모든 미들웨어의 실행이 끝난 다음 실행되며 filter나 pipe보다는 먼저 실행됩니다.**
 
 ## Step 3 - 가드 사용하기
-
-<hr />
 
 가드를 사용하려면 다음과 같이 `@UseGuards` 데코레이터를 사용합니다.
 

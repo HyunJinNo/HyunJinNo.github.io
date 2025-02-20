@@ -17,8 +17,6 @@ Algorithm</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Definition**
   - 완전 탐색을 포함해, 유한한 크기의 **탐색 공간(Search space)** 을 뒤지면서 답을 찾아내는 알고리즘들을 **조합 탐색(Combinatorial search)** 이라고 부른다.
     > **탐색 공간(Search space)**: 부분 답과 완성된 답의 잡합
@@ -33,8 +31,6 @@ Algorithm</p></blockquote>
   - 좋은 답을 빨리 찾아내는 기법들을 **탐색의 순서를 바꾸거나, 탐색 시작 전에 탐욕법을 이용해 적당히 좋은 답을 우선 찾아낸다**.
 
 ## Examples
-
-<hr />
 
 - BOARDCOVER2
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Combinatorial%20search/ALLERGY.java" target="_blank">ALLERGY</a>

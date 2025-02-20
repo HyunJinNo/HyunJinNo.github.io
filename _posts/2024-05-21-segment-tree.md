@@ -17,8 +17,6 @@ Algorithm</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - <b>Definition</b>
   - <b>구간 트리(Segment Tree)</b>는 저장된 자료들을 적절히 전처리해 그들에 대한 질의들을 빠르게 대답할 수 있게 구현한 트리이다.
   - 구간 트리는 흔히 <b>일차원 배열의 특정 구간</b>에 대한 질문을 빠르게 대답하는데 사용된다.
@@ -32,8 +30,6 @@ Algorithm</p></blockquote>
   - 구간 트리의 update: <code>O(lg<b>N</b>)</code>
 
 ## How to Use
-
-<hr />
 
 - <b>배열의 구간 최소 쿼리를 해결하기 위한 구간 트리의 구현</b>
 
@@ -157,7 +153,5 @@ Algorithm</p></blockquote>
   ```
 
 ## Examples
-
-<hr />
 
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Segment%20Tree/MORDOR.ts" target="_blank">MORDOR</a>

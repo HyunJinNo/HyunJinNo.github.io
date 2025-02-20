@@ -20,21 +20,15 @@ Node.js v20.11.1 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 Express.js에서 패스포트 및 세션 사용 방법에 대해 설명하는 페이지입니다.
 
 ## 패스포트(Passport)란?
-
-<hr />
 
 `패스포트(Passport)`는 다양한 인증 전략을 간편하게 구현할 수 있게 해주는 인증 미들웨어입니다. 패스포트는 로컬(Local), OAuth, JWT(JSON Web Token) 등 다양한 인증 방식을 지원합니다. 패스포트를 사용하면 인증 로직을 쉽게 분리해서 개발할 수 있습니다.
 
 `strategy`는 패스포트에서 인증 로직 수행을 담당하는 클래스를 의미하며, 패스포트 사용 시 인증 로직은 `Strategy` 파일을 생성해서 사용합니다.
 
 ## 세션(Session)이란?
-
-<hr />
 
 `세션(Session)`이란 서버 측에서 사용자의 상태를 저장하는 방식으로, 사용자가 웹사이트에 접속할 때 생성된 고유한 세션 ID를 통해 서버에서 사용자를 식별할 수 있습니다. 세션 ID는 보통 쿠키에 저장되어 클라이언트로 전송됩니다.
 
@@ -43,8 +37,6 @@ Express.js에서 패스포트 및 세션 사용 방법에 대해 설명하는 �
 `세션(Session)`은 사용자 인증 및 상태 관리를 위한 방법 중 하나로, 세션을 통해 서버는 사용자의 상태를 유지하고, 로그인 상태나 기타 사용자 정보를 지속적으로 관리할 수 있습니다. 세션을 사용하면 서버 자원을 사용하는 것이므로 서버에 부하를 주는 단점이 있지만, 중요한 정보에 대해 위조, 변조, 탈취가 불가능하므로 보안적인 측면에서 더 안전합니다.
 
 ## Step 1 - 패키지 설치하기
-
-<hr />
 
 다음 명령어를 입력하여 `passport` 라이브러리와 `express-session` 라이브러리를 설치합니다.
 
@@ -66,8 +58,6 @@ npm install passport passport-local express-session bcrypt mysql2
   - MySQL 모듈로, TypeORM과 같은 라이브러리를 사용하셔도 무방합니다.
 
 ## Step 2 - 패스포트와 세션 설정하기
-
-<hr />
 
 다음과 같이 `app.js`에 패스포트와 세션 설정 코드를 추가합니다.
 
@@ -108,8 +98,6 @@ app.use(passport.session()); // req.session 객체에 passport정보를 추가 �
 주의할 점으로 `app.use(session({}))` 부분이 패스포트 초기화 부분보다 먼저 작성되어야 합니다. 또한 `app.use(session({}))` 세션 설정 부분이 다른 미들웨어보다 먼저 설정되어야 합니다.
 
 ## Step 3 - AuthService와 AuthController 구현하기
-
-<hr />
 
 다음과 같이 인증 시 사용하는 AuthService를 구현합니다.
 
@@ -198,8 +186,6 @@ const logIn = async (req, res) => {
 
 ## Step 4 - LocalStrategy 구현하기
 
-<hr />
-
 다음과 같이 닉네임과 비밀번호로 인증하는 LocalStrategy를 생성합니다.
 
 ```javascript
@@ -244,8 +230,6 @@ LocalStrategy는 기본적으로 인증 시 사용하는 필드명이 username�
 
 ## Step 5 - SessionSerializer 구현하기
 
-<hr />
-
 다음과 같이 세션에 정보를 저장하거나, 세션에서 정보를 가져오는 SessionSerializer를 생성합니다.
 
 ```javascript
@@ -281,8 +265,6 @@ export const useSession = () => {
 
 ## Step 6 - LocalStrategy와 SessionSerializer 설정하기
 
-<hr />
-
 위에서 작성한 LocalStrategy와 SessionSerializer를 사용하기 위해 `app.js`에 `useLocalStrategy()`와 `useSession()` 코드를 추가합니다.
 
 ```javascript
@@ -294,8 +276,6 @@ useSession(); // Session 사용
 ```
 
 ## Step 7 - 인증 미들웨어 구현하기
-
-<hr />
 
 먼저 인증 시 사용할 미들웨어를 구현합니다.
 
@@ -330,8 +310,6 @@ const authenticate = (req, res, next) => {
 ```
 
 ## Step 8 - Route 설정하기
-
-<hr />
 
 마지막으로 다음과 같이 route 설정을 진행합니다.
 

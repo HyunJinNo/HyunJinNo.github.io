@@ -25,13 +25,9 @@ nodemon v3.1.4 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 타입스크립트(TypeScript)로 Express.js 애플리케이션 설정 방법에 대해 설명하겠습니다.
 
 ## Step 1 - package.json 파일 생성
-
-<hr />
 
 먼저 다음 명령어를 입력하여 `package.json` 파일을 생성합니다.
 
@@ -40,8 +36,6 @@ npm init -y
 ```
 
 ## Step 2 - Express, TypeScript 관련 패키지 설치하기
-
-<hr />
 
 먼저 다음 명령어를 입력하여 Express 패키지를 설치합니다.
 
@@ -62,8 +56,6 @@ npm install --save-dev @types/node @types/express ts-node typescript nodemon
 ```
 
 ## Step 3 - package.json 스크립트 설정
-
-<hr />
 
 ### scripts란?
 
@@ -88,8 +80,6 @@ npm install --save-dev @types/node @types/express ts-node typescript nodemon
 - `dev`: TypeScript 코드를 컴파일하지 않고 `development 모드`로 실행할 때 사용합니다.
 
 ## Step 4 - TypeScript 설정 파일
-
-<hr />
 
 프로젝트 최상위 디렉토리에 `tsconfig.json` 파일을 생성합니다. `npx tsc --init` 명령어를 통해 `tsconfig.json` 파일을 초기화하여 생성할 수 있습니다.
 
@@ -116,8 +106,6 @@ npx tsc --init
 `compilerOptions` 항목에서 outDir 부분의 주석을 해제하고 TypeScript 코드가 JavaScript 코드로 컴파일되어 저장될 디렉토리를 `dist`로 설정합니다. 또한 `include` 항목을 생성하여 컴파일될 코드를 `src` 디렉토리로 설정하고, `exclude` 항목을 생성하여 `node_modules` 디렉토리 내의 코드를 컴파일 대상에서 제외합니다.
 
 ## Step 5 - TypeScript로 Express 애플리케이션 실행하기
-
-<hr />
 
 ### src 디렉토리 생성
 

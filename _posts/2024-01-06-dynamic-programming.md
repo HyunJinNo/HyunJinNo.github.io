@@ -17,8 +17,6 @@ Algorithm</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Definition**
   - **동적 계획법(Dynamic programming)** 은 처음 주어진 문제를 더 작은 문제들로 나눈 뒤 각 조각의 답을 계산하고, 이 답들로부터 원래 문제에 대한 답을 계산해낸다. 이는 **분할 정복**과 같은 접근 방식이다.
   - **중복되는 부분 문제**
@@ -53,8 +51,6 @@ Algorithm</p></blockquote>
 
 ## How to Use
 
-<hr />
-
 - **동적 계획법**
   1. 메모이제이션을 활용한 함수를 구현할 때 항상 **기저 사례(Base case)** 부터 제일 먼저 처리한다. 입력이 범위를 벗어난 경우 등을 기저 사례로 처리하면 된다.
   2. 주어진 문제를 완전 탐색을 이용해 해결한다.
@@ -81,8 +77,6 @@ Algorithm</p></blockquote>
      2. M > skip: M개의 답 중에 우리가 원하는 답이 있으므로, 이 값을 선택한다. M개의 답 중에 skip개를 건너띈 것이 원하는 답이다. 이 값을 답에 추가하고 재귀 호출로 답의 나머지 부분을 만든다.
 
 ## Examples
-
-<hr />
 
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Dynamic%20programming/JUMPGAME.java" target="_blank">JUMPGAME</a>
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Dynamic%20programming/WILDCARD.java" target="_blank">WILDCARD</a>

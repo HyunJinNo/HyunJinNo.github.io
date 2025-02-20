@@ -18,8 +18,6 @@ comments: true
 
 ## 학습한 내용
 
-<hr />
-
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/C-memlayout.svg" alt="pic" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
 
 ### Stack
@@ -82,8 +80,6 @@ comments: true
 - 과제에서도 코드의 다음 실행될 주소의 위치를 가리키게 할지는 고민해봐야 할 듯.
 
 ## 참고 자료
-
-<hr />
 
 - [스택(Stack)과 힙(Heap) 차이점](https://junghyun100.github.io/%ED%9E%99-%EC%8A%A4%ED%83%9D%EC%B0%A8%EC%9D%B4%EC%A0%90/)
 - [운영체제 메모리 구조](https://devfunny.tistory.com/650)

@@ -21,13 +21,9 @@ comments: true
 
 ## 개요
 
-<hr />
-
 이번 글에서는 NestJS에서 TypeORM 사용 방법에 대해 설명하겠습니다.
 
 ## Step 1 - TypeORM 관련 패키지 설치
-
-<hr />
 
 다음 명령어를 입력하여 TypeORM과 MySQL을 사용하기 위한 database driver를 설치합니다.
 
@@ -41,8 +37,6 @@ npm install typeorm @nestjs/typeorm mysql2 @nestjs/config
 ```
 
 ## Step 2 - 폴더 구조
-
-<hr />
 
 먼저 다음과 같이 NestJS 폴더 구조를 생성합니다.
 
@@ -65,8 +59,6 @@ npm install typeorm @nestjs/typeorm mysql2 @nestjs/config
 ```
 
 ## Step 3 - .env 파일 생성
-
-<hr />
 
 ### .env 파일이란?
 
@@ -96,8 +88,6 @@ DB_DATABASE="test"
 ```
 
 ## Step 4 - ConfigModule 설정하기
-
-<hr />
 
 ConfigModule은 환경 설정에 특화된 기능을 하는 모듈입니다. `@nestjs/config` 패키지에 포함되어 있는 클래스이며, 다음과 같이 app.module.ts에 ConfigModule을 설정합니다.
 
@@ -148,8 +138,6 @@ export class AppModule {}
 
 ## Step 5 - entity 생성
 
-<hr />
-
 다음과 같이 `/src/entities` 디렉토리에 `user.entity.ts` 파일을 생성하고 다음과 같이 entity를 생성합니다.
 
 ```typescript
@@ -191,8 +179,6 @@ export class User {
 ```
 
 ## Step 6 - 데이터베이스 설정하기
-
-<hr />
 
 ### TypeOrmModule.forRoot()
 
@@ -250,8 +236,6 @@ export class AppModule {}
 <a href="https://typeorm.io/data-source-options" target="_blank">Data Source Options | TypeORM</a>
 
 ## Step 7 - User 모듈 설정하기
-
-<hr />
 
 ### user.module.ts
 
@@ -384,8 +368,6 @@ export class UserService {
 <a href="https://typeorm.delightful.studio/classes/_repository_repository_.repository.html" target="_blank">Repository | typeorm</a>
 
 ## Step 8 - Postman 사용 및 테스트
-
-<hr />
 
 `Postman`을 사용하여 API를 요청한 예시는 다음과 같습니다.
 

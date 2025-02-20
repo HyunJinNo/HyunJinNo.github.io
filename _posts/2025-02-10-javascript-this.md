@@ -16,21 +16,15 @@ comments: true
 
 ## 개요
 
-<hr />
-
 자바스크립트 this에 대해 정리한 페이지입니다.
 
 ## 자바스크립트에서 this란?
-
-<hr />
 
 대부분의 객체지향 언어에서 `this`는 클래스로 생성한 인스턴스 객체를 의미하지만, 자바스크립트에서는 `this`를 어디서든 사용할 수 있습니다.
 
 자바스크립트에서 `this`는 함수 내부에서 자기 자신이 속한 객체를 참조하는 키워드로, 기본적으로 실행 컨텍스트가 생성될 때 함께 결정됩니다. 실행 컨텍스트는 함수를 호출할 때 생성된다는 점을 고려하면, `this`는 <b>함수를 호출할 때 결정</b>된다는 것을 알 수 있습니다.
 
 ## 동적으로 결정되는 this
-
-<hr />
 
 자바스크립트에서 `this`는 정적으로 결정되지 않고, 런타임에 함수 호출 방식에 따라 this에 바인딩할 객체가 동적으로 결정됩니다.
 
@@ -175,8 +169,6 @@ console.log(person2.name); // "Person 2"
 
 ## this 바인딩
 
-<hr />
-
 `call`, `apply`, `bind` 메서드들을 사용하면 <b>함수 호출 시 명시적으로 `this`를 지정</b>할 수 있습니다.
 
 ### call 메서드
@@ -263,8 +255,6 @@ console.log(newFunc2.name); // bound myFunc
 ```
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://www.yes24.com/Product/Goods/78586788" target="_blank">코어 자바스크립트 - 예스 24</a>
 - <a href="https://inpa.tistory.com/entry/JS-%F0%9F%93%9A-this-%EC%B4%9D%EC%A0%95%EB%A6%AC#%ED%95%A8%EC%88%98_%ED%98%B8%EC%B6%9C_%EB%B0%A9%EC%8B%9D%EA%B3%BC_this_%EB%B0%94%EC%9D%B8%EB%94%A9" target="_blank">[JS] 📚 자바스크립트 this 💯 완전 정복</a>

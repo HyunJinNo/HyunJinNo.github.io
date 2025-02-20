@@ -18,8 +18,6 @@ comments: true
 
 ## 학습한 내용
 
-<hr />
-
 ### XML이란?
 
 XML은 e**X**tensible **M**arkup **L**anguage의 약자로 여러 특수 목적의 마크업 언어를 만드는 용도에서 권장되는 다목적 마크업 언어입니다.

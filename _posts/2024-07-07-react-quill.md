@@ -21,13 +21,9 @@ react-quill v2.0.0 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 Next.js에서 ReactQuill 사용 방법에 대해 정리한 페이지입니다.
 
 ## Step 1 - ReactQuill 패키지 설치
-
-<hr />
 
 다음 명령어를 입력하여 ReactQuill 패키지를 설치합니다.
 
@@ -36,8 +32,6 @@ npm install react-quill
 ```
 
 ## Step 2 - ReactQuill 모듈 로드하기
-
-<hr />
 
 ### document is not found
 
@@ -70,8 +64,6 @@ const ReactQuill = dynamic(() => import("react-quill"), {
 
 ## Step 3 - Quill 에디터 사용하기
 
-<hr />
-
 다음과 같이 Quill 에디터를 사용하는 컴포넌트를 작성합니다.
 
 <img src="/assets/img/front-end/react-quill/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
@@ -97,8 +89,6 @@ const ReactQuill = dynamic(() => import("react-quill"), {
   <img src="/assets/img/front-end/react-quill/pic4.webp" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Step 4 - Quill 에디터 커스텀하기
-
-<hr />
 
 css 파일을 생성하여 위에서 생성한 Quill 에디터 컴포넌트를 커스텀할 수 있습니다. 다음은 Quill 에디터를 커스텀한 예시입니다.
 

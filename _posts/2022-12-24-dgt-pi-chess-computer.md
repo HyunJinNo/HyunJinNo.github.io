@@ -20,8 +20,6 @@ comments: true
 
 ## 본문
 
-<hr />
-
 해당 글에서 사용한 E-Board에 대해서는 아래 글을 참고
 
 <a href="../dgt-bluetooth-e-board">DGT Bluetooth Rosewood e-board 구매 후기</a>

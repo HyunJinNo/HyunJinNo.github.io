@@ -17,8 +17,6 @@ Design Pattern, Java</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Purpose**
   - Create objects based upon a template of **an existing objects through cloning.**
 - **Use When**
@@ -29,8 +27,6 @@ Design Pattern, Java</p></blockquote>
   - **When to avoid building a class hierarchy of factories that parallels the class hierarchy of products**
 
 ## Characteristics
-
-<hr />
 
 - **Advantage**
   - **Hides concrete product classes from clients**
@@ -45,8 +41,6 @@ Design Pattern, Java</p></blockquote>
 
 ## Participants
 
-<hr />
-
 - **Prototype**
   - Defines the interface (an operation) of cloning itself.
 - **ConcreteProducts**
@@ -55,8 +49,6 @@ Design Pattern, Java</p></blockquote>
   - Obtain more objects by asking them to clone themselves.
 
 ## How to Use (Example)
-
-<hr />
 
 - **Java's Cloneable**
 

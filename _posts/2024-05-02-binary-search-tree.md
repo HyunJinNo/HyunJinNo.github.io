@@ -17,8 +17,6 @@ Algorithm</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - <b>Definition</b>
   - <b>이진 탐색 트리(Binary Search Tree)</b>는 <b>탐색 트리(Search Tree)</b> 중 가장 흔하게 사용되는 트리이다.
   - 탐색 트리를 활용하면 원소의 추가 및 삭제만이 아니라 특정 원소의 존재 여부 확인 등의 다양한 연산을 빠르게 수행할 수 있다.

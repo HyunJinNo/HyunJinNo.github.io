@@ -17,8 +17,6 @@ Algorithm</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Definition**
   - **Brute-force**는 컴퓨터의 빠른 계산 능력을 이용해 **가능한 경우의 수**를 일일이 나열하면서 답을 찾는 방법을 의미한다.
   - 가능한 방법을 전부 만들어보는 알고리즘들을 가리켜 **완전 탐색(Exhaustive search)**이라고 부른다.
@@ -36,16 +34,12 @@ Algorithm</p></blockquote>
 
 ## How to Use
 
-<hr />
-
 1. 완전 탐색은 존재하는 모든 답을 하나씩 검사하므로, 걸리는 시간은 가능한 답의 수에 비례한다. 최대 크기의 입력을 가정했을 때 답의 개수를 계산하고 이들을 모두 제한 시간 안에 생성할 수 있을지를 가늠한다. 만약 시간 안에 계산할 수 없다면 다른 설계 패러다임을 적용해야 한다.
 2. 가능한 모든 답의 후보를 만드는 과정을 여러 개의 선택으로 나눈다. 각 선택은 답의 후보를 만드는 과정의 한 조각이 된다.
 3. 그 중 하나의 조각을 선택해 답의 일부를 만들고, 나머지 답을 재귀 호출을 통해 완성한다.
 4. 조각이 하나 밖에 남지 않은 경우, 혹은 하나도 남지 않은 경우에는 답을 생성했으므로, 이것을 기저 사례로 선택해 처리한다.
 
 ## Examples
-
-<hr />
 
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Brute-force/BOGGLE.java" target="_blank">BOGGLE</a>
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Brute-force/PICNIC.java" target="_blank">PICNIC</a>

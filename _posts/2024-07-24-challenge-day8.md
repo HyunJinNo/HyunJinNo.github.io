@@ -18,8 +18,6 @@ comments: true
 
 ## 학습한 내용
 
-<hr />
-
 ### 함수형 프로그래밍(Functional Programming)
 
 #### 함수형 프로그래밍의 개념
@@ -95,8 +93,6 @@ comments: true
   - 객체가 가지는 값마다 새로운 객체가 필요합니다. 따라서 메모리 누수와 새로운 객체를 계속 생성해야 하기 때문에 성능 저하가 일어날 수 있습니다.
 
 ## 참고 자료
-
-<hr />
 
 - [[프로그래밍] 함수형 프로그래밍(Functional Programming) 이란?](https://mangkyu.tistory.com/111)
 - [참조 투명성](https://ko.wikipedia.org/wiki/참조_투명성)

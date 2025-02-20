@@ -25,13 +25,9 @@ react-native v0.76.5</p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 `React Native CLI`를 사용하여 리액트 네이티브(React Native) 개발 환경 설정 및 애플리케이션 실행 방법에 대해 설명하겠습니다.
 
 ## Step 1 - 개발 환경 준비하기
-
-<hr />
 
 <b>iOS 앱을 빌드하기 위해선 `macOS`와 `Xcode`가 필요합니다. 저의 운영체제는 `Windows 11`이므로 iOS 앱을 빌드할 수 없습니다. 따라서 이번 글에서는 Android 플랫폼을 대상으로 React Native 개발 환경을 구축하는 방법을 설명하겠습니다.</b>
 
@@ -144,8 +140,6 @@ adb --version
 
 ## Step 2 - React Native 애플리케이션 생성하기
 
-<hr />
-
 > 만약 전역으로 react-native-cli 패키지를 설치한 경우 다음 명령어를 입력하여 삭제합니다.
 >
 > ```bash
@@ -159,8 +153,6 @@ npx @react-native-community/cli@latest init <프로젝트 이름>
 ```
 
 ## Step 3 - React Native 애플리케이션 실행하기
-
-<hr />
 
 생성된 애플리케이션을 실행하기 위해선 `Android Studio`에서 Virtual Device를 설치하여 사용하거나, 실제 안드로이드 기기가 필요합니다. 이번 글에서는 실제 안드로이드 기기에서 애플리케이션을 실행하겠습니다.
 
@@ -292,7 +284,5 @@ Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.L
 <img src="/assets/img/front-end/react-native-basic/pic17.webp" alt="pic17" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://reactnative.dev/" target="_blank">React Native · Learn once, write anywhere</a>

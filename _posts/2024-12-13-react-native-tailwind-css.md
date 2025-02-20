@@ -27,13 +27,9 @@ prettier-plugin-tailwindcss v0.6.9 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 React Native 프로젝트에 Tailwind CSS 설정 방법에 대해 설명하겠습니다.
 
 ## NativeWind 라이브러리 사용하기
-
-<hr />
 
 이 문단에서는 `NativeWind` 라이브러리로 Tailwind CSS를 설정하는 방법에 대해 설명하겠습니다.
 
@@ -166,8 +162,6 @@ root
 ```
 
 ## Tailwind React Native Classnames 라이브러리 사용하기
-
-<hr />
 
 이 문단에서는 `Tailwind React Native Classnames(=twrnc)` 라이브러리로 Tailwind CSS를 설정하는 방법에 대해 설명하겠습니다.
 
@@ -308,8 +302,6 @@ export default App;
 
 ## prettier-plugin-tailwindcss 설정하기
 
-<hr />
-
 `prettier-plugin-tailwindcss`를 적용하기 위해선 `Prettier` 버전이 `v3` 이상이어야 합니다. 또한 `ESM`만 사용할 수 있다는 점을 주의합니다.
 
 ### 패키지 설치하기
@@ -358,8 +350,6 @@ npm install --save-dev prettier prettier-plugin-tailwindcss
 <img src="/assets/img/front-end/prettier-eslint/pic7.webp" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://www.nativewind.dev/" target="_blank">Home | NativeWind</a>
 - <a href="https://github.com/jaredh159/tailwind-react-native-classnames" target="_blank">Tailwind React Native Classnames</a>

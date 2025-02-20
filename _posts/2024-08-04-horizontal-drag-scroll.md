@@ -20,13 +20,9 @@ Next.js v14.2.3 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 `React/Next.js`에서 마우스 또는 터치로 좌우 드래그 스크롤을 구현하는 방법을 설명합니다. 스크롤 기능을 추가할 HTML 태그 요소로 `div`를 선택하였습니다.
 
 ## Step 1 - useDragScrollType 정의
-
-<hr />
 
 먼저 다음과 같이 추후 구현할 `useDragScroll` 커스텀 훅의 반환 타입을 정의합니다.
 
@@ -62,8 +58,6 @@ export type useDragScrollType = {
 
 ## Step 2 - useDragScroll 커스텀 훅 생성
 
-<hr />
-
 다음과 같이 좌우 드래그 스크롤 기능을 제공하는 `useDragScroll.ts` 파일을 생성하고 상태를 관리하는 변수를 선언합니다.
 
 ```typescript
@@ -92,8 +86,6 @@ export default function useDragScroll(): useDragScrollType {
 - `[totalX, setTotalX]`: 드래그 시작 시점의 x축 좌표 값을 추적합니다.
 
 ## Step 3 - 마우스 드래그 이벤트 정의하기
-
-<hr />
 
 다음과 같이 마우스 드래그 이벤트를 정의합니다.
 
@@ -140,8 +132,6 @@ const onDragEnd = (e: MouseEvent<HTMLDivElement>) => {
 
 ## Step 4 - 터치 드래그 이벤트 정의하기
 
-<hr />
-
 다음과 같이 터치 드래그 이벤트를 정의합니다.
 
 ```typescript
@@ -185,8 +175,6 @@ const onTouchEnd = () => {
 터치 드래그 이벤트의 경우 마우스 드래그 이벤트를 정의할 때 사용한 `e.preventDefault()`를 호출하지 않습니다. `e.preventDefault()`를 호출하면 Link나 버튼 등을 터치할 때 정상적으로 동작하지 않게 됩니다.
 
 ## Step 5 - 최종 코드
-
-<hr />
 
 위에서 구현한 `useDragScroll` 커스텀 훅의 최종 코드는 다음과 같습니다.
 
@@ -303,8 +291,6 @@ export default function useDragScroll(): useDragScrollType {
 
 ## Step 6 - 좌우 드래그 스크롤 적용하기
 
-<hr />
-
 다음과 같이 좌우 드래그 스크롤을 적용할 HTML 태그 요소에 이벤트를 등록합니다.
 
 ```typescript
@@ -329,8 +315,6 @@ const scrollHook = useDragScroll();
 
 ## Step 7 - 테스트 결과
 
-<hr />
-
 좌우 드래그 스크롤을 적용한 테스트 결과는 다음과 같습니다.
 
 <video width="480" controls> 
@@ -339,7 +323,5 @@ Your browser does not support the video format. Please try a different browser.
 </video>
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://jihyundev.tistory.com/33" target="_blank">리액트로 만들어보는 마우스 드래그 좌우스크롤 컴포넌트</a>

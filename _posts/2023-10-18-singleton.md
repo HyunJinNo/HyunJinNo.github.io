@@ -17,8 +17,6 @@ Design Pattern, Java</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Purpose**
   - Ensures that **only one instance** of a class is allowed within a system.
 - **Use When**
@@ -26,8 +24,6 @@ Design Pattern, Java</p></blockquote>
   - Controlled access to a single object is necessary.
 
 ## How to Use (Example)
-
-<hr />
 
 - **For single-thread**
 

@@ -17,8 +17,6 @@ Algorithm</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Definition**
   - **삼분 탐색(Ternary search)** 은 **이분법**이 매 반복마다 답의 후보 구간을 절반으로 잘라 각 위치에서 함수의 값을 계산하는 것과 비슷하게, **답의 후보 구간을 삼등분하는 두 위치에서 함수의 값을 계산하는 탐색 방식이다.**
   - 삼분 탐색은 **볼록 함수(Convex function) 또는 오목 함수(Concave function)** 에서 **극값, 또는 최대/최소 값**을 찾을 때 유용하게 사용되는 기법이다.
@@ -27,8 +25,6 @@ Algorithm</p></blockquote>
     > **국소 탐색(Local search)** 은 임의의 답을 하나 만들어 놓고 이 값을 조금씩 갱신하면서 답이 더 좋아지는 쪽으로 움직이는 알고리즘이다.
 
 ## Examples
-
-<hr />
 
 - <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Ternary%20search/FOSSIL.java" target="_blank">FOSSIL</a>
 - <a href="https://github.com/HyunJinNo/Algorithm/tree/main/%EB%B0%B1%EC%A4%80/Gold/11664.%E2%80%85%EC%84%A0%EB%B6%84%EA%B3%BC%E2%80%85%EC%A0%90" target="_blank">11664. 선분과 점</a>

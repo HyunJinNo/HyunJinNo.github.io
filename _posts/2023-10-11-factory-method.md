@@ -17,8 +17,6 @@ Design Pattern, Java</p></blockquote>
 
 ## Introduction
 
-<hr />
-
 - **Purpose**
   - Exposes a **method for creating objects, allowing subclasses** to control the actual creation process.
 - **Use When**
@@ -31,8 +29,6 @@ Design Pattern, Java</p></blockquote>
   - Lets a class defer instantiation to subclasses.
 
 ## How to Use (Example)
-
-<hr />
 
 - **Product**
 

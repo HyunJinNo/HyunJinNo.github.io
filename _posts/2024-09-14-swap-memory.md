@@ -20,19 +20,13 @@ OS: Raspberry Pi OS (64 bit) </p></blockquote>
 
 ## 개요
 
-<hr />
-
 스왑 메모리(Swap Memory) 설정 방법에 대해 정리한 페이지입니다.
 
 ## 스왑 메모리(Swap Memory)란?
 
-<hr />
-
 `스왑 메모리(Swap Memory)`란 컴퓨터의 물리적인 RAM이 부족할 때 하드 디스크의 일부 디스크 공간을 가상 메모리로 사용하는 기술입니다. 즉, RAM이 가득 차서 더 이상 사용할 수 없을 때, 스왑 메모리를 사용하여 RAM의 일부 역할을 하게 합니다. 스왑 메모리를 사용하는 것은 실제 메모리가 아닌 하드 디스크를 이용하는 것이기 때문에 성능 면에서는 떨어지지만 시스템이 계속 동작하도록 유지할 수 있습니다.
 
 ## Step 1 - 현재 스왑 메모리 확인하기
-
-<hr />
 
 다음 명령어를 입력하여 현재 스왑 메모리가 얼마나 설정되어 있는지 확인합니다.
 
@@ -46,8 +40,6 @@ free -h
 
 ## Step 2 - 스왑 파일 생성하기
 
-<hr />
-
 먼저 다음 명령어를 입력하여 스왑 파일을 생성합니다.
 
 ```bash
@@ -58,8 +50,6 @@ sudo fallocate -l 6G /swapfile
 
 ## Step 3 - 스왑 파일에 권한 설정하기
 
-<hr />
-
 스왑 파일을 생성한 후 해당 스왑 파일이 다른 사용자에 의해 수정되지 않도록 권한을 설정해야 합니다. 다음 명령어를 입력하여 파일 소유자만 읽고 쓸 수 있도록 권한을 설정합니다.
 
 ```bash
@@ -67,8 +57,6 @@ sudo chmod 600 /swapfile
 ```
 
 ## Step 4 - 스왑 메모리 활성화하기
-
-<hr />
 
 스왑 파일에 권한을 설정한 후, 다음 명령어를 입력하여 스왑 파일을 스왑 영역으로 지정합니다.
 
@@ -87,8 +75,6 @@ sudo swapon /swapfile
 <img src="/assets/img/raspberry-pi/swap-memory/pic2.webp" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Step 5 - 시스템 부팅 시 스왑 메모리 자동 활성화 설정
-
-<hr />
 
 위에서 생성한 스왑 파일은 시스템을 부팅할 때마다 활성화해야 합니다. 시스템이 재부팅될 때마다 스왑 메모리를 자동으로 활성화하기 위해선 `/etc/fstab` 파일에 스왑 파일을 추가해야 합니다.
 
@@ -109,8 +95,6 @@ sudo nano /etc/fstab
 <img src="/assets/img/raspberry-pi/swap-memory/pic4.webp" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 스왑 메모리 비활성화 및 삭제 방법
-
-<hr />
 
 스왑을 비활성화하고 삭제하려면 다음과 같은 절차를 거쳐야 합니다.
 

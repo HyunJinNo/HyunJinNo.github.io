@@ -18,8 +18,6 @@ comments: true
 
 ## 학습한 내용
 
-<hr />
-
 ### HTML
 
 #### 개념
@@ -227,8 +225,6 @@ SSR의 동작 방식은 다음과 같습니다.
   SSR에서는 새로운 페이지로 이동할 때마다 서버에 요청을 보내고, 서버에서 새 HTML을 생성하여 전송하기 때문에 페이지 전환 속도가 느릴 수 있습니다.
 
 ## 참고 자료
-
-<hr />
 
 - `HTML`
   - <a href="https://velog.io/@strivepdev/HTML%EC%9D%B4%EB%9E%80" target="_blank">HTML이란?</a>

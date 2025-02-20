@@ -20,13 +20,9 @@ Node.js v20.11.1 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 NestJS에서 파일 업로드 기능을 구현하는 방법을 설명하는 페이지입니다.
 
 ## Step 1 - @types/multer 패키지 설치하기
-
-<hr />
 
 `multer`란 파일 업로드에 사용되는 multipart/form-data를 다루는 Node.js 라이브러리입니다. 먼저 다음 명령어를 입력하여 `@types/multer` 패키지를 설치합니다.
 
@@ -35,8 +31,6 @@ npm install --save-dev @types/multer
 ```
 
 ## Step 2 - 단일 파일 업로드 API 구현하기
-
-<hr />
 
 다음과 같이 단일 파일 업로드 API를 구현합니다.
 
@@ -74,8 +68,6 @@ npm install --save-dev @types/multer
   - 파일의 타입은 `Express.Multer.File`에 해당합니다.
 
 ## Step 3 - 파일 저장 경로 지정하기
-
-<hr />
 
 `FileInterceptor`의 두 번째 파라미터에는 `multer`에서 지원하는 여러 가지 옵션을 지정할 수 있습니다. `multer`에서 지원하는 옵션은 다음과 같습니다.
 
@@ -120,8 +112,6 @@ export const multerOptions = {
   - 클라이언트로부터 받은 파일의 확장자명을 붙일 때 사용합니다.
 
 ## Step 4 - 정적 파일 서비스하기
-
-<hr />
 
 `정적 파일(Static File)`이란 <b>텍스트, 이미지, 동영상 같이 한 번 저장되면 변경되지 않는 파일</b>을 의미합니다. `NestJS`에서 정적 파일을 서비스하기 위해 다음 명령어를 입력하여 패키지를 설치합니다.
 
@@ -171,8 +161,6 @@ export class AppModule {}
   - 위의 예시에서 serveRoot를 `"/uploads"`로 지정하였으므로 업로드한 파일에 `http://localhost:3000/uploads/{파일명}`으로 접근할 수 있습니다.
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://docs.nestjs.com/techniques/file-upload" target="_blank">File Upload | NestJS - A progressive Node.js framework</a>
 - <a href="https://github.com/expressjs/multer/blob/master/doc/README-ko.md" target="_blank">Multer</a>

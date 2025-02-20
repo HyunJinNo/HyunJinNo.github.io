@@ -20,21 +20,15 @@ Node.js v20.11.1 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 `NestJS`에서 `socket.io`를 활용하여 채팅 애플리케이션을 만드는 방법을 설명하겠습니다. 웹소켓에 대한 개념의 경우 다음 링크에 작성하였으니 참고하시길 바랍니다.
 
 <a href="../websocket">웹소켓 (WebSocket)</a>
 
 ## socket.io란?
 
-<hr />
-
 `socket.io`란 웹소켓을 기반으로 서버와 클라이언트의 양방향 통신을 지원하는 라이브러리입니다. 주로 실시간 웹 애플리케이션을 개발할 때 자주 사용되는 JavaScript 라이브러리입니다. 기본적으로 웹소켓을 지원하며, 웹소켓을 지원하지 않는 브라우저에서는 롱폴링 방식을 사용한 통신을 지원합니다. 또한 재접속, 브로드캐스트, 멀티플렉싱(채팅방) 기능도 제공합니다.
 
 ## socket.io의 특징
-
-<hr />
 
 `socket.io`의 특징은 다음과 같습니다.
 
@@ -64,8 +58,6 @@ Node.js v20.11.1 </p></blockquote>
 
 ## Step 1 - 패키지 설치하기
 
-<hr />
-
 먼저 다음 명령어를 입력하여 필요한 패키지를 설치합니다.
 
 ```bash
@@ -91,8 +83,6 @@ npm install --save-dev @types/socket.io
   `socket.io`를 TypeScript 파일에서 사용할 수 있도록 설치하는 패키지입니다.
 
 ## Step 2 - 정적 파일 서비스하기
-
-<hr />
 
 이번 글에서는 별도의 프론트엔드 프레임워크를 사용하지 않고 html 파일을 직접 작성하여 테스트할 예정입니다. `NestJS`에서 정적 파일을 서비스하는 방법은 [serve-static 패키지를 설치해서 서비스하는 방법](../nestjs-file-upload/#step-4---정적-파일-서비스하기)도 있지만, 이번 글에서는 설정이 간단하므로 `Express.js`를 사용하여 `static asset`을 설정하는 방법을 선택하겠습니다. 다음과 같이 `main.ts` 파일에 정적 파일 경로를 지정하면 됩니다.
 
@@ -122,8 +112,6 @@ bootstrap();
 위의 코드에서 `useStaticAssets()` 메서드에 경로만 지정하면 `NestJS`에세 정적 파일을 서비스할 수 있습니다. 또한 기존의 `main.ts` 파일과 달리 `NestFactory.create()` 메서드에 `NestExpressApplication`으로 반환값의 타입을 지정하였습니다. 이는 `useStaticAssets()` 미들웨어는 `Express.js`에 있기 때문에 `Express.js`의 미들웨어를 사용하기 위해 app 인스턴스를 만들 때 제네릭 타입으로 `NestExpressApplication`을 선언해야하기 때문입니다.
 
 ## Step 3 - 게이트웨이 생성하기
-
-<hr />
 
 `NestJS`에서 웹소켓을 사용한 통신을 받아주는 클래스를 `게이트웨이(Gateways)`라고 부릅니다. HTTP 프로토콜을 컨트롤러가 받는다면, ws 프로토콜은 게이트웨이가 받습니다. 게이트웨이를 사용하면 의존성 주입, 데코레이터, 필터, 가드 등의 `NestJS` 기능을 사용할 수 있습니다.
 
@@ -270,8 +258,6 @@ export class RoomGateway {
 
 ## Step 4 - 게이트웨이 등록하기
 
-<hr />
-
 게이트웨이를 사용하려면 모듈에 등록해야 합니다. 이 때 주의해야 할 점은 게이트웨이는 다른 클래스에 주입해서 사용할 수 있는 프로바이더라는 점입니다.
 
 ```typescript
@@ -291,8 +277,6 @@ export class AppModule {}
 ```
 
 ## Step 5 - 클라이언트 파일 생성하기
-
-<hr />
 
 다음과 같이 클라이언트를 위한 html 파일과 JavaScript 파일을 생성합니다.
 
@@ -418,15 +402,11 @@ socket.on("notice", (data) => {
 
 ## Step 6 - 테스트 결과
 
-<hr />
-
 테스트 결과는 다음과 같습니다.
 
 <img src="/assets/img/back-end/nestjs-socket/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 참고 자료
-
-<hr />
 
 - <a href="https://docs.nestjs.com/websockets/gateways" target="_blank">Gateways | NestJS - A progressive Node.js framework</a>
 - <a href="https://socket.io" target="_blank">Socket.IO</a>

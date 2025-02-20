@@ -18,8 +18,6 @@ comments: true
 
 ## 학습한 내용
 
-<hr />
-
 - 더 알아볼 내용
   - `Broadcast와 Unicast`
   - `TCP와 UDP`
@@ -270,8 +268,6 @@ server.on("error", (err) => {
   - `[]` 로 할당 or 접근시 무조건 문자열을 사용해야합니다. 할당시 Number, 배열 이런거 쓰면 다 문자열로 바뀌어서 들어갑니다.
 
 ## 참고 자료
-
-<hr />
 
 - `Echo Server`
   - https://developer-jun.tistory.com/17

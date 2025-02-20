@@ -22,13 +22,9 @@ reflect-metadata v0.2.2 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 NestJS 기초 사용 방법에 대해 설명하도록 하겠습니다.
 
 ## Step 1 - NestJS 애플리케이션 생성
-
-<hr />
 
 다음 명령어를 입력하여 `@nestjs.cli`를 사용하여 NestJS 애플리케이션을 생성합니다.
 
@@ -43,8 +39,6 @@ npx @nestjs/cli new [프로젝트 이름]
 ```
 
 ## Step 2 - eslintrc 설정 파일 수정
-
-<hr />
 
 자신이 사용하는 운영체제에 따라 다음과 같이 `Delete `␍` eslint (prettier/prettier)` 오류가 발생할 수 있습니다.
 
@@ -67,8 +61,6 @@ rules: {
 ```
 
 ## Step 3 - Folder Structure / Architecture 확인하기
-
-<hr />
 
 `nest-cli`로 생성한 프로젝트 구조는 다음과 같습니다.
 
@@ -180,8 +172,6 @@ export class AppModule {}
 ```
 
 ## Step 4 - Blog API 만들기
-
-<hr />
 
 데이터베이스를 사용하지 않는 간단한 Blog API를 만들어 보겠습니다. 먼저 다음과 같이 모듈 단위로 애플리케이션을 구성합니다.
 
@@ -366,8 +356,6 @@ export class AppModule {}
 ```
 
 ## Step 5 - Postman으로 테스트하기
-
-<hr />
 
 ### 서버 실행하기
 

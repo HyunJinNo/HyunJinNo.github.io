@@ -16,13 +16,9 @@ comments: true
 
 ## 개요
 
-<hr />
-
 이번 글에서는 GitHub에서 PR & Issue Template을 생성하는 방법에 대해 설명하겠습니다.
 
 ## GitHub Label 설정하기
-
-<hr />
 
 Template을 생성하기 전에 먼저 다음과 같이 GitHub Repository에서 Label을 설정하기를 권장합니다. Label은 PR과 Issue에서 카테고리를 분류하기 위해 사용합니다.
 
@@ -46,8 +42,6 @@ Template을 생성하기 전에 먼저 다음과 같이 GitHub Repository에서 
 | test      | 테스트를 추가하거나 테스트 리팩토링을 수행한 경우                 |
 
 ## PR Template 생성하기
-
-<hr />
 
 먼저 다음과 같이 프로젝트 최상위 폴더에서 `.github` 폴더를 생성한 후 해당 폴더에서 `pull_request_template.md` 파일을 생성합니다.
 
@@ -119,8 +113,6 @@ PR Template을 사용하여 생성한 PR 예시는 다음과 같습니다.
 <img src="/assets/img/etc/github-template/pic3.webp" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
 
 ## Issue Template 생성하기
-
-<hr />
 
 Issue Template은 GitHub Repository에서 직접 만들어도 되고, 아니면 VSCode에서 만들 수 있습니다.
 

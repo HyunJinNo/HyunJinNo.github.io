@@ -20,13 +20,9 @@ Next.js v14.2.3 </p></blockquote>
 
 ## 개요
 
-<hr />
-
 이번 글에서는 모달 창(Modal Window)이 열린 상태에서 뒤로가기 버튼을 클릭했을 때 모달 창을 닫는 방법에 대해 설명하겠습니다.
 
 ## 모달 창(Modal Window)란?
-
-<hr />
 
 `모달 창(Modal Window)`란 사용자 인터페이스(UI)에서 화면의 다른 부분과의 상호 작용을 잠시 차단하고, 사용자가 반드시 확인하거나 조작해야 하는 창 또는 대화 상자를 말합니다. 웹에서는 주로 브라우저 프로그램 자체에서 새 창을 띄우는 팝업 창과 달리 같은 창 내부에서 상위 레이어를 띄우는 방식을 사용하는 창을 의미합니다.
 
@@ -88,8 +84,6 @@ Next.js v14.2.3 </p></blockquote>
 
 ## Step 1 - useModalBackHandler 커스텀 훅 생성하기
 
-<hr />
-
 먼저 다음과 같이 뒤로가기 버튼을 눌렀을 때 모달 창을 닫을 수 있는 커스텀 훅을 생성합니다.
 
 ```typescript
@@ -133,8 +127,6 @@ export default useModalBackHandler;
 
 ## Step 2 - useModalBackHandler 커스텀 훅 사용하기
 
-<hr />
-
 위에서 생성한 커스텀 훅을 사용하면 뒤로가기 버튼을 클릭 시 열린 모달 창을 닫을 수 있습니다. 다음은 useModalBackHandler 커스텀 훅을 사용한 예시입니다.
 
 ```typescript
@@ -150,8 +142,6 @@ useModalBackHandler(modalVisible, () => setModalVisible(false));
 
 ## Step 3 - 모달 창을 닫을 때 history 제거하기
 
-<hr />
-
 위에서 정의한 커스텀 훅은 모바일 또는 웹 브라우저에서 뒤로가기 버튼을 눌렀을 때, 모달 창이 열리면서 추가한 history를 제거합니다. 하지만 일반적으로 모달 창에는 모달 창을 닫을 수 있는 버튼을 제공하므로 해당 버튼을 클릭했을 때 history를 제거할 수 있어야 합니다. 따라서 `window.history.back()`을 추가하여 뒤로가기 버튼이 아닌 다른 방법으로 모달 창을 닫을 때 history를 제거할 수 있도록 합니다.
 
 ```typescript
@@ -166,8 +156,6 @@ closeModal={() => {
 ```
 
 ## 테스트 결과
-
-<hr />
 
 테스트 결과는 다음과 같습니다.
 

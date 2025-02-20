@@ -40,7 +40,7 @@ OS: Raspberry Pi OS (64 bit) </p></blockquote>
 free -h
 ```
 
-<img src="/assets/img/raspberry-pi/swap/swap1.png" alt="swap1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/swap-memory/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 위의 사진에서 `Mem`은 실제 메모리를 나타내고, `Swap`은 스왑 메모리를 나타냅니다. 현재 스왑 메모리가 199Mi 만큼 설정되어 있음을 확인할 수 있습니다.
 
@@ -84,7 +84,7 @@ sudo swapon /swapfile
 
 스왑 파일을 활성화하면 다음과 같이 `free -h` 명령어를 통해 스왑 메모리가 활성화되어 있음을 확인할 수 있습니다.
 
-<img src="/assets/img/raspberry-pi/swap/swap2.png" alt="swap2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/swap-memory/pic2.webp" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## Step 5 - 시스템 부팅 시 스왑 메모리 자동 활성화 설정
 
@@ -98,7 +98,7 @@ sudo swapon /swapfile
 sudo nano /etc/fstab
 ```
 
-<img src="/assets/img/raspberry-pi/swap/swap3.png" alt="swap3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/swap-memory/pic3.webp" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 파일의 마지막 줄에 다음 내용을 추가한 후 파일을 저장합니다.
 
@@ -106,7 +106,7 @@ sudo nano /etc/fstab
 /swapfile none swap sw 0 0
 ```
 
-<img src="/assets/img/raspberry-pi/swap/swap4.png" alt="swap4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/swap-memory/pic4.webp" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ## 스왑 메모리 비활성화 및 삭제 방법
 
@@ -130,8 +130,8 @@ sudo rm /swapfile
 
 **수정 전**
 
-<img src="/assets/img/raspberry-pi/swap/swap4.png" alt="swap4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/swap-memory/pic4.webp" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 **수정 후**
 
-<img src="/assets/img/raspberry-pi/swap/swap3.png" alt="swap3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/swap-memory/pic3.webp" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>

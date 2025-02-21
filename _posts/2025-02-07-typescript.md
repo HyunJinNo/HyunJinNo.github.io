@@ -12,7 +12,8 @@ image:
 comments: true
 ---
 
-<blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br> TypeScript</p></blockquote>
+<blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
+TypeScript</p></blockquote>
 
 ## 개요
 
@@ -24,11 +25,12 @@ comments: true
 
 `타입스크립트(TypeScript)`란 자바스크립트에 타입을 추가한 언어입니다. 타입스크립트는 타입을 지정하지 않고 인터프리터가 타입을 유추하는 `동적 타입` 언어인 자바스크립트와 달리, 타입이 같지 않다면 컴파일 에러를 내는 `강 타입` 언어입니다. 확장자로는 `.ts`를 사용하며, 자바스크립트로 컴파일(트랜스파일)되는 언어입니다.
 
-> `동적 타입`: 자바스크립트처럼 타입을 지정하지 않고 인터프리터가 타입을 유추하는 언어로, <b>런타임 시 타입이 결정</b>됩니다.  
-> `정적 타입`: <b>컴파일 시 타입이 결정</b>되는 언어
-
-> `약 타입`: <b>비슷한 타입 간에는 자동으로 변환</b>하는 언어 (Ex. Java - float 형 변수에 int 변수를 할당하는 경우 컴파일 에러가 나지 않고, 컴파일러가 내부적으로 float로 변경)  
-> `강 타입`: <b>타입이 같지 않다면 컴파일 에러</b>를 내는 언어
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
+<b>동적 타입</b>: 자바스크립트처럼 타입을 지정하지 않고 인터프리터가 타입을 유추하는 언어로, <b>런타임 시 타입이 결정</b>됩니다. <br />
+<b>정적 타입</b>: <b>컴파일 시 타입이 결정</b>되는 언어 <br />
+<br />
+<b>약 타입</b>: <b>비슷한 타입 간에는 자동으로 변환</b>하는 언어 (Ex. Java - float 형 변수에 int 변수를 할당하는 경우 컴파일 에러가 나지 않고, 컴파일러가 내부적으로 float로 변경) <br />
+<b>강 타입<b/>: <b>타입이 같지 않다면 컴파일 에러</b>를 내는 언어</p></blockquote>
 
 ## 타입스크립트의 이점
 

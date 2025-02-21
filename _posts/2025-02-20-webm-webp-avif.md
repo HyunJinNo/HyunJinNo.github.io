@@ -13,7 +13,7 @@ comments: true
 ---
 
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br>
-video, image, webm, webp, avif</p></blockquote>
+Video, Image, WebM, WebP, AVIF</p></blockquote>
 
 ## 개요
 

@@ -12,7 +12,8 @@ image:
 comments: true
 ---
 
-<blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br> JavaScript, Hoisting, Execution Context</p></blockquote>
+<blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
+JavaScript, Hoisting, Execution Context</p></blockquote>
 
 ## 개요
 

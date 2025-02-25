@@ -1,5 +1,5 @@
 ---
-title: 타입스크립트 (TypeScript) (작성 중)
+title: 타입스크립트 (TypeScript)
 description: 타입스크립트(TypeScript)에 대해 정리한 페이지입니다.
 date: 2025-02-07 00:00:00 +/-TTTT
 categories: [Computer Science]
@@ -30,7 +30,7 @@ TypeScript</p></blockquote>
 <b>정적 타입</b>: <b>컴파일 시 타입이 결정</b>되는 언어 <br />
 <br />
 <b>약 타입</b>: <b>비슷한 타입 간에는 자동으로 변환</b>하는 언어 (Ex. Java - float 형 변수에 int 변수를 할당하는 경우 컴파일 에러가 나지 않고, 컴파일러가 내부적으로 float로 변경) <br />
-<b>강 타입<b/>: <b>타입이 같지 않다면 컴파일 에러</b>를 내는 언어</p></blockquote>
+<b>강 타입</b>: <b>타입이 같지 않다면 컴파일 에러</b>를 내는 언어</p></blockquote>
 
 ## 타입스크립트의 이점
 

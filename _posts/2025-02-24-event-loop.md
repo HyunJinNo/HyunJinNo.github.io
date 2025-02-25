@@ -15,19 +15,6 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
 JavaScript, Event Loop, Execution Context</p></blockquote>
 
-<h2>목차</h2>
-
-- [개요](#개요)
-- [이벤트 루프 (Event Loop)](#이벤트-루프-event-loop)
-  - [이벤트 루프의 개념](#이벤트-루프의-개념)
-  - [이벤트 루프의 구성 요소](#이벤트-루프의-구성-요소)
-  - [이벤트 루프의 동작 원리](#이벤트-루프의-동작-원리)
-  - [이벤트 루프의 동작 순서 예시](#이벤트-루프의-동작-순서-예시)
-    - [예시 1](#예시-1)
-    - [예시 2](#예시-2)
-  - [주의 사항](#주의-사항)
-- [참고 자료](#참고-자료)
-
 ## 개요
 
 `이벤트 루프(Event Loop)`에 대해 정리한 페이지입니다.
@@ -64,11 +51,11 @@ JavaScript, Event Loop, Execution Context</p></blockquote>
 
   - `마이크로태스크 큐(Microtask Queue)`
 
-    Promise의 콜백, `queueMicrotask`, `MutationObserver`, async/await 등이 속하는 큐입니다.
+    `Promise의 콜백`, `queueMicrotask`, `MutationObserver`, `async/await` 등이 속하는 큐입니다.
 
   - `매크로태스크 큐(Macrotask Queue)`
 
-    주로 `setTimeout`, `setInterval` `setImmediate`, DOM 이벤트, I/O 작업 등이 속하는 큐입니다.
+    `setTimeout`, `setInterval` `setImmediate`, `DOM 이벤트`, `I/O 작업` 등이 속하는 큐입니다.
 
 - `이벤트 루프`
 
@@ -96,7 +83,7 @@ JavaScript, Event Loop, Execution Context</p></blockquote>
 
 ### 이벤트 루프의 동작 순서 예시
 
-#### 예시 1
+#### 예시 1 - setTimeout & Promise
 
 ```javascript
 console.log("A");
@@ -112,7 +99,7 @@ console.log("D");
 
 출력 순서는 <b>"A" → "D" → "C" → "B"</b>입니다. 콜 스택이 비워진 후 먼저 마이크로태스크 큐의 Promise 콜백이 모두 실행된 다음, 매크로태스크 큐에 있는 `setTimeout`의 콜백이 실행됩니다. 실행 순서를 자세하게 설명하면 다음과 같습니다.
 
-1. `console.log("A");`
+1. <b>console.log("A");</b>
 
    먼저 콜 스택에 `console.log("A");`가 추가되어 실행된 후 콜 스택에서 제거됩니다.
 
@@ -120,9 +107,9 @@ console.log("D");
 
    <img src="/assets/img/cs/event-loop/pic7.png" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-2. `setTimeout(() => { console.log("B"); }, 0);`
+2. <b>setTimeout(() => { console.log("B"); }, 0);</b>
 
-   `setTimeout` 코드가 콜 스택에 쌓인 후 `setTimeout`의 콜백 함수가 이벤트 루프에 의해 Web API로 옮겨지고 타이머가 작동합니다. 타이머가 0초로 설정되었으므로 바로 타이머가 종료되고 콜백 함수가 매크로태스크 큐로 이동합니다.
+   `setTimeout` 코드가 콜 스택에 쌓인 후 `setTimeout`의 콜백 함수가 Web API로 옮겨지고 타이머가 작동합니다. 타이머가 0초로 설정되었으므로 바로 타이머가 종료되고 콜백 함수가 매크로태스크 큐로 이동합니다.
 
    <img src="/assets/img/cs/event-loop/pic8.png" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
@@ -130,15 +117,15 @@ console.log("D");
 
    <img src="/assets/img/cs/event-loop/pic10.png" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-3. `Promise.resolve("C").then((res) => console.log(res));`
+3. <b>Promise.resolve("C").then((res) => console.log(res));</b>
 
-   `Promise` 코드가 콜 스택에 쌓인 후 `then`의 콜백 함수가 이벤트 루프에 의해 마이크로태스크 큐로 이동합니다.
+   `Promise` 코드가 콜 스택에 쌓인 후 `then`의 콜백 함수가 마이크로태스크 큐로 이동합니다.
 
    <img src="/assets/img/cs/event-loop/pic11.png" alt="pic11" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
    <img src="/assets/img/cs/event-loop/pic12.png" alt="pic12" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-4. `console.log("D");`
+4. <b>console.log("D");</b>
 
    콜 스택에 `console.log("D");`가 추가되어 실행된 후 콜 스택에서 제거됩니다.
 
@@ -146,7 +133,7 @@ console.log("D");
 
    <img src="/assets/img/cs/event-loop/pic14.png" alt="pic14" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-5. `마이크로태스크 큐의 콜백 처리`
+5. <b>마이크로태스크 큐의 콜백 처리</b>
 
    콜 스택에 더 이상 실행할 코드가 남아있지 않는 경우 이벤트 루프는 태스크 큐에서 대기 중인 콜백 함수를 꺼내 콜 스택으로 옮깁니다. 이 때 마이크로태스크 큐의 콜백부터 먼저 처리합니다.
 
@@ -158,7 +145,7 @@ console.log("D");
 
    <img src="/assets/img/cs/event-loop/pic18.png" alt="pic18" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-6. `매크로태스크 큐의 콜백 처리`
+6. <b>매크로태스크 큐의 콜백 처리</b>
 
    마이크로태스크 큐에 콜백이 더 이상 존재하지 않는 경우 이벤트 루프는 매크로태스크 큐의 콜백을 콜 스택으로 옮깁니다.
 
@@ -170,11 +157,88 @@ console.log("D");
 
 <img src="/assets/img/cs/event-loop/pic1.png" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-#### 예시 2
+#### 예시 2 - async/await
+
+```javascript
+const A = () => Promise.resolve("A");
+
+async function myFunc() {
+  console.log("B");
+  const result = await A();
+  console.log(result);
+}
+
+console.log("C");
+myFunc();
+console.log("D");
+```
+
+출력 순서는 <b>"C" → "B" → "D" → "A"</b>입니다. 먼저 <b>"C"</b>가 출력된 후 myFunc 함수가 호출되어 <b>"B"</b>를 호출합니다. 해당 함수 내부의 `A()`의 Promise가 해결되기 전까지 myFunc 함수를 일시 정지합니다. 이후 <b>"D"</b>를 출력한 후 마이크로태스크 큐에서 `await` 이후의 코드가 실행되어 <b>"A"</b>를 출력합니다. 실행 순서를 자세하게 설명하면 다음과 같습니다.
+
+1. <b>console.log("C");</b>
+
+   먼저 콜 스택에 `console.log("C");`가 추가되어 실행된 후 콜 스택에서 제거됩니다.
+
+   <img src="/assets/img/cs/event-loop/pic21.png" alt="pic21" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+   <img src="/assets/img/cs/event-loop/pic22.png" alt="pic22" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+2. <b>myFunc() 호출</b>
+
+   비동기 함수인 `myFunc()`이 호출됩니다.
+
+3. <b>console.log("B");</b>
+
+   콜 스택에 `console.log("B");`가 추가되어 실행된 후 콜 스택에서 제거됩니다.
+
+   <img src="/assets/img/cs/event-loop/pic23.png" alt="pic23" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+   <img src="/assets/img/cs/event-loop/pic24.png" alt="pic24" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+4. <b>const result = await A();</b>
+
+   비동기 함수 `A()`를 호출합니다. 이 때 <b>`await` 키워드로 인해 myFunc 내부의 코드 실행을 일시 중단하고 콜 스택에서 빠져나와 `await` 키워드 이후의 나머지 코드는 await A()의 then()의 콜백 함수로 처리되어 마이크로태스크 큐에 추가됩니다.</b>
+
+   <img src="/assets/img/cs/event-loop/pic25.png" alt="pic25" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+   <img src="/assets/img/cs/event-loop/pic26.png" alt="pic26" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+5. <b>console.log("D");</b>
+
+   콜 스택에 `console.log("D");`가 추가되어 실행된 후 콜 스택에서 제거됩니다.
+
+   <img src="/assets/img/cs/event-loop/pic27.png" alt="pic27" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+   <img src="/assets/img/cs/event-loop/pic28.png" alt="pic28" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+6. <b>마이크로태스크 큐의 콜백 처리</b>
+
+   콜 스택에 더 이상 실행할 코드가 남아있지 않으므로 이벤트 루프는 마이크로태스크 큐에서 대기 중인 콜백 함수를 꺼내 콜 스택으로 옮깁니다.
+
+   <img src="/assets/img/cs/event-loop/pic29.png" alt="pic29" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+   <img src="/assets/img/cs/event-loop/pic30.png" alt="pic30" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
+실제 실행 결과도 다음과 같습니다.
 
 <img src="/assets/img/cs/event-loop/pic2.png" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
-출력 순서는 <b>"C" → "B" → "D" → "A"</b>입니다. 먼저 <b>"C"</b>가 출력된 후 myFunc 함수가 호출되어 <b>"B"</b>를 호출합니다. 해당 함수 내부의 `printA()`의 Promise가 해결되기 전까지 myFunc 함수를 일시 정지합니다. 이후 <b>"D"</b>를 출력한 후 마이크로태스크 큐에서 `await` 이후의 코드가 실행되어 <b>"A"</b>를 출력합니다.
+위의 코드에서 주목할 점은 바로 `await` 키워드입니다. <b>`await` 키워드를 사용하면 해당 키워드를 사용한 코드의 나머지 코드 부분이 then()의 콜백 함수로 처리되어 마이크로태스크 큐에 옮겨집니다.</b> 즉, 위의 코드는 다음 코드와 같습니다.
+
+```javascript
+const A = () => Promise.resolve("A");
+
+function myFunc() {
+  console.log("B");
+  return A().then((res) => {
+    console.log(res);
+  });
+}
+
+console.log("C");
+myFunc();
+console.log("D");
+```
 
 ### 주의 사항
 

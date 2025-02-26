@@ -19,8 +19,6 @@ TypeScript</p></blockquote>
 
 `타입스크립트(TypeScript)`에 대해 정리한 페이지입니다.
 
-<b>타입스크립트 개념이 방대하므로 지속적으로 업데이트하는 중입니다.</b>
-
 ## 타입스크립트란?
 
 `타입스크립트(TypeScript)`란 자바스크립트에 타입을 추가한 언어입니다. 타입스크립트는 타입을 지정하지 않고 인터프리터가 타입을 유추하는 `동적 타입` 언어인 자바스크립트와 달리, 타입이 같지 않다면 컴파일 에러를 내는 `강 타입` 언어입니다. 확장자로는 `.ts`를 사용하며, 자바스크립트로 컴파일(트랜스파일)되는 언어입니다.
@@ -770,22 +768,6 @@ const person: Readonly<Person> = {
 
 person.name = "HyunJin"; // Error: Cannot assign to 'name' because it is a read-only property.ts(2540)
 ```
-
-### 데코레이터
-
-// TODO
-
-### satisfies
-
-// TODO
-
-### enum
-
-// TODO
-
-### 타입 추론
-
-// TODO
 
 ## 참고 자료
 

@@ -34,23 +34,24 @@ comments: true
 
 브라우저는 다운로드한 HTML 문서를 파싱하여 `DOM 트리`를 생성합니다. 이때, HTML 태그를 노드로 변환하고, 노드 간의 계층 관계를 형성합니다. 이 과정은 HTML 문서의 위에서 아래 방향으로 이루어집니다.
 
-만약 HTML 파싱 중에 `async`나 `defer` 같은 설정이 되어있지 않은 `<script>` 태그를 만나는 경우 HTML 파싱을 일시 중단하고 자바스크립트를 실행하게 됩니다. 또한 외부 CSS 파일은 만나는 경우 `CSSOM` 생성 전까지 렌더링이 지연됩니다.
+만약 HTML 파싱 중에 `async`나 `defer` 같은 설정이 되어있지 않은 `<script>` 태그를 만나는 경우 HTML 파싱을 일시 중단하고 자바스크립트를 실행하게 됩니다. 또한 외부 CSS 파일을 만나는 경우 `CSSOM` 생성 전까지 렌더링이 지연됩니다.
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
 DOM은 <b>Document Object Model</b>으로 XML이나 HTML 문서에 접근하기 위한 인터페이스입니다. DOM은 자바스크립트로 접근하여 수정될 수 있습니다. <br />
+<br />
 <b>defer</b>: defer 속성을 사용하면 HTML 파싱이 완료된 후 자바스크립트를 실행합니다. <br />
 <b>async</b>: async 속성을 사용하면 자바스크립트를 비동기적으로 로드하여 실행합니다.</p></blockquote>
 
 ### Step 3 - CSS 파싱 및 CSSOM 트리 생성
 
-HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 `CSSOM(CSS Object Model) 트리`를 생성합니다. 브라우저는 다운로드한 CSS 파일을 파싱하여 `CSSOM 트리`를 생성합니다. 이때, CSS 속성을 노드로 변환하고, 노드 간의 계층 관계를 형성합니다. 이 과정에서 브라우저는 CSS의 cascading 규칙에 따라 최종 스타일을 결정합니다.
+HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드한 CSS 파일을 파싱하여 `CSSOM(CSS Object Model) 트리`를 생성합니다. 이때, CSS 속성을 노드로 변환하고 노드 간의 계층 관계를 형성합니다. 이 과정에서 브라우저는 CSS의 cascading 규칙에 따라 최종 스타일을 결정합니다.
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
 <b>CSSOM(CSS Object Model)</b>은 CSS 객체 모델로 자바스크립트가 CSS를 동적으로 조작할 수 있게 해줍니다. HTML 대신 CSS가 대상인 DOM이라고 할 수 있습니다.</p></blockquote>
 
 ### Step 4 - 렌더 트리 생성
 
-`DOM 트리`와 `CSSOM 트리`를 결합하여 `렌더 트리`를 생성합니다. 이때, 실제 화면에 표시될 요소만을 선택하여 `렌더 트리`를 형성합니다. 즉, `display: none` 속성이 적용된 요소는 `렌더 트리`에 포함되지 않습니다. 반면에 `visibility: hidden` 속성이 적용된 요소는 공간을 차지합니다.
+`DOM 트리`와 `CSSOM 트리`를 결합하여 `렌더 트리`를 생성합니다. 이때, 실제 화면에 표시될 요소만을 선택하여 `렌더 트리`를 형성합니다. 즉, `display: none` 속성이 적용된 요소는 `렌더 트리`에 포함되지 않습니다. 반면에 `visibility: hidden` 속성이 적용된 요소는 공간을 차지하므로 `렌더 트리`에 포함됩니다.
 
 ### Step 5 - 레이아웃/리플로우(Layout/Reflow)
 
@@ -58,7 +59,7 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 `CSSOM(CSS O
 
 ### Step 6 - 페인팅(Painting)
 
-계산된 레이아웃 정보를 바탕으로 브라우저는 각 요소를 px 단위로 변환하며, 실제 화면에 그리는 페인팅 단계를 실행합니다. 이 때, 각 요소의 배경, 테두리, 글자 등을 그리게 됩니다. 이 과정에서 브라우저는 성능 최적화를 위해 요소를 독립적인 레이어(Layer)로 분리하여 렌더링합니다. 이는 성능 저하를 초래할 수 있는 `레이아웃 스래싱(Layout Thrashing)`을 방지하기 위함입니다.
+브라우저는 계산된 레이아웃 정보를 바탕으로 각 요소를 실제 화면에 그리는 페인팅 단계를 실행합니다. 이 때, 각 요소의 배경, 테두리, 글자 등을 그리게 됩니다. 이 과정에서 브라우저는 성능 최적화를 위해 요소를 독립적인 `레이어(Layer)`로 분리하여 렌더링합니다. 이는 성능 저하를 초래할 수 있는 `레이아웃 스래싱(Layout Thrashing)`을 방지하기 위함입니다.
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
 <b>레이아웃 스레싱(Layout Thrashing)</b>이란 웹 페이지에서 JavaScript가 <b>반복적으로 DOM을 읽고 쓰는 작업을 수행</b>할 때, 브라우저가 불필요하게 <b>레이아웃 계산을 여러 번 강제로 실행</b>하며 성능이 급격히 저하되는 현상을 말합니다.</p></blockquote>

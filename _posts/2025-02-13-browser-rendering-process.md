@@ -39,8 +39,8 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
 DOM은 <b>Document Object Model</b>으로 XML이나 HTML 문서에 접근하기 위한 인터페이스입니다. DOM은 자바스크립트로 접근하여 수정될 수 있습니다. <br />
 <br />
-<b>defer</b>: defer 속성을 사용하면 HTML 파싱이 완료된 후 자바스크립트를 실행합니다. <br />
-<b>async</b>: async 속성을 사용하면 자바스크립트를 비동기적으로 로드하여 실행합니다.</p></blockquote>
+<b>defer</b>: defer 속성을 사용하면 스크립트를 백그라운드에서 다운로드한 후 HTML 파싱이 완료된 후(모든 DOM이 로드된 후) 자바스크립트를 실행합니다. (DOMContentLoaded 이벤트가 발생하기 전에 실행됩니다.)<br />
+<b>async</b>: async 속성을 사용하면 스크립트를 백그라운드에서 다운로드한 후 다운로드가 완료되면 즉시 실행합니다. (스크립트 실행 중에는 HTML 파싱이 일시 중지됩니다.)</p></blockquote>
 
 ### Step 3 - CSS 파싱 및 CSSOM 트리 생성
 
@@ -85,3 +85,4 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 - <a href="https://developer.mozilla.org/ko/docs/Web/Performance/How_browsers_work" target="_blank">웹페이지를 표시한다는 것: 브라우저는 어떻게 동작하는가 - 웹 성능 | MDN</a>
 - <a href="https://f-lab.kr/insight/understanding-browser-rendering-process-20240711" target="_blank">브라우저 렌더링 과정 이해하기</a>
 - <a href="https://jyostudy.tistory.com/207" target="_blank">주소창에 www.naver.com을 쳤을 때 일어나는 일</a>
+- <a href="https://wormwlrm.github.io/2021/03/01/Async-Defer-Attributes-of-Script-Tag.html" target="_blank">스크립트의 실행 시점을 조절하는 Async와 Defer 속성 - 재그지그의 개발 블로그</a>

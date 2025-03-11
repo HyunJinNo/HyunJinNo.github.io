@@ -90,9 +90,7 @@ const p5 = new p1.constructor("사람5"); // Person { _name: '사람5' } true
 });
 ```
 
-### 프로토타입 체인
-
-#### 메서드 오버라이드
+### 메서드 오버라이드
 
 ```javascript
 function Person(name) {
@@ -113,6 +111,37 @@ person.getName = function () {
 console.log(person.getName()); // "이름: 사람1"
 console.log(person.__proto__.getName()); // "사람2"
 ```
+
+### 프로토타입 체인 (Prototype Chain)
+
+어떤 데이터의 \_\_proto\_\_ 프로퍼티 내부에 다시 \_\_proto\_\_ 프로퍼티가 연쇄적으로 이어진 것을 `프로토타입 체인(Prototype Chain)`이라고 합니다. 또한 이 체인을 따라가며 검색하는 것을 `프로토타입 체이닝(Prototype Chaining)`이라고 합니다. 어떤 메서드를 호출하면 자바스크립트 엔진은 데이터 자신의 프로퍼티들을 검색해서 원하는 메서드가 있으면 그 메서드를 실행하고, 없으면 \_\_proto\_\_를 검색해서 있으면 그 메서드를 실행하고, 없으면 다시 \_\_proto\_\_를 검색해서 실행합니다. 자바스크립트 데이터는 모두 프로토타입 체인 구조를 갖습니다.
+
+```javascript
+const arr = [1, 2, 3];
+
+console.log(Array.prototype.toString.call(arr)); // 1,2,3
+console.log(Object.prototype.toString.call(arr)); // [object Array]
+console.log(arr.toString()); // 1,2,3
+
+arr.toString = function () {
+  return this.join("_");
+};
+
+console.log(arr.toString()); // 1_2_3
+```
+
+어떤 생성자 함수이든 prototype은 반드시 객체이기 때문에 Object.prototype이 항상 프로토타입 체인의 최상단에 위치합니다.
+
+```javascript
+Object.prototype.getFirst = function () {
+  return this[0];
+};
+
+console.log("123".getFirst()); // "1"
+console.log([2, 3, 4].getFirst()); // 2
+```
+
+### 다중 프로토타입 체인
 
 ## 참고 자료
 

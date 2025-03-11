@@ -82,6 +82,8 @@ this 바인딩에 대해선 다음 링크에서 확인하실 수 있습니다.
 
 생성자 함수의 프로퍼티인 `prototype` 객체 내부에는 `constructor`라는 프로퍼티가 있습니다. 해당 프로퍼티는 생성자 함수 자신을 가리킵니다. `constructor` 프로퍼티는 인스턴스가 자신의 생성자 함수가 무엇인지를 알고자 할 때 필요한 수단입니다.
 
+<img src="/assets/img/cs/prototype/pic3.avif" alt="prototype 객체 내부에는 constructor라는 프로퍼티가 존재합니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+
 인스턴스의 `__proto__`가 생성자 함수의 `prototype` 프로퍼티를 참조하므로 위의 코드와 같이 `[인스턴스].constructor`로도 직접 `constructor`에 접근할 수 있습니다.
 
 ```javascript

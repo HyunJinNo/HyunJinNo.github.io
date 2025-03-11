@@ -15,18 +15,6 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
 JavaScript, Prototype</p></blockquote>
 
-<h2>목차</h2>
-
-- [개요](#개요)
-- [프로토타입 (Prototype)](#프로토타입-prototype)
-  - [프로토타입의 개념](#프로토타입의-개념)
-  - [prototype 프로퍼티와 \_\_proto\_\_ 프로퍼티](#prototype-프로퍼티와-__proto__-프로퍼티)
-  - [constructor 프로퍼티](#constructor-프로퍼티)
-  - [메서드 오버라이드](#메서드-오버라이드)
-  - [프로토타입 체인 (Prototype Chain)](#프로토타입-체인-prototype-chain)
-  - [다중 프로토타입 체인](#다중-프로토타입-체인)
-- [참고 자료](#참고-자료)
-
 ## 개요
 
 자바스크립트 프로토타입에 대해 정리한 페이지입니다.
@@ -64,7 +52,7 @@ console.log(Person.prototype === person.__proto__); // true
 
 `prototype` 프로퍼티는 모든 함수 객체에 존재하는 속성으로, 해당 함수가 생성자 함수로 사용될 때 생성되는 인스턴스들이 상속받을 속성과 메서드를 저장합니다. 그리고 인스턴스의 `__proto__` 프로퍼티는 생성자 함수의 `prototype` 프로퍼티를 참조합니다. 다음 사진을 보면 알 수 있듯이, 내용물이 동일하고 일치 연산자(===)를 사용하여 비교했을 때 true가 반환되는 것을 확인할 수 있습니다.
 
-<img src="/assets/img/cs/prototype/pic1.jpg" alt="인스턴스의 __proto__ 프로퍼티는 생성자 함수의 prototype을 참조합니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/prototype/pic1.avif" alt="인스턴스의 __proto__ 프로퍼티는 생성자 함수의 prototype을 참조합니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 그러므로 다음과 같이 `__proto__` 프로퍼티를 사용해서 생성자 함수의 `prototype`에 정의된 getName 메서드를 호출할 수 있습니다.
 
@@ -125,7 +113,7 @@ const p5 = new p1.constructor("사람5"); // Person { _name: '사람5' } true
 
 또한 `constructor`는 읽기 전용 속성이 부여된 예외적인 경우(number, string, boolean)를 제외하고는 값을 바꿀 수 있습니다. 이 때 constructor를 변경하더라도 참조하는 대상이 변경될 뿐 이미 만들어진 인스턴스의 원형이 바뀌거나 데이터 타입이 변경되지는 않습니다.
 
-<img src="/assets/img/cs/prototype/pic2.jpg" alt="constructor를 변경하더라도 참조하는 대상이 변경될 뿐 이미 만들어진 인스턴스의 원형이 바뀌거나 데이터 타입이 변경되지는 않습니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/prototype/pic2.avif" alt="constructor를 변경하더라도 참조하는 대상이 변경될 뿐 이미 만들어진 인스턴스의 원형이 바뀌거나 데이터 타입이 변경되지는 않습니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
 
 ### 메서드 오버라이드
 
@@ -163,32 +151,33 @@ console.log(person.__proto__.getName.call(person)); // "사람1"
 
 어떤 데이터의 `__proto__` 프로퍼티 내부에 다시 `__proto__` 프로퍼티가 연쇄적으로 이어진 것을 `프로토타입 체인(Prototype Chain)`이라고 합니다. 또한 이 체인을 따라가며 검색하는 것을 `프로토타입 체이닝(Prototype Chaining)`이라고 합니다. 어떤 메서드를 호출하면 자바스크립트 엔진은 데이터 자신의 프로퍼티들을 검색해서 원하는 메서드가 있으면 그 메서드를 실행하고, 없으면 `__proto__`를 검색해서 있으면 그 메서드를 실행하고, 없으면 다시 `__proto__`를 검색해서 실행합니다. 자바스크립트 데이터는 모두 프로토타입 체인 구조를 갖습니다.
 
+아래 코드에서 arr 변수는 배열이므로 `arr.__proto__`는 `Array.prototype`을 참조하고, `Array.prototype`은 객체이므로 `arr.__proto.__proto__`은 `Object.prototype`을 참조합니다. 그러므로 toString 메서드를 호출하더라도 `arr._proto__.toString()`은 `Array.prototype`의 toString 메서드를 호출하고, `arr.__proto__.__proto__.toString()`은 `Object.prototype`의 toString 메서드를 호출합니다.
+
 ```javascript
 const arr = [1, 2, 3];
 
-console.log(Array.prototype.toString.call(arr)); // 1,2,3
-console.log(Object.prototype.toString.call(arr)); // [object Array]
 console.log(arr.toString()); // 1,2,3
+console.log(arr.__proto__.toString.call(arr)); // 1,2,3
+console.log(Array.prototype.toString.call(arr)); // 1,2,3
 
-arr.toString = function () {
-  return this.join("_");
-};
-
-console.log(arr.toString()); // 1_2_3
+console.log(arr.__proto__.__proto__.toString.call(arr)); // [object Array]
+console.log(Object.prototype.toString.call(arr)); // [object Array]
 ```
 
-어떤 생성자 함수이든 prototype은 반드시 객체이기 때문에 Object.prototype이 항상 프로토타입 체인의 최상단에 위치합니다. 즉, 다음과 같이 TODO
+어떤 생성자 함수이든 `prototype`은 반드시 객체이기 때문에 `Object.prototype`이 항상 프로토타입 체인의 최상단에 위치합니다. 즉, 다음과 같이 `Object.prototype`에 getFirst 메서드를 정의하는 경우 여러 타입의 변수에서 getFirst 메서드를 호출할 수 있습니다.
 
 ```javascript
 Object.prototype.getFirst = function () {
   return this[0];
 };
 
+console.log(Object.prototype.__proto__); // null
 console.log("123".getFirst()); // "1"
 console.log([2, 3, 4].getFirst()); // 2
 ```
 
-### 다중 프로토타입 체인
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
+string, number, boolean과 같은 원시값은 평소에는 객체가 아니지만, 프로퍼티나 메서드에 접근할 때 일시적으로 관련 래퍼 객체(String, Number, Boolean)으로 변환되어 프로토타입에 정의된 메서드를 사용할 수 있습니다.</p></blockquote>
 
 ## 참고 자료
 

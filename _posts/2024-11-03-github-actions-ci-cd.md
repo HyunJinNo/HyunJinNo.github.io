@@ -70,27 +70,27 @@ GitHub Actions을 사용하려면 먼저 yml 설정 파일을 생성해야 합�
 
 먼저 다음과 같이 GitHub Repository의 Actions 탭을 클릭합니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic1.avif" alt="pic1" />
 
 해당 페이지로 들어가면 위와 같이 GitHub에서 여러 가지 템플릿을 제공해 줍니다. 원하는 템플릿을 검색하여 configure 버튼을 클릭하거나, 템플릿 없이 진행하려면 `set up a workflow yourself`를 클릭합니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic3.avif" alt="pic3" />
 
 ### VSCode에서 만들기
 
 먼저 다음과 같이 VSCode에서 `GitHub Actions` Extensions을 설치합니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic2.avif" alt="pic2" />
 
 이후 프로젝트 최상단 디렉토리에서 `.github` 폴더를 생성하고 그 안에 `workflows`라는 폴더를 생성한 후 yml 설정 파일을 생성합니다. 파일명은 원하는 대로 지으면 됩니다. 예를 들어 배포 관련 workflow 설정 파일을 생성한다면 `.github/workflows/deploy.yml` 구조가 될 수 있습니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic10.avif" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic10.avif" alt="pic10" />
 
 ## Step 2 - Workflow 작성하기
 
 다음 예시는 Next.js 애플리케이션을 Raspberry Pi에 배포하고자 CI/CD를 구축한 예시입니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic11.avif" alt="pic11" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic11.avif" alt="pic11" />
 
 위의 workflow 설정에 대해 설명하자면 다음과 같습니다.
 
@@ -103,7 +103,7 @@ name: GitHub Actions로 Next.js 앱 CI/CD 구축 예시
 
 먼저 위와 같이 workflow 이름을 설정해야 합니다. workflow 이름은 `name` 필드에서 설정합니다. 이 이름은 GitHub의 Actions 탭에 표시됩니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic5.avif" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic5.avif" alt="pic5" />
 
 ### 이벤트 설정하기
 
@@ -119,7 +119,7 @@ on:
 
 ### Job 설정하기
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic12.avif" alt="pic12" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic12.avif" alt="pic12" />
 
 `jobs` 필드는 workflow 내에서 실행될 개별 작업을 정의합니다. 각 job은 여러 단계를 포함할 수 있으며 병렬로 실행이 가능합니다.
 
@@ -197,18 +197,18 @@ steps:
 
 애플리케이션을 빌드한 후에는 scp를 사용하여 빌드 파일을 Raspberry Pi로 전송해야 합니다. 저는 [appleboy/scp-action@v0.1.7](https://github.com/appleboy/scp-action)라는 서드파티 액션을 사용하였습니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic13.avif" alt="pic13" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic13.avif" alt="pic13" />
 
 Next.js에서는 빌드 시 `.next` 폴더가 생성되므로 해당 폴더를 source로 지정하면 됩니다. 또한 위에서 Raspberry Pi의 IP 주소나 비밀번호, 포트 번호 등은 중요한 정보이므로 yml 파일에 직접 작성하지 않습니다. 대신 `GitHub Secrets`를 사용하였습니다.
 `GitHub Secrets`는 민감한 정보를 안전하게 관리하기 위한 기능으로, yml 파일 내에서 `secrets.<SECRET_NAME>` 형태로 참조할 수 있습니다.
 
 GitHub Secrets를 사용하려면 먼저 다음과 같이 GitHub Repository 내에서 `settings > Secrets and variable > Actions`로 이동합니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic6.avif" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic6.avif" alt="pic6" />
 
 이후 `New repository secret`을 클릭하여 `secrets`를 생성하면 됩니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic7.avif" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic7.avif" alt="pic7" />
 
 <br />
 
@@ -216,7 +216,7 @@ GitHub Secrets를 사용하려면 먼저 다음과 같이 GitHub Repository 내�
 
 빌드 파일을 전송한 후에는 ssh를 사용하여 Raspberry Pi에 원격 접속한 후 이전에 실행되고 있던 프로덕션 서버를 종료한 후 `pm2`를 사용해 새롭게 백그라운드로 실행할 수 있도록 합니다. 저는 [appleboy/ssh-action@v1.1.0](https://github.com/appleboy/ssh-action)라는 서드파티 액션을 사용하였습니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic14.avif" alt="pic14" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic14.avif" alt="pic14" />
 
 위에 스크립트를 설명하자면 먼저 빌드 파일이 있는 폴더로 이동한 후 의존성 업데이트를 진행합니다. 이후 이전에 실행되고 있던 프로덕션 서버를 종료한 후 새로운 프로덕션 서버를 백그라운드로 실행합니다.
 
@@ -224,9 +224,9 @@ GitHub Secrets를 사용하려면 먼저 다음과 같이 GitHub Repository 내�
 
 CI/CD 테스트 결과는 다음과 같습니다.
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic8.avif" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic8.avif" alt="pic8" />
 
-<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic9.avif" alt="pic9" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic9.avif" alt="pic9" />
 
 ## 참고 자료
 

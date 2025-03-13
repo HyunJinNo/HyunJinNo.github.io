@@ -32,7 +32,7 @@ JavaScript, Event Loop, Execution Context</p></blockquote>
 
 이벤트 루프는 다음 요소들과 상호 작용합니다.
 
-<img src="/assets/img/cs/event-loop/pic1.avif" alt="이벤트 루프는 콜 스택, Web API, 태스크 큐와 상호 작용합니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/event-loop/pic1.avif" alt="이벤트 루프는 콜 스택, Web API, 태스크 큐와 상호 작용합니다." />
 
 - `콜 스택(Call Stack)`
 
@@ -103,59 +103,59 @@ console.log("D");
 
    먼저 콜 스택에 `console.log("A");`가 추가되어 실행된 후 콜 스택에서 제거됩니다.
 
-   <img src="/assets/img/cs/event-loop/pic2.avif" alt="console.log('A');가 콜 스택에 추가" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic2.avif" alt="console.log('A');가 콜 스택에 추가" />
 
-   <img src="/assets/img/cs/event-loop/pic3.avif" alt="console.log('A');가 콜 스택에서 제거" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic3.avif" alt="console.log('A');가 콜 스택에서 제거" />
 
 2. <b>setTimeout(() => { console.log("B"); }, 0);</b>
 
    `setTimeout` 코드가 콜 스택에 쌓인 후 `setTimeout`의 콜백 함수가 Web API로 옮겨지고 타이머가 작동합니다. 타이머가 0초로 설정되었으므로 바로 타이머가 종료되고 콜백 함수가 매크로태스크 큐로 이동합니다.
 
-   <img src="/assets/img/cs/event-loop/pic4.avif" alt="setTimeout" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic4.avif" alt="setTimeout" />
 
-   <img src="/assets/img/cs/event-loop/pic5.avif" alt="setTimeout" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic5.avif" alt="setTimeout" />
 
-   <img src="/assets/img/cs/event-loop/pic6.avif" alt="setTimeout" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic6.avif" alt="setTimeout" />
 
 3. <b>Promise.resolve("C").then((res) => console.log(res));</b>
 
    `Promise` 코드가 콜 스택에 쌓인 후 `then`의 콜백 함수가 마이크로태스크 큐로 이동합니다.
 
-   <img src="/assets/img/cs/event-loop/pic7.avif" alt="Promise" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic7.avif" alt="Promise" />
 
-   <img src="/assets/img/cs/event-loop/pic8.avif" alt="Promise" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic8.avif" alt="Promise" />
 
 4. <b>console.log("D");</b>
 
    콜 스택에 `console.log("D");`가 추가되어 실행된 후 콜 스택에서 제거됩니다.
 
-   <img src="/assets/img/cs/event-loop/pic9.avif" alt="console.log('D');가 콜 스택에 추가" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic9.avif" alt="console.log('D');가 콜 스택에 추가" />
 
-   <img src="/assets/img/cs/event-loop/pic10.avif" alt="console.log('A');가 콜 스택에서 제거" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic10.avif" alt="console.log('A');가 콜 스택에서 제거" />
 
 5. <b>마이크로태스크 큐의 콜백 처리</b>
 
    콜 스택에 더 이상 실행할 코드가 남아있지 않는 경우 이벤트 루프는 태스크 큐에서 대기 중인 콜백 함수를 꺼내 콜 스택으로 옮깁니다. 이 때 마이크로태스크 큐의 콜백부터 먼저 처리합니다.
 
-   <img src="/assets/img/cs/event-loop/pic11.avif" alt="마이크로태스크 큐의 콜백 처리" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic11.avif" alt="마이크로태스크 큐의 콜백 처리" />
 
-   <img src="/assets/img/cs/event-loop/pic12.avif" alt="마이크로태스크 큐의 콜백 처리" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic12.avif" alt="마이크로태스크 큐의 콜백 처리" />
 
-   <img src="/assets/img/cs/event-loop/pic13.avif" alt="마이크로태스크 큐의 콜백 처리" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic13.avif" alt="마이크로태스크 큐의 콜백 처리" />
 
-   <img src="/assets/img/cs/event-loop/pic14.avif" alt="마이크로태스크 큐의 콜백 처리" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic14.avif" alt="마이크로태스크 큐의 콜백 처리" />
 
 6. <b>매크로태스크 큐의 콜백 처리</b>
 
    마이크로태스크 큐에 콜백이 더 이상 존재하지 않는 경우 이벤트 루프는 매크로태스크 큐의 콜백을 콜 스택으로 옮깁니다.
 
-   <img src="/assets/img/cs/event-loop/pic15.avif" alt="매크로태스크 큐의 콜백 처리" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic15.avif" alt="매크로태스크 큐의 콜백 처리" />
 
-   <img src="/assets/img/cs/event-loop/pic16.avif" alt="매크로태스크 큐의 콜백 처리" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic16.avif" alt="매크로태스크 큐의 콜백 처리" />
 
 실제 실행 결과도 다음과 같습니다.
 
-<img src="/assets/img/cs/event-loop/pic17.avif" alt="실행 결과" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/event-loop/pic17.avif" alt="실행 결과" />
 
 #### 예시 2 - async/await
 
@@ -179,9 +179,9 @@ console.log("D");
 
    먼저 콜 스택에 `console.log("C");`가 추가되어 실행된 후 콜 스택에서 제거됩니다.
 
-   <img src="/assets/img/cs/event-loop/pic18.avif" alt="console.log('C');가 콜 스택에 추가" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic18.avif" alt="console.log('C');가 콜 스택에 추가" />
 
-   <img src="/assets/img/cs/event-loop/pic19.avif" alt="console.log('C');가 콜 스택에서 제거" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic19.avif" alt="console.log('C');가 콜 스택에서 제거" />
 
 2. <b>myFunc() 호출</b>
 
@@ -191,37 +191,37 @@ console.log("D");
 
    콜 스택에 `console.log("B");`가 추가되어 실행된 후 콜 스택에서 제거됩니다.
 
-   <img src="/assets/img/cs/event-loop/pic20.avif" alt="console.log('B');가 콜 스택에 추가" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic20.avif" alt="console.log('B');가 콜 스택에 추가" />
 
-   <img src="/assets/img/cs/event-loop/pic21.avif" alt="console.log('B');가 콜 스택에서 제거" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic21.avif" alt="console.log('B');가 콜 스택에서 제거" />
 
 4. <b>const result = await A();</b>
 
    비동기 함수 `A()`를 호출합니다. 이 때 <b>`await` 키워드로 인해 myFunc 내부의 코드 실행을 일시 중단하고 콜 스택에서 빠져나와 `await` 키워드 이후의 나머지 코드는 await A()의 then()의 콜백 함수로 처리되어 마이크로태스크 큐에 추가됩니다.</b>
 
-   <img src="/assets/img/cs/event-loop/pic22.avif" alt="await 키워드" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic22.avif" alt="await 키워드" />
 
-   <img src="/assets/img/cs/event-loop/pic23.avif" alt="await 키워드" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic23.avif" alt="await 키워드" />
 
 5. <b>console.log("D");</b>
 
    콜 스택에 `console.log("D");`가 추가되어 실행된 후 콜 스택에서 제거됩니다.
 
-   <img src="/assets/img/cs/event-loop/pic24.avif" alt="console.log('D');가 콜 스택에 추가" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic24.avif" alt="console.log('D');가 콜 스택에 추가" />
 
-   <img src="/assets/img/cs/event-loop/pic25.avif" alt="console.log('D');가 콜 스택에서 제거" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic25.avif" alt="console.log('D');가 콜 스택에서 제거" />
 
 6. <b>마이크로태스크 큐의 콜백 처리</b>
 
    콜 스택에 더 이상 실행할 코드가 남아있지 않으므로 이벤트 루프는 마이크로태스크 큐에서 대기 중인 콜백 함수를 꺼내 콜 스택으로 옮깁니다.
 
-   <img src="/assets/img/cs/event-loop/pic26.avif" alt="마이크로태스크 큐의 콜백 처리" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic26.avif" alt="마이크로태스크 큐의 콜백 처리" />
 
-   <img src="/assets/img/cs/event-loop/pic27.avif" alt="마이크로태스크 큐의 콜백 처리" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+   <img src="/assets/img/cs/event-loop/pic27.avif" alt="마이크로태스크 큐의 콜백 처리" />
 
 실제 실행 결과도 다음과 같습니다.
 
-<img src="/assets/img/cs/event-loop/pic28.avif" alt="실행 결과" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/event-loop/pic28.avif" alt="실행 결과" />
 
 위의 코드에서 주목할 점은 바로 `await` 키워드입니다. <b>`await` 키워드를 사용하면 해당 키워드를 사용한 코드의 나머지 코드 부분이 then()의 콜백 함수로 처리되어 마이크로태스크 큐에 옮겨집니다.</b> 즉, 위의 코드는 다음 코드와 같습니다.
 
@@ -244,17 +244,17 @@ console.log("D");
 
 비동기 코드(Ex. `setTimeout`, `fetch`, `Promise.then`)는 <b>콜 스택이 비어있을 때(정확히는 콜 스택 내에 전역 실행 컨텍스트만 존재하고 더 이상 실행할 동기 코드가 없는 경우)만 실행</b>할 수 있습니다. 만약 다음과 같이 무한 루프 함수가 실행되고 있으면 콜 스택이 비워지지 않으므로 비동기 코드가 실행되지 않습니다.
 
-<img src="/assets/img/cs/event-loop/pic29.avif" alt="무한 루프 함수가 실행되고 있으면 콜 스택이 비워지지 않으므로 비동기 코드가 실행되지 않습니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/event-loop/pic29.avif" alt="무한 루프 함수가 실행되고 있으면 콜 스택이 비워지지 않으므로 비동기 코드가 실행되지 않습니다." />
 
 또한 무한 루프 함수가 아니더라도 콜 스택을 오래 차지하고 있는 코드가 실행되고 있으면 콜 스택이 비어지기 전까지 비동기 코드의 실행이 지연됩니다.
 
 예를 들어 다음 `setTimeout`은 의도한대로 약 1초 후에 콜백이 실행됩니다.
 
-<img src="/assets/img/cs/event-loop/pic30.avif" alt="setTimeout" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/event-loop/pic30.avif" alt="setTimeout" />
 
 반면에 다음 자바스크립트 코드의 경우 반복문이 콜 스택을 오랫동안 차지하고 있으므로 `setTimeout`의 콜백이 실행되기까지 훨씬 더 오랜 시간이 걸리게 됩니다.
 
-<img src="/assets/img/cs/event-loop/pic31.avif" alt="반복문이 콜 스택을 오랫동안 차지하므로 비동기 코드가 실행되기까지 훨씬 더 오랜 시간이 걸립니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/event-loop/pic31.avif" alt="반복문이 콜 스택을 오랫동안 차지하므로 비동기 코드가 실행되기까지 훨씬 더 오랜 시간이 걸립니다." />
 
 ## 참고 자료
 

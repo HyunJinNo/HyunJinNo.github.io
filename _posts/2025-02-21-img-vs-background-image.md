@@ -45,7 +45,7 @@ HTML의 `img` 태그와 CSS의 `background-image`는 둘 다 이미지를 화면
 - 기본적으로 이미지의 원본 비율을 유지하지만, CSS로 추가 조절이 가능합니다.
 - 마우스 우클릭 시 이미지로 인식할 수 있으며 검색 기능을 활용할 수 있습니다.
 
-  <img src="/assets/img/front-end/img-vs-background-image/pic1.avif" alt="HTML img 태그로 이미지를 사용하는 경우 마우스 우클릭 시 이미지를 인식할 수 있으며 검색 기능을 활용할 수 있습니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+  <img src="/assets/img/front-end/img-vs-background-image/pic1.avif" alt="HTML img 태그로 이미지를 사용하는 경우 마우스 우클릭 시 이미지를 인식할 수 있으며 검색 기능을 활용할 수 있습니다." />
 
 ### CSS background-image 속성
 
@@ -60,7 +60,7 @@ HTML의 `img` 태그와 CSS의 `background-image`는 둘 다 이미지를 화면
 - alt 속성이 없기 때문에 이미지 로딩에 실패하면 사용자에게 별도의 안내가 제공되지 않으며 빈 공간으로 표시됩니다.
 - 검색 엔진이 배경 이미지를 별도로 인식하지 않습니다. 이와 더불어 마우스 우클릭 시 이미지로 인식하지 못합니다.
 
-  <img src="/assets/img/front-end/img-vs-background-image/pic2.avif" alt="CSS background-image 속성으로 이미지를 사용하는 경우 마우스 우클릭 시 이미지로 인식하지 못합니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+  <img src="/assets/img/front-end/img-vs-background-image/pic2.avif" alt="CSS background-image 속성으로 이미지를 사용하는 경우 마우스 우클릭 시 이미지로 인식하지 못합니다." />
 
 ### img 태그를 사용하는 경우
 
@@ -91,15 +91,15 @@ HTML `img` 태그는 HTML이 파싱되는 동안 이미지 요청이 이루어�
 
 먼저 저의 블로그의 왼쪽 사이드바의 이미지를 CSS `background-image` 속성을 사용하여 지정한 결과입니다.
 
-<img src="/assets/img/front-end/img-vs-background-image/pic3.avif" alt="CSS background-image 속성으로 왼쪽 사이드바에 배경 이미지를 넣은 경우" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/img-vs-background-image/pic3.avif" alt="CSS background-image 속성으로 왼쪽 사이드바에 배경 이미지를 넣은 경우" />
 
-<img src="/assets/img/front-end/img-vs-background-image/pic4.avif" alt="Lighthouse 기준 성능이 76점." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/img-vs-background-image/pic4.avif" alt="Lighthouse 기준 성능이 76점." />
 
 위의 사진을 보면 알 수 있듯이 `Lighthouse` 기준으로 성능이 76점이 나왔습니다. 이는 아래 사진을 보면 알 수 있듯이 왼쪽 사이드바에서 사용한 이미지의 로딩 시간이 오래 걸렸기 때문입니다.
 
-<img src="/assets/img/front-end/img-vs-background-image/pic5.avif" alt="3.8초의 LCP" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/img-vs-background-image/pic5.avif" alt="3.8초의 LCP" />
 
-<img src="/assets/img/front-end/img-vs-background-image/pic6.avif" alt="이미지 로딩 시간이 긴 편입니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/img-vs-background-image/pic6.avif" alt="이미지 로딩 시간이 긴 편입니다." />
 
 ### HTML img 태그를 사용할 때
 
@@ -133,7 +133,7 @@ HTML `img` 태그는 HTML이 파싱되는 동안 이미지 요청이 이루어�
 }
 ```
 
-<img src="/assets/img/front-end/img-vs-background-image/pic7.avif" alt="Lighthouse 기준 성능이 98점." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/img-vs-background-image/pic7.avif" alt="Lighthouse 기준 성능이 98점." />
 
 ## 참고 자료
 

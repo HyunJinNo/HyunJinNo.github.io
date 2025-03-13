@@ -144,13 +144,13 @@ npm run dev
 
 서버가 실행되면 브라우저를 열고 <a href="http://localhost:4000" target="_blank">http://localhost:4000/</a> 으로 접속합니다. 화면에 `Express with TypeScript`가 표시된다면 서버 실행에 성공한 것입니다.
 
-<img src="/assets/img/back-end/expressjs-typescript/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem" />
+<img src="/assets/img/back-end/expressjs-typescript/pic1.avif" alt="pic1"  />
 
 ### 코드 수정 후 서버 재시작하기
 
 위에서 설치한 패키지 중 `nodemon`은 코드 변경 시 서버를 자동으로 재시작하기 위해 사용합니다. `app.ts` 파일 내의 `res.send("Express with TypeScript")` 부분을 수정해보도록 하겠습니다. 문자열 `Express with TypeScript`를 `Express.js with TypeScript`로 수정한 후 파일을 저장합니다. 파일을 저장하면 `nodemon`이 `src` 디렉토리 내의 `app.ts` 파일을 재실행합니다. 서버가 재시작한 후 <a href="http://localhost:4000/" target="_blank">http://localhost:4000/</a>에 다시 접속하면 `Express.js with TypeScript`가 화면에 표시되어 있을 것입니다.
 
-<img src="/assets/img/back-end/expressjs-typescript/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/back-end/expressjs-typescript/pic2.avif" alt="pic2" />
 
 ### 서버 실행 (production 모드)
 
@@ -167,8 +167,8 @@ npm run build
 npm run start
 ```
 
-<img src="/assets/img/back-end/expressjs-typescript/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/back-end/expressjs-typescript/pic3.avif" alt="pic3" />
 
-<img src="/assets/img/back-end/expressjs-typescript/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/back-end/expressjs-typescript/pic4.avif" alt="pic4" />
 
 `production 모드`로 서버를 성공적으로 실행하였습니다.

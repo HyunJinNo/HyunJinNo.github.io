@@ -22,7 +22,7 @@ comments: true
 
 Template을 생성하기 전에 먼저 다음과 같이 GitHub Repository에서 Label을 설정하기를 권장합니다. Label은 PR과 Issue에서 카테고리를 분류하기 위해 사용합니다.
 
-<img src="/assets/img/etc/github-template/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic2.avif" alt="pic2" >
 
 제가 주로 사용하는 Label 종류에 대한 설명은 다음과 같습니다. 참고로 저는 커밋 메세지에서는 첫 글자를 소문자로, PR이나 Issue 작성 시에는 첫 글자를 대문자로 작성하는 것을 선호합니다.
 
@@ -45,7 +45,7 @@ Template을 생성하기 전에 먼저 다음과 같이 GitHub Repository에서 
 
 먼저 다음과 같이 프로젝트 최상위 폴더에서 `.github` 폴더를 생성한 후 해당 폴더에서 `pull_request_template.md` 파일을 생성합니다.
 
-<img src="/assets/img/etc/github-template/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic1.avif" alt="pic1" >
 
 `pull_request_template.md` 파일을 생성한 후 PR Template을 작성하면 됩니다. 다음은 제가 사용한 PR Template 예시입니다.
 
@@ -110,7 +110,7 @@ Ex. close #123
 
 PR Template을 사용하여 생성한 PR 예시는 다음과 같습니다.
 
-<img src="/assets/img/etc/github-template/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic3.avif" alt="pic3" >
 
 ## Issue Template 생성하기
 
@@ -120,37 +120,37 @@ Issue Template은 GitHub Repository에서 직접 만들어도 되고, 아니면 
 
 먼저 GitHub Repository에서 `Setting` 탭을 클릭합니다.
 
-<img src="/assets/img/etc/github-template/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic4.avif" alt="pic4" >
 
 이후 `Features` 항목에서 `Issues` 부분의 `Set up templates` 버튼을 클릭합니다.
 
-<img src="/assets/img/etc/github-template/pic5.avif" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic5.avif" alt="pic5" >
 
 `Add template: select` 버튼을 클릭하여 생성하고자 하는 Issue Template을 선택하면 됩니다.
 
-<img src="/assets/img/etc/github-template/pic6.avif" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic6.avif" alt="pic6" >
 
 #### Bug Report 생성하기
 
 다음은 `Bug Report`를 생성한 예시입니다. 코드는 [아래](#bug-report-생성하기-1)에서 확인하실 수 있습니다.
 
-<img src="/assets/img/etc/github-template/pic8.avif" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic8.avif" alt="pic8" >
 
-<img src="/assets/img/etc/github-template/pic7.avif" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic7.avif" alt="pic7" >
 
 #### Feature Request 생성하기
 
 다음은 `Feature Request`를 생성한 예시입니다. 코드는 [아래](#feature-request-생성하기-1)에서 확인하실 수 있습니다.
 
-<img src="/assets/img/etc/github-template/pic9.avif" alt="pic9" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic9.avif" alt="pic9" >
 
-<img src="/assets/img/etc/github-template/pic10.avif" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic10.avif" alt="pic10" >
 
 ### VSCode에서 생성하기
 
 먼저 다음과 같이 프로젝트 최상위 폴더에서 `.github` 폴더를 생성한 후 해당 폴더 내에 `ISSUE_TEMPLATE` 폴더를 생성한 후 `bug_report.md`, `feature_request.md` 파일을 생성합니다.
 
-<img src="/assets/img/etc/github-template/pic11.avif" alt="pic11" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic11.avif" alt="pic11" >
 
 #### Bug Report 생성하기
 
@@ -227,4 +227,4 @@ assignees: ""
 
 Issue Template을 생성한 후 GitHub Repository의 `Issues` 탭을 클릭한 후 `New issue` 버튼을 클릭하면 다음과 같이 Template이 표시됩니다.
 
-<img src="/assets/img/etc/github-template/pic12.avif" alt="pic12" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem">
+<img src="/assets/img/etc/github-template/pic12.avif" alt="pic12" >

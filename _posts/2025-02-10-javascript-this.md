@@ -37,13 +37,13 @@ JavaScript, Hoisting, Execution Context</p></blockquote>
 
 <b>브라우저</b>
 
-<img src="/assets/img/cs/javascript-this/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/javascript-this/pic1.avif" alt="pic1" />
 
 <br />
 
 <b>Node.js</b>
 
-<img src="/assets/img/cs/javascript-this/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/javascript-this/pic2.avif" alt="pic2" />
 
 <br />
 
@@ -53,7 +53,7 @@ JavaScript, Hoisting, Execution Context</p></blockquote>
 
 어떤 함수가 어떤 객체에도 속하지 않는 경우 일반 함수로 동작합니다. 일반 함수로서 호출되는 경우 `this`는 `전역 객체`를 가리킵니다. 이는 실행 컨텍스트 활성화 당시에 this가 지정되지 않은 경우 this는 전역 객체를 가리키기 때문입니다.
 
-<img src="/assets/img/cs/javascript-this/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/javascript-this/pic3.avif" alt="pic3" />
 
 주의해야 할 점으로, 어떤 함수를 객체의 프로퍼티에 할당하는 경우 무조건 메서드로서 동작하는 것은 아닙니다. 아래와 같이 <b>함수 이름 앞에 객체가 명시되어 있는 경우에만 메서드로서 동작하는 것이고, 그렇지 않은 경우 모두 일반 함수로서 동작합니다.</b>
 
@@ -73,7 +73,7 @@ console.log();
 obj.myMethod(); // 메서드로서 호출
 ```
 
-<img src="/assets/img/cs/javascript-this/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/javascript-this/pic4.avif" alt="pic4" />
 
 ### 객체 메서드에서의 this
 

@@ -63,37 +63,37 @@ outer();
 console.log(a); // 1
 ```
 
-<img src="/assets/img/cs/execution-context/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/execution-context/pic1.avif" alt="pic1" />
 
 먼저 위의 사진과 같이 처음 자바스크립트 코드가 실행되는 순간 자동으로 전역 실행 컨텍스트가 콜 스택에 담기게 됩니다.
 
 <br />
 
-<img src="/assets/img/cs/execution-context/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/execution-context/pic2.avif" alt="pic2" />
 
 이후 outer 함수가 호출되면 자바스크립트 엔진은 outer에 대한 환경 정보를 수집해서 outer 실행 컨텍스트를 생성한 후 콜 스택에 담습니다. 콜 스택 맨 위에 outer 실행 컨텍스트가 놓인 상태이므로 전역 실행 컨텍스트와 관련된 코드의 실행을 일시 중단하고 outer 실행 컨텍스트와 관련된 코드, 즉 outer 함수 내부의 코드를 순서대로 실행합니다.
 
 <br />
 
-<img src="/assets/img/cs/execution-context/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/execution-context/pic3.avif" alt="pic3" />
 
 outer 함수 내부에서 inner 함수가 호출되면 inner 실행 컨텍스트를 생성한 후 콜 스택에 담습니다. outer 실행 컨텍스트와 관련된 코드의 실행을 일시 중단하고 inner 함수 내부의 코드를 순서대로 실행합니다.
 
 <br />
 
-<img src="/assets/img/cs/execution-context/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/execution-context/pic4.avif" alt="pic4" />
 
 이후 inner 함수의 실행이 종료되면 콜 스택에서 inner 실행 컨텍스트를 제거합니다. 콜 스택에서 inner 실행 컨텍스트를 제거하여 콜 스택 맨 위에 outer 실행 컨텍스트가 놓인 상태이므로 outer 함수 내부에서 inner 함수를 호출하는 코드 이후부터 실행합니다.
 
 <br />
 
-<img src="/assets/img/cs/execution-context/pic5.avif" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/execution-context/pic5.avif" alt="pic5" />
 
 outer 함수의 실행이 종료되면 콜 스택에서 outer 실행 컨텍스트를 제거합니다. 콜 스택에서 outer 실행 컨텍스트를 제거하여 콜 스택에는 전역 실행 컨텍스트만 남게 됩니다.
 
 <br />
 
-<img src="/assets/img/cs/execution-context/pic6.avif" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/execution-context/pic6.avif" alt="pic6" />
 
 마지막으로 자바스크립트 코드 실행이 종료되면 전역 공간에는 실행할 코드가 남아 있지 않으므로 콜 스택에서 전역 실행 컨텍스트를 제거하여 콜 스택에는 아무 것도 없는 상태로 종료됩니다.
 

@@ -45,7 +45,7 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
   Chrome, Firefox, Opera 등 주요 브라우저에서 네이티브로 지원합니다.
 
-  <img src="/assets/img/front-end/webm-webp-avif/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+  <img src="/assets/img/front-end/webm-webp-avif/pic1.avif" alt="pic1" />
 
 ### MP4 vs WebM
 
@@ -89,7 +89,7 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
   Chrome, Edge, Firefox, Safari 등 주요 브라우저에서 지원합니다. 사실상 인터넷 익스플로러를 제외한 웹 브라우저에서 지원한다고 보면 됩니다.
 
-  <img src="/assets/img/front-end/webm-webp-avif/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+  <img src="/assets/img/front-end/webm-webp-avif/pic2.avif" alt="pic2" />
 
 ### AVIF의 개념
 
@@ -126,7 +126,7 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
   `AVIF`는 2019년에 개발된 최신 이미지 포맷으로서, 범용성이 낮다는 단점이 있지만 점차 개선되고 있습니다. 현재는 Chrome, Firefox, Safari, Edge 등 주요 웹 브라우저에서 지원하고 있으며, 점점 지원 범위가 확장되고 있습니다.
 
-  <img src="/assets/img/front-end/webm-webp-avif/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+  <img src="/assets/img/front-end/webm-webp-avif/pic3.avif" alt="pic3" />
 
 ### JPEG vs PNG vs GIF vs SVG vs WebP vs AVIF
 
@@ -142,7 +142,7 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
 이미지 파일 크기를 비교하면 다음과 같습니다.
 
-<img src="/assets/img/front-end/webm-webp-avif/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic4.avif" alt="pic4" />
 
 ## 웹 성능 개선하기
 
@@ -150,11 +150,11 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
 기존의 블로그는 성능 및 파일 용량 측면에서 개선이 많이 필요하였습니다. 특히 다음 사진과 같이 빌드 결과물의 용량이 `228 MB`가 되는 문제가 있었습니다.
 
-<img src="/assets/img/front-end/webm-webp-avif/pic5.avif" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic5.avif" alt="pic5" />
 
 이는 블로그에서 사용하는 비디오와 이미지에 최적화가 적용되지 않았기 때문입니다. 비디오 포맷은 `MP4`였으며, 이미지는 `JPG`와 `PNG`만을 사용하고 있었습니다. 이로 인해 다음 사진을 보면 알 수 있듯이 비디오와 이미지 용량 총합이 `233 MB`나 되었습니다.
 
-<img src="/assets/img/front-end/webm-webp-avif/pic6.avif" alt="pic6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic6.avif" alt="pic6" />
 
 이처럼 `MP4`, `JPG`, `PNG`만을 계속 사용하면 블로그 글을 작성할 수록 파일 용량이 점점 더 커지는 것이 문제가 될 것이라고 생각하였습니다. 또한 사용하는 비디오, 이미지 용량이 크기 때문에 로딩 속도도 느리고 네트워크 트래픽도 큰 부분도 고려하였습니다. 이와 같은 점을 고려했을 때 파일 용량을 줄이는 것이 필요하다고 판단하였고, 결과적으로 모든 비디오 파일 포맷을 `WebM`으로, 모든 이미지 포맷을 `WebP`로 변경하기로 결정하였습니다.
 
@@ -162,37 +162,37 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
 먼저 블로그에서 사용하는 비디오 포맷을 `WebM`으로 변경하였습니다. 그리고 블로그에서 사용하는 이미지 포맷을 전부 `WebP`로 변경하였습니다.
 
-<img src="/assets/img/front-end/webm-webp-avif/pic7.avif" alt="pic7" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic7.avif" alt="pic7" />
 
-<img src="/assets/img/front-end/webm-webp-avif/pic8.avif" alt="pic8" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic8.avif" alt="pic8" />
 
 파일 포맷을 변경한 결과 다음과 같이 비디오와 이미지 용량 총합을 `233 MB`에서 `61.4 MB`로 줄일 수 있었습니다.
 
-<img src="/assets/img/front-end/webm-webp-avif/pic9.avif" alt="pic9" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic9.avif" alt="pic9" />
 
 이와 같이 비디오/이미지 용량이 크게 줄면서 빌드 결과물의 용량이 `228 MB`에서 `60.8 MB`로 크게 줄게 되었고 웹 성능을 크게 개선할 수 있었습니다.
 
-<img src="/assets/img/front-end/webm-webp-avif/pic10.avif" alt="pic10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic10.avif" alt="pic10" />
 
-<img src="/assets/img/front-end/webm-webp-avif/pic11.avif" alt="pic11" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic11.avif" alt="pic11" />
 
-<img src="/assets/img/front-end/webm-webp-avif/pic12.avif" alt="pic12" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic12.avif" alt="pic12" />
 
 ### Step 3 - 성능 개선 2 (WebM, AVIF)
 
 이미지를 `JPG`와 `PNG`에서 `WebP`로 변환함으로써 성능을 많이 개선시킬 수 있었지만, `AVIF`는 `WebP`보다 압축률이 더 좋기 때문에 `AVIF`를 사용함으로써 이미지 용량을 좀 더 줄일 수 있습니다. 따라서 다음과 같이 일부 이미지를 제외하고 `WebP` 포맷의 이미지를 `AVIF`로 변경하였습니다.
 
-<img src="/assets/img/front-end/webm-webp-avif/pic13.avif" alt="pic13" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic13.avif" alt="pic13" />
 
 `WebP` 이미지를 `AVIF` 이미지로 변경한 결과 다음과 같이 비디오와 이미지 용량 총합을 `61.4 MB`에서 `41.1 MB`로 줄일 수 있었습니다.
 
-<img src="/assets/img/front-end/webm-webp-avif/pic14.avif" alt="pic14" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic14.avif" alt="pic14" />
 
 이 결과 빌드 결과물 용량을 `60.8 MB`에서 `40.9 MB`로 줄일 수 있었습니다.
 
-<img src="/assets/img/front-end/webm-webp-avif/pic15.avif" alt="pic15" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic15.avif" alt="pic15" />
 
-<img src="/assets/img/front-end/webm-webp-avif/pic16.avif" alt="pic16" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/front-end/webm-webp-avif/pic16.avif" alt="pic16" />
 
 ## 참고 자료
 

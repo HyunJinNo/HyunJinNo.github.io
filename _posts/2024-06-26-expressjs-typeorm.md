@@ -331,4 +331,4 @@ router.delete(
 
 `Postman`을 사용하여 API를 요청한 예시는 다음과 같습니다.
 
-<img src="/assets/img/back-end/expressjs-typeorm/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/back-end/expressjs-typeorm/pic1.avif" alt="pic1" />

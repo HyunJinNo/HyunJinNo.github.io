@@ -28,7 +28,7 @@ comments: true
 #### 짝 프로그래밍
 
 <figure>
-<img src="/assets/img/naver-boostcamp-9th/day15/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/naver-boostcamp-9th/day15/pic1.avif" alt="pic1" />
 <figcaption>출처: <a href="https://unsplash.com/ko/%EC%82%AC%EC%A7%84/macbook-pro%EB%A5%BC-%EB%A7%8C%EC%A7%80%EA%B3%A0-%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94-%EC%82%AC%EB%9E%8C-ZKBzlifgkgw">https://unsplash.com/ko/%EC%82%AC%EC%A7%84/macbook-pro%EB%A5%BC-%EB%A7%8C%EC%A7%80%EA%B3%A0-%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94-%EC%82%AC%EB%9E%8C-ZKBzlifgkgw</a></figcaption>
 </figure>
 

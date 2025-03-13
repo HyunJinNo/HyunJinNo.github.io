@@ -80,11 +80,11 @@ npm install -g typescript
 tsc --version
 ```
 
-<img src="/assets/img/cs/typescript/pic1.avif" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/typescript/pic1.avif" alt="pic1" />
 
 타입스크립트를 실행할 폴더에서 tsconfig.json 파일을 생성합니다. `npx tsc --init` 명령어를 통해 tsconfig.json 파일을 초기화하여 생성할 수 있습니다.
 
-<img src="/assets/img/cs/typescript/pic2.avif" alt="pic2" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/typescript/pic2.avif" alt="pic2" />
 
 tsconfig.json 파일이 생성되면 다음과 같은 타입스크립트 코드를 자바스크립트 코드로 컴파일할 수 있습니다.
 
@@ -102,7 +102,7 @@ console.log(add(10, 20));
 tsc test.ts
 ```
 
-<img src="/assets/img/cs/typescript/pic3.avif" alt="pic3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/typescript/pic3.avif" alt="pic3" />
 
 위의 방식은 한 번에 하나의 타입스크립트 파일을 컴파일하는 방식입니다. 만약 특정 폴더 내의 모든 타입스크립트 파일들을 컴파일하고 싶다면 다음과 같이 tsconfig.json의 `include` 옵션에 폴더를 지정할 수 있습니다. 또한 `outDir` 옵션에 컴파일 결과 폴더를 지정할 수 있습니다.
 
@@ -126,7 +126,7 @@ tsc test.ts
 tsc
 ```
 
-<img src="/assets/img/cs/typescript/pic4.avif" alt="pic4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/typescript/pic4.avif" alt="pic4" />
 
 위의 방식들은 모두 타입스크립트 파일을 자바스크립트 파일로 컴파일해 자바스크립트 파일을 실행하는 방식입니다. `ts-node` 패키지를 설치하면 컴파일 과정없이 바로 타입스크립트 코드를 실행할 수 있습니다. (참고로 `ts-node`도 내부적으로는 타입스크립트를 자바스크립트로 변환 후 실행합니다.)
 
@@ -136,7 +136,7 @@ npm install -g ts-node
 
 이후 다음과 같이 타입스크립트 코드를 실행할 수 있습니다.
 
-<img src="/assets/img/cs/typescript/pic5.avif" alt="pic5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/typescript/pic5.avif" alt="pic5" />
 
 ## 타입스크립트 문법
 

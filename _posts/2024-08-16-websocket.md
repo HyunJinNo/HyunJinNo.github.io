@@ -48,7 +48,7 @@ Socket</p></blockquote>
 
 웹소켓 프로토콜은 크게 `핸드셰이크`와 `데이터 전송`으로 구분할 수 있습니다. 웹소켓의 동작 방식을 설명하자면 다음과 같습니다.
 
-<img src="/assets/img/cs/websocket/pic1.webp" alt="pic1" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/websocket/pic1.webp" alt="pic1" />
 
 1. `핸드셰이크(Handshake)`
 

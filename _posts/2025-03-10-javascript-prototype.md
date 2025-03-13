@@ -52,7 +52,7 @@ console.log(Person.prototype === person.__proto__); // true
 
 `prototype` 프로퍼티는 모든 함수 객체에 존재하는 속성으로, 해당 함수가 생성자 함수로 사용될 때 생성되는 인스턴스들이 상속받을 속성과 메서드를 저장합니다. 그리고 인스턴스의 `__proto__` 프로퍼티는 생성자 함수의 `prototype` 프로퍼티를 참조합니다. 다음 사진을 보면 알 수 있듯이, 내용물이 동일하고 일치 연산자(===)를 사용하여 비교했을 때 true가 반환되는 것을 확인할 수 있습니다.
 
-<img src="/assets/img/cs/prototype/pic1.avif" alt="인스턴스의 __proto__ 프로퍼티는 생성자 함수의 prototype을 참조합니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/prototype/pic1.avif" alt="인스턴스의 __proto__ 프로퍼티는 생성자 함수의 prototype을 참조합니다." />
 
 그러므로 다음과 같이 `__proto__` 프로퍼티를 사용해서 생성자 함수의 `prototype`에 정의된 getName 메서드를 호출할 수 있습니다.
 
@@ -82,7 +82,7 @@ this 바인딩에 대해선 다음 링크에서 확인하실 수 있습니다.
 
 생성자 함수의 프로퍼티인 `prototype` 객체 내부에는 `constructor`라는 프로퍼티가 있습니다. 해당 프로퍼티는 생성자 함수 자신을 가리킵니다. `constructor` 프로퍼티는 인스턴스가 자신의 생성자 함수가 무엇인지를 알고자 할 때 필요한 수단입니다.
 
-<img src="/assets/img/cs/prototype/pic3.avif" alt="prototype 객체 내부에는 constructor라는 프로퍼티가 존재합니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/prototype/pic3.avif" alt="prototype 객체 내부에는 constructor라는 프로퍼티가 존재합니다." />
 
 인스턴스의 `__proto__`가 생성자 함수의 `prototype` 프로퍼티를 참조하므로 위의 코드와 같이 `[인스턴스].constructor`로도 직접 `constructor`에 접근할 수 있습니다.
 
@@ -115,7 +115,7 @@ const p5 = new p1.constructor("사람5"); // Person { _name: '사람5' } true
 
 또한 `constructor`는 읽기 전용 속성이 부여된 예외적인 경우(number, string, boolean)를 제외하고는 값을 바꿀 수 있습니다. 이 때 constructor를 변경하더라도 참조하는 대상이 변경될 뿐 이미 만들어진 인스턴스의 원형이 바뀌거나 데이터 타입이 변경되지는 않습니다.
 
-<img src="/assets/img/cs/prototype/pic2.avif" alt="constructor를 변경하더라도 참조하는 대상이 변경될 뿐 이미 만들어진 인스턴스의 원형이 바뀌거나 데이터 타입이 변경되지는 않습니다." style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0.5rem"/>
+<img src="/assets/img/cs/prototype/pic2.avif" alt="constructor를 변경하더라도 참조하는 대상이 변경될 뿐 이미 만들어진 인스턴스의 원형이 바뀌거나 데이터 타입이 변경되지는 않습니다." />
 
 ### 메서드 오버라이드
 

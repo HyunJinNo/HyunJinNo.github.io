@@ -8,12 +8,16 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/front-end/front-end.avif
+  path: /assets/img/front-end/react-native-logo.avif
 comments: true
 ---
 
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
 React Native, FSD, Development History, TypeScript, mobile</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Environment</u></strong> <br />
+OS: Windows 11 <br />
+react-native v0.76.5 </p></blockquote>
 
 ## 개요
 
@@ -21,4 +25,4 @@ React Native 프로젝트에서 FSD 아키텍처를 적용하면서 경험한 �
 
 ## 참고 자료
 
-- ?
+- <a href="https://github.com/TripInfoWeb/solitour-mobile" target="_blank">https://github.com/TripInfoWeb/solitour-mobile</a>

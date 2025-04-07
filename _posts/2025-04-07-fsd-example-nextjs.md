@@ -35,6 +35,10 @@ Next.js v15.2.2</p></blockquote>
     - [model](#model-1)
     - [ui](#ui-1)
   - [features](#features)
+    - [api](#api-2)
+    - [config](#config-2)
+    - [model](#model-2)
+    - [ui](#ui-2)
   - [widgets](#widgets)
   - [app](#app)
 - [FSD 아키텍처 적용 후](#fsd-아키텍처-적용-후)
@@ -595,19 +599,92 @@ export const InformationItem = ({
 
 ### features
 
+<img src="/assets/img/front-end/fsd-example-nextjs/pic16.jpg" alt="features 레이어" />
+
 `features` 레이어는 <b>사용자의 특정 행동과 상호작용과 관련된 기능을 포함하는 레이어</b>입니다. 하나의 기능에 필요한 모든 요소를 그룹화합니다.
+
+저는 다음과 같이 세그먼트 역할을 정의하였습니다.
 
 ```text
 features
-├── auth
-|   ├── api    # 로그인/로그아웃 API
-|   ├── lib    # 인증 관련 유틸리티 함수
-|   ├── model  # auth 관련 상태 (Ex. authStore)
-|   ├── ui     # 로그인 폼, OAuth 버튼 등 UI 컴포넌트
+├── informationBookmark
+|   ├── api     # 북마크 기능 관련 API 요청, DTO 등 API 관련 파일
+|   ├── config  # 북마크 기능 관련 상수 파일 (실제 코드에서는 없는 부분입니다.)
+|   ├── model   # 북마크 기능 관련 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
+|   ├── ui      # 북마크 버튼 UI 컴포넌트
 |   └── index.ts
-├── search
+├── auth
+├── deleteAccount
 ├── (...)
 ```
+
+#### api
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic17.jpg" alt="features 레이어의 api 세그먼트" />
+
+`api` 세그먼트에는 특정 기능과 관련된 API 요청, DTO 등 API 관련 파일을 모아두었습니다. 예를 들어, 다음 코드는 정보 도메인과 관련해 북마크를 등록하거나 또는 취소하는 API 요청 파일입니다.
+
+```typescript
+/* @/features/informationBookmark/api/informationBookmark.ts */
+
+import { fetchWithAuth } from "@/shared/api";
+
+export async function createInformationBookmark(informationId: number) {
+  const data = new URLSearchParams();
+  data.append("infoId", informationId.toString());
+
+  const response = await fetchWithAuth(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/bookmark/information`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: data.toString(),
+      credentials: "include",
+      cache: "no-store"
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to create data.");
+  }
+}
+
+export async function deleteInformationBookmark(informationId: number) {
+  const data = new URLSearchParams();
+  data.append("infoId", informationId.toString());
+
+  const response = await fetchWithAuth(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/bookmark/information`,
+    {
+      method: "DELETE",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: data.toString(),
+      credentials: "include",
+      cache: "no-store"
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to delete data.");
+  }
+}
+```
+
+#### config
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic18.jpg" alt="features 레이어의 config 세그먼트" />
+
+`config` 세그먼트에는 특정 기능과 관련된 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 닉네임 변경 기능과 관련해서 닉네임 최대 길이를 나타내는 상수를 정의하였습니다.
+
+```typescript
+/* @/features/myPageNicknameEditor/config/nicknameMaxLength.ts */
+
+export const NICKNAME_MAX_LENGTH = 30;
+```
+
+#### model
+
+#### ui
 
 ### widgets
 

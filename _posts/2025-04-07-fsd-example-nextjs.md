@@ -108,7 +108,7 @@ shared
 `api` 세그먼트에는 API 요청과 관련된 코드를 모아두었습니다. 프로젝트 전반에 걸쳐 사용되는 fetch 함수, 새로운 액세스 토큰을 받아오는 API 요청, 이미지 업로드 API 요청 파일 등을 모아두었습니다.
 
 ```typescript
-/* fetchWithAuth.ts */
+/* @/shared/api/fetchWithAuth.ts */
 
 import { getNewAccessToken } from "./getNewAccessToken";
 
@@ -136,7 +136,7 @@ export async function fetchWithAuth(
 ```
 
 ```typescript
-/* getNewAccessToken.ts */
+/* @/shared/api/getNewAccessToken.ts */
 
 "use server";
 
@@ -171,7 +171,7 @@ export async function getNewAccessToken() {
 `config` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 여러 페이지에서 사용되는 지역 정보 관련 상수 파일을 정의하였습니다.
 
 ```typescript
-/* location.ts */
+/* @/shared/config/location.ts */
 
 export const LOCATION = [
   "강원",
@@ -209,7 +209,7 @@ export const LOCATION = [
 `model` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 전역 상태나 비즈니스 로직을 정의하였습니다. 예를 들어, 다음과 같이 Toast 메시지를 관리하는 스토어를 생성하였습니다.
 
 ```typescript
-/* toastifyStore.ts */
+/* @/shared/model/toastifyStore.ts */
 
 import { StateCreator, create } from "zustand";
 import { devtools } from "zustand/middleware";
@@ -254,7 +254,7 @@ export const useToastifyStore = create<ToastifyStoreType>(
 `ui` 세그먼트에는 프로젝트 전반에 걸쳐 재사용할 수 있는 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 여러 페이지에서 사용되는 Breadcrumb 컴포넌트를 생성하였습니다.
 
 ```tsx
-/* Breadcrumb.tsx */
+/* @/shared/ui/breadcrumb/Breadcrumb.tsx */
 
 import Image from "next/image";
 import Link from "next/link";
@@ -304,23 +304,294 @@ export const Breadcrumb = ({ categoryList: categories }: BreadcrumbProps) => {
 
 ```text
 entities
-├── user
-|   ├── api    # user 관련 API
-|   ├── lib    # user 관련 유틸리티 함수
-|   ├── model  # user 관련 상태 (Ex. userStore)
-|   ├── ui     # user 관련 UI 컴포넌트
+├── diary
+|   ├── api     # diary 관련 API 요청, DTO 등 API 관련 파일
+|   ├── config  # diary 관련 상수 파일
+|   ├── model   # diary 관련 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
+|   ├── ui      # diary 관련 UI 컴포넌트
 |   └── index.ts
-├── post
-└── comment
+├── gathering
+└── (...)
 ```
 
 #### api
 
+<img src="/assets/img/front-end/fsd-example-nextjs/pic12.jpg" alt="entities 레이어의 api 세그먼트" />
+
+`api` 세그먼트에는 특정 도메인과 관련된 API 요청, DTO 등 API 관련 파일을 모아두었습니다. 특히 다음과 같이 DTO를 API 요청 함수 내에 정의하였습니다.
+
+```typescript
+/* @/entities/diary/api/diary.ts */
+
+"use server";
+
+import { cookies } from "next/headers";
+import { DiaryInfo } from "../model/diary";
+import { revalidateTag } from "next/cache";
+import { fetchWithAuth } from "@/shared/api";
+
+export interface DiaryCreateRequest {
+  title: string;
+  titleImage: string;
+  startDatetime: Date;
+  endDatetime: Date;
+  diaryDayRequests: {
+    content: string;
+    feelingStatus: string;
+    diaryDayContentImages: string;
+    place: string;
+  }[];
+}
+
+export async function createDiary(data: DiaryCreateRequest) {
+  const accessToken = (await cookies()).get("access_token");
+  const response = await fetchWithAuth(`${process.env.BACKEND_URL}/api/diary`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: `${accessToken?.name}=${accessToken?.value}`
+    },
+    body: JSON.stringify(data),
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to create data.");
+  }
+
+  return response.text();
+}
+
+(...생략)
+```
+
+만약 DTO를 다른 파일에서도 참조하는 경우에는 다음과 같이 `model` 세그먼트에 타입을 정의하고 이를 import하는 방식을 적용하였습니다.
+
+```typescript
+/* @/entities/user/api/userInfo.ts */
+
+import { fetchWithAuth } from "@/shared/api";
+import { User } from "../model/user";
+
+export async function getUserInfo() {
+  const response = await fetchWithAuth(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/info`,
+    {
+      method: "GET",
+      credentials: "include",
+      cache: "no-store"
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch data.");
+  }
+
+  return response.json() as Promise<User>;
+}
+```
+
 #### config
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic13.jpg" alt="entities 레이어의 config 세그먼트" />
+
+`config` 세그먼트에는 특정 도메인과 관련된 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 user 슬라이스 내에 성별 관련 상수 파일을 정의하였습니다.
+
+```typescript
+/* @/entities/user/config/gender.ts */
+
+export const GENDER: Record<string, string> = {
+  MALE: "남성",
+  FEMALE: "여성",
+  ALL: "성별무관"
+} as const;
+```
 
 #### model
 
+<img src="/assets/img/front-end/fsd-example-nextjs/pic14.jpg" alt="entities 레이어의 model 세그먼트" />
+
+`model` 세그먼트에는 특정 도메인과 관련된 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 정의하였습니다. 예를 들어, 다음과 같이 User 타입을 정의하거나 User 스토어를 생성하였습니다.
+
+```typescript
+/* @/entities/user/model/user.ts */
+
+export interface User {
+  id: number;
+  userStatus: string;
+  userImage: {
+    id: number;
+    address: string;
+    createdDate: string;
+  };
+  nickname: string;
+  age: number | null;
+  sex: "male" | "female" | null;
+  email: string;
+  phoneNumber: string | null;
+  isAdmin: boolean;
+  createdAt: Date | null;
+  provider: string;
+}
+```
+
+```typescript
+/* @/entities/user/model/userStore.ts */
+
+import { StateCreator, create } from "zustand";
+import { devtools } from "zustand/middleware";
+import { User } from "./user";
+
+// 1. 상태 인터페이스 정의
+interface UserState extends User {}
+
+// 2. 액션 인터페이스 정의
+interface UserAction {
+  initialize: () => void;
+  setUserState: (data: Partial<UserState>) => void;
+}
+
+// 3. 초기 상태 정의
+const initialState: UserState = {
+  id: 0,
+  userStatus: "",
+  userImage: {
+    id: 0,
+    address: "",
+    createdDate: ""
+  },
+  nickname: "",
+  age: 0,
+  sex: null,
+  email: "",
+  phoneNumber: "",
+  isAdmin: false,
+  createdAt: null,
+  provider: ""
+};
+
+type UserStoreType = UserState & UserAction;
+
+// 4. 상태 및 액션 생성
+const userStore: StateCreator<UserStoreType> = (set) => ({
+  ...initialState,
+  initialize: () => set({ ...initialState, id: -1 }),
+  setUserState: (data) => set(() => ({ ...data }))
+});
+
+export const useUserStore = create<UserStoreType>(
+  process.env.NODE_ENV === "development"
+    ? (devtools(userStore) as StateCreator<UserStoreType>)
+    : userStore
+);
+```
+
 #### ui
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic15.jpg" alt="entities 레이어의 ui 세그먼트" />
+
+`ui` 세그먼트에는 특정 도메인과 관련된 UI 컴포넌트를 정의하였습니다. 이 세그먼트는 도메인의 시각적 표현에만 집중합니다. 만약 UI 컴포넌트 내에 사용자의 특정 행동과 상호작용과 관련된 기능이 포함되어야 한다면 이를 `children`으로 분리하여 단방향 의존성을 깨뜨리지 않도록 구현하였습니다. 예를 들어, 다음 코드는 information 도메인의 시각적 표현을 나타내는 UI 컴포넌트입니다. 북마크 기능은 `children`으로 분리하였습니다.
+
+```tsx
+/* @/entities/information/ui/InformationItem.tsx */
+
+import Image from "next/image";
+import Link from "next/link";
+import { TiLocation } from "react-icons/ti";
+import { HeartIcon } from "@/shared/ui/icon";
+import { CATEGORY_TAG_STYLE } from "../config/categoryTagStyle";
+import { convertNumberToShortForm } from "@/shared/lib/utils";
+
+interface InformationItemProps {
+  informationId: number;
+  categoryName?: string;
+  isLike: boolean;
+  title: string;
+  image: string;
+  address: string;
+  likeCount: number;
+  viewCount: number;
+  children: React.ReactNode;
+}
+
+export const InformationItem = ({
+  informationId,
+  categoryName,
+  isLike,
+  title,
+  image,
+  address,
+  likeCount,
+  viewCount,
+  children
+}: InformationItemProps) => {
+  return (
+    <div className="outline-gray3 hover:outline-main relative flex h-78.75 w-full flex-col justify-between rounded-2xl outline duration-300 max-[744px]:min-w-[19.183125rem]">
+      <Link className="h-50.75" href={`/informations/${informationId}`}>
+        <Image
+          className="-z-10 rounded-[0.875rem] object-cover"
+          src={image}
+          alt="information-image"
+          fill={true}
+        />
+        <div className="rounded-0 flex flex-row items-center justify-between px-5 pt-5">
+          {categoryName !== undefined ? (
+            <p
+              className={[
+                CATEGORY_TAG_STYLE[categoryName],
+                "w-fit rounded-full border px-4 py-1.5 text-xs font-semibold"
+              ].join(" ")}
+            >
+              {categoryName}
+            </p>
+          ) : (
+            <div />
+          )}
+          {children}
+        </div>
+      </Link>
+      <div className="flex h-28 flex-col justify-between rounded-b-xl bg-white px-5 py-4">
+        <Link
+          className="truncate-vertical-information-title hover:text-main p-1 font-bold"
+          href={`/informations/${informationId}`}
+        >
+          {title}
+        </Link>
+        <div className="flex flex-row justify-between">
+          <div className="text-gray1 flex flex-row items-center gap-1">
+            <TiLocation />
+            <p className="text-xs font-medium">
+              {address.slice(0, 2) === "세종" ? "세종특별자치시" : address}
+            </p>
+          </div>
+          <div className="flex flex-row items-center gap-3">
+            <div
+              className={[
+                isLike
+                  ? "fill-[#F85E5E] stroke-[#F85E5E] text-[#F85E5E]"
+                  : "stroke-gray2 text-gray2 fill-none",
+                "flex flex-row items-center gap-1.25 text-xs"
+              ].join(" ")}
+            >
+              <HeartIcon className="fill-inherit stroke-inherit" />
+              <p>{convertNumberToShortForm(likeCount)}</p>
+            </div>
+            <div className="text-gray2 flex flex-row items-center gap-1">
+              <Image
+                src="/icons/eyes-icon.svg"
+                alt="eyes-icon.svg"
+                width={15}
+                height={15}
+              />
+              <p className="text-xs">{convertNumberToShortForm(viewCount)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+```
 
 ### features
 

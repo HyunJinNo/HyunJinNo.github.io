@@ -18,9 +18,29 @@ React, Next.js, FSD, Development History, TypeScript</p></blockquote>
 <blockquote class="prompt-info"><p><strong><u>Environment</u></strong><br />
 Next.js v15.2.2</p></blockquote>
 
+<h2>목차 - TODO </h2>
+
+- [개요](#개요)
+- [FSD 아키텍처 적용 전](#fsd-아키텍처-적용-전)
+- [FSD 아키텍처 적용하기](#fsd-아키텍처-적용하기)
+  - [shared](#shared)
+    - [api](#api)
+    - [config](#config)
+    - [lib](#lib)
+    - [model](#model)
+    - [ui](#ui)
+  - [entities](#entities)
+  - [features](#features)
+  - [widgets](#widgets)
+  - [app](#app)
+- [FSD 아키텍처 적용 후](#fsd-아키텍처-적용-후)
+- [참고 자료](#참고-자료)
+
 ## 개요
 
-Next.js 프로젝트에서 FSD 아키텍처를 적용하면서 경험한 내용에 대해 정리한 페이지입니다.
+Next.js 프로젝트에서 FSD 아키텍처를 적용하면서 경험한 내용에 대해 정리한 페이지입니다. FSD 아키텍처의 개념에 대해선 다음 링크를 참고하시길 바랍니다.
+
+<a href="../fsd">FSD 아키텍처</a>
 
 ## FSD 아키텍처 적용 전
 
@@ -49,21 +69,194 @@ FSD 아키텍처는 다음과 같은 계층 구조를 갖습니다.
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic3.jpg" alt="FSD 아키텍처 적용 후 폴더 구조" />
 
+```text
+src
+├── app       # 애플리케이션 초기화, 라우팅, 전역 상태 관리 등을 담당하는 레이어입니다. + URL 경로에 매핑되는 페이지 컴포넌트를 관리하는 레이어입니다.
+├── widgets   # 여러 페이지에서 공용으로 사용하는 독립적인 UI 컴포넌트를 관리하는 레이어입니다. (Ex. Header, Searchbar, Sidebar 등)
+├── features  # 특정 기능의 로직, UI, API 호출을 포함한 독립 모듈입니다. (Ex. 좋아요 버튼, 글 작성 버튼, 정렬 기능 등)
+├── entities  # 도메인 모델과 관련된 데이터 처리를 담당하는 레이어입니다. (Ex. user, post 등)
+└── shared    # 애플리케이션 전반에 걸쳐 재사용되는 유틸리티, UI 컴포넌트 등을 포함하는 레이어입니다. (Ex. 버튼, 헤더, HTTP 클라이언트 등)
+```
+
 각 레이어 구현 방식에 대해 설명하자면 아래와 같습니다.
 
 ### shared
 
-`shared` 레이어는 <b>어떤 기능에도 속하지 않는, 애플리케이션 전반에 걸쳐 재사용되는 요소를 관리하는 레이어</b>입니다. `app` 레이어와 마찬가지로 슬라이스를 포함하지 않으며, 공통적으로 사용되는 유틸리티 함수, 공통 UI 컴포넌트, 커스텀 훅, 상수 등을 포함합니다.
+<img src="/assets/img/front-end/fsd-example-nextjs/pic4.jpg" alt="shared 레이어" />
+
+`shared` 레이어는 <b>어떤 기능에도 속하지 않는, 애플리케이션 전반에 걸쳐 재사용되는 요소를 관리하는 레이어</b>입니다. `app` 레이어와 마찬가지로 슬라이스를 포함하지 않으며, 직접 세그먼트로 구성됩니다. 해당 레이어에는 공통적으로 사용되는 유틸리티 함수, 공통 UI 컴포넌트, 커스텀 훅, 상수 등을 포함합니다.
+
+저는 다음과 같이 세그먼트 역할을 정의하였습니다.
+
+```text
+shared
+├── api     # API 요청, DTO 등 API 관련 파일
+├── config  # 상수 파일
+├── lib     # 유틸리티 함수 및 커스텀 훅
+├── model   # 스키마, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
+└── ui      # 프로젝트 전반에 걸쳐 재사용할 수 있는 UI 컴포넌트
+```
+
+#### api
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic5.jpg" alt="shared 레이어의 api 세그먼트" />
+
+`api` 세그먼트에는 API 요청과 관련된 코드를 모아두었습니다. 프로젝트 전반에 걸쳐 사용되는 fetch 함수, 새로운 액세스 토큰을 받아오는 API 요청, 이미지 업로드 API 요청 파일 등을 모아두었습니다.
+
+```typescript
+/* fetchWithAuth.ts */
+
+import { getNewAccessToken } from "./getNewAccessToken";
+
+export async function fetchWithAuth(
+  input: string | URL | globalThis.Request,
+  init?: RequestInit
+) {
+  const response = await fetch(input, init);
+
+  if (response.status === 401) {
+    const accessToken = await getNewAccessToken();
+
+    if (!accessToken) {
+      return response;
+    }
+
+    return await fetch(input, {
+      ...init,
+      headers: { Cookie: `access_token=${accessToken}` }
+    });
+  }
+
+  return response;
+}
+```
+
+```typescript
+/* getNewAccessToken.ts */
+
+"use server";
+
+import { cookies } from "next/headers";
+
+export async function getNewAccessToken() {
+  const cookieStore = await cookies();
+  const refreshToken = cookieStore.get("refresh_token");
+
+  if (!refreshToken) {
+    return null;
+  }
+
+  const response = await fetch(
+    `${process.env.BACKEND_URL}/api/auth/oauth2/token/refresh`,
+    {
+      method: "POST",
+      headers: { Cookie: `${refreshToken?.name}=${refreshToken?.value}` },
+      cache: "no-store"
+    }
+  );
+
+  const accessToken = response.headers.get("set-cookie")!.slice(13);
+  return accessToken;
+}
+```
+
+#### config
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic6.jpg" alt="shared 레이어의 config 세그먼트" />
+
+`config` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 여러 페이지에서 사용되는 지역 정보 관련 상수 파일을 정의하였습니다.
+
+```typescript
+/* location.ts */
+
+export const LOCATION = [
+  "강원",
+  "경기",
+  "경남",
+  "경북",
+  "광주",
+  "대구",
+  "대전",
+  "부산",
+  "서울",
+  "세종",
+  "울산",
+  "인천",
+  "전남",
+  "전북",
+  "제주",
+  "충남",
+  "충북"
+] as const;
+
+(...생략)
+```
+
+#### lib
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic7.jpg" alt="shared 레이어의 lib 세그먼트" />
+
+`lib` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 유틸리티 함수나 커스텀 훅을 정의하였습니다. 유틸리티 함수와 커스텀 훅을 구분하기 위해 다음과 같이 `lib` 세그먼트 내에 `hooks` 폴더를 생성하여 커스텀 훅들을 모아두었고, `utils` 폴더를 생성하여 유틸리티 함수들을 모아두었습니다.
+
+#### model
+
+`model` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 전역 상태나 Kakao 지도 관련 커스텀 훅을 정의하였습니다.
+
+#### ui
+
+`ui` 세그먼트에는 프로젝트 전반에 걸쳐 재사용할 수 있는 UI 컴포넌트를 정의하였습니다.
 
 ### entities
 
+```text
+entities
+├── user
+|   ├── api    # user 관련 API
+|   ├── lib    # user 관련 유틸리티 함수
+|   ├── model  # user 관련 상태 (Ex. userStore)
+|   ├── ui     # user 관련 UI 컴포넌트
+|   └── index.ts
+├── post
+└── comment
+```
+
 ### features
+
+```text
+features
+├── auth
+|   ├── api    # 로그인/로그아웃 API
+|   ├── lib    # 인증 관련 유틸리티 함수
+|   ├── model  # auth 관련 상태 (Ex. authStore)
+|   ├── ui     # 로그인 폼, OAuth 버튼 등 UI 컴포넌트
+|   └── index.ts
+├── search
+├── (...)
+```
 
 ### widgets
 
+```text
+widgets
+├── sidebar
+|   ├── api    # API 관련 파일
+|   ├── lib    # 유틸리티 함수
+|   ├── model  # 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
+|   ├── ui     # 사이드바 UI 컴포넌트
+|   └── index.ts
+├── searchbar
+├── (...)
+```
+
 ### app
 
+```text
+
+```
+
 ## FSD 아키텍처 적용 후
+
+TODO
 
 ## 참고 자료
 

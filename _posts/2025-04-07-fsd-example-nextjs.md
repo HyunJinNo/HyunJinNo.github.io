@@ -30,6 +30,10 @@ Next.js v15.2.2</p></blockquote>
     - [model](#model)
     - [ui](#ui)
   - [entities](#entities)
+    - [api](#api-1)
+    - [config](#config-1)
+    - [model](#model-1)
+    - [ui](#ui-1)
   - [features](#features)
   - [widgets](#widgets)
   - [app](#app)
@@ -90,10 +94,10 @@ src
 
 ```text
 shared
-├── api     # API 요청, DTO 등 API 관련 파일
-├── config  # 상수 파일
-├── lib     # 유틸리티 함수 및 커스텀 훅
-├── model   # 스키마, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
+├── api     # 프로젝트 전반에 걸쳐 사용되는 API 관련 파일
+├── config  # 프로젝트 전반에 걸쳐 사용되는 상수 파일
+├── lib     # 프로젝트 전반에 걸쳐 사용되는 유틸리티 함수 및 커스텀 훅
+├── model   # 프로젝트 전반에 걸쳐 사용되는 스키마, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
 └── ui      # 프로젝트 전반에 걸쳐 재사용할 수 있는 UI 컴포넌트
 ```
 
@@ -200,13 +204,103 @@ export const LOCATION = [
 
 #### model
 
-`model` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 전역 상태나 Kakao 지도 관련 커스텀 훅을 정의하였습니다.
+<img src="/assets/img/front-end/fsd-example-nextjs/pic8.jpg" alt="shared 레이어의 model 세그먼트" />
+
+`model` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 전역 상태나 비즈니스 로직을 정의하였습니다. 예를 들어, 다음과 같이 Toast 메시지를 관리하는 스토어를 생성하였습니다.
+
+```typescript
+/* toastifyStore.ts */
+
+import { StateCreator, create } from "zustand";
+import { devtools } from "zustand/middleware";
+
+// 1. 상태 인터페이스 정의
+interface ToastifyState {
+  type: "success" | "error" | "warning" | "info" | "default";
+  message: string;
+  count: number; // count 값을 증가시킴으로써 토스트 메세지를 출력합니다.
+}
+
+// 2. 액션 인터페이스 정의
+interface ToastifyAction {
+  initialize: () => void;
+  setToastifyState: (data: Pick<ToastifyState, "type" | "message">) => void;
+}
+
+// 3. 초기 상태 정의
+const initialState: ToastifyState = { type: "default", message: "", count: 0 };
+
+type ToastifyStoreType = ToastifyState & ToastifyAction;
+
+// 4. 상태 및 액션 생성
+const toastifyStore: StateCreator<ToastifyStoreType> = (set) => ({
+  ...initialState,
+  initialize: () => set({ ...initialState }),
+  setToastifyState: (data) =>
+    set((value) => ({ ...data, count: value.count + 1 }))
+});
+
+export const useToastifyStore = create<ToastifyStoreType>(
+  process.env.NODE_ENV === "development"
+    ? (devtools(toastifyStore) as StateCreator<ToastifyStoreType>)
+    : toastifyStore
+);
+```
 
 #### ui
 
-`ui` 세그먼트에는 프로젝트 전반에 걸쳐 재사용할 수 있는 UI 컴포넌트를 정의하였습니다.
+<img src="/assets/img/front-end/fsd-example-nextjs/pic9.jpg" alt="shared 레이어의 ui 세그먼트" />
+
+`ui` 세그먼트에는 프로젝트 전반에 걸쳐 재사용할 수 있는 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 여러 페이지에서 사용되는 Breadcrumb 컴포넌트를 생성하였습니다.
+
+```tsx
+/* Breadcrumb.tsx */
+
+import Image from "next/image";
+import Link from "next/link";
+import { IoIosArrowForward } from "react-icons/io";
+
+interface BreadcrumbProps {
+  categoryList: { label: string; href: string }[];
+}
+
+export const Breadcrumb = ({ categoryList: categories }: BreadcrumbProps) => {
+  return (
+    <nav className="text-gray2 flex w-full items-center gap-1 py-10 text-xs">
+      <div className="text-gray1">
+        <Link href="/">
+          <Image
+            src="/icons/home-gray-icon.svg"
+            alt="home-gray-icon"
+            width={12}
+            height={12}
+          />
+        </Link>
+      </div>
+      {categories.map((i, index) => (
+        <div key={index} className="flex flex-row items-center gap-1">
+          <IoIosArrowForward />
+          {categories.length == index + 1 ? (
+            <span className="text-gray1 font-semibold">{i.label}</span>
+          ) : (
+            <Link href={i.href}> {i.label} </Link>
+          )}
+        </div>
+      ))}
+    </nav>
+  );
+};
+```
 
 ### entities
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic10.jpg" alt="entities 레이어" />
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic11.jpg" alt="애플리케이션의 핵심 도메인(데이터 모델)" />
+
+`entities` 레이어는 <b>애플리케이션의 핵심 도메인(데이터 모델)과 관련된 로직을 관리하는 레이어</b>입니다. 일반적으로 API 호출, 상태 관리, 데이터 모델을 담당합니다.
+
+저는 다음과 같이 세그먼트 역할을 정의하였습니다.
 
 ```text
 entities
@@ -220,7 +314,17 @@ entities
 └── comment
 ```
 
+#### api
+
+#### config
+
+#### model
+
+#### ui
+
 ### features
+
+`features` 레이어는 <b>사용자의 특정 행동과 상호작용과 관련된 기능을 포함하는 레이어</b>입니다. 하나의 기능에 필요한 모든 요소를 그룹화합니다.
 
 ```text
 features
@@ -236,6 +340,8 @@ features
 
 ### widgets
 
+`widgets` 레이어는 <b>여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 역할을 맡은 레이어</b>입니다. 일반적으로 하나의 큰 독립적인 컴포넌트를 정의하는 곳입니다.
+
 ```text
 widgets
 ├── sidebar
@@ -249,6 +355,8 @@ widgets
 ```
 
 ### app
+
+`app` 레이어는 <b>애플리케이션의 진입점에 해당하며, 애플리케이션 초기화, 라우팅 설정, 전역 상태 관리, 전역 스타일 설정 등을 담당하는 레이어</b>입니다. `app` 레이어는 `shared`와 마찬가지로 슬라이스를 포함하지 않으며 세그먼트만 포함합니다.
 
 ```text
 

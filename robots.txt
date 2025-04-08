@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://hyunjinno.github.io/sitemap2025.xml
+Sitemap: https://hyunjinno.github.io/sitemap.xml

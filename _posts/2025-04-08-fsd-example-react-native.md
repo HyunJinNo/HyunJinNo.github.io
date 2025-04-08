@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/front-end/react-native-logo.avif
+  path: /assets/img/front-end/fsd-example-react-native/pic0.webp
 comments: true
 ---
 
@@ -436,41 +436,7 @@ export const DiaryCard = ({ children, diary }: DiaryCardProps) => {
     );
   }
 
-  // 앞면
-  return (
-    <View style={tw`px-3 pb-5`}>
-      <Animated.View
-        style={tw.style(
-          "relative h-[26rem] w-[17.75rem] rounded-xl border border-gray-200",
-          {
-            transform: [{ rotateY: interpolate }, { perspective: 1000 }]
-          }
-        )}
-        onTouchEnd={() => flipCard()}
-      >
-        <ImageBackground
-          style={tw`flex-1`}
-          imageStyle={tw`rounded-xl`}
-          source={{ uri: diary.titleImage }}
-          resizeMode="cover"
-        />
-        <LinearGradient
-          colors={["rgba(17, 17, 17, 0)", "rgba(17, 17, 17, 0.5)"]}
-          style={tw`absolute bottom-0 flex h-[11.5rem] w-full rounded-b-xl`}
-        />
-        <View style={tw`absolute bottom-[1.875rem] flex flex-col gap-1 px-8`}>
-          <Text style={tw`text-xl font-semibold text-white`}>
-            {diary.title}
-          </Text>
-          <Text style={tw`text-sm text-white`}>{`${new Date(
-            `${diary.startDatetime}.0Z`
-          ).toLocaleDateString()} - ${new Date(
-            `${diary.endDatetime}.0Z`
-          ).toLocaleDateString()}`}</Text>
-        </View>
-      </Animated.View>
-    </View>
-  );
+  (...생략)
 };
 ```
 
@@ -638,98 +604,47 @@ export const useNicknameModal = (
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic20.avif" alt="features 레이어의 ui 세그먼트" />
 
-`ui` 세그먼트에는 사용자의 특정 행동과 상호작용과 관련된 기능을 포함한 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 닉네임을 변경할 수 있는 UI 컴포넌트를 정의하였습니다.
+`ui` 세그먼트에는 사용자의 특정 행동과 상호작용과 관련된 기능을 포함한 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 닉네임 변경 기능을 포함한 UI 컴포넌트를 정의하였습니다.
 
 ```tsx
-/* @src/features/nicknameEditor/ui/NicknameModal.tsx */
+/* @src/features/nicknameEditor/ui/NicknameEditor.tsx */
 
-import { COLOR } from "@src/shared/config";
+import { useModal } from "@src/shared/lib/hooks";
 import { tw } from "@src/shared/lib/utils";
 import React from "react";
-import { Controller } from "react-hook-form";
-import {
-  ActivityIndicator,
-  Pressable,
-  Text,
-  TextInput,
-  View
-} from "react-native";
-import { useNicknameModal } from "../model/useNicknameModal";
-import { ModalTemplate } from "@src/shared/ui/modal";
+import { Image, Pressable, Text, View } from "react-native";
+import { NicknameModal } from "./NicknameModal";
 
-interface NicknameModalProps {
+interface NicknameEditorProps {
   nickname: string;
-  isOpen: boolean;
-  closeModal: () => void;
 }
 
-export const NicknameModal = ({
-  nickname,
-  isOpen,
-  closeModal
-}: NicknameModalProps) => {
-  const { methods, isPending, handleSubmit } = useNicknameModal(
-    nickname,
-    isOpen,
-    closeModal
-  );
+export const NicknameEditor = ({ nickname }: NicknameEditorProps) => {
+  const { isOpen, openModal, closeModal } = useModal();
 
   return (
-    <ModalTemplate title="닉네임 변경" visible={isOpen} closeModal={closeModal}>
-      <Controller
-        name="nickname"
-        control={methods.control}
-        rules={{ required: true }}
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={tw.style(
-              methods.formState.errors.nickname
-                ? "border-blue-500"
-                : "border-custom-04",
-              "my-4 h-[3.25rem] w-full rounded-full border px-4"
-            )}
-            placeholderTextColor={
-              methods.formState.errors.nickname && COLOR.BLUE
-            }
-            placeholder="닉네임을 입력해 주세요."
-            onChangeText={onChange}
-            value={value}
-            maxLength={30}
-          />
-        )}
+    <View>
+      <NicknameModal
+        nickname={nickname}
+        isOpen={isOpen}
+        closeModal={closeModal}
       />
-      <View style={tw`flex flex-row items-center gap-2`}>
-        <Pressable
-          style={({ pressed }) =>
-            tw.style(
-              pressed ? "bg-slate-100" : "bg-white",
-              "flex h-10 w-28 justify-center rounded-full border border-slate-200 shadow"
-            )
-          }
-          onPress={() => closeModal()}
-        >
-          <Text style={tw`text-center text-sm font-semibold`}>취소</Text>
-        </Pressable>
-        <Pressable
-          style={({ pressed }) =>
-            tw.style(
-              pressed ? "bg-primary-green-ripple" : "bg-primary-green",
-              "flex h-10 w-28 justify-center rounded-full shadow"
-            )
-          }
-          disabled={isPending}
-          onPress={() => handleSubmit()}
-        >
-          {isPending ? (
-            <ActivityIndicator color={COLOR.WHITE} />
-          ) : (
-            <Text style={tw`text-center text-sm font-semibold text-white`}>
-              변경
-            </Text>
-          )}
-        </Pressable>
-      </View>
-    </ModalTemplate>
+      <Pressable
+        style={({ pressed }) =>
+          tw.style(
+            pressed && "bg-slate-100",
+            "mt-3 flex flex-row items-center gap-1"
+          )
+        }
+        onPress={openModal}
+      >
+        <Text style={tw`text-2xl font-semibold`}>{`${nickname}님`}</Text>
+        <Image
+          style={tw`h-5 w-5`}
+          source={require("@assets/common/chevronRight.png")}
+        />
+      </Pressable>
+    </View>
   );
 };
 ```
@@ -738,7 +653,7 @@ export const NicknameModal = ({
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic21.avif" alt="widgets 레이어" />
 
-`widgets` 레이어는 <b>여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 역할을 맡은 레이어</b>입니다. 일반적으로 여러 페이지에서 독립적으로 사용될 수 있는 하나의 큰 독립적인 컴포넌트를 정의하는 곳입니다.
+`widgets` 레이어는 <b>여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 역할을 맡은 레이어</b>입니다. 일반적으로 여러 Screen에서 독립적으로 사용될 수 있는 하나의 큰 독립적인 컴포넌트를 정의하는 곳입니다.
 
 저는 다음과 같이 세그먼트 역할을 정의하였습니다.
 
@@ -878,7 +793,7 @@ pages
 ├── auth
 |   ├── ui  # Screen 컴포넌트
 |   └── index.ts
-├── main
+├── diary
 ├── (...)
 ```
 

@@ -736,6 +736,135 @@ export const NicknameModal = ({
 
 ### widgets
 
+<img src="/assets/img/front-end/fsd-example-react-native/pic21.jpg" alt="widgets 레이어" />
+
+`widgets` 레이어는 <b>여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 역할을 맡은 레이어</b>입니다. 일반적으로 여러 페이지에서 독립적으로 사용될 수 있는 하나의 큰 독립적인 컴포넌트를 정의하는 곳입니다.
+
+저는 다음과 같이 세그먼트 역할을 정의하였습니다.
+
+```text
+widgets
+├── diaryCreateEditor
+|   ├── api     # widget 단위의 API 관련 파일 (실제 코드에서는 없는 부분입니다.)
+|   ├── config  # widget 단위의 상수 파일 (실제 코드에서는 없는 부분입니다.)
+|   ├── model   # widget 단위의 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
+|   ├── ui      # 독립적으로 사용할 수 있는 UI 컴포넌트
+|   └── index.ts
+├── diaryCardListWrapper
+├── (...)
+```
+
+#### api
+
+`api` 세그먼트는 widget 단위의 API 요청, DTO 등 API 관련 파일을 모아두는 역할을 수행하는 세그먼트로 정의하였습니다. 제가 진행한 React Native 프로젝트에서는 해당 세그먼트를 사용하지 않았습니다.
+
+#### config
+
+`config` 세그먼트는 widget 단위의 상수 파일을 모아두는 역할을 수행하는 세그먼트로 정의하였습니다. 제가 진행한 React Native 프로젝트에서는 해당 세그먼트를 사용하지 않았습니다.
+
+#### model
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic22.jpg" alt="widgets 레이어의 model 세그먼트" />
+
+`model` 세그먼트에는 widget 단위의 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 정의하였습니다. 예를 들어, 다음과 같이 일기 작성 비즈니스 로직을 관리하는 커스텀 훅을 생성하였습니다.
+
+```typescript
+/* @src/widgets/diaryCreateEditor/mode/useDiaryCreateButton.ts */
+
+import { useNavigation } from "@react-navigation/native";
+import {
+  createDiary,
+  Diary,
+  DiaryCreateRequest,
+  FEELING_STATUS
+} from "@src/entities/diary";
+import { SANITIZE_OPTION } from "@src/shared/config";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { UseFormReturn } from "react-hook-form";
+import sanitizeHtml from "sanitize-html";
+
+export const useDiaryCreateButton = (
+  methods: UseFormReturn<Diary, any, undefined>,
+  content: string
+) => {
+  const navigation = useNavigation();
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: () => {
+      const data: DiaryCreateRequest = {
+        title: methods.getValues("title"),
+        titleImage: methods.getValues("image")!,
+        startDatetime: methods.getValues("startDate")!,
+        endDatetime: methods.getValues("endDate")!,
+        diaryDayRequests: [
+          {
+            content: sanitizeHtml(content, SANITIZE_OPTION),
+            feelingStatus: FEELING_STATUS[methods.getValues("feeling")!],
+            diaryDayContentImages: "",
+            place: methods.getValues("location")!
+          }
+        ]
+      };
+
+      return createDiary(data);
+    },
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["diaryList"] });
+      navigation.goBack();
+    },
+    retry: 1,
+    throwOnError: true
+  });
+
+  const handleSubmit = async () => {
+    await methods.trigger();
+    if (!methods.formState.isValid) {
+      return;
+    }
+
+    mutation.mutate();
+  };
+
+  return { isPending: mutation.isPending, handleSubmit };
+};
+```
+
+#### ui
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic23.jpg" alt="widgets 레이어의 ui 세그먼트" />
+
+`ui` 세그먼트에는 여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 독립적인 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 일기를 등록할 수 있는 에디터 컴포넌트를 정의하였습니다.
+
+```tsx
+/* @src/widgets/diaryCreateEditor/ui/DiaryCreateEditor.tsx */
+
+import { useNavigation } from "@react-navigation/native";
+import { DiaryEditor, useDiaryEditor } from "@src/features/diaryEditor";
+import React, { useEffect } from "react";
+import { FormProvider } from "react-hook-form";
+import { DiaryCreateButton } from "./DiaryCreateButton";
+
+export const DiaryCreateEditor = () => {
+  const navigation = useNavigation();
+  const { methods, content, editor } = useDiaryEditor();
+
+  useEffect(() => {
+    navigation.setOptions({
+      // eslint-disable-next-line react/no-unstable-nested-components
+      headerRight: () => (
+        <DiaryCreateButton methods={methods} content={content ?? ""} />
+      )
+    });
+  }, [content, methods, navigation]);
+
+  return (
+    <FormProvider {...methods}>
+      <DiaryEditor editor={editor} />
+    </FormProvider>
+  );
+};
+```
+
 ### pages
 
 ### app

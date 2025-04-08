@@ -45,7 +45,7 @@ Next.js v15.2.2</p></blockquote>
     - [model](#model-3)
     - [ui](#ui-3)
   - [app](#app)
-- [FSD 아키텍처 적용 후](#fsd-아키텍처-적용-후)
+- [FSD 아키텍처 적용 후기](#fsd-아키텍처-적용-후기)
 - [참고 자료](#참고-자료)
 
 ## 개요
@@ -998,15 +998,36 @@ export const MyPageProfileEditor = ({ userInfo }: MyPageProfileProps) => {
 
 ### app
 
-`app` 레이어는 <b>애플리케이션의 진입점에 해당하며, 애플리케이션 초기화, 라우팅 설정, 전역 상태 관리, 전역 스타일 설정 등을 담당하는 레이어</b>입니다. `app` 레이어는 `shared`와 마찬가지로 슬라이스를 포함하지 않으며 세그먼트만 포함합니다.
+<img src="/assets/img/front-end/fsd-example-nextjs/pic26.jpg" alt="app 레이어" />
 
-```text
+FSD 아키텍처에서 `app` 레이어는 <b>애플리케이션의 진입점에 해당하며, 애플리케이션 초기화, 라우팅 설정, 전역 상태 관리, 전역 스타일 설정 등을 담당하는 레이어</b>입니다. `app` 레이어는 `shared`와 마찬가지로 슬라이스를 포함하지 않으며 세그먼트만 포함합니다.
 
+<b>위에서 언급하였듯이 FSD 아키텍처의 `app` 레이어와 Next.js의 `app` 폴더와의 충돌 문제가 있으므로, `app` 폴더 내에 `page.tsx` 파일을 생성하여 라우팅을 처리하도록 구현하였습니다. 또한 `layout.tsx` 파일에서 전역 스타일을 설정하도록 구현하였습니다.</b>
+
+```tsx
+/* @/app/layout.tsx */
+
+import "./globals.css";
+import "./reactDateRange.css";
+import "react-date-range/dist/styles.css"; // main css file
+import "react-date-range/dist/theme/default.css"; // theme css file
+import { ToastifyComponent } from "@/shared/ui/toast";
+import { FloatingButton } from "@/widgets/floatingButton";
+import { Footer } from "@/widgets/footer";
+import { Header } from "@/widgets/header";
+import type { Metadata } from "next";
+import Script from "next/script";
+
+(...생략)
 ```
 
-## FSD 아키텍처 적용 후
+## FSD 아키텍처 적용 후기
 
-TODO
+FSD 아키텍처를 적용하면서 느낀 장점은 레이어별로 기능을 명확히 구분함으로써 코드를 유지보수하기 쉽다는 것이었습니다. 기존의 폴더 구조에서는 기능을 유지보수하고자 할 때 광범위하게 흩어져 있는 코드들을 추적하여야 했기 때문에 가독성이 떨어지고 코드를 이해하고 수정하기 쉽지 않았습니다. 하지만 FSD 아키텍처를 적용함으로써 기능별로 코드가 명확히 분리되어 있기 때문에 특정 기능 수정 시 특정 모듈만 집중해서 수정할 수 있으며 다른 부분에 미치는 영향을 최소화할 수 있어서 유지보수성을 크게 향상시킬 수 있었습니다.
+
+단점으로는 특정 코드를 어떤 레이어에 두어야 하는지 헷갈린다는 점이었습니다. 예를 들어, 북마크 등록/취소 API 요청 파일을 `entities` 레이어에 두어야 하는지, 아니면 `features` 레이어에 두어야 하는지 고민이 많았습니다. 또한 특정 기능이 하나의 widget에서만 사용된다면 해당 기능을 `widgets` 레이어에 두어도 괜찮지 않을까라는 생각도 들었습니다.
+
+<b>이렇듯 FSD 아키텍처는 가이드라인만을 제시할 뿐, 엄격한 기준이 없기 때문에 프로젝트를 진행하면서 팀원들이 혼란을 겪지 않고 일관성을 지킬 수 있도록 명확한 기준을 세우는 것이 좋을 것 같습니다.</b>
 
 ## 참고 자료
 

@@ -28,7 +28,7 @@ React Native 프로젝트에서 FSD 아키텍처를 적용하면서 경험한 �
 
 FSD 아키텍처 적용 전에는 다음과 같은 폴더 구조를 채택하였습니다.
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic1.jpg" alt="FSD 아키텍처 적용 전 폴더 구조" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic1.avif" alt="FSD 아키텍처 적용 전 폴더 구조" />
 
 위의 아키텍처 구조는 Screen 단위로 구분한 것으로 특정 Screen에서 사용하는 컴포넌트를 빠르게 찾을 수 있었습니다. 하지만 해당 폴더 구조는 특정 기능과 관련된 코드들이 너무 광범위하게 흩어져 있어서 기능을 수정하는 등 코드를 유지보수하기가 어려웠습니다. 따라서 기존의 아키텍처 구조를 변경하여 코드를 유지보수하기 쉽도록 개선할 필요성을 느꼈습니다. 이와 같은 상황에서 FSD 아키텍처를 적용하여 애플리케이션을 독립적인 비즈니스 기능 단위로 분할하면 유지보수하기 쉽다고 판단하여 아래와 같이 FSD 아키텍처를 적용하기로 결정하였습니다.
 
@@ -42,7 +42,7 @@ React Native에서는 하나의 화면 단위를 `Screen`이라고 표현합니�
 
 따라서 다음과 같은 폴더 구조를 채택하였습니다.
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic3.jpg" alt="FSD 아키텍처 적용 후 폴더 구조" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic3.avif" alt="FSD 아키텍처 적용 후 폴더 구조" />
 
 ```text
 src
@@ -58,7 +58,7 @@ src
 
 ### shared
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic4.jpg" alt="shared 레이어" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic4.avif" alt="shared 레이어" />
 
 `shared` 레이어는 <b>어떤 기능에도 속하지 않는, 애플리케이션 전반에 걸쳐 재사용되는 요소를 관리하는 레이어</b>입니다. `app` 레이어와 마찬가지로 슬라이스를 포함하지 않으며, 직접 세그먼트로 구성됩니다. 해당 레이어에는 공통적으로 사용되는 유틸리티 함수, 공통 UI 컴포넌트, 커스텀 훅, 상수 등을 포함합니다.
 
@@ -75,7 +75,7 @@ shared
 
 #### api
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic5.jpg" alt="shared 레이어의 api 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic5.avif" alt="shared 레이어의 api 세그먼트" />
 
 `api` 세그먼트에는 API 요청과 관련된 코드를 모아두었습니다. 프로젝트 전반에 걸쳐 사용되는 새로운 액세스 토큰을 받아오는 API 요청, 이미지 업로드 API 요청 파일 등을 모아두었습니다.
 
@@ -107,7 +107,7 @@ export const getNewAccessToken = async () => {
 
 #### config
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic6.jpg" alt="shared 레이어의 config 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic6.avif" alt="shared 레이어의 config 세그먼트" />
 
 `config` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 프로젝트 전반에 걸쳐 사용되는 색상 정보 상수 파일을 정의하였습니다.
 
@@ -132,7 +132,7 @@ export const COLOR = {
 
 #### lib
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic7.jpg" alt="shared 레이어의 lib 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic7.avif" alt="shared 레이어의 lib 세그먼트" />
 
 `lib` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 유틸리티 함수나 커스텀 훅을 정의하였습니다. 유틸리티 함수와 커스텀 훅을 구분하기 위해 다음과 같이 `lib` 세그먼트 내에 `hooks` 폴더를 생성하여 커스텀 훅들을 모아두었고, `utils` 폴더를 생성하여 유틸리티 함수들을 모아두었습니다.
 
@@ -142,7 +142,7 @@ export const COLOR = {
 
 #### ui
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic8.jpg" alt="shared 레이어의 ui 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic8.avif" alt="shared 레이어의 ui 세그먼트" />
 
 `ui` 세그먼트에는 프로젝트 전반에 걸쳐 재사용할 수 있는 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 여러 Screen에서 사용할 수 있는 BottomSheetModalTemplate 컴포넌트를 정의하였습니다.
 
@@ -197,9 +197,9 @@ export const BottomSheetModalTemplate = forwardRef<
 
 ### entities
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic9.jpg" alt="entities 레이어" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic9.avif" alt="entities 레이어" />
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic10.jpg" alt="애플리케이션의 핵심 도메인(데이터 모델)" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic10.avif" alt="애플리케이션의 핵심 도메인(데이터 모델)" />
 
 `entities` 레이어는 <b>애플리케이션의 핵심 도메인(데이터 모델)과 관련된 로직을 관리하는 레이어</b>입니다. 일반적으로 API 호출, 상태 관리, 데이터 모델을 담당합니다.
 
@@ -219,7 +219,7 @@ entities
 
 #### api
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic11.jpg" alt="entities 레이어의 api 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic11.avif" alt="entities 레이어의 api 세그먼트" />
 
 `api` 세그먼트에는 특정 도메인과 관련된 API 요청, DTO 등 API 관련 파일을 모아두었습니다. 특히 다음과 같이 DTO를 API 요청 함수 내에 정의하였습니다.
 
@@ -301,7 +301,7 @@ export async function getUserInfo() {
 
 #### config
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic12.jpg" alt="entities 레이어의 config 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic12.avif" alt="entities 레이어의 config 세그먼트" />
 
 `config` 세그먼트에는 특정 도메인과 관련된 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 diary 슬라이스 내에 기분 이미지 목록 상수 파일을 정의하였습니다.
 
@@ -323,11 +323,11 @@ export const FEELING_IMAGE: FEELING_IMAGE_TYPE = {
 
 #### model
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic13.jpg" alt="entities 레이어의 model 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic13.avif" alt="entities 레이어의 model 세그먼트" />
 
 `model` 세그먼트에는 특정 도메인과 관련된 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 정의하였습니다. 예를 들어, 다음과 같이 User 타입을 정의하거나 API 요청을 커스텀 훅 내의 `useQuery`로 래핑하였습니다.
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic14.jpg" alt="user.ts" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic14.avif" alt="user.ts" />
 
 ```typescript
 /* @src/entities/user/model/useUserInfo.ts */
@@ -351,7 +351,7 @@ export const useUserInfo = (enabled?: boolean) => {
 
 #### ui
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic15.jpg" alt="entities 레이어의 ui 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic15.avif" alt="entities 레이어의 ui 세그먼트" />
 
 `ui` 세그먼트에는 특정 도메인과 관련된 UI 컴포넌트를 정의하였습니다. 이 세그먼트는 도메인의 시각적 표현에만 집중합니다. 만약 UI 컴포넌트 내에 사용자의 특정 행동과 상호작용과 관련된 기능이 포함되어야 한다면 이를 `children`으로 분리하여 단방향 의존성을 깨뜨리지 않도록 구현하였습니다. 예를 들어, 다음 코드는 diary 도메인의 시각적 표현을 나타내는 UI 컴포넌트입니다. 수정 및 삭제 기능은 `children`으로 분리하였습니다.
 
@@ -476,7 +476,7 @@ export const DiaryCard = ({ children, diary }: DiaryCardProps) => {
 
 ### features
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic16.jpg" alt="features 레이어" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic16.avif" alt="features 레이어" />
 
 `features` 레이어는 <b>사용자의 특정 행동과 상호작용과 관련된 기능을 포함하는 레이어</b>입니다. 하나의 기능에 필요한 모든 요소를 그룹화합니다.
 
@@ -496,7 +496,7 @@ features
 
 #### api
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic17.jpg" alt="features 레이어의 api 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic17.avif" alt="features 레이어의 api 세그먼트" />
 
 `api` 세그먼트에는 특정 기능과 관련된 API 요청, DTO 등 API 관련 파일을 모아두었습니다. 예를 들어, 다음 코드는 닉네임 변경 API 요청 파일입니다.
 
@@ -533,7 +533,7 @@ export async function updateNickname(nickname: string) {
 
 #### config
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic18.jpg" alt="features 레이어의 config 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic18.avif" alt="features 레이어의 config 세그먼트" />
 
 `config` 세그먼트에는 특정 기능과 관련된 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 일기 작성 기능과 관련해서 지역 정보를 나타내는 상수를 정의하였습니다.
 
@@ -561,7 +561,7 @@ export const LOCATION_LIST = [
 
 #### model
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic19.jpg" alt="features 레이어의 model 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic19.avif" alt="features 레이어의 model 세그먼트" />
 
 `model` 세그먼트에는 특정 기능과 관련된 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 모아두었습니다. 예를 들어, 다음과 같이 닉네임 변경 기능의 스키마를 정의하거나 닉네임 변경 비즈니스 로직을 작성하였습니다.
 
@@ -636,7 +636,7 @@ export const useNicknameModal = (
 
 #### ui
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic20.jpg" alt="features 레이어의 ui 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic20.avif" alt="features 레이어의 ui 세그먼트" />
 
 `ui` 세그먼트에는 사용자의 특정 행동과 상호작용과 관련된 기능을 포함한 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 닉네임을 변경할 수 있는 UI 컴포넌트를 정의하였습니다.
 
@@ -736,7 +736,7 @@ export const NicknameModal = ({
 
 ### widgets
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic21.jpg" alt="widgets 레이어" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic21.avif" alt="widgets 레이어" />
 
 `widgets` 레이어는 <b>여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 역할을 맡은 레이어</b>입니다. 일반적으로 여러 페이지에서 독립적으로 사용될 수 있는 하나의 큰 독립적인 컴포넌트를 정의하는 곳입니다.
 
@@ -764,7 +764,7 @@ widgets
 
 #### model
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic22.jpg" alt="widgets 레이어의 model 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic22.avif" alt="widgets 레이어의 model 세그먼트" />
 
 `model` 세그먼트에는 widget 단위의 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 정의하였습니다. 예를 들어, 다음과 같이 일기 작성 비즈니스 로직을 관리하는 커스텀 훅을 생성하였습니다.
 
@@ -831,7 +831,7 @@ export const useDiaryCreateButton = (
 
 #### ui
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic23.jpg" alt="widgets 레이어의 ui 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic23.avif" alt="widgets 레이어의 ui 세그먼트" />
 
 `ui` 세그먼트에는 여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 독립적인 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 일기를 등록할 수 있는 에디터 컴포넌트를 정의하였습니다.
 
@@ -867,7 +867,7 @@ export const DiaryCreateEditor = () => {
 
 ### pages
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic24.jpg" alt="pages 레이어" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic24.avif" alt="pages 레이어" />
 
 `pages` 레이어는 <b>애플리케이션의 실제 Screen을 구성하는 레이어</b>입니다. 여러 `shared`, `entities`, `features`, `widgets`를 조합하여 화면을 구성합니다.
 
@@ -884,7 +884,7 @@ pages
 
 #### ui
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic25.jpg" alt="pages 레이어의 ui 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic25.avif" alt="pages 레이어의 ui 세그먼트" />
 
 `ui` 세그먼트에는 Screen 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 여러 `shared`, `entities`, `features`, `widgets`를 조합하여 Screen 컴포넌트를 정의하였습니다.
 
@@ -932,7 +932,7 @@ export const SurveyContentScreen = () => {
 
 ### app
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic26.jpg" alt="app 레이어" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic26.avif" alt="app 레이어" />
 
 `app` 레이어는 <b>애플리케이션의 진입점에 해당하며, 애플리케이션 초기화, 라우팅 설정, 전역 상태 관리, 전역 스타일 설정 등을 담당하는 레이어</b>입니다. `app` 레이어는 `shared`와 마찬가지로 슬라이스를 포함하지 않으며 세그먼트만 포함합니다.
 
@@ -949,7 +949,7 @@ app
 
 #### providers
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic27.jpg" alt="app 레이어의 providers 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic27.avif" alt="app 레이어의 providers 세그먼트" />
 
 `providers` 세그먼트는 <b>Context API 또는 상태 관리 라이브러리(예: Redux, MobX)와 같은 전역 상태나 기능을 제공하는 프로바이더들을 정의하는 레이어</b>입니다. 예를 들어, 다음과 같이 네트워크 상태에 따른 UI를 표시하는 프로바이더를 정의하였습니다.
 
@@ -989,7 +989,7 @@ export const NetInfoProvider = ({ children }: NetInfoProviderProps) => {
 
 #### routes
 
-<img src="/assets/img/front-end/fsd-example-react-native/pic28.jpg" alt="app 레이어의 routes 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-react-native/pic28.avif" alt="app 레이어의 routes 세그먼트" />
 
 `routes` 세그먼트는 라우팅 설정을 담당하는 레이어입니다. 예를 들어, 다음과 같이 React Native 프로젝트에서 사용하는 화면에 대한 parameter 목록을 정의하는 파일을 생성하였습니다.
 

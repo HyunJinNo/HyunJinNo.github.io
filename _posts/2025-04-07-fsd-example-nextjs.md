@@ -684,7 +684,112 @@ export const NICKNAME_MAX_LENGTH = 30;
 
 #### model
 
+<img src="/assets/img/front-end/fsd-example-nextjs/pic19.jpg" alt="features 레이어의 model 세그먼트" />
+
+`model` 세그먼트에는 특정 기능과 관련된 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 모아두었습니다. 예를 들어, 다음과 같이 북마크 기능의 비즈니스 로직을 다루는 커스텀 훅을 생성하였습니다.
+
+```typescript
+/* @/features/informationBookmark/model/useInformationBookmark.ts */
+
+"use client";
+
+import { useState } from "react";
+import {
+  createInformationBookmark,
+  deleteInformationBookmark
+} from "../api/informationBookmark";
+import { useToastifyStore } from "@/shared/model";
+
+export const useInformationBookmark = (
+  informationId: number,
+  initialIsBookmarked: boolean
+) => {
+  const { setToastifyState } = useToastifyStore();
+  const [isBookmarked, setIsBookmarked] = useState(initialIsBookmarked);
+  const [loading, setLoading] = useState(false);
+
+  const handleBookmarkClick = async () => {
+    setLoading(true);
+    const beforeIsBookmarked = isBookmarked;
+
+    try {
+      if (isBookmarked) {
+        setIsBookmarked(false);
+        await deleteInformationBookmark(informationId);
+      } else {
+        setIsBookmarked(true);
+        await createInformationBookmark(informationId);
+      }
+    } catch (error) {
+      setIsBookmarked(beforeIsBookmarked);
+      setToastifyState({
+        type: "error",
+        message: "북마크 업데이트에 실패했습니다."
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { loading, isBookmarked, handleBookmarkClick };
+};
+```
+
 #### ui
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic20.jpg" alt="features 레이어의 ui 세그먼트" />
+
+`ui` 세그먼트에는 사용자의 특정 행동과 상호작용과 관련된 기능을 포함한 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 사용자가 클릭했을 때 북마크를 등록하거나 또는 취소할 수 있는 버튼 컴포넌트를 정의하였습니다.
+
+```tsx
+/* @/features/informationBookmark/ui/InformationBookmark.tsx */
+
+"use client";
+
+import Image from "next/image";
+import { useInformationBookmark } from "../model/useInformationBookmark";
+import { useUserStore } from "@/entities/user";
+
+interface InformationBookmarkProps {
+  informationId: number;
+  initialIsBookmarked: boolean;
+}
+
+export const InformationBookmark = ({
+  informationId,
+  initialIsBookmarked
+}: InformationBookmarkProps) => {
+  const { id: userId } = useUserStore();
+  const { loading, isBookmarked, handleBookmarkClick } = useInformationBookmark(
+    informationId,
+    initialIsBookmarked
+  );
+
+  if (userId <= 0) {
+    return null;
+  }
+
+  return (
+    <button
+      className="relative h-7 w-5 text-white hover:scale-110"
+      type="button"
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        handleBookmarkClick();
+      }}
+      disabled={loading}
+    >
+      <Image
+        className="object-contain"
+        src={`/icons/bookmark-${isBookmarked ? "active-" : ""}icon.svg`}
+        alt="bookmark-icon"
+        fill={true}
+      />
+    </button>
+  );
+};
+```
 
 ### widgets
 

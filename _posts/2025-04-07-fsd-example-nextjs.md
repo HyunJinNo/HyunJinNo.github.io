@@ -18,36 +18,6 @@ React, Next.js, FSD, Development History, TypeScript</p></blockquote>
 <blockquote class="prompt-info"><p><strong><u>Environment</u></strong><br />
 Next.js v15.2.2</p></blockquote>
 
-<h2>목차 - TODO </h2>
-
-- [개요](#개요)
-- [FSD 아키텍처 적용 전](#fsd-아키텍처-적용-전)
-- [FSD 아키텍처 적용하기](#fsd-아키텍처-적용하기)
-  - [shared](#shared)
-    - [api](#api)
-    - [config](#config)
-    - [lib](#lib)
-    - [model](#model)
-    - [ui](#ui)
-  - [entities](#entities)
-    - [api](#api-1)
-    - [config](#config-1)
-    - [model](#model-1)
-    - [ui](#ui-1)
-  - [features](#features)
-    - [api](#api-2)
-    - [config](#config-2)
-    - [model](#model-2)
-    - [ui](#ui-2)
-  - [widgets](#widgets)
-    - [api](#api-3)
-    - [config](#config-3)
-    - [model](#model-3)
-    - [ui](#ui-3)
-  - [app](#app)
-- [FSD 아키텍처 적용 후기](#fsd-아키텍처-적용-후기)
-- [참고 자료](#참고-자료)
-
 ## 개요
 
 Next.js 프로젝트에서 FSD 아키텍처를 적용하면서 경험한 내용에 대해 정리한 페이지입니다. FSD 아키텍처의 개념에 대해선 다음 링크를 참고하시길 바랍니다.
@@ -58,7 +28,7 @@ Next.js 프로젝트에서 FSD 아키텍처를 적용하면서 경험한 내용�
 
 FSD 아키텍처 적용 전에는 다음과 같은 프론트엔드 아키텍처 구조를 채택하였습니다.
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic1.jpg" alt="FSD 아키텍처 적용 전 폴더 구조" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic1.avif" alt="FSD 아키텍처 적용 전 폴더 구조" />
 
 위의 아키텍처 구조는 page 단위로 구분한 것으로 특정 페이지에서 사용하는 컴포넌트를 빠르게 찾을 수 있었습니다. 하지만 해당 폴더 구조는 특정 기능과 관련된 코드들이 너무 광범위하게 흩어져 있어서 기능을 수정하는 등 코드를 유지보수하기가 어려웠습니다. 특히 프로젝트 규모가 커지면서 공통 컴포넌트가 많아지다 보니 공통 컴포넌트를 관리하는 데 어려움을 겪었습니다. 따라서 기존의 아키텍처 구조를 변경하여 코드를 유지보수하기 쉽도록 개선할 필요성을 느꼈습니다. 이와 같은 상황에서 FSD 아키텍처를 적용하여 애플리케이션을 독립적인 비즈니스 기능 단위로 분할하면 유지보수하기 쉽다고 판단하여 아래와 같이 FSD 아키텍처를 적용하기로 결정하였습니다.
 
@@ -79,7 +49,7 @@ FSD 아키텍처는 다음과 같은 계층 구조를 갖습니다.
 
 따라서 다음과 같은 폴더 구조를 채택하였습니다.
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic3.jpg" alt="FSD 아키텍처 적용 후 폴더 구조" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic3.avif" alt="FSD 아키텍처 적용 후 폴더 구조" />
 
 ```text
 src
@@ -94,7 +64,7 @@ src
 
 ### shared
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic4.jpg" alt="shared 레이어" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic4.avif" alt="shared 레이어" />
 
 `shared` 레이어는 <b>어떤 기능에도 속하지 않는, 애플리케이션 전반에 걸쳐 재사용되는 요소를 관리하는 레이어</b>입니다. `app` 레이어와 마찬가지로 슬라이스를 포함하지 않으며, 직접 세그먼트로 구성됩니다. 해당 레이어에는 공통적으로 사용되는 유틸리티 함수, 공통 UI 컴포넌트, 커스텀 훅, 상수 등을 포함합니다.
 
@@ -111,7 +81,7 @@ shared
 
 #### api
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic5.jpg" alt="shared 레이어의 api 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic5.avif" alt="shared 레이어의 api 세그먼트" />
 
 `api` 세그먼트에는 API 요청과 관련된 코드를 모아두었습니다. 프로젝트 전반에 걸쳐 사용되는 fetch 함수, 새로운 액세스 토큰을 받아오는 API 요청, 이미지 업로드 API 요청 파일 등을 모아두었습니다.
 
@@ -174,7 +144,7 @@ export async function getNewAccessToken() {
 
 #### config
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic6.jpg" alt="shared 레이어의 config 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic6.avif" alt="shared 레이어의 config 세그먼트" />
 
 `config` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 여러 페이지에서 사용되는 지역 정보 관련 상수 파일을 정의하였습니다.
 
@@ -206,13 +176,13 @@ export const LOCATION = [
 
 #### lib
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic7.jpg" alt="shared 레이어의 lib 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic7.avif" alt="shared 레이어의 lib 세그먼트" />
 
 `lib` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 유틸리티 함수나 커스텀 훅을 정의하였습니다. 유틸리티 함수와 커스텀 훅을 구분하기 위해 다음과 같이 `lib` 세그먼트 내에 `hooks` 폴더를 생성하여 커스텀 훅들을 모아두었고, `utils` 폴더를 생성하여 유틸리티 함수들을 모아두었습니다.
 
 #### model
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic8.jpg" alt="shared 레이어의 model 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic8.avif" alt="shared 레이어의 model 세그먼트" />
 
 `model` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 전역 상태나 비즈니스 로직을 정의하였습니다. 예를 들어, 다음과 같이 Toast 메시지를 관리하는 스토어를 생성하였습니다.
 
@@ -257,7 +227,7 @@ export const useToastifyStore = create<ToastifyStoreType>(
 
 #### ui
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic9.jpg" alt="shared 레이어의 ui 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic9.avif" alt="shared 레이어의 ui 세그먼트" />
 
 `ui` 세그먼트에는 프로젝트 전반에 걸쳐 재사용할 수 있는 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 여러 페이지에서 사용되는 Breadcrumb 컴포넌트를 생성하였습니다.
 
@@ -302,9 +272,9 @@ export const Breadcrumb = ({ categoryList: categories }: BreadcrumbProps) => {
 
 ### entities
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic10.jpg" alt="entities 레이어" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic10.avif" alt="entities 레이어" />
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic11.jpg" alt="애플리케이션의 핵심 도메인(데이터 모델)" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic11.avif" alt="애플리케이션의 핵심 도메인(데이터 모델)" />
 
 `entities` 레이어는 <b>애플리케이션의 핵심 도메인(데이터 모델)과 관련된 로직을 관리하는 레이어</b>입니다. 일반적으로 API 호출, 상태 관리, 데이터 모델을 담당합니다.
 
@@ -324,7 +294,7 @@ entities
 
 #### api
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic12.jpg" alt="entities 레이어의 api 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic12.avif" alt="entities 레이어의 api 세그먼트" />
 
 `api` 세그먼트에는 특정 도메인과 관련된 API 요청, DTO 등 API 관련 파일을 모아두었습니다. 특히 다음과 같이 DTO를 API 요청 함수 내에 정의하였습니다.
 
@@ -401,7 +371,7 @@ export async function getUserInfo() {
 
 #### config
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic13.jpg" alt="entities 레이어의 config 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic13.avif" alt="entities 레이어의 config 세그먼트" />
 
 `config` 세그먼트에는 특정 도메인과 관련된 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 user 슬라이스 내에 성별 관련 상수 파일을 정의하였습니다.
 
@@ -417,7 +387,7 @@ export const GENDER: Record<string, string> = {
 
 #### model
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic14.jpg" alt="entities 레이어의 model 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic14.avif" alt="entities 레이어의 model 세그먼트" />
 
 `model` 세그먼트에는 특정 도메인과 관련된 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 정의하였습니다. 예를 들어, 다음과 같이 User 타입을 정의하거나 User 스토어를 생성하였습니다.
 
@@ -496,7 +466,7 @@ export const useUserStore = create<UserStoreType>(
 
 #### ui
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic15.jpg" alt="entities 레이어의 ui 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic15.avif" alt="entities 레이어의 ui 세그먼트" />
 
 `ui` 세그먼트에는 특정 도메인과 관련된 UI 컴포넌트를 정의하였습니다. 이 세그먼트는 도메인의 시각적 표현에만 집중합니다. 만약 UI 컴포넌트 내에 사용자의 특정 행동과 상호작용과 관련된 기능이 포함되어야 한다면 이를 `children`으로 분리하여 단방향 의존성을 깨뜨리지 않도록 구현하였습니다. 예를 들어, 다음 코드는 information 도메인의 시각적 표현을 나타내는 UI 컴포넌트입니다. 북마크 기능은 `children`으로 분리하였습니다.
 
@@ -603,7 +573,7 @@ export const InformationItem = ({
 
 ### features
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic16.jpg" alt="features 레이어" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic16.avif" alt="features 레이어" />
 
 `features` 레이어는 <b>사용자의 특정 행동과 상호작용과 관련된 기능을 포함하는 레이어</b>입니다. 하나의 기능에 필요한 모든 요소를 그룹화합니다.
 
@@ -624,7 +594,7 @@ features
 
 #### api
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic17.jpg" alt="features 레이어의 api 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic17.avif" alt="features 레이어의 api 세그먼트" />
 
 `api` 세그먼트에는 특정 기능과 관련된 API 요청, DTO 등 API 관련 파일을 모아두었습니다. 예를 들어, 다음 코드는 정보 도메인과 관련해 북마크를 등록하거나 또는 취소하는 API 요청 파일입니다.
 
@@ -676,7 +646,7 @@ export async function deleteInformationBookmark(informationId: number) {
 
 #### config
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic18.jpg" alt="features 레이어의 config 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic18.avif" alt="features 레이어의 config 세그먼트" />
 
 `config` 세그먼트에는 특정 기능과 관련된 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 닉네임 변경 기능과 관련해서 닉네임 최대 길이를 나타내는 상수를 정의하였습니다.
 
@@ -688,7 +658,7 @@ export const NICKNAME_MAX_LENGTH = 30;
 
 #### model
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic19.jpg" alt="features 레이어의 model 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic19.avif" alt="features 레이어의 model 세그먼트" />
 
 `model` 세그먼트에는 특정 기능과 관련된 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 모아두었습니다. 예를 들어, 다음과 같이 북마크 기능의 비즈니스 로직을 다루는 커스텀 훅을 생성하였습니다.
 
@@ -741,7 +711,7 @@ export const useInformationBookmark = (
 
 #### ui
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic20.jpg" alt="features 레이어의 ui 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic20.avif" alt="features 레이어의 ui 세그먼트" />
 
 `ui` 세그먼트에는 사용자의 특정 행동과 상호작용과 관련된 기능을 포함한 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 사용자가 클릭했을 때 북마크를 등록하거나 또는 취소할 수 있는 버튼 컴포넌트를 정의하였습니다.
 
@@ -797,7 +767,7 @@ export const InformationBookmark = ({
 
 ### widgets
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic21.jpg" alt="widgets 레이어" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic21.avif" alt="widgets 레이어" />
 
 `widgets` 레이어는 <b>여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 역할을 맡은 레이어</b>입니다. 일반적으로 여러 페이지에서 독립적으로 사용될 수 있는 하나의 큰 독립적인 컴포넌트를 정의하는 곳입니다.
 
@@ -820,7 +790,7 @@ widgets
 
 #### api
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic22.jpg" alt="widgets 레이어의 api 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic22.avif" alt="widgets 레이어의 api 세그먼트" />
 
 `api` 세그먼트에는 widget 단위의 API 요청, DTO 등 API 관련 파일을 모아두었습니다. 예를 들어, 다음과 같이 모임 모집을 마감하거나 또는 모집을 다시하는 API 요청 파일을 정의하였습니다.
 
@@ -864,7 +834,7 @@ export async function reopenGathering(gatheringId: number) {
 
 #### config
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic23.jpg" alt="widgets 레이어의 config 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic23.avif" alt="widgets 레이어의 config 세그먼트" />
 
 `config` 세그먼트에는 widget 단위의 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 FAQ 목록 상수 파일을 정의하였습니다.
 
@@ -895,7 +865,7 @@ export const FAQList: FAQ[] = [
 
 #### model
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic24.jpg" alt="widgets 레이어의 model 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic24.avif" alt="widgets 레이어의 model 세그먼트" />
 
 `model` 세그먼트에는 widget 단위의 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 정의하였습니다. 예를 들어, 다음과 같이 gathering 스토어를 정의하였습니다.
 
@@ -956,7 +926,7 @@ export const useGatheringStore = create<GatheringStoreType>(
 
 #### ui
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic25.jpg" alt="widgets 레이어의 ui 세그먼트" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic25.avif" alt="widgets 레이어의 ui 세그먼트" />
 
 `ui` 세그먼트에는 여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 독립적인 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 마이페이지에서 유저 프로필을 변경할 수 있는 에디터 컴포넌트를 정의하였습니다.
 
@@ -998,7 +968,7 @@ export const MyPageProfileEditor = ({ userInfo }: MyPageProfileProps) => {
 
 ### app
 
-<img src="/assets/img/front-end/fsd-example-nextjs/pic26.jpg" alt="app 레이어" />
+<img src="/assets/img/front-end/fsd-example-nextjs/pic26.avif" alt="app 레이어" />
 
 FSD 아키텍처에서 `app` 레이어는 <b>애플리케이션의 진입점에 해당하며, 애플리케이션 초기화, 라우팅 설정, 전역 상태 관리, 전역 스타일 설정 등을 담당하는 레이어</b>입니다. `app` 레이어는 `shared`와 마찬가지로 슬라이스를 포함하지 않으며 세그먼트만 포함합니다.
 

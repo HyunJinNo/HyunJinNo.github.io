@@ -932,7 +932,189 @@ export const SurveyContentScreen = () => {
 
 ### app
 
+<img src="/assets/img/front-end/fsd-example-react-native/pic26.jpg" alt="app 레이어" />
+
+`app` 레이어는 <b>애플리케이션의 진입점에 해당하며, 애플리케이션 초기화, 라우팅 설정, 전역 상태 관리, 전역 스타일 설정 등을 담당하는 레이어</b>입니다. `app` 레이어는 `shared`와 마찬가지로 슬라이스를 포함하지 않으며 세그먼트만 포함합니다.
+
+저는 다음과 같이 세그먼트 역할을 정의하였습니다.
+
+```text
+app
+├── providers  # 전역 프로바이더 설정
+├── routes     # 라우팅 설정
+├── styles     # 전역 스타일 설정
+├── app.tsx    # 애플리케이션 진입점
+└── index.ts
+```
+
+#### providers
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic27.jpg" alt="app 레이어의 providers 세그먼트" />
+
+`providers` 세그먼트는 <b>Context API 또는 상태 관리 라이브러리(예: Redux, MobX)와 같은 전역 상태나 기능을 제공하는 프로바이더들을 정의하는 레이어</b>입니다. 예를 들어, 다음과 같이 네트워크 상태에 따른 UI를 표시하는 프로바이더를 정의하였습니다.
+
+```tsx
+/* @src/app/providers/NetInfoProvider.tsx */
+
+import { useNetInfo } from "@react-native-community/netinfo";
+import { tw } from "@src/shared/lib/utils";
+import React from "react";
+import { Image, Text, View } from "react-native";
+
+interface NetInfoProviderProps {
+  children?: React.ReactNode;
+}
+
+export const NetInfoProvider = ({ children }: NetInfoProviderProps) => {
+  const { isConnected } = useNetInfo();
+
+  if (isConnected === false) {
+    return (
+      <View style={tw`flex h-full flex-col items-center justify-center`}>
+        <Image
+          style={tw`h-40 w-40`}
+          source={require("@assets/common/disconnection.png")}
+        />
+        <Text style={tw`pb-1 pt-4 text-lg font-bold text-custom-01`}>
+          인터넷에 연결되어 있지 않습니다.
+        </Text>
+        <Text style={tw`text-custom-03`}>연결 상태를 다시 확인해 주세요.</Text>
+      </View>
+    );
+  }
+
+  return children;
+};
+```
+
+#### routes
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic28.jpg" alt="app 레이어의 routes 세그먼트" />
+
+`routes` 세그먼트는 라우팅 설정을 담당하는 레이어입니다. 예를 들어, 다음과 같이 React Native 프로젝트에서 사용하는 화면에 대한 parameter 목록을 정의하는 파일을 생성하였습니다.
+
+```typescript
+/* @src/app/routes/navigationTypes.ts */
+
+import { RouteProp } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { DiaryDetail } from "@src/entities/diary";
+import { DiscoveryRecommendationItem } from "@src/entities/discovery";
+import { Plan, SavedPlan } from "@src/entities/plan";
+
+export type RootStackParamList = {
+  BottomTabs: undefined;
+  Plan: undefined;
+  PlanDetail: { savedPlan: SavedPlan };
+  Discovery: undefined;
+  DiscoveryDetail: {
+    name: string;
+    recommendation: DiscoveryRecommendationItem;
+  };
+  Home: undefined;
+  Diary: undefined;
+  DiaryCreate: undefined;
+  DiaryUpdate: { diary: DiaryDetail };
+  Mypage: undefined;
+  Auth: undefined;
+  AuthSignIn: undefined;
+  AuthLoading: { code: string };
+  SurveyDay: undefined;
+  SurveyTheme: undefined;
+  SurveyContent: undefined;
+  SurveyActivity: undefined;
+  SurveyLoading: undefined;
+  SurveyResultList: { plans: Plan[] };
+  SurveyResultDetail: { index: number; plan: Plan };
+};
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
+
+  interface RootStackScreenProps<T extends keyof RootStackParamList> {
+    navigation: NativeStackNavigationProp<RootStackParamList, T>;
+    route: RouteProp<RootStackParamList, T>;
+  }
+}
+```
+
+위의 코드에서 `RootStackScreenProps` 타입은 각 Screen의 props를 쉽게 사용할 수 있도록 정의하였습니다. 또한 FSD 아키텍처의 단방향 의존성 원칙을 깨뜨리지 않기 위해 정의하였습니다.
+
+예를 들어, `RootStackScreenProps` 타입이 존재하지 않는다면 다음과 같이 `widgets` 레이어에서 `app` 레이어의 `RootStackParamsList`를 참조하게 되므로 FSD 아키텍처의 단방향 의존성 원칙이 깨지게 됩니다.
+
+```tsx
+/* @src/pages/ui/DiaryUpdateScreen.tsx */
+
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@src/app/routes/navigationTypes";
+import { DiaryUpdateEditor } from "@src/widgets/diaryUpdateEditor";
+import React from "react";
+
+export const DiaryUpdateScreen = ({
+  route
+}: NativeStackScreenProps<RootStackParamList, "DiaryUpdate">) => {
+  return <DiaryUpdateEditor diary={route.params.diary} />;
+};
+```
+
+반면에, `RootStackScreenProps` 타입을 사용하면 다음과 같이 FSD 아키텍처의 단방향 의존성 원칙을 깨뜨리지 않을 수 있습니다.
+
+```tsx
+/* @src/pages/ui/DiaryUpdateScreen.tsx */
+
+import { DiaryUpdateEditor } from "@src/widgets/diaryUpdateEditor";
+import React from "react";
+
+export const DiaryUpdateScreen = ({
+  route
+}: RootStackScreenProps<"DiaryUpdate">) => {
+  return <DiaryUpdateEditor diary={route.params.diary} />;
+};
+```
+
+#### styles
+
+`styles` 세그먼트는 전역 스타일 설정을 담당하는 레이어입니다. 제가 진행한 React Native 프로젝트에서는 `Tailwind CSS`를 사용하여 CSS 파일이 필요하지 않아서 해당 세그먼트를 사용하지 않았습니다.
+
+#### app.tsx
+
+`app.tsx` 파일은 애플리케이션의 진입점에 해당합니다.
+
+```tsx
+/* @src/app/app.tsx */
+
+import React, { useEffect } from "react";
+import SplashScreen from "react-native-splash-screen";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { NetInfoProvider, QueryProvider } from "./providers";
+import { Navigation } from "./routes";
+
+export const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
+  return (
+    <NetInfoProvider>
+      <QueryProvider>
+        <GestureHandlerRootView>
+          <Navigation />
+        </GestureHandlerRootView>
+      </QueryProvider>
+    </NetInfoProvider>
+  );
+};
+```
+
 ## FSD 아키텍처 적용 후기
+
+FSD 아키텍처를 적용하면서 느낀 장점은 레이어별로 기능을 명확히 구분함으로써 코드를 유지보수하기 쉽다는 것이었습니다. 기존의 폴더 구조에서는 기능을 유지보수하고자 할 때 광범위하게 흩어져 있는 코드들을 추적하여야 했기 때문에 가독성이 떨어지고 코드를 이해하고 수정하기 쉽지 않았습니다. 하지만 FSD 아키텍처를 적용함으로써 기능별로 코드가 명확히 분리되어 있기 때문에 특정 기능 수정 시 특정 모듈만 집중해서 수정할 수 있으며 다른 부분에 미치는 영향을 최소화할 수 있어서 유지보수성을 크게 향상시킬 수 있었습니다.
+
+단점으로는 특정 코드를 어떤 레이어에 두어야 하는지 헷갈린다는 점이었습니다. 예를 들어, `plan` 생성 API 요청 파일을 `entities` 레이어에 두어야 하는지, 아니면 `features` 레이어에 두어야 하는지 고민이 많았습니다. 또한 특정 기능이 하나의 widget에서만 사용된다면 해당 기능을 `widgets` 레이어에 두어도 괜찮지 않을까라는 생각도 들었습니다.
+
+<b>이렇듯 FSD 아키텍처는 가이드라인만을 제시할 뿐, 엄격한 기준이 없기 때문에 프로젝트를 진행하면서 팀원들이 혼란을 겪지 않고 일관성을 지킬 수 있도록 명확한 기준을 세우는 것이 좋을 것 같습니다.</b>
 
 ## 참고 자료
 

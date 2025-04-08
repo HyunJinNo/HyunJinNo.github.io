@@ -369,8 +369,6 @@ export async function getUserInfo() {
 }
 ```
 
-// TODO
-
 #### config
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic13.avif" alt="entities 레이어의 config 세그먼트" />

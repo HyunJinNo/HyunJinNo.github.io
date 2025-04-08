@@ -269,11 +269,210 @@ export async function createDiary(data: DiaryCreateRequest) {
 (...생략)
 ```
 
+만약 DTO를 다른 파일에서도 참조하는 경우에는 다음과 같이 `model` 세그먼트에 타입을 정의하고 이를 import하는 방식을 적용하였습니다.
+
+```typescript
+/* @src/entities/user/api/userInfo.ts */
+
+import { BACKEND_URL } from "@env";
+import { getNewAccessToken } from "@src/shared/api";
+import EncryptedStorage from "react-native-encrypted-storage";
+import { User } from "../model/user";
+
+export async function getUserInfo() {
+  const accessToken = await EncryptedStorage.getItem("access_token");
+  const response = await fetch(`${BACKEND_URL}/api/users/info`, {
+    method: "GET",
+    headers: { Cookie: `access_token=${accessToken}` }
+  });
+
+  if (response.status === 401) {
+    await getNewAccessToken();
+    throw new Error("Access token has expired.");
+  }
+
+  if (!response.ok) {
+    await EncryptedStorage.clear();
+  }
+
+  return response.json() as Promise<User>;
+}
+```
+
 #### config
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic12.jpg" alt="entities 레이어의 config 세그먼트" />
+
+`config` 세그먼트에는 특정 도메인과 관련된 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 diary 슬라이스 내에 기분 이미지 목록 상수 파일을 정의하였습니다.
+
+```typescript
+/* @src/entities/diary/config/feelingImage.ts */
+
+type FEELING_IMAGE_TYPE = {
+  [feeling: string]: any;
+};
+
+export const FEELING_IMAGE: FEELING_IMAGE_TYPE = {
+  EXCITED: require("@assets/diary/feeling1.png"),
+  NICE: require("@assets/diary/feeling2.png"),
+  SOSO: require("@assets/diary/feeling3.png"),
+  SAD: require("@assets/diary/feeling4.png"),
+  ANGRY: require("@assets/diary/feeling5.png")
+} as const;
+```
 
 #### model
 
+<img src="/assets/img/front-end/fsd-example-react-native/pic13.jpg" alt="entities 레이어의 model 세그먼트" />
+
+`model` 세그먼트에는 특정 도메인과 관련된 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 정의하였습니다. 예를 들어, 다음과 같이 User 타입을 정의하거나 API 요청을 커스텀 훅 내의 `useQuery`로 래핑하였습니다.
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic14.jpg" alt="user.ts" />
+
+```typescript
+/* @src/entities/user/model/useUserInfo.ts */
+
+import { useQuery } from "@tanstack/react-query";
+import { getUserInfo } from "../api/userInfo";
+
+export const useUserInfo = (enabled?: boolean) => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["userInfo"],
+    queryFn: () => getUserInfo(),
+    staleTime: Infinity,
+    gcTime: 0,
+    retry: 1,
+    enabled: enabled
+  });
+
+  return { data, isLoading, isError };
+};
+```
+
 #### ui
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic15.jpg" alt="entities 레이어의 ui 세그먼트" />
+
+`ui` 세그먼트에는 특정 도메인과 관련된 UI 컴포넌트를 정의하였습니다. 이 세그먼트는 도메인의 시각적 표현에만 집중합니다. 만약 UI 컴포넌트 내에 사용자의 특정 행동과 상호작용과 관련된 기능이 포함되어야 한다면 이를 `children`으로 분리하여 단방향 의존성을 깨뜨리지 않도록 구현하였습니다. 예를 들어, 다음 코드는 diary 도메인의 시각적 표현을 나타내는 UI 컴포넌트입니다. 수정 및 삭제 기능은 `children`으로 분리하였습니다.
+
+```tsx
+/* @src/entities/diary/ui/DiaryCard.tsx */
+
+import React from "react";
+import {
+  CodeBridge,
+  RichText,
+  TenTapStartKit,
+  useEditorBridge
+} from "@10play/tentap-editor";
+import LinearGradient from "react-native-linear-gradient";
+import { Animated, Image, ImageBackground, Text, View } from "react-native";
+import { FEELING_IMAGE } from "../config/feelingImage";
+import { DiaryDetail } from "../model/diary";
+import { useCardFlipAnimation } from "../model/useCardFlipAnimation";
+import { tw } from "@src/shared/lib/utils";
+
+interface DiaryCardProps {
+  children: React.ReactNode;
+  diary: DiaryDetail;
+}
+
+export const DiaryCard = ({ children, diary }: DiaryCardProps) => {
+  const { interpolate, isTail, flipCard } = useCardFlipAnimation();
+  const editor = useEditorBridge({
+    avoidIosKeyboard: true,
+    initialContent:
+      diary.diaryDayContentResponses.diaryDayContentDetail[0].content,
+    editable: false,
+    bridgeExtensions: [
+      ...TenTapStartKit,
+      CodeBridge.configureCSS("p { font-size: 0.875rem; line-height: 0.5rem; }")
+    ]
+  });
+
+  // 뒷면
+  if (isTail) {
+    return (
+      <View style={tw`px-3 pb-5`}>
+        <Animated.View
+          style={tw.style(
+            "h-[26rem] w-[17.75rem] rounded-xl border border-gray-200 bg-custom-lightGray p-6",
+            {
+              transform: [{ rotateY: interpolate }, { perspective: 1000 }]
+            }
+          )}
+          onTouchEnd={() => flipCard()}
+        >
+          <View style={tw`flex flex-row items-center justify-between`}>
+            <View style={tw`flex flex-row items-center gap-2`}>
+              <Image
+                style={tw`h-[1.1875rem] w-4`}
+                source={require("@assets/diary/location-active.png")}
+              />
+              <Text style={tw`text-gray-500`}>
+                {diary.diaryDayContentResponses.diaryDayContentDetail[0].place}
+              </Text>
+            </View>
+            {children}
+          </View>
+          <Image
+            style={tw`mt-10 h-[4.375rem] w-14`}
+            source={
+              FEELING_IMAGE[
+                diary.diaryDayContentResponses.diaryDayContentDetail[0]
+                  .feelingStatus
+              ]
+            }
+          />
+          <Text style={tw`pt-5 text-lg font-bold`}>{diary.title}</Text>
+          <Text style={tw`text-gray-500`}>{`${new Date(
+            `${diary.startDatetime}.0Z`
+          ).toLocaleDateString()} - ${new Date(
+            `${diary.endDatetime}.0Z`
+          ).toLocaleDateString()}`}</Text>
+          <RichText style={tw`mt-2`} editor={editor} />
+        </Animated.View>
+      </View>
+    );
+  }
+
+  // 앞면
+  return (
+    <View style={tw`px-3 pb-5`}>
+      <Animated.View
+        style={tw.style(
+          "relative h-[26rem] w-[17.75rem] rounded-xl border border-gray-200",
+          {
+            transform: [{ rotateY: interpolate }, { perspective: 1000 }]
+          }
+        )}
+        onTouchEnd={() => flipCard()}
+      >
+        <ImageBackground
+          style={tw`flex-1`}
+          imageStyle={tw`rounded-xl`}
+          source={{ uri: diary.titleImage }}
+          resizeMode="cover"
+        />
+        <LinearGradient
+          colors={["rgba(17, 17, 17, 0)", "rgba(17, 17, 17, 0.5)"]}
+          style={tw`absolute bottom-0 flex h-[11.5rem] w-full rounded-b-xl`}
+        />
+        <View style={tw`absolute bottom-[1.875rem] flex flex-col gap-1 px-8`}>
+          <Text style={tw`text-xl font-semibold text-white`}>
+            {diary.title}
+          </Text>
+          <Text style={tw`text-sm text-white`}>{`${new Date(
+            `${diary.startDatetime}.0Z`
+          ).toLocaleDateString()} - ${new Date(
+            `${diary.endDatetime}.0Z`
+          ).toLocaleDateString()}`}</Text>
+        </View>
+      </Animated.View>
+    </View>
+  );
+};
+```
 
 ### features
 

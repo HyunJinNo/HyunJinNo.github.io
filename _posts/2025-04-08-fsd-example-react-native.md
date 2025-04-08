@@ -476,6 +476,264 @@ export const DiaryCard = ({ children, diary }: DiaryCardProps) => {
 
 ### features
 
+<img src="/assets/img/front-end/fsd-example-react-native/pic16.jpg" alt="features 레이어" />
+
+`features` 레이어는 <b>사용자의 특정 행동과 상호작용과 관련된 기능을 포함하는 레이어</b>입니다. 하나의 기능에 필요한 모든 요소를 그룹화합니다.
+
+저는 다음과 같이 세그먼트 역할을 정의하였습니다.
+
+```text
+features
+├── nicknameEditor
+|   ├── api     # 닉네임 변경 기능 관련 API 요청, DTO 등 API 관련 파일
+|   ├── config  # 닉네임 변경 기능 관련 상수 파일 (실제 코드에서는 없는 부분입니다.)
+|   ├── model   # 닉네임 변경 기능 관련 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
+|   ├── ui      # 닉네임 변경 기능 관련 UI 컴포넌트
+|   └── index.ts
+├── createPlan
+├── (...)
+```
+
+#### api
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic17.jpg" alt="features 레이어의 api 세그먼트" />
+
+`api` 세그먼트에는 특정 기능과 관련된 API 요청, DTO 등 API 관련 파일을 모아두었습니다. 예를 들어, 다음 코드는 닉네임 변경 API 요청 파일입니다.
+
+```typescript
+/* @src/features/nicknameEditor/api/nickname.ts */
+
+import { BACKEND_URL } from "@env";
+import { getNewAccessToken } from "@src/shared/api";
+import EncryptedStorage from "react-native-encrypted-storage";
+
+export async function updateNickname(nickname: string) {
+  const accessToken = await EncryptedStorage.getItem("access_token");
+  const response = await fetch(`${BACKEND_URL}/api/users/nickname`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: `access_token=${accessToken}`
+    },
+    body: JSON.stringify({ nickname })
+  });
+
+  if (response.status === 401) {
+    await getNewAccessToken();
+    throw new Error("Access token has expired.");
+  }
+
+  if (!response.ok) {
+    throw new Error("Failed to update nickname.");
+  }
+
+  return true;
+}
+```
+
+#### config
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic18.jpg" alt="features 레이어의 config 세그먼트" />
+
+`config` 세그먼트에는 특정 기능과 관련된 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 일기 작성 기능과 관련해서 지역 정보를 나타내는 상수를 정의하였습니다.
+
+```typescript
+/* @src/features/diaryEditor/config/locationList.ts */
+
+export const LOCATION_LIST = [
+  "서울",
+  "경기",
+  "제주",
+  "인천",
+  "부산",
+  "강원",
+  "울산",
+  "대구",
+  "광주",
+  "대전",
+  "경남",
+  "경북",
+  "세종",
+  "충청",
+  "전라"
+] as const;
+```
+
+#### model
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic19.jpg" alt="features 레이어의 model 세그먼트" />
+
+`model` 세그먼트에는 특정 기능과 관련된 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 모아두었습니다. 예를 들어, 다음과 같이 닉네임 변경 기능의 스키마를 정의하거나 닉네임 변경 비즈니스 로직을 작성하였습니다.
+
+```typescript
+/* @src/features/nicknameEditor/model/NicknameSchema.ts */
+
+import { z } from "zod";
+
+export const NicknameSchema = z.object({
+  nickname: z
+    .string({
+      required_error: "닉네임을 입력해 주세요.",
+      invalid_type_error: "Nickname must be a string."
+    })
+    .min(1, { message: "닉네임을 입력해 주세요." })
+    .max(30, { message: "닉네임은 최대 30자입니다." })
+});
+```
+
+```typescript
+/* @src/features/nicknameEditor/model/useNicknameModal.ts */
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { updateNickname } from "../api/nickname";
+import { NicknameSchema } from "./NicknameSchema";
+
+export const useNicknameModal = (
+  nickname: string,
+  modalVisible: boolean,
+  closeModal: () => void
+) => {
+  const methods = useForm<{
+    nickname: string;
+  }>({
+    resolver: zodResolver(NicknameSchema),
+    defaultValues: { nickname },
+    mode: "onChange"
+  });
+
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: () => updateNickname(methods.getValues("nickname")),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["userInfo"] });
+      closeModal();
+    },
+    retry: 1,
+    throwOnError: true
+  });
+
+  const handleSubmit = async () => {
+    await methods.trigger("nickname");
+    if (!methods.formState.isValid) {
+      return;
+    }
+
+    mutation.mutate();
+  };
+
+  useEffect(() => {
+    if (modalVisible) {
+      methods.setValue("nickname", nickname);
+    }
+  }, [methods, modalVisible, nickname]);
+
+  return { methods, isPending: mutation.isPending, handleSubmit };
+};
+```
+
+#### ui
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic20.jpg" alt="features 레이어의 ui 세그먼트" />
+
+`ui` 세그먼트에는 사용자의 특정 행동과 상호작용과 관련된 기능을 포함한 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 닉네임을 변경할 수 있는 UI 컴포넌트를 정의하였습니다.
+
+```tsx
+/* @src/features/nicknameEditor/ui/NicknameModal.tsx */
+
+import { COLOR } from "@src/shared/config";
+import { tw } from "@src/shared/lib/utils";
+import React from "react";
+import { Controller } from "react-hook-form";
+import {
+  ActivityIndicator,
+  Pressable,
+  Text,
+  TextInput,
+  View
+} from "react-native";
+import { useNicknameModal } from "../model/useNicknameModal";
+import { ModalTemplate } from "@src/shared/ui/modal";
+
+interface NicknameModalProps {
+  nickname: string;
+  isOpen: boolean;
+  closeModal: () => void;
+}
+
+export const NicknameModal = ({
+  nickname,
+  isOpen,
+  closeModal
+}: NicknameModalProps) => {
+  const { methods, isPending, handleSubmit } = useNicknameModal(
+    nickname,
+    isOpen,
+    closeModal
+  );
+
+  return (
+    <ModalTemplate title="닉네임 변경" visible={isOpen} closeModal={closeModal}>
+      <Controller
+        name="nickname"
+        control={methods.control}
+        rules={{ required: true }}
+        render={({ field: { onChange, value } }) => (
+          <TextInput
+            style={tw.style(
+              methods.formState.errors.nickname
+                ? "border-blue-500"
+                : "border-custom-04",
+              "my-4 h-[3.25rem] w-full rounded-full border px-4"
+            )}
+            placeholderTextColor={
+              methods.formState.errors.nickname && COLOR.BLUE
+            }
+            placeholder="닉네임을 입력해 주세요."
+            onChangeText={onChange}
+            value={value}
+            maxLength={30}
+          />
+        )}
+      />
+      <View style={tw`flex flex-row items-center gap-2`}>
+        <Pressable
+          style={({ pressed }) =>
+            tw.style(
+              pressed ? "bg-slate-100" : "bg-white",
+              "flex h-10 w-28 justify-center rounded-full border border-slate-200 shadow"
+            )
+          }
+          onPress={() => closeModal()}
+        >
+          <Text style={tw`text-center text-sm font-semibold`}>취소</Text>
+        </Pressable>
+        <Pressable
+          style={({ pressed }) =>
+            tw.style(
+              pressed ? "bg-primary-green-ripple" : "bg-primary-green",
+              "flex h-10 w-28 justify-center rounded-full shadow"
+            )
+          }
+          disabled={isPending}
+          onPress={() => handleSubmit()}
+        >
+          {isPending ? (
+            <ActivityIndicator color={COLOR.WHITE} />
+          ) : (
+            <Text style={tw`text-center text-sm font-semibold text-white`}>
+              변경
+            </Text>
+          )}
+        </Pressable>
+      </View>
+    </ModalTemplate>
+  );
+};
+```
+
 ### widgets
 
 ### pages

@@ -806,10 +806,10 @@ export const InformationBookmark = ({
 ```text
 widgets
 ├── gatheringViewer
-|   ├── api     # API 관련 파일 (TODO)
-|   ├── config  # 상수 파일 (실제 코드에서는 없는 부분입니다.)
-|   ├── model   # 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
-|   ├── ui      # 사이드바 UI 컴포넌트
+|   ├── api     # widget 단위의 API 관련 파일
+|   ├── config  # widget 단위의 상수 파일 (실제 코드에서는 없는 부분입니다.)
+|   ├── model   # widget 단위의 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
+|   ├── ui      # 독립적으로 사용할 수 있는 UI 컴포넌트
 |   └── index.ts
 ├── bestInformationListWrapper
 ├── (...)
@@ -820,11 +820,181 @@ widgets
 
 #### api
 
+<img src="/assets/img/front-end/fsd-example-nextjs/pic22.jpg" alt="widgets 레이어의 api 세그먼트" />
+
+`api` 세그먼트에는 widget 단위의 API 요청, DTO 등 API 관련 파일을 모아두었습니다. 예를 들어, 다음과 같이 모임 모집을 마감하거나 또는 모집을 다시하는 API 요청 파일을 정의하였습니다.
+
+```typescript
+/* @/widgets/gatheringViewer/api/gatheringStatus.ts */
+
+import { fetchWithAuth } from "@/shared/api";
+
+export async function closeGathering(isFinish: boolean, gatheringId: number) {
+  const response = await fetchWithAuth(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gatherings/${
+      isFinish === false ? "finish" : "not-finish"
+    }/${gatheringId}`,
+    {
+      method: "PUT",
+      credentials: "include",
+      cache: "no-store"
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to update data.");
+  }
+}
+
+export async function reopenGathering(gatheringId: number) {
+  const response = await fetchWithAuth(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gatherings/not-finish/${gatheringId}`,
+    {
+      method: "PUT",
+      credentials: "include",
+      cache: "no-store"
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to update data.");
+  }
+}
+```
+
 #### config
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic23.jpg" alt="widgets 레이어의 config 세그먼트" />
+
+`config` 세그먼트에는 widget 단위의 상수 파일을 모아두었습니다. 예를 들어, 다음과 같이 FAQ 목록 상수 파일을 정의하였습니다.
+
+```typescript
+/* @/widgets/supportFAQList/config/faqList.ts */
+
+interface FAQ {
+  topic: string;
+  question: string;
+  answer: string;
+}
+
+export const FAQList: FAQ[] = [
+  {
+    topic: "여행일기 서비스",
+    question: "일기는 다른 사용자가 볼 수 있나요?",
+    answer:
+      "아니요, 일기는 각각 개인에게만 제공되는 서비스이므로 다른 사용자가 볼 수 없습니다."
+  },
+  {
+    topic: "회원",
+    question: "회원 탈퇴는 어떻게 하나요?",
+    answer:
+      "우측 상단 프로필 이미지(마이페이지) - 프로필 이미지 우측 하단 설정 아이콘 - 페이지 우측 하단 '회원 탈퇴'를 클릭하시면 됩니다."
+  }
+];
+```
 
 #### model
 
+<img src="/assets/img/front-end/fsd-example-nextjs/pic24.jpg" alt="widgets 레이어의 model 세그먼트" />
+
+`model` 세그먼트에는 widget 단위의 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 정의하였습니다. 예를 들어, 다음과 같이 gathering 스토어를 정의하였습니다.
+
+```typescript
+/* @/widgets/gatheringViewer/ */
+
+import { gatheringApplicantsResponse } from "@/entities/gathering";
+import { StateCreator, create } from "zustand";
+import { devtools } from "zustand/middleware";
+
+// 1. 상태 인터페이스 정의
+interface GatheringState {
+  currentParticipants: number;
+  gatheringApplicantsResponses: gatheringApplicantsResponse[];
+  isFinish: boolean;
+  deadline: string | null;
+  personCount: number;
+}
+
+// 2. 액션 인터페이스 정의
+interface GatheringAction {
+  initialize: () => void;
+  setGatheringState: (data: Partial<GatheringState>) => void;
+}
+
+// 3. 초기 상태 정의
+const initialState: GatheringState = {
+  currentParticipants: 0,
+  gatheringApplicantsResponses: [],
+  isFinish: false,
+  personCount: 0,
+  deadline: null
+};
+
+type GatheringStoreType = GatheringState & GatheringAction;
+
+// 4. 상태 및 액션 생성
+const gatheringStore: StateCreator<GatheringStoreType> = (set) => ({
+  ...initialState,
+  initialize: () =>
+    set({
+      ...initialState,
+      currentParticipants: 0,
+      gatheringApplicantsResponses: []
+    }),
+  setGatheringState: (data) =>
+    set(() => ({
+      ...data
+    }))
+});
+
+export const useGatheringStore = create<GatheringStoreType>(
+  process.env.NODE_ENV === "development"
+    ? (devtools(gatheringStore) as StateCreator<GatheringStoreType>)
+    : gatheringStore
+);
+```
+
 #### ui
+
+<img src="/assets/img/front-end/fsd-example-nextjs/pic25.jpg" alt="widgets 레이어의 ui 세그먼트" />
+
+`ui` 세그먼트에는 여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 독립적인 UI 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 마이페이지에서 유저 프로필을 변경할 수 있는 에디터 컴포넌트를 정의하였습니다.
+
+```tsx
+/* @/widgets/myPageProfileEditor/ui/MyPageProfileEditor.tsx */
+
+import { User } from "@/entities/user";
+import { MyPageNicknameEditor } from "@/features/myPageNicknameEditor";
+import { DeleteAccount } from "@/features/deleteAccount";
+import { MyPageEmail } from "./MyPageEmail";
+import { MyPageLinkedAccount } from "./MyPageLinkedAccount";
+import { MyPageUserImage } from "./MyPageUserImage";
+
+interface MyPageProfileProps {
+  userInfo: User;
+}
+
+export const MyPageProfileEditor = ({ userInfo }: MyPageProfileProps) => {
+  return (
+    <div>
+      <h1 className="text-3xl font-semibold">프로필 설정</h1>
+      <MyPageUserImage
+        userImageUrl={userInfo.userImage.address}
+        userSex={userInfo.sex}
+      />
+      <article className="mt-4 flex flex-col gap-y-9.5">
+        <MyPageNicknameEditor initialNickname={userInfo.nickname} />
+        <MyPageEmail email={userInfo.email} />
+        <MyPageLinkedAccount
+          provider={userInfo.provider}
+          createdDate={userInfo.userImage.createdDate}
+        />
+      </article>
+      <DeleteAccount userInfo={userInfo} />
+    </div>
+  );
+};
+```
 
 ### app
 

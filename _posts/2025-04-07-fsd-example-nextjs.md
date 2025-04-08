@@ -40,6 +40,10 @@ Next.js v15.2.2</p></blockquote>
     - [model](#model-2)
     - [ui](#ui-2)
   - [widgets](#widgets)
+    - [api](#api-3)
+    - [config](#config-3)
+    - [model](#model-3)
+    - [ui](#ui-3)
   - [app](#app)
 - [FSD 아키텍처 적용 후](#fsd-아키텍처-적용-후)
 - [참고 자료](#참고-자료)
@@ -793,19 +797,34 @@ export const InformationBookmark = ({
 
 ### widgets
 
-`widgets` 레이어는 <b>여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 역할을 맡은 레이어</b>입니다. 일반적으로 하나의 큰 독립적인 컴포넌트를 정의하는 곳입니다.
+<img src="/assets/img/front-end/fsd-example-nextjs/pic21.jpg" alt="widgets 레이어" />
+
+`widgets` 레이어는 <b>여러 개의 기능들을 조합하여 특정 화면의 일부를 구성하는 역할을 맡은 레이어</b>입니다. 일반적으로 여러 페이지에서 독립적으로 사용될 수 있는 하나의 큰 독립적인 컴포넌트를 정의하는 곳입니다.
+
+저는 다음과 같이 세그먼트 역할을 정의하였습니다.
 
 ```text
 widgets
-├── sidebar
-|   ├── api    # API 관련 파일
-|   ├── lib    # 유틸리티 함수
-|   ├── model  # 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
-|   ├── ui     # 사이드바 UI 컴포넌트
+├── gatheringViewer
+|   ├── api     # API 관련 파일 (TODO)
+|   ├── config  # 상수 파일 (실제 코드에서는 없는 부분입니다.)
+|   ├── model   # 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
+|   ├── ui      # 사이드바 UI 컴포넌트
 |   └── index.ts
-├── searchbar
+├── bestInformationListWrapper
 ├── (...)
 ```
+
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
+일반적으로 FSD 아키텍처에서 <b>widgets</b> 레이어에는 여러 페이지에서 공용으로 사용될 수 있는 컴포넌트를 정의하는 곳입니다. UI 요소가 페이지의 대부분을 차지하고 재사용되지 않는 것이라면 <b>pages</b> 레이어에 배치하는 것이 적절하지만, 위에서 언급하였듯이 제가 진행한 <b>Next.js(App Router)</b> 프로젝트에 FSD 아키텍처를 적용할 때 <b>pages</b> 레이어를 사용하지 않기로 결정하였으므로 <b>widgets</b> 레이어에 UI 요소를 정의하였습니다.</p></blockquote>
+
+#### api
+
+#### config
+
+#### model
+
+#### ui
 
 ### app
 
@@ -823,5 +842,6 @@ TODO
 
 - <a href="https://github.com/TripInfoWeb/solitour-frontend" target="_blank">https://github.com/TripInfoWeb/solitour-frontend</a>
 - <a href="https://nextjs.org/docs#app-router-vs-pages-router" target="_blank">Introduction | Next.js</a>
+- - <a href="https://23life.tistory.com/entry/nextjs%EC%97%90-FSD-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-%ED%8C%A8%ED%84%B4-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0" target="_blank">next.js에 FSD 폴더 구조 패턴 적용하기</a>
 - <a href="https://feature-sliced.github.io/documentation/kr/docs/guides/tech/with-nextjs" target="_blank">NextJS와 함께 사용하기 | Feature-Sliced Design</a>
-- <a href="https://23life.tistory.com/entry/nextjs%EC%97%90-FSD-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-%ED%8C%A8%ED%84%B4-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0" target="_blank">next.js에 FSD 폴더 구조 패턴 적용하기</a>
+- <a href="https://feature-sliced.github.io/documentation/kr/docs/reference/layers" target="_blank">Layers | Feature-Sliced Design</a>

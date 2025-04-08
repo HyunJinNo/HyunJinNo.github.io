@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/front-end/front-end.avif
+  path: /assets/img/front-end/fsd-example-nextjs/pic0.avif
 comments: true
 ---
 
@@ -242,7 +242,7 @@ interface BreadcrumbProps {
   categoryList: { label: string; href: string }[];
 }
 
-export const Breadcrumb = ({ categoryList: categories }: BreadcrumbProps) => {
+export const Breadcrumb = ({ categoryList }: BreadcrumbProps) => {
   return (
     <nav className="text-gray2 flex w-full items-center gap-1 py-10 text-xs">
       <div className="text-gray1">
@@ -255,10 +255,10 @@ export const Breadcrumb = ({ categoryList: categories }: BreadcrumbProps) => {
           />
         </Link>
       </div>
-      {categories.map((i, index) => (
+      {categoryList.map((i, index) => (
         <div key={index} className="flex flex-row items-center gap-1">
           <IoIosArrowForward />
-          {categories.length == index + 1 ? (
+          {categoryList.length == index + 1 ? (
             <span className="text-gray1 font-semibold">{i.label}</span>
           ) : (
             <Link href={i.href}> {i.label} </Link>
@@ -391,27 +391,7 @@ export const GENDER: Record<string, string> = {
 
 `model` 세그먼트에는 특정 도메인과 관련된 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델을 정의하였습니다. 예를 들어, 다음과 같이 User 타입을 정의하거나 User 스토어를 생성하였습니다.
 
-```typescript
-/* @/entities/user/model/user.ts */
-
-export interface User {
-  id: number;
-  userStatus: string;
-  userImage: {
-    id: number;
-    address: string;
-    createdDate: string;
-  };
-  nickname: string;
-  age: number | null;
-  sex: "male" | "female" | null;
-  email: string;
-  phoneNumber: string | null;
-  isAdmin: boolean;
-  createdAt: Date | null;
-  provider: string;
-}
-```
+<img src="/assets/img/front-end/fsd-example-nextjs/pic27.avif" alt="user.ts" />
 
 ```typescript
 /* @/entities/user/model/userStore.ts */
@@ -1003,6 +983,6 @@ FSD 아키텍처를 적용하면서 느낀 장점은 레이어별로 기능을 �
 
 - <a href="https://github.com/TripInfoWeb/solitour-frontend" target="_blank">https://github.com/TripInfoWeb/solitour-frontend</a>
 - <a href="https://nextjs.org/docs#app-router-vs-pages-router" target="_blank">Introduction | Next.js</a>
-- - <a href="https://23life.tistory.com/entry/nextjs%EC%97%90-FSD-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-%ED%8C%A8%ED%84%B4-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0" target="_blank">next.js에 FSD 폴더 구조 패턴 적용하기</a>
+- <a href="https://23life.tistory.com/entry/nextjs%EC%97%90-FSD-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-%ED%8C%A8%ED%84%B4-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0" target="_blank">next.js에 FSD 폴더 구조 패턴 적용하기</a>
 - <a href="https://feature-sliced.github.io/documentation/kr/docs/guides/tech/with-nextjs" target="_blank">NextJS와 함께 사용하기 | Feature-Sliced Design</a>
 - <a href="https://feature-sliced.github.io/documentation/kr/docs/reference/layers" target="_blank">Layers | Feature-Sliced Design</a>

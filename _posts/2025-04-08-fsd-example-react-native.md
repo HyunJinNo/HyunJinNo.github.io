@@ -197,13 +197,91 @@ export const BottomSheetModalTemplate = forwardRef<
 
 ### entities
 
+<img src="/assets/img/front-end/fsd-example-react-native/pic9.jpg" alt="entities 레이어" />
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic10.jpg" alt="애플리케이션의 핵심 도메인(데이터 모델)" />
+
+`entities` 레이어는 <b>애플리케이션의 핵심 도메인(데이터 모델)과 관련된 로직을 관리하는 레이어</b>입니다. 일반적으로 API 호출, 상태 관리, 데이터 모델을 담당합니다.
+
+저는 다음과 같이 세그먼트 역할을 정의하였습니다.
+
+```text
+entities
+├── diary
+|   ├── api     # diary 관련 API 요청, DTO 등 API 관련 파일
+|   ├── config  # diary 관련 상수 파일
+|   ├── model   # diary 관련 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
+|   ├── ui      # diary 관련 UI 컴포넌트
+|   └── index.ts
+├── gathering
+└── (...)
+```
+
+#### api
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic11.jpg" alt="entities 레이어의 api 세그먼트" />
+
+`api` 세그먼트에는 특정 도메인과 관련된 API 요청, DTO 등 API 관련 파일을 모아두었습니다. 특히 다음과 같이 DTO를 API 요청 함수 내에 정의하였습니다.
+
+```typescript
+/* @src/entities/diary/api/diary.ts */
+
+import { BACKEND_URL } from "@env";
+import { getNewAccessToken } from "@src/shared/api";
+import EncryptedStorage from "react-native-encrypted-storage";
+
+export interface DiaryCreateRequest {
+  title: string;
+  titleImage: string;
+  startDatetime: Date;
+  endDatetime: Date;
+  diaryDayRequests: {
+    content: string;
+    feelingStatus: string;
+    diaryDayContentImages: string;
+    place: string;
+  }[];
+}
+
+export async function createDiary(data: DiaryCreateRequest) {
+  const accessToken = await EncryptedStorage.getItem("access_token");
+  const response = await fetch(`${BACKEND_URL}/api/diary`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: `access_token=${accessToken}`
+    },
+    body: JSON.stringify(data)
+  });
+
+  if (response.status === 401) {
+    await getNewAccessToken();
+    throw new Error("Access token has expired.");
+  }
+
+  if (!response.ok) {
+    throw new Error("Failed to register.");
+  }
+
+  return response.text();
+}
+
+(...생략)
+```
+
+#### config
+
+#### model
+
+#### ui
+
 ### features
 
 ### widgets
 
 ### pages
 
-###
+### app
 
 ## FSD 아키텍처 적용 후기
 

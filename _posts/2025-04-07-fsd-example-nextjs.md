@@ -288,7 +288,7 @@ entities
 |   ├── model   # diary 관련 커스텀 훅, 스키마, 타입, 인터페이스, 스토어, 비즈니스 로직 등 데이터 모델
 |   ├── ui      # diary 관련 UI 컴포넌트
 |   └── index.ts
-├── gathering
+├── discovery
 └── (...)
 ```
 
@@ -368,6 +368,8 @@ export async function getUserInfo() {
   return response.json() as Promise<User>;
 }
 ```
+
+// TODO
 
 #### config
 

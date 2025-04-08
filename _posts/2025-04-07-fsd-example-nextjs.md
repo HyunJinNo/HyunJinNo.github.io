@@ -986,3 +986,4 @@ FSD 아키텍처를 적용하면서 느낀 장점은 레이어별로 기능을 �
 - <a href="https://23life.tistory.com/entry/nextjs%EC%97%90-FSD-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-%ED%8C%A8%ED%84%B4-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0" target="_blank">next.js에 FSD 폴더 구조 패턴 적용하기</a>
 - <a href="https://feature-sliced.github.io/documentation/kr/docs/guides/tech/with-nextjs" target="_blank">NextJS와 함께 사용하기 | Feature-Sliced Design</a>
 - <a href="https://feature-sliced.github.io/documentation/kr/docs/reference/layers" target="_blank">Layers | Feature-Sliced Design</a>
+- <a href="https://github.com/moneyflow-dev/moneyflow" target="_blank">moneyflow-dev/moneyflow: Money Flow - your personal money manager</a>

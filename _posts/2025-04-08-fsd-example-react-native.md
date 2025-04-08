@@ -867,6 +867,69 @@ export const DiaryCreateEditor = () => {
 
 ### pages
 
+<img src="/assets/img/front-end/fsd-example-react-native/pic24.jpg" alt="pages 레이어" />
+
+`pages` 레이어는 <b>애플리케이션의 실제 Screen을 구성하는 레이어</b>입니다. 여러 `shared`, `entities`, `features`, `widgets`를 조합하여 화면을 구성합니다.
+
+저는 다음과 같이 세그먼트 역할을 정의하였습니다.
+
+```text
+pages
+├── auth
+|   ├── ui  # Screen 컴포넌트
+|   └── index.ts
+├── main
+├── (...)
+```
+
+#### ui
+
+<img src="/assets/img/front-end/fsd-example-react-native/pic25.jpg" alt="pages 레이어의 ui 세그먼트" />
+
+`ui` 세그먼트에는 Screen 컴포넌트를 정의하였습니다. 예를 들어, 다음과 같이 여러 `shared`, `entities`, `features`, `widgets`를 조합하여 Screen 컴포넌트를 정의하였습니다.
+
+```tsx
+/* @src/pages/survey/ui/SurveyContentScreen.tsx */
+
+import { useNavigation } from "@react-navigation/native";
+import { BottomNextButton } from "@src/shared/ui/button";
+import { tw } from "@src/shared/lib/utils";
+import React from "react";
+import { Text, View } from "react-native";
+import { ProgressBar } from "@src/shared/ui/progressBar";
+import { SurveyContentItemListWrapper } from "@src/widgets/surveyContentItemListWrapper";
+import { CONTENT_CATEGORY, useSurveyStore } from "@src/entities/survey";
+
+export const SurveyContentScreen = () => {
+  const navigation = useNavigation();
+  const { contentCategory, contentTitles, setSurveyState } = useSurveyStore();
+
+  return (
+    <View style={tw`h-full w-full bg-white px-4 pt-2`}>
+      <ProgressBar totalProgress={4} currentProgress={3} />
+      <Text style={tw`pt-8 text-2xl font-bold text-custom-01`}>
+        {`어떤 ${
+          CONTENT_CATEGORY.find((value) => value.category === contentCategory)
+            ?.title
+        }의`}
+      </Text>
+      <Text style={tw`text-2xl font-bold text-custom-01`}>
+        여행지로 떠나볼까요?
+      </Text>
+      <Text style={tw`pb-6 pt-1.5 text-custom-03`}>여러 개 선택 가능해요</Text>
+      <SurveyContentItemListWrapper />
+      <BottomNextButton
+        disabled={contentTitles.length === 0}
+        onPress={() => {
+          setSurveyState({ preferredTrips: [] });
+          navigation.navigate("SurveyActivity");
+        }}
+      />
+    </View>
+  );
+};
+```
+
 ### app
 
 ## FSD 아키텍처 적용 후기

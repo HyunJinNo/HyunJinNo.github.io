@@ -88,11 +88,13 @@ shared
 ```typescript
 /* @/shared/api/fetchWithAuth.ts */
 
+"use server";
+
 import { getNewAccessToken } from "./getNewAccessToken";
 
 export async function fetchWithAuth(
   input: string | URL | globalThis.Request,
-  init?: RequestInit
+  init?: RequestInit,
 ) {
   const response = await fetch(input, init);
 
@@ -105,7 +107,7 @@ export async function fetchWithAuth(
 
     return await fetch(input, {
       ...init,
-      headers: { Cookie: `access_token=${accessToken}` }
+      headers: { Cookie: `access_token=${accessToken}` },
     });
   }
 
@@ -348,17 +350,21 @@ export async function createDiary(data: DiaryCreateRequest) {
 ```typescript
 /* @/entities/user/api/userInfo.ts */
 
+"use server";
+
 import { fetchWithAuth } from "@/shared/api";
 import { User } from "../model/user";
+import { cookies } from "next/headers";
 
 export async function getUserInfo() {
+  const accessToken = (await cookies()).get("access_token");
   const response = await fetchWithAuth(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/info`,
+    `${process.env.BACKEND_URL}/api/users/info`,
     {
       method: "GET",
-      credentials: "include",
-      cache: "no-store"
-    }
+      headers: { Cookie: `${accessToken?.name}=${accessToken?.value}` },
+      cache: "no-store",
+    },
   );
 
   if (!response.ok) {
@@ -581,21 +587,27 @@ features
 ```typescript
 /* @/features/informationBookmark/api/informationBookmark.ts */
 
+"use server";
+
 import { fetchWithAuth } from "@/shared/api";
+import { cookies } from "next/headers";
 
 export async function createInformationBookmark(informationId: number) {
   const data = new URLSearchParams();
   data.append("infoId", informationId.toString());
 
+  const accessToken = (await cookies()).get("access_token");
   const response = await fetchWithAuth(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/bookmark/information`,
+    `${process.env.BACKEND_URL}/api/bookmark/information`,
     {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Cookie: `${accessToken?.name}=${accessToken?.value}`,
+      },
       body: data.toString(),
-      credentials: "include",
-      cache: "no-store"
-    }
+      cache: "no-store",
+    },
   );
 
   if (!response.ok) {
@@ -607,15 +619,18 @@ export async function deleteInformationBookmark(informationId: number) {
   const data = new URLSearchParams();
   data.append("infoId", informationId.toString());
 
+  const accessToken = (await cookies()).get("access_token");
   const response = await fetchWithAuth(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/bookmark/information`,
+    `${process.env.BACKEND_URL}/api/bookmark/information`,
     {
       method: "DELETE",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Cookie: `${accessToken?.name}=${accessToken?.value}`,
+      },
       body: data.toString(),
-      credentials: "include",
-      cache: "no-store"
-    }
+      cache: "no-store",
+    },
   );
 
   if (!response.ok) {
@@ -777,18 +792,47 @@ widgets
 ```typescript
 /* @/widgets/gatheringViewer/api/gatheringStatus.ts */
 
-import { fetchWithAuth } from "@/shared/api";
+"use server";
 
-export async function closeGathering(isFinish: boolean, gatheringId: number) {
+import { fetchWithAuth } from "@/shared/api";
+import { cookies } from "next/headers";
+
+export async function applyGathering(gatheringId: number) {
+  const accessToken = (await cookies()).get("access_token");
   const response = await fetchWithAuth(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gatherings/${
-      isFinish === false ? "finish" : "not-finish"
-    }/${gatheringId}`,
+    `${process.env.BACKEND_URL}/api/gatherings/applicants/${gatheringId}`,
+    {
+      method: "POST",
+      headers: { Cookie: `${accessToken?.name}=${accessToken?.value}` },
+      cache: "no-store",
+    },
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to create data.");
+  }
+}
+
+export async function updateGatheringApplicantStatus(
+  gatheringStatus: "WAIT" | "CONSENT" | "REFUSE",
+  userId: number,
+  gatheringId: number,
+) {
+  const accessToken = (await cookies()).get("access_token");
+  const response = await fetchWithAuth(
+    `${process.env.BACKEND_URL}/api/gatherings/applicants/${gatheringId}`,
     {
       method: "PUT",
-      credentials: "include",
-      cache: "no-store"
-    }
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: `${accessToken?.name}=${accessToken?.value}`,
+      },
+      body: JSON.stringify({
+        userId,
+        gatheringStatus,
+      }),
+      cache: "no-store",
+    },
   );
 
   if (!response.ok) {
@@ -796,18 +840,19 @@ export async function closeGathering(isFinish: boolean, gatheringId: number) {
   }
 }
 
-export async function reopenGathering(gatheringId: number) {
+export async function cancelGathering(gatheringId: number) {
+  const accessToken = (await cookies()).get("access_token");
   const response = await fetchWithAuth(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gatherings/not-finish/${gatheringId}`,
+    `${process.env.BACKEND_URL}/api/gatherings/applicants/${gatheringId}`,
     {
-      method: "PUT",
-      credentials: "include",
-      cache: "no-store"
-    }
+      method: "DELETE",
+      headers: { Cookie: `${accessToken?.name}=${accessToken?.value}` },
+      cache: "no-store",
+    },
   );
 
   if (!response.ok) {
-    throw new Error("Failed to update data.");
+    throw new Error("Failed to delete data");
   }
 }
 ```

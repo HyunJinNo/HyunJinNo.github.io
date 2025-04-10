@@ -20,14 +20,14 @@ Next.js v14.2.3 </p></blockquote>
 
 ## 개요
 
-이번 글에서는 `React/Next.js`에서 마우스 또는 터치로 좌우 드래그 스크롤을 구현하는 방법을 설명합니다. 스크롤 기능을 추가할 HTML 태그 요소로 `div`를 선택하였습니다.
+이번 글에서는 `React/Next.js`에서 마우스 또는 터치로 좌우 드래그 스크롤을 구현하는 방법을 설명하겠습니다. 스크롤 기능을 추가할 HTML 태그 요소로 `div`를 선택하였습니다.
 
-## Step 1 - useDragScrollType 정의
+## Step 1 - DragScrollType 정의
 
 먼저 다음과 같이 추후 구현할 `useDragScroll` 커스텀 훅의 반환 타입을 정의합니다.
 
 ```typescript
-export type useDragScrollType = {
+export type DragScrollType = {
   listRef: RefObject<HTMLDivElement>;
   onDragStart: (e: MouseEvent<HTMLDivElement>) => void;
   onDragMove: (e: MouseEvent<HTMLDivElement>) => void;
@@ -66,7 +66,7 @@ import { MouseEvent, RefObject, TouchEvent, useRef, useState } from "react";
 
 (...)
 
-export default function useDragScroll(): useDragScrollType {
+export default function useDragScroll(): DragScrollType {
   const listRef = useRef<HTMLDivElement>(null);
 
   // element를 드래그하고 있는지 여부
@@ -183,7 +183,7 @@ const onTouchEnd = () => {
 
 import { MouseEvent, RefObject, TouchEvent, useRef, useState } from "react";
 
-export type useDragScrollType = {
+export type DragScrollType = {
   listRef: RefObject<HTMLDivElement>;
   onDragStart: (e: MouseEvent<HTMLDivElement>) => void;
   onDragMove: (e: MouseEvent<HTMLDivElement>) => void;
@@ -193,7 +193,7 @@ export type useDragScrollType = {
   onTouchEnd: (e: TouchEvent<HTMLDivElement>) => void;
 };
 
-export default function useDragScroll(): useDragScrollType {
+export default function useDragScroll(): DragScrollType {
   const listRef = useRef<HTMLDivElement>(null);
 
   // element를 드래그하고 있는지 여부
@@ -293,11 +293,11 @@ export default function useDragScroll(): useDragScrollType {
 
 다음과 같이 좌우 드래그 스크롤을 적용할 HTML 태그 요소에 이벤트를 등록합니다.
 
-```typescript
+```tsx
 const scrollHook = useDragScroll();
 ```
 
-```typescript
+```tsx
 <div
   className="overflow-x-auto"
   ref={scrollHook.listRef}

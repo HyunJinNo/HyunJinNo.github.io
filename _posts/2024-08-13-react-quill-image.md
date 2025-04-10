@@ -84,11 +84,15 @@ const imageHandler = () => {
 
         // 이미지가 DOM에 추가된 후 이미지에 스타일을 적용하기 위해 setTimeout 사용합니다.
         setTimeout(() => {
-          // Property 'style' does not exist on type 'Element'.ts(2339) 오류를
-          // 방지하기 위해 타입을 any로 지정합니다.
-          const imageElement: any = document.querySelector(`img[src="${url}"]`);
+          const imageElement = document.querySelector(
+            `img[src="${response.fileUrl}"]`,
+          );
           if (imageElement) {
-            imageElement.style.borderRadius = "1rem";
+            (imageElement as HTMLElement).style.borderRadius = "1rem";
+            formContext.setValue(
+              "contents",
+              quillRef.current!.getEditorContents().toString(),
+            );
           }
 
           // 메모리 누수를 방지하기 위해 URL을 해제합니다.
@@ -171,11 +175,15 @@ const imageHandler = () => {
   ```typescript
   // 이미지가 DOM에 추가된 후 이미지에 스타일을 적용하기 위해 setTimeout 사용합니다.
   setTimeout(() => {
-    // Property 'style' does not exist on type 'Element'.ts(2339) 오류를
-    // 방지하기 위해 타입을 any로 지정합니다.
-    const imageElement: any = document.querySelector(`img[src="${url}"]`);
+    const imageElement = document.querySelector(
+      `img[src="${response.fileUrl}"]`,
+    );
     if (imageElement) {
-      imageElement.style.borderRadius = "1rem";
+      (imageElement as HTMLElement).style.borderRadius = "1rem";
+      formContext.setValue(
+        "contents",
+        quillRef.current!.getEditorContents().toString(),
+      );
     }
 
     // 메모리 누수를 방지하기 위해 URL을 해제합니다.
@@ -227,11 +235,15 @@ const imageDropAndPasteHandler = async (
 
     // 이미지가 DOM에 추가된 후 이미지에 스타일을 적용하기 위해 setTimeout 사용합니다.
     setTimeout(() => {
-      // Property 'style' does not exist on type 'Element'.ts(2339) 오류를
-      // 방지하기 위해 타입을 any로 지정합니다.
-      const imageElement: any = document.querySelector(`img[src="${url}"]`);
+      const imageElement = document.querySelector(
+        `img[src="${response.fileUrl}"]`,
+      );
       if (imageElement) {
-        imageElement.style.borderRadius = "1rem";
+        (imageElement as HTMLElement).style.borderRadius = "1rem";
+        formContext.setValue(
+          "contents",
+          quillRef.current!.getEditorContents().toString(),
+        );
       }
 
       // 메모리 누수를 방지하기 위해 URL을 해제합니다.
@@ -352,13 +364,15 @@ const QuillEditorContainer = () => {
 
           // 이미지가 DOM에 추가된 후 이미지에 스타일을 적용하기 위해 setTimeout 사용합니다.
           setTimeout(() => {
-            // Property 'style' does not exist on type 'Element'.ts(2339) 오류를
-            // 방지하기 위해 타입을 any로 지정합니다.
-            const imageElement: any = document.querySelector(
-              `img[src="${url}"]`
+            const imageElement = document.querySelector(
+              `img[src="${response.fileUrl}"]`,
             );
             if (imageElement) {
-              imageElement.style.borderRadius = "1rem";
+              (imageElement as HTMLElement).style.borderRadius = "1rem";
+              formContext.setValue(
+                "contents",
+                quillRef.current!.getEditorContents().toString(),
+              );
             }
 
             // 메모리 누수를 방지하기 위해 URL을 해제합니다.
@@ -406,11 +420,15 @@ const QuillEditorContainer = () => {
 
       // 이미지가 DOM에 추가된 후 이미지에 스타일을 적용하기 위해 setTimeout 사용합니다.
       setTimeout(() => {
-        // Property 'style' does not exist on type 'Element'.ts(2339) 오류를
-        // 방지하기 위해 타입을 any로 지정합니다.
-        const imageElement: any = document.querySelector(`img[src="${url}"]`);
+        const imageElement = document.querySelector(
+          `img[src="${response.fileUrl}"]`,
+        );
         if (imageElement) {
-          imageElement.style.borderRadius = "1rem";
+          (imageElement as HTMLElement).style.borderRadius = "1rem";
+          formContext.setValue(
+            "contents",
+            quillRef.current!.getEditorContents().toString(),
+          );
         }
 
         // 메모리 누수를 방지하기 위해 URL을 해제합니다.

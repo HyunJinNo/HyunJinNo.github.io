@@ -65,7 +65,7 @@ TypeScript, Next.js, ForwardRef</p></blockquote>
 
 TypeScript에서 `forwardRef`를 사용할 때, `props`와 `ref`의 타입을 명시적으로 지정해야 합니다. `ref`는 전달된 DOM 요소나 컴포넌트 인스턴스의 타입을 정의하고, `props`는 해당 컴포넌트에 전달될 프로퍼티를 정의하면 됩니다.
 
-```typescript
+```tsx
 // MyChildComponent.tsx
 
 import { forwardRef } from "react";
@@ -87,7 +87,7 @@ export default MyChildComponent;
 
 TypeScript에서 `forwardRef`를 사용할 때 **Component definition is missing display name**라는 오류가 발생합니다. 이는 `forwardRef`를 호출할 때 익명 함수를 넘기게 되면 React 개발자 도구에서 해당 컴포넌트의 이름을 알 수 없기 때문에 해당 경고가 발생하는 것입니다. 이를 해결하기 위해 `forwardRef`로 래핑된 컴포넌트에 이름을 `displayName`을 사용하여 설정하면 됩니다.
 
-```typescript
+```tsx
 // MyChildComponent.tsx
 
 import { forwardRef } from "react";
@@ -110,7 +110,7 @@ export default MyChildComponent;
 
 부모 컴포넌트에서는 `useRef`를 사용하여 `ref`를 생성하고, 해당 `ref`를 자식 컴포넌트로 전달합니다.
 
-```typescript
+```tsx
 // MyParentComponent.tsx
 
 import { useRef } from "react";

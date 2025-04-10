@@ -322,7 +322,7 @@ const modules = useMemo(() => {
 
 ### QuillEditorContainer.tsx
 
-```typescript
+```tsx
 "use client";
 
 import QuillEditor from "@/components/diary/write/QuillEditor";
@@ -487,7 +487,7 @@ export default QuillEditorContainer;
 
 ### QuillEditor.tsx
 
-```typescript
+```tsx
 import "react-quill/dist/quill.snow.css";
 import "@/styles/quillEditor.css";
 import ReactQuill from "react-quill";

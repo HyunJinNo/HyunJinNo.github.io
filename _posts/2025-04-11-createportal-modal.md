@@ -1,6 +1,6 @@
 ---
 title: createPortal로 Modal 구현 방법
-description: createPortal에 Modal 구현 방법에 대해 정리한 페이지입니다.
+description: createPortal로 Modal 구현 방법에 대해 정리한 페이지입니다.
 date: 2025-04-11 10:49:00 +/-TTTT
 categories: [Front-end]
 tags: [createportal, modal, nextjs, react, typescript]
@@ -14,22 +14,6 @@ comments: true
 
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
 createPortal, Modal, Next.js, React, TypeScript</p></blockquote>
-
-<h2>목차 - TODO</h2>
-
-- [개요](#개요)
-- [createPortal이란?](#createportal이란)
-  - [개념](#개념)
-  - [주요 특징](#주요-특징)
-- [Modal 구현하기](#modal-구현하기)
-  - [Step 1 - portal 추가하기](#step-1---portal-추가하기)
-  - [Step 2 - useModal 커스텀 훅 생성하기](#step-2---usemodal-커스텀-훅-생성하기)
-  - [Step 3 - useModalBackHandler 커스텀 훅 생성하기](#step-3---usemodalbackhandler-커스텀-훅-생성하기)
-  - [Step 4 - usePreventBodyScroll 커스텀 훅 생성하기](#step-4---usepreventbodyscroll-커스텀-훅-생성하기)
-  - [Step 5 - Modal 컴포넌트 생성하기](#step-5---modal-컴포넌트-생성하기)
-  - [Step 6 - ModalTemplate 컴포넌트 생성하기](#step-6---modaltemplate-컴포넌트-생성하기)
-  - [Step 7 - Modal 사용하기](#step-7---modal-사용하기)
-- [참고 자료](#참고-자료)
 
 ## 개요
 
@@ -55,9 +39,9 @@ React의 `createPortal`을 사용하면 컴포넌트 트리 구조와 상관없�
 
 ## Modal 구현하기
 
-### Step 1 - portal 추가하기
+### Step 1 - Portal 추가하기
 
-먼저 다음과 같이 id 값이 `modal-root`인 `portal` 하나를 추가합니다.
+먼저 다음과 같이 id 값이 `modal-root`인 `Portal` 하나를 추가합니다.
 
 ```tsx
 /* @/app/layout.tsx */
@@ -120,7 +104,7 @@ export const useModal = () => {
 
 ### Step 3 - useModalBackHandler 커스텀 훅 생성하기
 
-모바일 UX를 고려하여 모바일에서 모달 창(Modal Window)이 열린 상태에서 뒤로가기 버튼을 클릭했을 때 모달 창을 닫을 수 있도록 다음 커스텀 훅을 생성합니다.
+모바일 UX를 고려하여 모바일에서 모달 창(Modal Window)이 열린 상태에서 뒤로가기 버튼을 눌렀을 때 모달 창을 닫을 수 있도록 다음 커스텀 훅을 생성합니다.
 
 ```typescript
 /* @/shared/lib/hooks/useModalBackHandler.ts */
@@ -305,18 +289,23 @@ return createPortal(
 );
 ```
 
-[Step 1 - portal 추가하기](#step-1---portal-추가하기)에서 추가한 `portal`에 모달 창을 표시합니다. 이 때 `e.target`과 `ref.current`를 비교하여 모달 창의 배경을 클릭했을 때 모달 창을 닫을 수 있도록 구현합니다. 또한 배경을 클릭했을 때, 모달 창을 열면서 추가한 history를 제거할 수 있도록 `window.history.back();`을 추가합니다.
+[Step 1 - Portal 추가하기](#step-1---portal-추가하기)에서 추가한 `Portal`에 모달 창을 표시합니다. 이 때 `e.target`과 `ref.current`를 비교하여 모달 창의 배경을 클릭했을 때 모달 창을 닫을 수 있도록 구현합니다. 또한 배경을 클릭했을 때, 모달 창을 열면서 추가한 history를 제거할 수 있도록 `window.history.back();`을 추가합니다.
 
-아래 이미지에서 검은 부분, 즉 배경을 클릭하면 모달 창이 닫히게 됩니다.
+위와 같이 구현할 경우 아래 이미지에서 검은 부분, 즉 배경을 클릭하면 모달 창이 닫히게 됩니다.
 
-<img src="/assets/img/front-end/createportal-modal/pic3.jpg" alt="배경 클릭 시 모달 창이 닫힙니다.">
+<img src="/assets/img/front-end/createportal-modal/pic3.avif" alt="배경 클릭 시 모달 창이 닫힙니다.">
 
+<br />
 
 ### Step 6 - ModalTemplate 컴포넌트 생성하기
 
-<img src="/assets/img/front-end/createportal-modal/pic4.jpg" alt="ModalTemplate.tsx">
+<img src="/assets/img/front-end/createportal-modal/pic4.avif" alt="ModalTemplate.tsx">
 
 제가 진행한 프로젝트에서는 모달 창을 닫기 위해 X 버튼이 반복적으로 사용되며, 모달 창의 스타일 역시 재사용됩니다. 따라서 다음과 같이 재사용할 수 있는 ModalTemplate 컴포넌트를 구현하였습니다. X 버튼을 클릭했을 때 history를 제거할 수 있도록 `window.history.back();`을 추가하였습니다.
+
+
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
+X 모양의 아이콘을 사용하기 위해 <a href="https://react-icons.github.io/react-icons/" target="_blank">react-icons</a> 라이브러리를 사용하였습니다.</p></blockquote>
 
 ```tsx
 /* @/shared/ui/modal/ModalTemplate.tsx */
@@ -360,37 +349,9 @@ export const ModalTemplate = ({
 
 ### Step 7 - Modal 사용하기
 
-```tsx
-/* @/features/deleteAccount/ui/DeleteAccount.tsx */
+지금까지 구현한 커스텀 훅과 컴포넌트를 사용하여 다음과 같이 Modal을 사용할 수 있습니다.
 
-"use client";
-
-import { MyPageAccountDeleteModal } from "./MyPageAccountDeleteModal";
-import { User } from "@/entities/user";
-import { useModal } from "@/shared/lib/hooks";
-import { Modal } from "@/shared/ui/modal";
-
-interface DeleteAccountProps {
-  userInfo: User;
-}
-
-export const DeleteAccount = ({ userInfo }: DeleteAccountProps) => {
-  const { isOpen, openModal, closeModal } = useModal();
-
-  return (
-    <div>
-      <div className="text-gray2 flex w-full justify-end pt-12">
-        <button className="hover:text-main hover:font-bold" onClick={openModal}>
-          회원 탈퇴
-        </button>
-      </div>
-      <Modal isOpen={isOpen} closeModal={closeModal}>
-        <MyPageAccountDeleteModal userInfo={userInfo} closeModal={closeModal} />
-      </Modal>
-    </div>
-  );
-};
-```
+먼저 아래와 같이 [Step 6 - ModalTemplate 컴포넌트 생성하기](#step-6---modaltemplate-컴포넌트-생성하기)에서 구현한 ModalTemplate 컴포넌트를 사용하여 모달 UI를 구현합니다. 이 때, 모달 창을 닫는 `closeModal` 메서드를 부모 컴포넌트로부터 전달 받습니다.
 
 ```tsx
 /* @/features/deleteAccount/ui/MyPageAccountDeleteModal.tsx */
@@ -450,6 +411,41 @@ export const MyPageAccountDeleteModal = ({
 };
 ```
 
+위와 같이 모달 UI를 구현한 후 아래와 같이 Modal을 사용할 수 있습니다.
+
+```tsx
+/* @/features/deleteAccount/ui/DeleteAccount.tsx */
+
+"use client";
+
+import { MyPageAccountDeleteModal } from "./MyPageAccountDeleteModal";
+import { User } from "@/entities/user";
+import { useModal } from "@/shared/lib/hooks";
+import { Modal } from "@/shared/ui/modal";
+
+interface DeleteAccountProps {
+  userInfo: User;
+}
+
+export const DeleteAccount = ({ userInfo }: DeleteAccountProps) => {
+  const { isOpen, openModal, closeModal } = useModal();
+
+  return (
+    <div>
+      <div className="text-gray2 flex w-full justify-end pt-12">
+        <button className="hover:text-main hover:font-bold" onClick={openModal}>
+          회원 탈퇴
+        </button>
+      </div>
+      <Modal isOpen={isOpen} closeModal={closeModal}>
+        <MyPageAccountDeleteModal userInfo={userInfo} closeModal={closeModal} />
+      </Modal>
+    </div>
+  );
+};
+```
+
+<img src="/assets/img/front-end/createportal-modal/pic5.webp" alt="Modal 사용하기" />
 
 ## 참고 자료
 

@@ -29,6 +29,12 @@
   <priority>0.5</priority>
 </url>
 <url>
+  <loc>https://hyunjinno.github.io/posts/createportal-modal/</loc>
+  <lastmod>2025-04-11</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
   <loc>https://hyunjinno.github.io/posts/fsd-example-react-native/</loc>
   <lastmod>2025-04-08</lastmod>
   <changefreq>weekly</changefreq>

@@ -15,6 +15,22 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
 createPortal, Modal, Next.js, React, TypeScript</p></blockquote>
 
+<h2>목차 - TODO</h2>
+
+- [개요](#개요)
+- [createPortal이란?](#createportal이란)
+  - [개념](#개념)
+  - [주요 특징](#주요-특징)
+- [Modal 구현하기](#modal-구현하기)
+  - [Step 1 - portal 추가하기](#step-1---portal-추가하기)
+  - [Step 2 - useModal 커스텀 훅 생성하기](#step-2---usemodal-커스텀-훅-생성하기)
+  - [Step 3 - useModalBackHandler 커스텀 훅 생성하기](#step-3---usemodalbackhandler-커스텀-훅-생성하기)
+  - [Step 4 - usePreventBodyScroll 커스텀 훅 생성하기](#step-4---usepreventbodyscroll-커스텀-훅-생성하기)
+  - [Step 5 - Modal 컴포넌트 생성하기](#step-5---modal-컴포넌트-생성하기)
+  - [Step 6 - ModalTemplate 컴포넌트 생성하기](#step-6---modaltemplate-컴포넌트-생성하기)
+  - [Step 7 - Modal 사용하기](#step-7---modal-사용하기)
+- [참고 자료](#참고-자료)
+
 ## 개요
 
 React의 `createPortal`로 모달 창(Modal Window)을 구현하는 방법에 대해 정리한 페이지입니다.
@@ -23,13 +39,15 @@ React의 `createPortal`로 모달 창(Modal Window)을 구현하는 방법에 �
 
 ### 개념
 
-React의 `createPortal`을 사용하면 컴포넌트 트리 구조와 상관없이, 지정된 DOM의 자식 컴포넌트로 렌더링할 수 있습니다. 주로 Modal, Tooltip, Dropdown 등 부모 컴포넌트의 레이아웃이나 스타일링 제약을 벗어나 독립적으로 렌더링되어야 하는 UI 요소들을 구현할 때 사용합니다.
+React의 `createPortal`을 사용하면 컴포넌트 트리 구조와 상관없이, 지정된 DOM의 자식 컴포넌트로 렌더링할 수 있습니다. 주로 Modal, Tooltip, Dropdown, Toast 메시지 등 부모 컴포넌트의 레이아웃이나 스타일링 제약을 벗어나 독립적으로 렌더링되어야 하는 UI 요소들을 구현할 때 사용합니다.
 
-### 특징
+### 주요 특징
+
+`createPortal`의 주요 특징은 다음과 같습니다.
 
 - `DOM 계층 구조 분리`
 
-  컴포넌트를 실제 DOM 트리의 다른 위치에 렌더링할 수 있습니다. 이를 통해 <b>부모 컴포넌트의 CSS 스타일이나 `z-index` 문제로부터 벗어날 수 있습니다.</b>
+  컴포넌트를 실제 DOM 트리의 다른 위치에 렌더링할 수 있습니다. 이를 통해 <b>부모 컴포넌트의 CSS 스타일 제약으로부터 벗어날 수 있습니다. 특히 `z-index` 문제를 방지할 수 있습니다.</b>
 
 - `이벤트 전파 유지`
 
@@ -72,6 +90,8 @@ export default function RootLayout({
 
 ### Step 2 - useModal 커스텀 훅 생성하기
 
+모달 창의 상태를 관리하기 위해 다음 커스텀 훅을 생성합니다.
+
 ```typescript
 /* @/shared/lib/hooks/useModal.ts */
 
@@ -100,7 +120,7 @@ export const useModal = () => {
 
 ### Step 3 - useModalBackHandler 커스텀 훅 생성하기
 
-<a href="../modal-back-button">모달 창(Modal Window) 뒤로가기 이벤트 처리 방법</a>
+모바일 UX를 고려하여 모바일에서 모달 창(Modal Window)이 열린 상태에서 뒤로가기 버튼을 클릭했을 때 모달 창을 닫을 수 있도록 다음 커스텀 훅을 생성합니다.
 
 ```typescript
 /* @/shared/lib/hooks/useModalBackHandler.ts */
@@ -136,7 +156,15 @@ export const useModalBackHandler = (
 };
 ```
 
+<img src="/assets/img/front-end/createportal-modal/pic1.webp" alt="뒤로가기 버튼을 클릭하여 모달 창 닫기" />
+
+해당 커스텀 훅에 대한 설명은 다음 링크를 참고하시길 바랍니다.
+
+<a href="../modal-back-button">모달 창(Modal Window) 뒤로가기 이벤트 처리 방법</a>
+
 ### Step 4 - usePreventBodyScroll 커스텀 훅 생성하기
+
+모달 창이 열렸을 때 모달 창 외부의 스크롤을 막기 위해 다음 커스텀 훅을 생성합니다.
 
 ```typescript
 /* @/shared/lib/hooks/usePreventBodyScroll.ts */
@@ -164,7 +192,11 @@ export const usePreventBodyScroll = (dependency: boolean) => {
 };
 ```
 
+<img src="/assets/img/front-end/createportal-modal/pic2.webp" alt="모달 창이 열렸을 때 스크롤 막기" />
+
 ### Step 5 - Modal 컴포넌트 생성하기
+
+먼저 다음과 같이 Modal 컴포넌트를 생성합니다.
 
 ```tsx
 /* @/shared/ui/modal/Modal.tsx */
@@ -209,7 +241,82 @@ export const Modal = ({ children, isOpen, closeModal }: ModalProps) => {
 };
 ```
 
+위의 코드를 설명하자면 다음과 같습니다.
+
+**1. ref 생성**
+
+```typescript
+const ref = useRef<HTMLDivElement>(null);
+```
+
+모달 창이 열린 상태에서 모달 창이 아닌 배경 클릭을 감지하기 위해 `ref`를 생성합니다.
+
+<br />
+
+**2. 뒤로가기 이벤트 처리하기**
+
+```typescript
+useModalBackHandler(isOpen, closeModal);
+```
+
+[Step 3 - useModalBackHandler 커스텀 훅 생성하기](#step-3---usemodalbackhandler-커스텀-훅-생성하기)에서 생성한 useModalBackHandler 커스텀 훅을 사용하여 뒤로가기 이벤트를 처리합니다.
+
+<br />
+
+**3. 스크롤 막기**
+
+```typescript
+usePreventBodyScroll(isOpen);
+```
+
+[Step 4 - usePreventBodyScroll 커스텀 훅 생성하기](#step-4---usepreventbodyscroll-커스텀-훅-생성하기)에서 생성한 usePreventBodyScroll 커스텀 훅을 사용하여 모달 창이 열렸을 때의 외부 스크롤을 방지합니다.
+
+<br />
+
+**4. 모달 창이 닫힌 상태 처리하기**
+
+```typescript
+if (!isOpen) {
+  return null;
+}
+```
+
+모달 창이 닫힌 상태일 때 아무 것도 표시하지 않습니다.
+
+<br />
+
+**5. 모달 창이 열린 상태 처리하기**
+
+```tsx
+return createPortal(
+  <div
+    className="fixed top-0 left-0 z-100 flex h-full w-full items-center justify-center bg-black/30"
+    ref={ref}
+    onClick={(e) => {
+      if (e.target === ref.current) {
+        window.history.back();
+        closeModal();
+      }
+    }}
+  >
+    {children}
+  </div>,
+  document.getElementById("modal-root")!,
+);
+```
+
+[Step 1 - portal 추가하기](#step-1---portal-추가하기)에서 추가한 `portal`에 모달 창을 표시합니다. 이 때 `e.target`과 `ref.current`를 비교하여 모달 창의 배경을 클릭했을 때 모달 창을 닫을 수 있도록 구현합니다. 또한 배경을 클릭했을 때, 모달 창을 열면서 추가한 history를 제거할 수 있도록 `window.history.back();`을 추가합니다.
+
+아래 이미지에서 검은 부분, 즉 배경을 클릭하면 모달 창이 닫히게 됩니다.
+
+<img src="/assets/img/front-end/createportal-modal/pic3.jpg" alt="배경 클릭 시 모달 창이 닫힙니다.">
+
+
 ### Step 6 - ModalTemplate 컴포넌트 생성하기
+
+<img src="/assets/img/front-end/createportal-modal/pic4.jpg" alt="ModalTemplate.tsx">
+
+제가 진행한 프로젝트에서는 모달 창을 닫기 위해 X 버튼이 반복적으로 사용되며, 모달 창의 스타일 역시 재사용됩니다. 따라서 다음과 같이 재사용할 수 있는 ModalTemplate 컴포넌트를 구현하였습니다. X 버튼을 클릭했을 때 history를 제거할 수 있도록 `window.history.back();`을 추가하였습니다.
 
 ```tsx
 /* @/shared/ui/modal/ModalTemplate.tsx */

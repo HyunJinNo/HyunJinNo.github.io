@@ -238,7 +238,7 @@ export class RoomGateway {
 
 - `socket.id`
 
-  클라이언트 인스턴스에 할당된 임의의 id값입니다. `socket.io`에서는 모든 클라이언트에 임의의 id값을 할당합니다.
+  클라이언트 인스턴스에 할당된 임의의 id 값입니다. `socket.io`에서는 모든 클라이언트에 임의의 id 값을 할당합니다.
 
 - `socket.broadcast.emit()`
 

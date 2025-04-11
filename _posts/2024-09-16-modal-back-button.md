@@ -16,7 +16,7 @@ comments: true
 TypeScript, Next.js, Modal</p></blockquote>
 
 <blockquote class="prompt-info"><p><strong><u>Environment</u></strong> <br />
-Next.js v14.2.3 </p></blockquote>
+Next.js v14.2.3</p></blockquote>
 
 ## 개요
 

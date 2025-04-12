@@ -100,17 +100,18 @@ sitemap, robots.txt</p></blockquote>
 
 ```text
 User-agent: *
+Disallow: /assets/
 Allow: /
 
 Sitemap: https://hyunjinno.github.io/sitemap.xml
 ```
 
-| 요소         | 설명                           | 예시                                                 |
-| ------------ | ------------------------------ | ---------------------------------------------------- |
-| `User-agent` | 크롤링을 허용할 검색 엔진 설정 | User-agent: * (모든 검색 엔진에 대해 크롤링 허용)    |
-| `Disallow`   | 크롤링 대상에서 제외할 경로    | Disallow: /admin/ (/admin/ 페이지가 크롤링되지 않음) |
-| `Allow`      | 크롤링 대상에 포함할 경로      | Allow: / (모든 페이지를 크롤링 대상으로 설정)        |
-| `Sitemap`    | `sitemap.xml` 파일의 위치 지정 | Sitemap: https://hyunjinno.github.io/sitemap.xml     |
+| 요소         | 설명                           | 예시                                                                          |
+| ------------ | ------------------------------ | ----------------------------------------------------------------------------- |
+| `User-agent` | 크롤링을 허용할 검색 엔진 설정 | User-agent: * (모든 검색 엔진에 대해 크롤링 허용)                             |
+| `Disallow`   | 크롤링 대상에서 제외할 경로    | Disallow: /assets/ (/assets 경로에 속하는 모든 페이지를 크롤링 대상에서 제외) |
+| `Allow`      | 크롤링 대상에 포함할 경로      | Allow: / (모든 페이지를 크롤링 대상으로 설정)                                 |
+| `Sitemap`    | `sitemap.xml` 파일의 위치 지정 | Sitemap: https://hyunjinno.github.io/sitemap.xml                              |
 
 <blockquote class="prompt-warning"><p><strong><u>Caution</u></strong><br>
 <b>robots.txt</b>은 크롤러에 대한 접근 지침일 뿐이므로, 검색 엔진이 이를 반드시 따르지는 않습니다.</p></blockquote>

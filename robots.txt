@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /assets/
 Allow: /
 
 Sitemap: https://hyunjinno.github.io/sitemap2025.xml

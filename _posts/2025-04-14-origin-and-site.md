@@ -48,20 +48,30 @@ Origin, Site</p></blockquote>
 
 ### 사이트의 개념
 
-`사이트(Site)`란 두 URL의 `등록 가능 도메인(Registrable Domain)`이 일치하는 경우를 의미합니다.
+`사이트(Site)`란 도메인 이름의 `등록 가능한 도메인(Registrable Domain)` 부분을 의미합니다. 여기서 `등록 가능한 도메인`이란, <b>공개 접미사 목록의 항목</b>과 <b>바로 앞의 도메인 이름 부분</b>으로 구성됩니다.
+
+<img src="/assets/img/cs/origin-and-site/pic2.jpg" alt="site"/>
+
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
+공개 접미사 목록은 다음 링크에서 확인하실 수 있습니다.<br />
+<a href="https://publicsuffix.org/list/" target="_blank">공개 접미사 목록</a></p></blockquote>
+
+예를 들어 `https://www.example.com`의 사이트는 `example.com`입니다. 또힌 두 URL의 `등록 가능한 도메인`이 일치할 때 `동일 사이트(Same-Site)`로 간주되고, 다른 경우 `교차 사이트(Cross-Site)`로 간주됩니다. 예를 들어, `https://www.example.com`과 `https://api.example.com`은 동일 사이트로 간주됩니다. 반면에 `https://www.example.com`과 `http://www.example.co.kr`는 사이트가 각각 `example.com`과 `example.co.kr`이므로 교차 사이트로 간주됩니다.
 
 ### 교차 사이트와 동일 사이트 예시
 
 `https://www.example.com`를 기준으로 교차 사이트와 동일 사이트를 구분한 예시는 다음과 같습니다.
 
-| URL                       | 사이트 | 이유 |
-| ------------------------- | ------ | ---- |
-| `https://www.example.com` |        |      |
-|                           |        |      |
-|                           |        |      |
-|                           |        |      |
-|                           |        |      |
-|                           |        |      |
+| URL                           | 사이트      | 이유                                         |
+| ----------------------------- | ----------- | -------------------------------------------- |
+| `https://www.example.co.kr`   | 교차 사이트 |                                              |
+| `https://www.example2.com`    | 교차 사이트 | 다른 도메인                                  |
+| `https://www.example.com`     | 동일 사이트 | 모두 일치                                    |
+| `https://www.example.com:444` | 동일 사이트 | 모두 일치(포트 번호는 관련 없음)             |
+| `https://api.example.com`     | 동일 사이트 | 모두 일치(하위 도메인이 다른 것은 관련 없음) |
+
+<blockquote class="prompt-warning"><p><strong><u>Caution</u></strong><br>
+<b>http://example.com</b>와 <b>https://example.com</b>처럼 프로토콜이 다른 경우 서버 설정에 따라 동일 사이트로 간주될 수도 있고, 교차 사이트로 간주될 수 있습니다.</p></blockquote>
 
 ## 참고 자료
 

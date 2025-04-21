@@ -31,7 +31,7 @@ JavaScript, Hoisting, Execution Context</p></blockquote>
 
   페이지나 스크립트가 로드될 때 자동으로 생성되며, 브라우저에서는 `window` 객체와 연결되고 Node.js에서는 `global` 객체와 연결됩니다. 전역 실행 컨텍스트는 변수 객체를 생성하는 대신 전역 객체를 활용하며, 전역 객체에는 브라우저의 `window` 객체, Node.js의 `global` 객체 등이 있습니다. 이들은 자바스크립트 `내장 객체(Native Object)`가 아닌 `호스트 객체(Host Object)`로 분류됩니다.
 
-- `함수 실행 컨텍스트(Function Execution COntext)`
+- `함수 실행 컨텍스트(Function Execution Context)`
 
   함수가 호출될 때마다 생성되며, 각 함수는 자신만의 컨텍스트를 가집니다.
 

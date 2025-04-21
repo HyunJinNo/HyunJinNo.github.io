@@ -55,7 +55,10 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 
 ### Step 5 - 레이아웃/리플로우(Layout/Reflow)
 
-`렌더 트리`가 생성되면 각 노드의 정확한 위치와 크기를 계산하는 레이아웃(또는 리플로우) 단계가 시작됩니다. 이 과정에서 `상대적 단위(%, em, rem 등)`를 실제 px 단위로 변환하며, 요소의 박스 모델(margin, padding, border 등)을 고려하여 최종 배치가 결정됩니다.
+`렌더 트리`가 생성되면 각 노드의 정확한 위치와 크기를 계산하는 레이아웃(또는 리플로우) 단계가 시작됩니다. 이 과정에서 `상대적 단위(%, em, rem 등)`를 실제 px 단위로 변환하며, 요소의 박스 모델(margin, border, padding, content)을 고려하여 최종 배치가 결정됩니다.
+
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
+<b>박스 모델(Box Model)</b>은 모든 HTML 요소는 박스(Box) 형태의 영역으로 이루어져 있다는 개념입니다. 박스(Box)는 마진(margin), 테두리(border), 패딩(padding), 내용(content)로 구분됩니다.</p></blockquote>
 
 ### Step 6 - 페인팅(Painting)
 
@@ -66,7 +69,7 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 
 ### Step 7 - 합성(Composite)
 
-이 단계에서는 여러 레이어(Layer)를 합성하여 최종 화면을 출력합니다. 이 때, GPU와 합성 스레드가 협력하여, 스크롤이나 애니메이션 시 부드러운 업데이트를 가능하게 합니다. `transform`, `opacity` 속성은 GPU 가속을 지원하며 별도 레이어에서 처리되어 리페인트 없이 애니메이션이 가능합니다.
+이 단계에서는 여러 레이어(Layer)를 합성하여 최종 화면을 출력합니다. 이 때, GPU와 합성 스레드가 협력하여, 스크롤이나 애니메이션 시 부드러운 업데이트를 가능하게 합니다. `transform`, `opacity` 속성은 GPU 가속을 지원하며 별도 레이어에서 처리되어 리플로우를 일으키지 않고 애니메이션이 가능합니다.
 
 ### Step 8 - 리렌더링
 
@@ -74,11 +77,30 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 
 - `리플로우(Reflow)`
 
-  DOM이나 CSSOM에 변경이 발생하면, 영향을 받는 부분에 대해 다시 레이아웃 계산이 필요합니다. 이 경우, 변경된 부분에 대해 다시 렌더 트리를 구성하고 레이아웃 및 페인팅 단계, 합성도 다시 수행됩니다. 예를 들어, 요소의 크기, 위치, margin 등이 변경될 때 리플로우가 발생하며, 이 경우 페인팅과 합성도 다시 수행됩니다.
+  웹 페이지 내에서 요소의 위치 또는 크기에 변화가 있는 경우, 즉 DOM이나 CSSOM에 변경이 발생하면, 영향을 받는 부분에 대해 다시 레이아웃 계산이 필요합니다. 이 경우, 변경된 부분에 대해 다시 렌더 트리를 구성하고 레이아웃 및 페인팅 단계, 합성도 다시 수행됩니다. 예를 들어, 요소의 크기, 위치, margin 등이 변경될 때 리플로우가 발생하며, 이 경우 페인팅과 합성도 다시 수행됩니다. width, height, padding, margin, border-width와 같은 크기 관련 속성, position, top, left와 같은 위치 관련 속성, display, flex 속성과 같은 레이아웃 관련 속성, font-size, font-weight와 같은 폰트 크기 관련 속성이 리플로우를 유발하는 속성입니다.
 
 - `리페인트(Repaint)`
 
-  레이아웃 변화 없이 색상, 배경 등 스타일만 변경되면 리페인트만 일어나며, 레이아웃 재계산없이 다시 화면을 그립니다.
+  레이아웃 변화 없이 색상, 배경 등 스타일만 변경되면 리페인트만 일어나며, 레이아웃 재계산없이 다시 화면을 그립니다. color, background-color와 같은 색상 관련 속성, border-color, border-radius와 같운 테두리 관련 속성이 리페인트를 유발하는 속성입니다.
+
+<blockquote class="prompt-tip"><p><strong><u>Tips</u></strong><br>
+리플로우와 리페인트는 웹 페이지가 렌더링되는 과정에서 발생하는 중요한 작업들로, 이 둘을 잘 관리하는 것이 성능 최적화에 도움이 됩니다.<br />
+성능 최적화를 위한 방법으로는 다음 3가지를 고려할 수 있습니다.<br />
+<br />
+
+<b>- 리플로우를 유발하는 CSS 속성 사용 최소화하기</b><br />
+
+width, height, margin, border, padding 등 리플로우를 유발하는 속성의 사용을 최소화하는 것이 좋습니다.<br />
+
+<b>- CSS 애니메이션 최적화</b><br />
+
+transform과 opacity 속성은 GPU 가속을 사용할 수 있어 리플로우를 일으키지 않고 리페인트만 발생시키므로 CPU 자원을 적게 사용합니다.<br />
+
+<b>- will-change 속성 사용</b><br />
+
+will-change 속성은 요소의 변화를 미리 브라우저에게 알려주어 브라우저가 GPU 가속을 활용하여 최적화하는 데 도움을 줍니다. 단, will-change 속성을 너무 많이 사용하면 오히려 성능이 저하될 수 있으므로 주의해야 합니다.
+
+</p></blockquote>
 
 ## 참고 자료
 
@@ -86,3 +108,6 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 - <a href="https://f-lab.kr/insight/understanding-browser-rendering-process-20240711" target="_blank">브라우저 렌더링 과정 이해하기</a>
 - <a href="https://jyostudy.tistory.com/207" target="_blank">주소창에 www.naver.com을 쳤을 때 일어나는 일</a>
 - <a href="https://wormwlrm.github.io/2021/03/01/Async-Defer-Attributes-of-Script-Tag.html" target="_blank">스크립트의 실행 시점을 조절하는 Async와 Defer 속성 - 재그지그의 개발 블로그</a>
+- <a href="https://poiemaweb.com/css3-box-model" target="_blank">CSS3 Box Model | PoiemaWeb</a>
+- <a href="https://www.youtube.com/watch?v=HgEZ07U_OSc" target="_blank">프론트엔드 개발자 면접 단골 질문 6 | 리플로우와 리페인트</a>
+- <a href="https://developer.mozilla.org/ko/docs/Web/CSS/will-change" target="_blank">will-change - CSS: Cascading Style Sheets | MDN</a>

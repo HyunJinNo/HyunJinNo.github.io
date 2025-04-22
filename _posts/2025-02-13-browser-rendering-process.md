@@ -53,6 +53,8 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 
 `DOM 트리`와 `CSSOM 트리`를 결합하여 `렌더 트리`를 생성합니다. 이때, 실제 화면에 표시될 요소만을 선택하여 `렌더 트리`를 형성합니다. 즉, `display: none` 속성이 적용된 요소는 `렌더 트리`에 포함되지 않습니다. 반면에 `visibility: hidden` 속성이 적용된 요소는 공간을 차지하므로 `렌더 트리`에 포함됩니다.
 
+렌더 트리의 각 노드는 `DOM 트리`의 요소와 연결되며, `CSSOM 트리`에서 해당 요소에 적용된 스타일 정보를 포함합니다. 즉, 렌더 트리는 HTML 문서의 구조와 각 요소의 스타일 정보를 모두 포함한 트리입니다.
+
 ### Step 5 - 레이아웃/리플로우(Layout/Reflow)
 
 `렌더 트리`가 생성되면 각 노드의 정확한 위치와 크기를 계산하는 레이아웃(또는 리플로우) 단계가 시작됩니다. 이 과정에서 `상대적 단위(%, em, rem 등)`를 실제 px 단위로 변환하며, 요소의 박스 모델(margin, border, padding, content)을 고려하여 최종 배치가 결정됩니다.
@@ -111,3 +113,4 @@ will-change 속성은 요소의 변화를 미리 브라우저에게 알려주어
 - <a href="https://poiemaweb.com/css3-box-model" target="_blank">CSS3 Box Model | PoiemaWeb</a>
 - <a href="https://www.youtube.com/watch?v=HgEZ07U_OSc" target="_blank">프론트엔드 개발자 면접 단골 질문 6 | 리플로우와 리페인트</a>
 - <a href="https://developer.mozilla.org/ko/docs/Web/CSS/will-change" target="_blank">will-change - CSS: Cascading Style Sheets | MDN</a>
+- <a href="https://www.maeil-mail.kr/question/19" target="_blank">매일메일 - 브라우저 렌더링 파이프라인에 대해서 설명해주세요.</a>

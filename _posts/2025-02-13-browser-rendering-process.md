@@ -24,7 +24,13 @@ comments: true
 
 ### Step 1 - 네트워크 요청 및 리소스 로드
 
-먼저 사용자가 주소창에 URL을 입력하면 브라우저는 URL을 IP 주소로 변환하기 위해 `DNS(Domain Name System)` 서버에 쿼리를 보냅니다. DNS 서버는 도메인 이름을 IP 주소로 변환하여 브라우저에 반환하고, 브라우저는 해당 IP 주소를 통해 서버에 HTTP/HTTPS 요청을 보냅니다. 요청을 받은 서버는 HTML 문서와 함께 CSS, JavaScript, 이미지 등 웹 페이지를 구성하는 모든 리소스를 클라이언트로 전달합니다.
+먼저 사용자가 주소창에 URL을 입력하면 브라우저는 URL을 scheme, hostname, port, path, query, fragment로 분해하여, 해당 URL이 올바른 형식인지 검증합니다.
+
+올바른 형식인 경우 브라우저는 URL을 IP 주소로 변환해야 합니다. 이 과정을 `DNS 조회(DNS Lookup)`라고 합니다. 브라우저는 먼저 캐시된 DNS 기록을 확인하고, 없는 경우 `DNS(Domain Name System)` 서버에 쿼리를 보냅니다. DNS 서버는 도메인 이름을 IP 주소로 변환하여 브라우저에 반환합니다.
+
+브라우저는 IP 주소를 통해 서버와 TCP 연결을 시도합니다. TCP(Transmission Control Protocol)는 데이터를 신뢰성 있게 전달하기 위한 프로토콜입니다. 이 과정에서 브라우저와 서버는 `3-way handshake`를 수행합니다. 브라우저는 서버에 SYN 패킷을 보내고, 서버로부터 SYN-ACK를 받은 후 ACK를 전송해 TCP 연결을 확립합니다.
+
+TCP 연결이 확립되면 브라우저는 해당 IP 주소를 통해 서버에 `GET` 또는 `POST` 등의 HTTP/HTTPS 요청을 보냅니다. 만약 HTTPS를 사용하는 경우, 이 단계 이전에 `SSL/TLS handshake`를 수행합니다. 이 과정에서는 TLS 버전, 암호화 알고리즘 협상, 서버 인증서 검증, 세션 키 교환 등을 수행해 대칭 암호화를 위한 세션 키를 생성합니다. HTTP/HTTPS 요청을 받은 서버는 HTML 문서와 함께 CSS, JavaScript, 이미지 등 웹 페이지를 구성하는 모든 리소스를 클라이언트로 전달합니다.
 
 <img src="/assets/img/front-end/browser-rendering-process/pic1.avif" alt="pic1" />
 
@@ -114,3 +120,4 @@ will-change 속성은 요소의 변화를 미리 브라우저에게 알려주어
 - <a href="https://www.youtube.com/watch?v=HgEZ07U_OSc" target="_blank">프론트엔드 개발자 면접 단골 질문 6 | 리플로우와 리페인트</a>
 - <a href="https://developer.mozilla.org/ko/docs/Web/CSS/will-change" target="_blank">will-change - CSS: Cascading Style Sheets | MDN</a>
 - <a href="https://www.maeil-mail.kr/question/19" target="_blank">매일메일 - 브라우저 렌더링 파이프라인에 대해서 설명해주세요.</a>
+- <a href="https://www.maeil-mail.kr/question/20" target="_blank">매일메일 - 인터넷 창에 www.google.com를 입력하면 무슨 일이 일어나는지 설명해주세요.</a>

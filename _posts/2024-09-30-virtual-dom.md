@@ -41,7 +41,7 @@ React, Virtual DOM, Rendering</p></blockquote>
 - `Render Phase`: 컴포넌트를 렌더링하고 변경 사항을 계산하는 모든 작업
 - `Commit Phase`: DOM에 변경 사항을 적용하는 과정
 
-리액트는 먼저 `Render 단계`에서 JSX를 `React Elements`로 변경하고 Diffing 연산을 수행합니다. 이후 `Commit 단계`에서는 실제 DOM에 변경 사항을 적용합니다. 만약 변경 사항이 존재하지 않는다면 `Commit`할 사항이 없을 수 있습니다. 즉, 리액트에서 컴포넌트가 렌더링된다고 해서 실제 DOM 조작이 무조건 발생하는 것은 아닙니다.
+리액트는 먼저 `Render 단계`에서 JSX를 `React Elements`로 변경하고 Diffing 연산을 수행합니다. 이후 `Commit 단계`에서는 실제 DOM에 변경 사항을 적용합니다. 만약 변경 사항이 존재하지 않는다면 `Commit`할 사항이 없을 수 있습니다. 즉, 리액트에서 컴포넌트가 렌더링된다고 해서 실제 DOM 조작이 무조건 발생하는 것은 아닙니다. DOM 업데이트 이후에는 `useEffect`와 같은 사이드 이펙트를 발생시키는 훅들이 동작합니다.
 
 ### createElement 함수와 렌더링
 
@@ -88,3 +88,4 @@ React, Virtual DOM, Rendering</p></blockquote>
 - <a href="https://ko.legacy.reactjs.org/docs/reconciliation.html" target="_blank">재조정 (Reconciliation) – React</a>
 - <a href="https://yceffort.kr/2022/04/deep-dive-in-react-rendering" target="_blank">리액트의 렌더링은 어떻게 일어나는가?</a>
 - <a href="https://hyunjinlee.com/blog/%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EB%A0%8C%EB%8D%94%EB%A7%81%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%9D%B4%ED%95%B4" target="_blank">리액트 렌더링에 대한 이해</a>
+- <a href="https://www.maeil-mail.kr/question/30" target="_blank">매일메일 - 리액트의 render phase와 commit phase에 대해서 설명해주세요.</a>

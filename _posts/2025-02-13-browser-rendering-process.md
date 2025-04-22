@@ -43,10 +43,13 @@ TCP 연결이 확립되면 브라우저는 해당 IP 주소를 통해 서버에 
 만약 HTML 파싱 중에 `async`나 `defer` 같은 설정이 되어있지 않은 `<script>` 태그를 만나는 경우 HTML 파싱을 일시 중단하고 자바스크립트를 실행하게 됩니다. 또한 외부 CSS 파일을 만나는 경우 `CSSOM` 생성 전까지 렌더링이 지연됩니다.
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
-DOM은 <b>Document Object Model</b>으로 XML이나 HTML 문서에 접근하기 위한 인터페이스입니다. DOM은 자바스크립트로 접근하여 수정될 수 있습니다. <br />
+DOM은 <b>Document Object Model</b>으로 XML이나 HTML 문서에 접근하기 위한 인터페이스입니다. DOM은 자바스크립트로 접근하여 수정될 수 있습니다.</p></blockquote>
+
+<blockquote class="prompt-tip"><p><strong><u>Tips</u></strong><br />
+script 태그에서 <b>async</b> 속성 또는 <b>defer</b> 속성을 사용하면 스크립트를 비동기적으로 다운로드하므로 HTML 파싱과 병렬적으로 수행할 수 있습니다. 이 둘은 자바스크립트 실행 시점에서 차이가 있습니다. 실행 순서가 중요하거나 애플리케이션의 로직을 담고 있는 스크립트인 경우 <b>defer</b>를, 독립적으로 실행되는 스크립트인 경우 <b>async</b>를 사용하는 것이 적절합니다.<br />
 <br />
-<b>defer</b>: defer 속성을 사용하면 스크립트를 백그라운드에서 다운로드한 후 HTML 파싱이 완료된 후(모든 DOM이 로드된 후) 자바스크립트를 실행합니다. (DOMContentLoaded 이벤트가 발생하기 전에 실행됩니다.)<br />
-<b>async</b>: async 속성을 사용하면 스크립트를 백그라운드에서 다운로드한 후 다운로드가 완료되면 즉시 실행합니다. (스크립트 실행 중에는 HTML 파싱이 일시 중지됩니다.)</p></blockquote>
+<b>async</b>: async 속성을 사용하면 스크립트를 백그라운드에서 다운로드한 후 다운로드가 완료되면 즉시 실행합니다. (스크립트 실행 중에는 HTML 파싱이 일시 중지됩니다.) 여러 async 스크립트가 있는 경우, 다운로드가 완료되는 순서대로 자바스크립트를 실행합니다.<br />
+<b>defer</b>: defer 속성을 사용하면 스크립트를 백그라운드에서 다운로드한 후 HTML 파싱이 완료된 후(모든 DOM이 로드된 후) 자바스크립트를 실행합니다. (DOMContentLoaded 이벤트가 발생하기 전에 실행됩니다.) 여러 defer 스크립트가 있는 경우, HTML에 작성된 순서대로 자바스크립트를 실행합니다.</p></blockquote>
 
 ### Step 3 - CSS 파싱 및 CSSOM 트리 생성
 
@@ -112,12 +115,18 @@ will-change 속성은 요소의 변화를 미리 브라우저에게 알려주어
 
 ## 참고 자료
 
-- <a href="https://developer.mozilla.org/ko/docs/Web/Performance/How_browsers_work" target="_blank">웹페이지를 표시한다는 것: 브라우저는 어떻게 동작하는가 - 웹 성능 | MDN</a>
-- <a href="https://f-lab.kr/insight/understanding-browser-rendering-process-20240711" target="_blank">브라우저 렌더링 과정 이해하기</a>
-- <a href="https://jyostudy.tistory.com/207" target="_blank">주소창에 www.naver.com을 쳤을 때 일어나는 일</a>
-- <a href="https://wormwlrm.github.io/2021/03/01/Async-Defer-Attributes-of-Script-Tag.html" target="_blank">스크립트의 실행 시점을 조절하는 Async와 Defer 속성 - 재그지그의 개발 블로그</a>
-- <a href="https://poiemaweb.com/css3-box-model" target="_blank">CSS3 Box Model | PoiemaWeb</a>
-- <a href="https://www.youtube.com/watch?v=HgEZ07U_OSc" target="_blank">프론트엔드 개발자 면접 단골 질문 6 | 리플로우와 리페인트</a>
-- <a href="https://developer.mozilla.org/ko/docs/Web/CSS/will-change" target="_blank">will-change - CSS: Cascading Style Sheets | MDN</a>
-- <a href="https://www.maeil-mail.kr/question/19" target="_blank">매일메일 - 브라우저 렌더링 파이프라인에 대해서 설명해주세요.</a>
-- <a href="https://www.maeil-mail.kr/question/20" target="_blank">매일메일 - 인터넷 창에 www.google.com를 입력하면 무슨 일이 일어나는지 설명해주세요.</a>
+- `네트워크 요청 및 리소스 로드`
+  - <a href="https://jyostudy.tistory.com/207" target="_blank">주소창에 www.naver.com을 쳤을 때 일어나는 일</a>
+  - <a href="https://www.maeil-mail.kr/question/20" target="_blank">매일메일 - 인터넷 창에 www.google.com를 입력하면 무슨 일이 일어나는지 설명해주세요.</a>
+- `브라우저 렌더링 과정`
+  - <a href="https://www.maeil-mail.kr/question/19" target="_blank">매일메일 - 브라우저 렌더링 파이프라인에 대해서 설명해주세요.</a>
+  - <a href="https://developer.mozilla.org/ko/docs/Web/Performance/How_browsers_work" target="_blank">웹페이지를 표시한다는 것: 브라우저는 어떻게 동작하는가 - 웹 성능 | MDN</a>
+  - <a href="https://f-lab.kr/insight/understanding-browser-rendering-process-20240711" target="_blank">브라우저 렌더링 과정 이해하기</a>
+- `Step 2 - HTML 파싱 및 DOM 트리 생성`
+  - <a href="https://wormwlrm.github.io/2021/03/01/Async-Defer-Attributes-of-Script-Tag.html" target="_blank">스크립트의 실행 시점을 조절하는 Async와 Defer 속성 - 재그지그의 개발 블로그</a>
+  - <a href="https://www.maeil-mail.kr/question/37" target="_blank">매일메일 - script 태그에서 async와 defer의 차이점에 대해서 설명해주세요.</a>
+- `Step 5 - 레이아웃/리플로우(Layout/Reflow)`
+  - <a href="https://poiemaweb.com/css3-box-model" target="_blank">CSS3 Box Model | PoiemaWeb</a>
+- `Step 8 - 리렌더링`
+  - <a href="https://www.youtube.com/watch?v=HgEZ07U_OSc" target="_blank">프론트엔드 개발자 면접 단골 질문 6 | 리플로우와 리페인트</a>
+  - <a href="https://developer.mozilla.org/ko/docs/Web/CSS/will-change" target="_blank">will-change - CSS: Cascading Style Sheets | MDN</a>

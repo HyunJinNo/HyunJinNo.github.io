@@ -12,7 +12,7 @@ image:
 comments: true
 ---
 
-<blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
+<blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
 TypeScript</p></blockquote>
 
 ## 개요
@@ -249,7 +249,7 @@ const tuple: [string, number] = ["string", 123];
 `any` 타입은 `unknown` 타입을 제외하고 가장 상위에 있는 타입입니다. `any`는 타입을 모르거나 지정할 수 없을 때 유용할 수 있습니다. 보통 서드파티 라이브러리에서 코드에 타입이 없는 경우 `any`를 사용해 컴파일이 안되는 문제를 해결할 수 있습니다. `any`로 타입을 선언하는 경우 컴파일 시점이 아닌 런타임 시점에 에러가 날 가능성이 높으므로 `any` 타입 사용은 가능하면 지양하는 것이 좋습니다.
 
 ```typescript
-let anyValue = 10;
+let anyValue: any = 10;
 anyValue = "Hello, World!";
 anyValue = true;
 ```
@@ -443,9 +443,9 @@ let value: any = "Hello, World!";
 let strLength: number = (value as string).length;
 ```
 
-### 타입 별칭
+### 타입 별칭 (type)
 
-`type` 키워드를 사용하여 타입 별칭을 만들 수 있습니다.
+`type` 키워드를 사용하여 타입 별칭을 만들 수 있습니다. `type`은 튜플 등 복잡한 타입을 사용하고 유연한 연산자를 통해 복잡한 타입 조합을 표현하는 데 적합합니다.
 
 ```typescript
 type Length = number | string;

@@ -12,7 +12,7 @@ image:
 comments: true
 ---
 
-<blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
+<blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
 React, Virtual DOM, Rendering</p></blockquote>
 
 ## 개요
@@ -73,7 +73,11 @@ React, Virtual DOM, Rendering</p></blockquote>
 
    각 노드의 자식 요소들을 순서대로, 그리고 재귀적으로 비교하여 차이점을 찾고 업데이트합니다. 이 때 리스트가 있는 경우 `key`를 통해 최적화된 비교를 수행합니다.
 
-   리스트가 렌더링될 때 `key`는 재조정 과정에서 매우 중요한 역할을 수행합니다. `key`는 리액트가 리스트 항목의 고유성을 추적하고, 어떤 항목이 추가, 삭제, 또는 이동되었는지 쉽게 파악할 수 있도록 도와줍니다. `key`가 없거나 잘못 설정되었을 때, 성능 저하나 잘못된 업데이트가 발생할 수 있습니다. 예를 들어, `key`가 없을 때 리스트의 순서가 바뀌는 경우 모든 항목이 다시 렌더링되지만, `key`가 있는 경우 바뀐 항목만 업데이트됩니다.
+   <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
+   리스트가 렌더링될 때 <b>key</b>는 재조정 과정에서 매우 중요한 역할을 수행합니다. <b>key</b>는 리액트가 리스트 항목의 고유성을 추적하고, 어떤 항목이 추가, 삭제, 또는 이동되었는지 쉽게 파악할 수 있도록 도와줍니다. <b>key</b>가 없거나 잘못 설정되었을 때, 성능 저하나 잘못된 업데이트가 발생할 수 있습니다. 예를 들어, <b>key</b>가 없을 때 리스트의 순서가 바뀌는 경우 모든 항목이 다시 렌더링되지만, <b>key</b>가 있는 경우 바뀐 항목만 업데이트됩니다.</p></blockquote>
+
+   <blockquote class="prompt-tip"><p><strong><u>Tips</u></strong><br />
+   <b>key</b> 값에 고유한 속성 값을 주기 어려울 때는 랜덤한 <b>UUID(Universally Unique Identifier)</b>를 생성하여 key 값으로 사용할 수 있습니다. 버전 4(UUIDv4) 기준 <b>UUID</b>는 랜덤한 방식으로 생성되며, 128 비트(8 바이트)의 길이의 고유 식별자 값으로, 중복될 가능성이 극도로 낮아서 key 값으로 사용할 수 있습니다.</p></blockquote>
 
 #### 실제 DOM 업데이트
 

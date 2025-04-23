@@ -23,7 +23,7 @@ JavaScript, Event Loop, Execution Context</p></blockquote>
 
 ### 이벤트 루프의 개념
 
-<b>자바스크립트의 `이벤트 루프(Event Loop)`는 싱글 스레드 환경에서 비동기 작업, Non-blocking I/O, 동시성을 가능하게 하는 핵심 메커니즘입니다.</b> 자바스크립트 엔진(V8 등)은 단일 콜 스택만 사용하지만, 브라우저나 Node.js와 같은 런타임 환경은 Web API, 태스크 큐 등을 통해 비동기 작업과 동시성을 지원합니다.
+<b>자바스크립트의 `이벤트 루프(Event Loop)`는 싱글 스레드 환경에서 비동기 작업, Non-blocking I/O, 동시성을 가능하게 하는 핵심 메커니즘입니다.</b> 자바스크립트 엔진(V8 등)은 단일 콜 스택만 사용하지만, 브라우저의 Web API나 Node.js의 libuv, 이벤트 루프, 태스크 큐를 이용하여 비동기 작업과 동시성을 지원합니다.
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
 자바스크립트는 <b>싱글 스레드</b> 언어로 콜 스택이 하나만 존재합니다. 콜 스택이 하나만 존재하므로 자바스크립트 엔진은 <b>한 번에 한 가지 작업만 수행</b>합니다. 함수가 호출되면 해당 함수의 실행 컨텍스트가 콜 스택(Call Stack)에 쌓이고, 실행이 끝나면 제거됩니다. 하나의 함수가 완전히 실행되어 콜 스택에서 제거되기 전에는 다른 작업이 끼어들 수 없습니다.</p></blockquote>
@@ -44,18 +44,18 @@ JavaScript, Event Loop, Execution Context</p></blockquote>
 
 - `태스크 큐(Task Queue)`
 
-  `태스크 큐(Task Queue)`는 콜백 함수가 대기하는 큐입니다. `Web API`에서 완료된 비동기 작업의 콜백 함수는 태스크 큐에 저장되며, 콜 스택이 비어 있을 때 이벤트 루프에 의해 콜 스택으로 옮겨져 실행됩니다. `태스크 큐`에는 다음 2가지 종류가 있습니다.
+  콜백 함수가 대기하는 큐입니다. `Web API`에서 완료된 비동기 작업의 콜백 함수는 태스크 큐에 저장되며, 콜 스택이 비어 있을 때 이벤트 루프에 의해 콜 스택으로 옮겨져 실행됩니다. `태스크 큐`에는 다음 2가지 종류가 있습니다.
 
   <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
-  마이크로태스크 큐가 매크로태스크 큐보다 우선순위가 높습니다. 따라서 마이크로태스크 큐  → 매크로태스크 큐 순서로 비동기 코드가 실행됩니다.</p></blockquote>
+  <b>마이크로태스크 큐</b>가 <b>매크로태스크 큐</b>보다 우선순위가 높습니다. 따라서 <b>마이크로태스크 큐</b> → <b>매크로태스크 큐</b> 순서로 비동기 코드가 실행됩니다.</p></blockquote>
 
   - `마이크로태스크 큐(Microtask Queue)`
 
-    Promise의 콜백, queueMicrotask, MutationObserver, async/await 등이 속하는 큐입니다.
+    높은 우선순위가 필요한 비동기 작업들이 대기하는 큐로, Promise의 콜백, queueMicrotask, MutationObserver, async/await 등이 속하는 큐입니다.
 
   - `매크로태스크 큐(Macrotask Queue)`
 
-    setTimeout, setInterval, setImmediate, DOM 이벤트, I/O 작업 등이 속하는 큐입니다.
+    일반적인 비동기 작업의 콜백이 저장되는 큐로, setTimeout, setInterval, setImmediate, DOM 이벤트, I/O 작업 등이 속하는 큐입니다.
 
 - `이벤트 루프`
 

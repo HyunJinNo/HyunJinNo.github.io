@@ -8,7 +8,7 @@ math: true
 toc: true
 pin: false
 image:
-  path: /assets/img/front-end/front-end.avif
+  path: /assets/img/raspberry-pi/docker/docker.webp
 comments: true
 ---
 

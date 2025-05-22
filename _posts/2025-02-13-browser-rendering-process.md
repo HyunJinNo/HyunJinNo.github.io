@@ -92,7 +92,7 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 
 - `리페인트(Repaint)`
 
-  레이아웃 변화 없이 색상, 배경 등 스타일만 변경되면 리페인트만 일어나며, 레이아웃 재계산없이 다시 화면을 그립니다. color, background-color와 같은 색상 관련 속성, border-color, border-radius와 같운 테두리 관련 속성이 리페인트를 유발하는 속성입니다.
+  레이아웃 변화 없이 색상, 배경 등 스타일만 변경되면 리페인트만 일어나며, 레이아웃 재계산없이 다시 화면을 그립니다. color, background-color와 같은 색상 관련 속성, border-color, border-radius와 같은 테두리 관련 속성이 리페인트를 유발하는 속성입니다.
 
 <blockquote class="prompt-tip"><p><strong><u>Tips</u></strong><br>
 리플로우와 리페인트는 웹 페이지가 렌더링되는 과정에서 발생하는 중요한 작업들로, 이 둘을 잘 관리하는 것이 성능 최적화에 도움이 됩니다.<br />

@@ -176,6 +176,128 @@ Interview</p></blockquote>
 100억짜리 사업은 분명 성공한다면 큰 수익을 얻을 수 있다는 점에서 매력적이지만, 리스크가 크다는 점에서 <b>무조건 도전하기보다는 충분한 분석과 준비를 거친 후에 도전</b>하겠습니다. 리스크가 크다는 것은 실패했을 때 오히려 큰 손실로 이어질 수 있기 때문입니다. 이렇게 리스크가 큰 사업을 마주치는 경우, 저는 먼저 <b>시장 조사, 타겟 분석, 리스크 요인 파악 등 사전 분석을 철저히 한 후, 실행 가능성이 보이는 경우에 도전</b>하겠습니다. 또한 회사 전체에 큰 영향을 줄 수 있는 일인 만큼 혼자 결정하지 않고 <b>회사 구성원의 의견을 수렴</b>한 후 도전 여부를 결정하겠습니다.</p></blockquote>
 </details>
 
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#13</code> 축구 포지션 중에 좋아하는 포지션은 무엇인가요? 축구 포지션을 회사에서의 역할과 연관시켜서 설명해보세요.</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>자신의 성향과 팀 내 역할을 창의적으로 설명</b>하는지를 보기 위한 질문입니다. 정답은 없지만, <b>자신의 성격이나 일 스타일을 축구 포지션에 빗대어</b> 자연스럽게 설명하는 것이 중요합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 골키퍼 포지션을 가장 좋아합니다. <br />
+<br />
+골키퍼는 화려하진 않지만, 팀의 가장 마지막 방어선으로 반드시 필요한 존재이며, 팀의 수비진을 조율해야 하고, 한 번의 실수가 실점으로 이어질 수 있기 때문에 책임감이 막중한 포지션입니다. <br />
+<br />
+저는 팀으로 활동할 때 주어진 역할에 대해 끝까지 책임을 지려고 하는 성향이 강합니다. 팀의 안정감을 만들어주는 골키퍼처럼, 회사에서도 자신의 역할을 책임감 있게 수행하여 팀에 신뢰를 주는 사람이 되고 싶습니다.</p></blockquote>
+
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#14</code> 휴학을 하지 않은 이유는 무엇인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>계획성, 꾸준함, 책임감</b> 등을 알아보기 위한 질문입니다. 답변의 핵심은 <b>휴학 없이도 목표를 충분히 달성할 수 있도록 노력했고, 그 과정에서 배운 점이 많다</b>는 방향으로 전개하는 것입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+<b>휴학을 하지 않고도 남은 시간을 효율적으로 사용해서 성장을 충분히 이루어 낼 수 있다고 판단</b>했습니다. 재학 중에도 방학이나 학기 중 시간을 활용해 개발 공부를 꾸준히 이어갔습니다. 물론 휴학을 하고 더 집중할 수도 있었지만, 오히려 학업과 병행하는 것이 좀 더 효율적인 학습이 이루어질 수 있다고 생각하였습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#15</code> 본인의 능력이 어느 정도라고 생각하나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>자신의 실력을 객관적으로 바라보는 시각</b>과 <b>겸손과 자신감의 균형</b>을 보는 질문입니다. 답변 시 <b>자신의 현재 위치를 겸손하면서도 구체적으로 표현하고 그 동안의 성과나 노력을 언급하고 앞으로의 성장 의지를 강조</b>하면 좋습니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 아직 “성장 중”이라고 생각합니다. <br />
+<br />
+분명히 어느 정도 기본기를 갖췄다고 느끼지만, 아직 배워야 할 것도 많고, 현업에서 요구하는 수준에는 아직 도달하지 못했다고 생각합니다. 다만 저는 부족한 점을 느낄 때마다 부족한 점을 보완하기 위해 꾸준히 공부해왔습니다. 예를 들어, 팀 프로젝트에서 프론트엔드를 맡으며 기능 구현 시 필요한 지식을 찾아보며 기능 구현을 완수했고, 또한 학습한 내용을 꾸준히 블로그에 정리하였습니다. <br />
+<br />
+앞으로도 저는 자신의 능력을 객관적으로 점검하면서 부족한 점을 찾아 보완하려고 끊임없이 공부하고자 합니다.</p></blockquote>
+
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#16</code> 성격의 장단점은 무엇인가요? (=자신의 장점은 무엇인가요? 그리고 단점은 무엇이며 어떻게 극복하고 있나요?)</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>자기 이해도, 자기 개발 의지, 팀워크에서의 태도</b> 등을 파악하기 위한 질문입니다. 핵심은 <b>장점은 직무와 연결되게, 단점은 보완 노력이 드러나게</b> 말하는 것입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저의 장점은 <b>계획을 철저히 세우는 점</b>입니다. 저는 평소에 어떤 일을 할 때 계획을 세워서 진행하는 것을 좋아합니다. 즉흥적으로 진행하기 보다는 계획을 철저히 세워 진행하는 것이 일을 효율적으로 진행할 수 있으며 성공 가능성을 높일 수 있다고 생각하기 때문입니다. 실제로 팀 프로젝트를 진행할 때 각자 역할을 명확히 나누고, 구현할 기능들을 미리 논의한 후 마감 기한을 정해 놓고 진행하였습니다. 이를 통해 일정을 효율적으로 관리하고 마감 기한을 지킬 수 있었습니다. <br />
+<br />
+반면, 제 단점은 <b>계획한 대로 일이 진행되지 않는 경우 스트레스를 받는 편</b>이라는 점입니다. 이 부분을 보완하기 위해 예상치 못한 변수가 생겼을 때 우선 순위를 조정하거나 팀원들과 의견을 적극적으로 교환해서 계획을 유연하게 조정하고자 노력하고 있습니다.</p></blockquote>
+
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#17</code> 한화시스템 ICT의 인재상을 말해보세요.</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+지원한 회사에 대해 얼마나 공부했고, 자신이 그 회사에 적합한 인재인지에 대해 기본적인 고민을 했는지 확인하기 위한 질문입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+한화시스템 ICT의 인재상은 <b>Great Challenger</b>로, 크게 다음 3가지 핵심 역량이 있습니다. <br />
+<br />
+1. 책임 있게 몰입하는 <b>주인의식</b> <br />
+   업무를 자신의 일처럼 책임감 있게 수행하며, 장기적인 관점에서 사업 성과와 보상을 고려합니다. 주인의식을 바탕으로 신속하고 정확한 실행력을 발휘합니다. <br />
+2. 기존의 틀을 넘어선 <b>월등한 차별성</b> <br />
+   업계의 상식을 뒤엎는 대담한 목표를 설정하고, 핵심에 집중하여 디테일로 차별화를 이룹니다. 이를 통해 지속적으로 한발 앞선 결과를 창출합니다. <br />
+3. 미래 기회를 선점하는 <b>변화 수용성</b> <br />
+   시시각각 변화하는 시장 환경에서 과거의 성과에 안주하지 않고, 냉철하게 현실을 직시하며 미래를 선제적으로 대비합니다. 이를 통해 새로운 기회를 창출합니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#18</code> 회사 내에서 불합리한 상황을 보면 어떻게 할 것인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+지원자가 <b>조직 내 갈등 상황이나 문제를 마주했을 때의 태도</b>를 보고, 어떤 식으로 <b>소통하고 문제를 해결하는 사람인지</b>를 파악하려는 질문입니다. 답변 시 <b>조직을 존중하면서도 개선 의지를 보이는 방향</b>으로 진행하면 좋습니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+회사 내에서 불합리하다고 느껴지는 상황을 보면 <b>먼저 상황을 객관적으로 파악하려고 노력</b>하겠습니다. 감정적으로 대응하기보다는, <b>왜 그 상황이 벌어졌는지 파악</b>하고 해당 상황과 관련된 분들과 <b>정중하게 의견을 나누거나 건의하는 방법을 선택</b>하겠습니다. 저는 조직의 문화를 해치지 않으면서 <b>더 나은 방향으로 나아가기 위한 제안은 필요</b>하다고 생각합니다. 따라서 불합리한 문제를 지적하는 것을 넘어서, <b>대안을 함께 고민하고 소통하는 자세가 중요</b>하다고 생각합니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#19</code> 회사에서 본인이 기여할 수 있는 점을 말해보세요. (=남들과 차별화된 역량을 보유하고 있나요?)</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>본인의 강</b>을 소개하고, <b>그 강점을 통해 어떻게 기여할 수 있는지 구체적인 방식을 제시</b>한 다음, <b>회사와 직무에 맞춘 포부나 방향성을 강조</b>하면 좋습니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 <b>문서화에 강점이 있는 개발자</b>라고 생각합니다.
+프로젝트를 진행할 때 Notion과 GitHub Wiki를 활용하여 회의 내용과 개발 기록을 문서로 남기고자 노력했습니다. 회의 내용을 문서로 기록함으로써 <b>팀원들과의 의사소통에 오해가 생기지 않고 소통이 원활하게 진행될 수 있도록 기여</b>하였습니다. 또한 개발 기록을 남김으로써 구현 과정에 있어서 <b>어떤 이유로 어떤 선택을 했는지</b>를 명확히 하여 팀원들의 이해도를 높일 수 있었습니다.
+이러한 경험을 바탕으로, 입사 후에도 단순히 기능 구현에 그치지 않고 <b>개발 과정 전반을 명확히 기록하고 공유하여 협업이 원활히 이루어지도록 기여하고 지속 가능한 개발 환경이 구축</b>될 수 있도록 기여하겠습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#20</code> 입사 후 회사에서 무엇을 하고 싶나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>입사 후의 적극적인 자세, 회사와 직무에 대한 이해도, 장기적인 목표</b>를 강조하면 좋습니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+입사 후에는 <b>먼저 업무에 빠르게 적응하고 회사의 개발 문화와 프로세스를 이해하는 데 집중</b>하고 싶습니다. 그 과정에서 제가 가진 역량을 바탕으로 팀에 기여하는 구성원이 되도록 노력하겠습니다. 또한 개발 업무를 수행하면서 <b>문서화</b> 부분까지 신경 쓰는 개발자가 되고 싶습니다. 특히 개발 과정에서 마주쳤던 <b>트러블슈팅과 해결 경험</b>을 문서로 남김으로써 <b>지식 공유와 협업 문화에 기여</b>하고 싶습니다. </p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#21</code> 개발자로서 가져야 할 3가지 능력은 무엇이라고 생각하나요? (=직장 생활에서 필요하다고 생각하는 3가지와 그 이유는 무엇인가요?)</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>개발 직무에 대한 본인의 이해도와 역량과 관련된 경험이 있는지 여부</b>를 확인하는 질문입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer 1</u></strong><br>
+개발자로서 가장 중요하다고 생각하는 능력은 <b>문제 해결 능력, 협업 능력, 지속적인 학습 능력</b>이라고 생각합니다. <br />
+첫째, <b>문제 해결 능력</b>입니다. 개발 과정에서 예상치 못한 오류나 성능 문제를 마주칠 때, 이를 분석하고 해결하는 능력이 중요하다고 생각합니다. <br />
+둘째, <b>협업 능력</b>입니다. 개발은 혼자 하는 일이 아닌 만큼, 팀원들과 원활하게 의사소통하고 협업하는 것이 중요하다고 생각합니다 <br />
+마지막으로 <b>지속적인 학습 능력</b>입니다. 기술은 빠르게 변화하기 때문에, 새로운 언어나 프레임워크, 트렌드를 꾸준히 공부하는 것이 중요하다고 생각합니다.</p></blockquote>
+</details>
+
+<blockquote class="prompt-info"><p><strong><u>Answer 2</u></strong><br>
+직장 생활에서 가장 중요하다고 생각하는 세 가지는 <b>소통, 책임감, 배움의 자세</b>입니다. <br />
+첫째, <b>소통</b>은 협업의 기본이라고 생각합니다. 혼자서 일하는 경우는 없기 때문에, 경청하고 존중하며 자신의 의견을 명확히 전달하는 것이 중요하다고 생각합니다. <br />
+둘째, <b>책임감</b>입니다. 주어진 업무를 책임감을 갖고 끝까지 해내는 태도가 팀 전체에 신뢰를 주고, 업무 흐름에도 큰 영향을 주기 때문입니다. <br />
+마지막으로 <b>배움의 자세</b>입니다. 기술은 빠르게 변화하기 때문에, 새로운 언어나 프레임워크, 트렌드를 꾸준히 공부하는 것이 중요하다고 생각합니다. <br />
+이 세 가지를 바탕으로 팀에 긍정적인 영향을 주는 구성원이 되고 싶습니다.</p></blockquote>
+
 ##################################################
 
 <details>

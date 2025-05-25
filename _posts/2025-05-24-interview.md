@@ -415,6 +415,128 @@ Interview</p></blockquote>
 요약하자면, 저는 <b>기본적으로 협업을 중시하는 팔로워형</b>이지만, 상황에 따라 주도적으로 <b>리더 역할도 수행할 수 있는 사람</b>이라고 생각합니다.</p></blockquote>
 </details>
 
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#31</code> 입사 후 어떤 업무를 하고 싶나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+지원자의 <b>직무에 대한 이해도, 관심 분야</b>, 그리고 <b>자기 주도성</b>을 확인하려는 질문입니다. 답변 시 다음 3가지를 중심으로 구성하면 좋습니다. <br />
+<br />
+1. <b>직무 이해도 기반의 업무 희망</b> <br />
+2. <b>이유 - 자신의 역량과 연관</b> <br />
+3. <b>입사 후 어떻게 기여하고 싶은지</b></p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+입사 후에는 프론트엔드 개발 업무를 중심으로 맡고 싶습니다.
+저는 사용자 경험을 고려한 UI 구현, 반응형 웹 개발, 웹 성능 최적화 등에 관심이 많으며, 프론트엔드 분야를 중심으로 역량을 쌓아왔습니다. 또한 개발 과정에서 문서화를 중시하여, 개발 과정에서 마주쳤던 <b>트러블슈팅과 해결 경험</b>을 문서로 남김으로써 <b>지식 공유와 협업 문화에 기여</b>하고 싶습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#32</code> 여기 말고 다른 회사를 지원했나요? 만약에 다른 회사에 취업하면 안 올 것 아닌가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 지원자의 <b>지원 동기 진정성, 회사에 대한 관심도</b>, 그리고 <b>충성도</b>를 파악하기 위한 질문입니다. <b>정직함과 동시에, 이 회사에 꼭 오고 싶다는 의지를 보여주는 균형 있는 답변</b>이 중요합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+솔직하게 말씀드리자면 다른 회사에 지원한 것은 사실입니다.
+하지만 한화시스템 ICT는 저의 성향과 가장 잘 맞는 회사라고 생각해 가장 입사하고 싶은 회사입니다. 특히 한화시스템 ICT의 인재상 중 하나인 과거의 성과에 안주하지 않고 미래를 선제적으로 대비하고 발전하고자 하는 변화 수용성이, 지속적으로 성장하고자 하는 저의 가치관과 잘 맞는다고 생각합니다. 합격하게 된다면 지속적인 성장을 바탕으로 한화시스템이 미래에 이뤄낼 성과에 기여하고 싶습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#33</code> 존경하는 인물은 누구인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+단순히 <b>누구를 존경하느</b>보다, <b>그 인물의 어떤 점을 존경하며, 그 가치관이 본인에게 어떤 영향을 주었는지</b>를 보고자 하는 질문입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+야구선수 박병호 <br />
+<br />
+프로야구 선수로서 입단 초기에는 1군에서 좋은 성적을 내지 못했지만, 미니 홈피에 걸어두었던 말인 “피나는 노력에 대타란 없다.” 처럼 야구에 대한 끊임없는 열정과 노력 끝에 성공한 모습을 보고 존경하게 되었습니다. 저는 박병호 선수처럼 힘든 상황이 생기더라도 끝까지 인내하고 노력하여 성장하는 사람이 되고 싶습니다.</p></blockquote>
+
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#34</code> 본인을 표현할 수 있는 단어 3가지를 말씀해 주세요.</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 <b>지원자의 성격, 가치관, 강점을 간결하게 파악</b>하기 위한 질문입니다. 따라서 단어 하나하나에 근거(사례)를 덧붙여 설명하는 것이 중요합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저를 표현할 수 있는 세 가지 단어는<b>유연성, 주도성, 책임감</b>입니다.
+첫째, <b>유연성</b>입니다. 저는 예상치 못한 상황이 발생하더라도 문제를 유연하게 해결하려고 노력하고 있습니다. 예를 들어, 개발한 애플리케이션에 오류가 발생하였을 때, 제가 맡지 않은 부분에서 오류가 발생하더라도 유연한 자세로 오류를 발견하고는 해결 방안을 제시한 경험이 있습니다.
+둘째, <b>주도성</b>입니다. 저는 개발 시 개선 방안이 떠오르면 주도적으로 이를 실행한 경험이 있습니다.
+마지막으로 <b>책임감</b>입니다. 저는 제게 주어진 역할을 책임감을 가지고 끝까지 해내고자 하는 자세를 갖고 있습니다. 특히 마감 기한을 지키기 위해 계획을 세워 일정을 효율적으로 관리하고 기능 구현을 완수하는 등 팀에 신뢰를 줄 수 있도록 노력하고 있습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#35</code> 한계까지 가본 경험과 극복 사례에 대해 말씀해 주세요.</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>압박 상황에서의 문제 해결 능력, 끈기, 책임감, 성장 경험</b>을 보기 위한 질문입니다. 답변은 다음 구조로 정리하면 좋습니다. <br />
+<br />
+1. <b>어떤 상황이었는가(배경)</b><br />
+2. <b>어떤 어려움(한계)을 느꼈는가</b><br />
+3. <b>어떻게 극복했는가(행동)</b><br />
+4. <b>무엇을 배웠는가(결과/성장)</b></p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+제가 한계까지 몰렸던 경험은 <b>6주 간 진행된 팀 프로젝트에서 혼자 프론트엔드 개발을 수행했을 때</b>입니다. <br />
+당시 저는 <b>Figma를 활용한 UI 디자인, 프론트엔드 구현, 트러블슈팅과 개발 기록 작성 등 문서 작업</b>을 완료해야 했기에 시간도 많이 부족했고, 체력적으로도 힘든 상황이었습니다. 이 상황을 극복하기 위해 먼저 <b>일의 우선순위를 정리</b>하였습니다. UI 디자인을 가장 먼저 마무리해 프론트엔드와 백엔드 간의 의사소통이 원활하게 이루어지도록 만들었습니다. UI 작업 이후에는 <b>핵심 기능부터 개발</b>하여 프로젝트의 완성도를 높이는 데 집중하였습니다. 마지막으로, 틈틈이 개발 과정에서 있었던 트러블슈팅과 개발 기록을 작성하는 식으로 일정을 정리하였습니다. <br />
+결과적으로 프로젝트는 <b>기한 내에 완성</b>할 수 있었습니다. 이 경험을 통해 한계 상황에서도 침착하게 우선순위를 조정하고 체계적으로 계획을 실행하면 문제를 해결할 수 있다는 자신감을 얻게 되었습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#36</code> 팀원 중에 같이 일하기 힘들 것 같은 팀원은? (=본인과 맞지 않는 사람 유형은 무엇인가요?)</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 단순히 “불편한 사람을 어떻게 대할 것인가?”를 묻는 것이 아니라, <b>협업의 대한 태도와 갈등 상황에서의 대처 능력, 조직 적응력</b> 등을 확인하려는 질문입니다. 따라서 누군가를 비난하거나 특정 유형을 단정 짓기보다는, <b>어떤 상황이 어려울 수 있고, 그 상황에서도 어떻게 협업하려고 노력하는지</b>를 중심으로 답변하면 좋습니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+제가 같이 일하기 어렵다는 느낀 팀원 유형은 <b>의사소통이 잘 이루어지지 않는 경우</b>입니다. <br />
+예를 들어, 개발에 집중한 나머지 본인의 <b>개발 진행 상황을 공유하지 않거나 문서화에 소극적</b>인 경우, 협업이 원활하지 않을 수 있다고 느꼈습니다. 저는 이런 상황이 발생했을 때 <b>제가 먼저 개발 진행 상황을 공유하고, 작성한 문서를 공유</b>하는 등 주도적으로 팀 전체의 소통 흐름을 만들고자 노력했습니다. 이를 통해 팀원들도 이런 분위기에 따라 적극적으로 의사소통하는 모습을 볼 수 있었습니다. <br />
+이 경험을 통해, <b>의사소통이 잘 이루어지지 않는 상황에서도 제가 먼저 스스로 나서서 의사소통하려고 시도하면서 팀의 분위기를 개선</b>할 수 있다고 느꼈습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#37</code> 인생에서 가장 중요하게 생각하는 것은 무엇인가요? (=본인의 가치관은 무엇인가요?)</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>지원자의 가치관, 동기부여의 원천, 그리고 직무나 조직문화와의 적합성</b>을 파악하려는 질문입니다. 진정성 있게 답하되, <b>직무나 회사와 자연스럽게 연결될 수 있는 가치</b>를 중심으로 표현하는 것이 좋습니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+제 가치관은 타인으로부터 <b>“신뢰할 수 있는 사람”</b>이라는 평가를 받는 것입니다. <br />
+저는 평소에 성실하게 행동하면서 주위로부터 신뢰를 많이 얻었고 신뢰를 받을 때마다 자신감이 쌓여 타인의 기대치만큼 성장하고 싶다는 생각이 들었습니다. 이와 같은 경험을 통해 타인으로부터 신뢰를 얻는 것이 중요하다는 것을 깨달았고 신뢰를 얻기 위해선 성실함과 정직함, 그리고 책임감 있는 자세가 중요하다고 생각했습니다. 이에 따라 제 가치관을 실현하기 위해 성실하게 생활하였고 자신이 맡은 일을 책임감을 가지고 최선을 다하려 노력하고 있습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#38</code> 트러블슈팅과 야근이 잦은 것에 대해 어떻게 생각하나요? (=야근이 많은데 할 수 있나요?)</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>업무 강도나 불확실한 상황에 대한 태도, 스트레스 관리 능력, 업무에 대한 책임감</b> 등을 파악하기 위한 질문입니다. 면접관은 야근이나 트러블 상황을 무조건 좋아하라는 것이 아니라, 그런 상황에 대해 얼마나 성숙하고 현실적인 태도를 가지고 있는지를 알고 싶어합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+트러블슈팅과 야근이 많을 수 있다는 점은 개발자로서 어느 정도 감수해야 할 부분이라고 생각합니다. 특히 서비스가 운영 중이거나 중요한 배포 시점에는 예상치 못한 문제가 발생할 수 있고, 그럴 때는 책임감을 가지고 문제를 해결하는 것이 중요하다고 생각합니다. 다만 잦은 야근은 휴식 시간을 보장하지 않아 개인의 생산성을 크게 떨어뜨릴 수 있으므로, 평소에는 야근이 발생하지 않도록 근무 시간에는 일에 집중하여 가능한 경우 근무 시간 내에 업무를 마칠 수 있도록 노력하도록 하겠습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#39</code> 강한 어조의 반응이 오면 어떻게 대처할 것인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>감정 조절 능력, 대인 관계 능력, 문제 해결 방식</b>을 평가하기 위한 질문입니다. 면접관은 감정적으로 반응하지 않고 <b>침착하고 전문적으로 상황을 다룰 수 있는지</b>를 보고 싶어합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+강한 어조의 반응이 오더라도, 감정적으로 대응하지 않고 <b>상대방이 왜 그런 반응을 보였는지를 먼저 파악</b>하겠습니다. 강한 어조의 반응을 보인 경우 급박한 상황이나, 오해, 불만이 있는 경우가 많기 때문에 <b>상대방의 입장을 공감하고 문제의 원인을 파악하려는 자세가 중요</b>하다고 생각합니다. 문제의 원인을 파악한 후에는 대화를 통해 상황을 해결하고자 노력하겠습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#40</code> 상사가 거짓말을 한다고 느껴질 때 어떻게 대처할 것인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>도덕성</b>과 함께, <b>현실적인 조직 적응력, 대인 관계에서의 균형 감각</b>, 그리고 <b>문제를 감정적으로 처리하지 않고 현명하게 해결하는 태도</b>를 평가하려는 질문입니다. 면접관은 “싫어한다”는 감정을 어떻게 <b>조직 내에서 적절히 조율</b>할 수 있는지를 알고 싶어 합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 개인적으로 거짓말을 좋아하지 않고, 신뢰를 가장 중요한 가치로 생각합니다. 하지만 회사 내에서는 다양한 상황과 이해 관계가 존재하므로, <b>저의 판단이 무조건 맞다고 생각하기 보다는 먼저 대화를 통해 제가 이해한 것이 맞는지 확인</b>하려고 노력하겠습니다. 만약 상사의 말 중 명백히 틀린 부분이 있다면, <b>조심스럽게 사실을 확인하거나 질문하는 방식으로 접근</b>하겠습니다.</p></blockquote>
+</details>
+
 #################################################################################################################################################
 
 <details>

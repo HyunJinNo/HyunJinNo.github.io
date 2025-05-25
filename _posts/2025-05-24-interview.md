@@ -289,7 +289,6 @@ Interview</p></blockquote>
 첫째, <b>문제 해결 능력</b>입니다. 개발 과정에서 예상치 못한 오류나 성능 문제를 마주칠 때, 이를 분석하고 해결하는 능력이 중요하다고 생각합니다. <br />
 둘째, <b>협업 능력</b>입니다. 개발은 혼자 하는 일이 아닌 만큼, 팀원들과 원활하게 의사소통하고 협업하는 것이 중요하다고 생각합니다 <br />
 마지막으로 <b>지속적인 학습 능력</b>입니다. 기술은 빠르게 변화하기 때문에, 새로운 언어나 프레임워크, 트렌드를 꾸준히 공부하는 것이 중요하다고 생각합니다.</p></blockquote>
-</details>
 
 <blockquote class="prompt-info"><p><strong><u>Answer 2</u></strong><br>
 직장 생활에서 가장 중요하다고 생각하는 세 가지는 <b>소통, 책임감, 배움의 자세</b>입니다. <br />
@@ -297,6 +296,8 @@ Interview</p></blockquote>
 둘째, <b>책임감</b>입니다. 주어진 업무를 책임감을 갖고 끝까지 해내는 태도가 팀 전체에 신뢰를 주고, 업무 흐름에도 큰 영향을 주기 때문입니다. <br />
 마지막으로 <b>배움의 자세</b>입니다. 기술은 빠르게 변화하기 때문에, 새로운 언어나 프레임워크, 트렌드를 꾸준히 공부하는 것이 중요하다고 생각합니다. <br />
 이 세 가지를 바탕으로 팀에 긍정적인 영향을 주는 구성원이 되고 싶습니다.</p></blockquote>
+
+</details>
 
 <details>
 <summary><code class="language-plaintext highlighter-rouge">#22</code> 회사가 집에서 거리가 먼 것 같은데 출퇴근이 가능한가요?</summary>
@@ -856,7 +857,7 @@ React와 Next.js를 사용한 웹 개발 경험이 있으며, TypeScript를 기�
 <br />
 - 프로젝트에서 <b>주도적으로 해결한 기술적 문제</b>가 있었는가 <br />
 - 단순한 구현이 아니라 <b>성능, 구조, 유지보수, 사용자 경험</b> 등을 고려했는가 <br />
-- <b>기술 선택의 이유</b>와 그로 인한 <b>성과</b>는 무엇인가 </br>
+- <b>기술 선택의 이유</b>와 그로 인한 <b>성과</b>는 무엇인가 <br />
 - <b>구체적인 결과</b>나 개선 지표가 있는가</p></blockquote>
 
 <blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
@@ -1142,11 +1143,11 @@ A라는 사실에 대해 모두가 B라고 말하면 어떻게 할 것인가요?
 
 ## 참고 자료
 
-- [한화시스템(주) ICT부문 2025년 기업정보 | 195건 면접후기 3.0 면접난이도 | 잡플래닛](https://www.jobplanet.co.kr/companies/336387/interviews/%ED%95%9C%ED%99%94%EC%8B%9C%EC%8A%A4%ED%85%9C-ict%EB%B6%80%EB%AC%B8)
-- [한화시스템(주) - 실제 면접 질문 75건 확인하기 | 잡코리아](https://www.jobkorea.co.kr/starter/review/view?C_Idx=386&Half_Year_Type_Code=0&Ctgr_Code=5&FavorCo_Stat=0&G_ID=0&Page=1)
-- [네이버 블로그 | 장이의 블로그 - 한화시스템 취준 후기 (자소서, 코테, AI면접, 면접, 인턴십)](https://blog.naver.com/grace915/223380297408)
-- [[2023 상반기] 한화시스템/ICT 서류, 코딩테스트, 1차, 2차면접 후기](https://didu-story.tistory.com/448)
-- [[한화시스템] 2023년 하반기 한화시스템 ICT 서비스 개발 후기 (서류, AI, 인성, 코딩테스트, 면접)](https://0m1n.tistory.com/152)
-- [우당탕탕 한화시스템 서류/면접기](https://velog.io/@charming-l/%EC%9A%B0%EB%8B%B9%ED%83%95%ED%83%95-%ED%95%9C%ED%99%94%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%9C%EB%A5%98%EB%A9%B4%EC%A0%91-%EB%AA%A8%ED%97%98)
-- [한화그룹 상반기 공채 대비 면접후기·기출문제 | 캐치](https://www.catch.co.kr/News/RecruitNews/296857)
-- [한화시스템 합격 후기: 자소서 팁, 인적성, 면접 질문까지](https://jasoseol.com/blog/post/%ED%95%9C%ED%99%94%EC%8B%9C%EC%8A%A4%ED%85%9C-%ED%95%A9%EA%B2%A9-%ED%9B%84%EA%B8%B0-%EC%9E%90%EC%86%8C%EC%84%9C-%ED%8C%81-%EC%9D%B8%EC%A0%81%EC%84%B1-%EB%A9%B4%EC%A0%91-%EC%A7%88%EB%AC%B8%EA%B9%8C/)
+- <a href="https://www.jobplanet.co.kr/companies/336387/interviews/%ED%95%9C%ED%99%94%EC%8B%9C%EC%8A%A4%ED%85%9C-ict%EB%B6%80%EB%AC%B8" target="_blank">한화시스템(주) ICT부문 2025년 기업정보 | 195건 면접후기 3.0 면접난이도 | 잡플래닛</a>
+- <a href="https://www.jobkorea.co.kr/starter/review/view?C_Idx=386&Half_Year_Type_Code=0&Ctgr_Code=5&FavorCo_Stat=0&G_ID=0&Page=1" target="_blank">한화시스템(주) - 실제 면접 질문 75건 확인하기 | 잡코리아</a>
+- <a href="https://blog.naver.com/grace915/223380297408" target="_blank">네이버 블로그 | 장이의 블로그 - 한화시스템 취준 후기 (자소서, 코테, AI면접, 면접, 인턴십)</a>
+- <a href="https://didu-story.tistory.com/448" target="_blank">[2023 상반기] 한화시스템/ICT 서류, 코딩테스트, 1차, 2차면접 후기</a>
+- <a href="https://0m1n.tistory.com/152" target="_blank">[한화시스템] 2023년 하반기 한화시스템 ICT 서비스 개발 후기 (서류, AI, 인성, 코딩테스트, 면접)</a>
+- <a href="https://velog.io/@charming-l/%EC%9A%B0%EB%8B%B9%ED%83%95%ED%83%95-%ED%95%9C%ED%99%94%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%9C%EB%A5%98%EB%A9%B4%EC%A0%91-%EB%AA%A8%ED%97%98" target="_blank">우당탕탕 한화시스템 서류/면접기</a>
+- <a href="https://www.catch.co.kr/News/RecruitNews/296857" target="_blank">한화그룹 상반기 공채 대비 면접후기·기출문제 | 캐치</a>
+- <a href="https://jasoseol.com/blog/post/%ED%95%9C%ED%99%94%EC%8B%9C%EC%8A%A4%ED%85%9C-%ED%95%A9%EA%B2%A9-%ED%9B%84%EA%B8%B0-%EC%9E%90%EC%86%8C%EC%84%9C-%ED%8C%81-%EC%9D%B8%EC%A0%81%EC%84%B1-%EB%A9%B4%EC%A0%91-%EC%A7%88%EB%AC%B8%EA%B9%8C/" target="_blank">한화시스템 합격 후기: 자소서 팁, 인적성, 면접 질문까지</a>

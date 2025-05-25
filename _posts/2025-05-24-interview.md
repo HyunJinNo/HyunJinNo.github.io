@@ -994,18 +994,159 @@ A라는 사실에 대해 모두가 B라고 말하면 어떻게 할 것인가요?
 이런 경험 덕분에 <b>새로운 환경에서도 빠르게 적응하고, 타인과 원만한 관계를 형성</b>하는 데 자신이 있습니다.</p></blockquote>
 </details>
 
-#################################################################################################################################################
-
 <details>
-<summary><code class="language-plaintext highlighter-rouge">#TODO</code> TODO</summary>
+<summary><code class="language-plaintext highlighter-rouge">#81</code> 한화시스템 ICT가 어떤 업무를 하고 계열사에게 어떤 서비스를 제공하는지 아시나요?</summary>
 
 <blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
-TODO</p></blockquote>
+이 질문은 지원자가 <b>회사에 대해 사전 조사를 해왔는지, 단순히 기술 역량만이 아니라, 해당 기업의 사업 구조와 방향을 이해하고 있는지, 지원한 직무가 회사 내에서 어떤 역할을 할 수 있을지를 고민해봤는지</b> 파악하기 위한 질문입니다. 즉, 단순히 “코딩 잘합니다”보다는 <b>“왜 이 회사인지, 내가 어떤 기여를 할 수 있을지”</b>에 대한 논리적인 이해와 준비가 있는지를 보는 것입니다.
+</p></blockquote>
 
 <blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
-TODO</p></blockquote>
+네, 한화시스템 ICT 부문은 방산, 금융, 서비스 등 다양한 산업 분야에서 IT 종합 솔루션을 제공해온 전문 기업으로, 고객사의 비즈니스 혁신과 디지털 전환을 선도하는 업무를 수행합니다. 최근에는 블록체인 자체 플랫폼을 마련하고 인공지능 분야 글로벌 기업과 기술 파트너십을 체결하는 등 4차 산업혁명 시대의 핵심 솔루션을 구축해 나가고 있습니다. <br />
+이와 관련해 제가 지원한 서비스 개발/운영 직무는 <b>계열사 업무 시스템을 개발하고 운영하는 업무를 수행</b>합니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#82</code> 4차 산업혁명에 대해 설명해 주세요. 그중 관심 있는 기술에 대해서는 아는대로 상세히 설명해 주세요.</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 <b>기술 전반에 대한 이해도, 관심 분야</b>, 그리고 <b>지속적인 학습 의지</b>를 확인하기 위한 질문입니다. 특히 IT 서비스나 개발 직무에서 중요한 <b>기술 감수성</b>과 <b>미래지향적인 사고</b>를 평가하려는 의도가 있습니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+4차 산업혁명은 인공지능, 빅데이터, IoT, 클라우드 등 첨단 기술들이 서로 융합하면서 기존 산업의 패러다임을 근본적으로 변화시키는 혁신의 흐름이라고 알고 있습니다. <br />
+저는 그 중에서도 인공지능 기반의 서비스에 가장 관심이 많습니다. [실시간 점자 번역] 앱에서는 점자 인식 AI 모델을 도입했고, [언어 습관 교정 키보드 앱]에서는 비속어 및 혐오표현 인식 AI 모델을 도입하였습니다. 프론트엔드 개발자 입장에서는 이런 AI 기능을 사용자가 사용하기 쉽도록 직관적인 UI/UX를 구현하는 능력이 중요하다고 생각합니다. <br />
+앞으로도 AI 기술을 활용한 <b>더 직관적이고 개인화된 사용자 경험</b>을 제공하는 데 기여하고 싶습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#83</code> 간단한 자기소개를 해주세요.</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+지원자가 면접에 임하는 마음가짐을 확인하고, 면접관과 지원자 사이의 감정적 거리를 줄이며 지원자의 캐릭터를 파악하기 위해서입니다. 답변 시 <b>간단한 인사말 → 강조하고 싶은 나의 역량/장점 먼저 제시 → 역량에 대한 구체적인 뒷받침 내용 → 간단한 입사 후 포부 또는 지원동기</b> 순서로 답변하여 <b>본인의 장점, 특성, 차별화된 부분을 이용하여 회사에 어떻게 기여하겠다</b>는 내용을 설명하는 것이 좋습니다. </p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+안녕하세요. 서비스 개발/운영 직무에 지원한 노현진입니다. <br />
+저는 <b>사용자 경험과 웹 성능 최적화에 깊은 관심</b>을 가지고 <b>프론트엔드 개발</b>을 중심으로 역량을 쌓아왔습니다. React와 Next.js를 사용한 웹 개발 경험이 있으며, TypeScript를 기본으로 사용합니다. 특히, 팀 프로젝트에서 프론트엔드 개발을 맡으며 <b>백엔드 팀원과 디자이너와 긴밀하게 협업한 경험</b>이 있습니다. 이 과정에서 <b>사용자 시나리오를 바탕으로 직관적인 UI/UX를 구현</b>하기 위해, 팀원들과 적극적인 소통을 통해 화면 구성과 기능 세부사항까지 함께 다듬어 나갔습니다. <br />
+앞으로도 기술 역량을 물론, 협업 및 소통 역량까지 함께 성장시키며, <b>사용자와 팀 모두에게 긍정적인 영향을 주는 개발자</b>가 되고 싶습니다. 감사합니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#84</code> 재수를 한 이유는 무엇인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+다소 민감하게 느껴질 수 있는 질문이지만, 면접관 입장에서는 <b>지원자의 자기주도성, 목표 의식, 위기 대응력</b> 등을 파악하려는 의도입니다. 단순히 학업 이력 자체를 평가하려는 것이 아니라, <b>재수라는 선택을 어떻게 받아들이고 극복했는지</b>를 보고자 하는 것입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 첫 수능을 치를 때 스스로 충분히 준비가 됐다고 생각했지만, 결과는 좋지 못했습니다. 되돌아보면, 당시에는 제 실력을 객관적으로 판단하지 못하고 다소 자만했던 것 같습니다. 그 경험을 계기로 제 자신을 더 냉정하고 돌아보고, 부족한 점을 보완하기 위해 재수를 결심했습니다. 재수 기간 동안은 <b>인내심을 기르고</b> 목표 달성을 위한 <b>꾸준함과 자기 관리의 중요성</b>을 배울 수 있었습니다. 이 경험 덕분에 <b>지금도 제 실력에 대해 객관적으로 평가하고 꾸준히 개발 공부를 하고 있으며, 스스로 관리하는 습관을 유지</b>하고 있습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#85</code> 평점이 좋은 데 대학 시절 공부를 열심히 했나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 단순히 성적만 본 것이 아니라, <b>성적과 실제 학습 태도의 진정성</b>을 확인하기 위한 것입니다. 면접관은 <b>좋은 성적의 배경이 노력인지, 아니면 요행인지, 학업 외 활동과의 균형은 어땠는지, 자기주도적으로 공부했는지, 아니면 수동적인 자세였는지, 실무와 연결되는 학습 태도를 가지고 있는지</b>를 평가하고자 합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+네, 저는 대학 시절 공부에 꾸준히 집중했습니다. <br />
+수업 내용을 단순히 외우기보다는, <b>내용을 이해하고 팀 프로젝트에 적용하려는 자세로 공부</b>했기 때문에 성적도 자연스럽게 따라왔다고 생각합니다. 예를 들어, 오픈소스SW프로젝트 과목에서 배운 Git, 협업 방식 등을 기반으로 팀 프로젝트를 진행해왔고 좋은 성적을 거둘 수 있었습니다. 이런 경험을 통해 <b>이론과 실습을 자연스럽게 연결</b>하여 좋은 성적을 거둘 수 있었다고 생각합니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#86</code> 해당 자격증을 딴 이유는 무엇인가요? (=어떤 자격증을 가지고 있나요?)</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문의 의도는 단순히 자격증을 취득했는지 확인하려는 것이 아니라, <b>해당 자격증이 지원자의 진로 및 목표와 어떻게 연결되는지, 자발적으로 준비한 것인지, 어떤 목적을 가지고 있는지</b>를 확인하고자 하는 것입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 개발자로서의 역량을 키우기 위해 <b>TOPCIT 점수</b>를 취득하였습니다. 이 과정에서 <b>소프트웨어 개발과 데이터베이스에 대한 전반적인 이해와 문제 해결 역량</b>을 키울 수 있었습니다. <br />
+또한 <b>COS Pro</b>와 <b>PCSQL 자격증</b>은 제 프로그래밍과 SQL 실력을 객관적으로 검증하고 싶어서 준비했습니다. 이를 통해 <b>기초 문법뿐만 아니라 알고리즘 구현 및 데이터 처리 능력까지 확인</b>할 수 있었고, 개발 과정에서 자신감을 가지게 되는 계기가 되었습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#87</code> 수상 경력에서 MACH 게임아트 과제전 최우수상은 무엇인가요? (=수상 경력이 있나요?) (=어떤 상을 받았나요?)</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 <b>지원자의 노력과 성과 경험, 지원자의 강점과 역량, 주도성, 협업 능력, 문제 해결력</b>을 확인하기 위한 질문입니다. 면접관은 <b>수상 경력이 단순한 결과가 아닌, 어떤 노력과 과정을 통해 이루어졌는지</b>를 보고 싶어 합니다. 또한 <b>수상 내용이 직무 역량과 관련이 있는지, 혼자 또는 팀으로 어떤 문제를 해결하거나 기여한 경험이 있는지</b> 확인하고자 합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+- 자신만의 미로를 만들고 서로 상대방의 미로에 숨겨진 깃발을 먼저 찾는 멀티플레이어 게임 [배틀메이즈]를 아이디어로 제시 <br />
+- 시장 조사를 통해 주요 모바일 게임의 특징을 분석하고, SWOT  분석을 활용하여 제시한 아이디어의 강점, 약점, 기회, 위협이 되는 요소를 분석 <br />
+- 제시한 서비스의 특장점 및 기대 효과 분석 <br />
+<br />
+저는 대학 시절 <b>MACH 게임아트 과제전에서 최우수상을 수상</b>한 경험이 있습니다. <br />
+이 대회에서 <b>“배틀메이즈”라는 멀티플레이어 게임 아이디어</b>를 제안했는데, 각 플레이어가 직접 미로를 설계하고 서로의 미로에 숨겨진 깃발을 먼저 찾는 방식의 게임입니다. 단순히 아이디어 제시에 그치지 않고, <b>시장 조사를 통해 주요 모바일 게임의 트렌드를 분석</b>하고, <b>SWOT 분석을 통해 제안한 게임의 강점, 약점, 기회, 위협이 되는 요소까지 구체적으로 정리</b>하였습니다. 이러한 <b>논리적인 기획과 분석 과정</b>이 좋은 평가를 받았고, 결과적으로 최우수상을 수상할 수 있었습니다. <br />
+이 경험을 통해 <b>기획력과 논리적인 분석 능력의 중요성</b>을 알 수 있었고, 이후 팀 프로젝트를 진행할 때 기획과 분석에 많은 신경을 쓰고 있습니다.</p></blockquote>
+
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#88</code> 수상 경력에서 제 1회 UCC 공모전은 무엇인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 <b>지원자의 노력과 성과 경험, 지원자의 강점과 역량, 주도성, 협업 능력, 문제 해결력</b>을 확인하기 위한 질문입니다. 면접관은 <b>수상 경력이 단순한 결과가 아닌, 어떤 노력과 과정을 통해 이루어졌는지</b>를 보고 싶어 합니다. 또한 <b>수상 내용이 직무 역량과 관련이 있는지, 혼자 또는 팀으로 어떤 문제를 해결하거나 기여한 경험이 있는지</b> 확인하고자 합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+- “바쁜 일상 속에 지친 우리. 끊임없이 노력하지만 결과는 좋지 않다. 로또에 당첨되면서 하고 싶은 것을 모두 한다.”라는 내용의 59초 UCC 영상 제작 <br />
+- 해당 UCC 영상을 통해 바쁘게 살아가는 현대인들의 공감 유발 <br />
+<br />
+저는 대학 시절 <b>제 1회 UCC 공모전 - 59초 UCC 부문에서 우수상을 수상한 경험</b>이 있습니다. <br />
+해당 대회에서 만든 영상은, “바쁜 일상에 지쳐 있지만, 로또에 당첨되면 하고 싶은 걸 다 해보자.”는 내용을 담은 영상이었고, <b>현대인이 공감할 수 있는 현실과 상상을 대비</b>시켜 메시지를 전달하고자 했습니다. 59초라는 짧은 시간 안에 스토리를 담아야 했기 때문에 <b>기획이 매우 중요</b>했고, <b>공감 가는 메시지를 압축적으로 전달하는 데 집중</b>했습니다. 결과적으로 많은 분들의 공감을 이끌어 냈고, 그 점이 좋은 평가를 받아 우수상을 수상할 수 있었습니다. <br />
+이 경험을 통해 <b>짧은 시간 안에 핵심을 전달하는 능력과 사용자나 고객의 관점에서 생각하는 시각</b>을 키울 수 있었습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#89</code> 네이버 부스트캠프 웹 · 모바일 9기에서 무엇을 했나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 지원자가 단순히 이수했는지가 아니라, <b>어떤 프로젝트를 했고, 어떻게 성장했는지, 기술적 깊이가 있는지</b>를 확인하는 질문입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+네이버 부스트캠프 웹 · 모바일 9기에 참여하여 클라이언트부터 서버까지 웹 전반에 대해 학습하고 6주 간의 그룹 프로젝트를 진행하였습니다. <br />
+특히 그룹 프로젝트로 MafiaCamp 프로젝트를 진행하였습니다. MafiaCamp 프로젝트는 WebRTC와 웹 소켓을 활용한 온라인 화상 마피아 게임입니다. 해당 프로젝트는 시중에 나와있는 온라인 마피아 게임이 텍스트 채팅만 가능할 뿐, 화상 채팅이 불가능하다는 점을 확인한 후, 좀 더 직관적인 온라인 마피아 게임 서비스를 제공하기 위해 진행하였습니다. 화상 채팅을 구현하기 위해 WebRTC를 사용하였으며, 실시간 투표 시스템, 채팅 기능, 실시간으로 개설되어 있는 게임방 목록을 조회하는 기능 등을 구현하기 위해 웹 소켓을 사용하였습니다. 또한 배포 시 개발 환경과 배포 환경을 일치하도록 Docker를 사용하였으며, GitHub Actions을 활용하여 CI/CD를 구축하여 배포 과정을 자동화하여 개발 속도를 향상시켰습니다. <br />
+네이버 부스트캠프 웹 · 모바일 9기에 참여하여 기획부터 개발, 문서 작업까지 전반적인 개발 과정에 대해 경험할 수 있었고 프로젝트 역량을 쌓을 수 있었습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#90</code> 캡스톤디자인(1) 졸업 프로젝트에서 실시간 점자 번역 앱을 개발할 때 처음부터 오픈소스를 사용하지 않고 직접 AI 모델을 구축하려고 시도한 이유는 무엇이었나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 지원자의 <b>기술 선택의 기준과 판단력, 문제 해결 방식과 도전 정신, 기술적 깊이와 실험 경험</b>을 파악하기 위한 질문입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+해당 프로젝트에서 처음부터 오픈소스를 사용하지 않고 AI 모델을 직접 구축하려고 시도한 이유는, <b>프로젝트의 핵심 기능을 담당하면서 낯선 기술에 정면으로 도전해보고 싶다는 강한 의지</b>가 있었기 때문입니다. <br />
+단순히 오픈소스를 활용하는 것보다, 데이터 수집과 딥러닝 학습, AI 모델 구축까지 모든 과정을 경험하면서 도전해보고 싶었습니다. 이를 위해 책과 인터넷 자료를 통해 AI 모델 구축에 필요한 지식을 학습하고, 모델 학습을 위해 점자 이미지를 직접 수집하고, CNN 기반의 모델 구축을 시도하였습니다. 결과적으로는 모델 성능은 많이 떨어졌지만, 이 과정에서 AI 관련 지식과 문제 해결 능력을 키울 수 있었습니다. <br />
+이 경험을 통해 저는 <b>새로운 기술에 대해 도전하는 자세와, 자신이 맡은 일에 대해 책임을 지는 자세, 상황에 맞는 판단을 내릴 수 있는 사고력</b>을 기를 수 있었습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#91</code> 사진 내 점자 번역 앱을 개발하지 않고 실시간 점자 번역 앱을 개발한 계기는 무엇인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 지원자가 <b>특정 서비스를 개발하게 된 계기</b>를 묻는 질문입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+사진을 찍어 점자를 인식하는 방식은 이미 시중에 다양한 앱이 제공하고 있어, 단순히 동일한 기능을 구현하고 싶지 않았습니다. <br />
+그래서 저는 기능적으로 차별화할 수 있을 방향을 고민했고, 결과적으로 카메라를 통해 점자를 실시간으로 인식하고 번역하는 앱을 아이디어로 제안하였습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#92</code> 배포된 백엔드는 SpringBoot인데, 왜 프로토타입 코드는 NestJS로 작성했나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+기술 선택의 <b>유연성, 실용성</b>, 그리고 <b>프로토타입 단계의 목적</b>을 중심으로 논리적으로 설명하면 됩니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+프로토타입 코드는 최종 배포 목적이 아닌, <b>빠르게 아이디어를 검증하고 프론트엔드와 백엔드 간의 통신 구조를 파악하기 위한 용도</b>였기 때문에, <b>짧은 시간 안에 정확하게 구현하는 것이 중요</b>했습니다. <br />
+저는 Node.js 기반의 백엔드 코드 작성에 익숙했기 때문에, NestJS 프레임워크를 사용해 빠르고 안정적으로 RESTful API를 구현할 수 있었습니다. 또한 NestJS는 구조화된 모듈 시스템과 데코레이터 기반의 코드 작성 방식 등에서 SpringBoot와 유사한 점이 많기 때문에, 백엔드 팀원이 코드를 이해하는 데 어려움이 없었습니다. 실제로 백엔드 팀원이 제 코드를 참고해 빠르게 프로덕션 코드를 구현할 수 있었고, 프론트엔드 개발도 병렬로 진행할 수 있어서 전체 개발 시간을 단축할 수 있었습니다.</p></blockquote>
 </details>
 
 ## 참고 자료
 
-- ?
+- [한화시스템(주) ICT부문 2025년 기업정보 | 195건 면접후기 3.0 면접난이도 | 잡플래닛](https://www.jobplanet.co.kr/companies/336387/interviews/%ED%95%9C%ED%99%94%EC%8B%9C%EC%8A%A4%ED%85%9C-ict%EB%B6%80%EB%AC%B8)
+- [한화시스템(주) - 실제 면접 질문 75건 확인하기 | 잡코리아](https://www.jobkorea.co.kr/starter/review/view?C_Idx=386&Half_Year_Type_Code=0&Ctgr_Code=5&FavorCo_Stat=0&G_ID=0&Page=1)
+- [네이버 블로그 | 장이의 블로그 - 한화시스템 취준 후기 (자소서, 코테, AI면접, 면접, 인턴십)](https://blog.naver.com/grace915/223380297408)
+- [[2023 상반기] 한화시스템/ICT 서류, 코딩테스트, 1차, 2차면접 후기](https://didu-story.tistory.com/448)
+- [[한화시스템] 2023년 하반기 한화시스템 ICT 서비스 개발 후기 (서류, AI, 인성, 코딩테스트, 면접)](https://0m1n.tistory.com/152)
+- [우당탕탕 한화시스템 서류/면접기](https://velog.io/@charming-l/%EC%9A%B0%EB%8B%B9%ED%83%95%ED%83%95-%ED%95%9C%ED%99%94%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%9C%EB%A5%98%EB%A9%B4%EC%A0%91-%EB%AA%A8%ED%97%98)
+- [한화그룹 상반기 공채 대비 면접후기·기출문제 | 캐치](https://www.catch.co.kr/News/RecruitNews/296857)
+- [한화시스템 합격 후기: 자소서 팁, 인적성, 면접 질문까지](https://jasoseol.com/blog/post/%ED%95%9C%ED%99%94%EC%8B%9C%EC%8A%A4%ED%85%9C-%ED%95%A9%EA%B2%A9-%ED%9B%84%EA%B8%B0-%EC%9E%90%EC%86%8C%EC%84%9C-%ED%8C%81-%EC%9D%B8%EC%A0%81%EC%84%B1-%EB%A9%B4%EC%A0%91-%EC%A7%88%EB%AC%B8%EA%B9%8C/)

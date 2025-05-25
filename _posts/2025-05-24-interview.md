@@ -876,6 +876,124 @@ React와 Next.js를 사용한 웹 개발 경험이 있으며, TypeScript를 기�
 이처럼 일방적인 거절이 아니라, 함께 해결책을 고민하는 자세가 중요하다고 생각합니다.</p></blockquote>
 </details>
 
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#71</code> 상사가 부당한 지시를 내릴 경우 어떻게 대처하실 건가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+지원자의 <b>조직 적응 능력과 문제 해결 능력, 의사 소통 능력</b> 등을 묻는 질문입니다. 답변 시 다음을 고려하면 좋습니다. <br />
+<br />
+1. 서로 간의 경험 및 능력을 고려하고, 무조건적으로 지시를 따르는 것은 지양해야 하는 행위입니다. <br />
+2. 부당한 지시의 상황에 대해 보다 구체적으로 제시되기도 하는 질문입니다. 조직생활에서 나의 업무에 지시권을 가지고 있고, 때로는 인사에 영향력을 미칠 수 있는 상사의 지시에 문제를 느낄 경우 지원자 대응은 어려울 수 밖에 없습니다. 하지만 개인에 따라 부당함의 기준이 주관적일 수 있고, 실제 직장생활에서 겪게 될 수 있는 상황인 만큼 현실적인 답변을 하도록 합니다. <br />
+</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+상사가 부당한 지시를 내리는 경우 조금 당황스러울 것 같습니다. 일단 제 상사이므로 업무 시간에 자주 볼 사이이기 때문에 서로 간의 심한 갈등이 생기지 않는 선에서 융통성을 발휘하여 따를 필요가 있다고 생각합니다. 만약 상사께서 내린 지시가 사소한 일이거나 큰 문제를 일으키지 않는 정도의 일이라면 융통성을 발휘하여 지시에 따르도록 하겠습니다. 하지만 해당 지시가 외부에 알려지면 회사의 이미지를 떨어뜨릴 정도로 큰 문제를 일으키는 일이거나 법적으로 문제가 있을 소지가 있을 일이라면 그대로 따르지 않고 상사를 설득할 필요도 있다고 생각합니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#72</code> 회사를 고르는 기준은 무엇인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+<b>지원자의 가치관</b>과 <b>직업 선택 기준</b>을 파악하고, 그것이 <b>자사와 얼마나 부합하는지</b> 평가하는 질문입니다. 또한 <b>입사 후 장기적인 근무 가능성</b>이나 <b>회사에 대한 관심도</b>를 엿보려는 의도도 포함됩니다. 답변 시 회사에 대해 <b>조사한 내용</b>을 바탕으로 <b>본인의 가치관 또는 커리어 방향</b>과 연결 지으면 좋습니다. 단, <b>막연하게 연봉 또는 복지만 언급하는 것은 피해야 합니다.</b></p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 회사를 고를 때 <b>저의 성향과 회사의 가치관이 잘 맞는지</b>를 고려합니다. <br />
+저는 <b>지속적인 성장 가능성</b>을 중요하게 생각합니다. 개인의 성장 뿐만 아니라 회사 구성원 모두가 함께 배우고 성장할 수 있는 조직 문화를 중요하게 생각합니다. 그런 점에서 귀사의 과거의 성과에 안주하지 않고 미래를 선제적으로 대비하고 발전하고자 하는 회사의 가치관에 매력을 느꼈습니다. 이러한 가치관이 제 성향과 잘 맞기 때문에, 귀사를 선택하게 된 중요한 이유가 되었습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#73</code> 왜 프론트엔드를 희망했나요? (=프론트엔드 직무에 관심을 갖게 된 계기가 무엇인가요?)</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+지원자가 <b>단순히 외적인 이유가 아닌, 본인의 경험과 고민을 바탕으로 선택했는지, 프론트엔드가 어떤 역할을 하는지 알고 지원했는지, 성향이나 기술적 역량이 프론트엔드와 잘 맞는지</b> 확인하기 위한 질문입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 <b>사용자가 직접 사용하는 결과물을 만들어가는 과정에 큰 매력</b>을 느껴서 프론트엔드를 선택하게 되었습니다. <br />
+팀 프로젝트에서 프론트엔드 개발을 맡으며, <b>사용자의 반응과 피드백을 바로 확인할 수 있다는 점이 특히 매력적</b>이었습니다. 그 경험을 통해 <b>사용자 경험(UX)에 대한 관심</b>을 갖게 되었고, 특히 <b>사용자 친화적인 UI/UX를 설계하고 구현하는 일</b>이 저에게 잘 맞는다고 느꼈습니다. <br />
+<b>사용자 입장에서 사용하기 쉬운 서비스를 개발하고 싶다는 방향성</b>이 생기면서, 자연스럽게 프론트엔드 개발자를 지망하게 되었습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#74</code> 동아리 활동을 한 적이 있나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+단순히 이력 확인이 아니라, <b>지원자의 협업 능력, 열정, 주도성, 대인관계</b> 등을 파악하기 위한 질문입니다. 면접관은 이 질문을 통해 지원자의 <b>대인관계 및 협업 능력, 주도성과 적극성, 관심사와 열정, 문제 해결 경험</b>을 평가하고자 합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 대학 시절 <b>체스 연합 동아리 활동</b>을 했습니다. 다양한 학교의 학생들과 교류하며 체스를 즐기면서, 서로 다른 성향을 이해하려 노력했습니다. 특히 동아리를 대표해서 팀을 구성해 K-체스 리그에 참가하면서 서로 협력하려고 노력했고, 팀 동료에게 유용한 정보를 제공하면서 우호적이고 서로 신뢰할 수 있는 관계를 형성할 수 있었습니다. <br />
+이런 경험 덕분에 <b>새로운 환경에서도 빠르게 적응하고, 타인과 원만한 관계를 형성</b>하는 데 자신이 있습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#75</code> 본인은 과정과 결과 중 어느 것을 중시하나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+겉보기엔 단순 선택처럼 보이지만, 실제로는 <b>업무에 대한 태도, 과정 중심인지 결과 중심인지, 팀워크와 책임감의 균형감각</b> 등을 평가하려는 질문입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 과정과 결과 모두 중요하다고 생각하지만, <b>결과를 조금 더 중시하는 편</b>입니다. <br />
+<b>업무는 결국 결과로 평가되는 영역</b>이고, <b>좋은 결과는 철저한 과정을 바탕으로 이루어진다</b>고 생각하기 때문입니다. 특히 프론트엔드 직무는 <b>사용자와 맞닿는 부분</b>인 만큼, 사용자 입장에서는 개발 과정보다는 <b>눈에 보이는 결과물과 사용자 경험이 더 중요</b>하게 느껴질 수 밖에 없습니다. 그래서 저는 항상 <b>우선순위와 마감일을 고려해 계획을 세우고 실행하려고 좋은 결과물을 만들어내고자 노력</b>하고 있습니다. </p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#76</code> 돈과 명예 중 어느 것을 중시하나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 <b>지원자의 가치관, 업무 태도, 조직 적합도</b>를 파악하기 위한 질문입니다. 면접관은 <b>지원자가 어떤 기준으로 동기를 부여 받고 일을 지속하는지, 보상 중심인지, 아니면 책임과 평판 중심인지, 조직 문화와 개인 가치가 맞는지</b>를 파악하고자 합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 돈과 명예 모두 중요하다고 생각하지만, <b>명예를 조금 더 중시하는 편</b>입니다. <br />
+저에게 있어서 명예는 단순한 평판을 넘어서, <b>자신이 맡은 일에 대한 책임과 신뢰를 의미</b>합니다. 특히 <b>주어진 업무에 대해 책임감 있게 수행하고 성과를 내다보면 보상도 자연스럽게 따라온다</b>고 믿습니다. 이를 위해 저는 어떤 일을 하더라도 <b>결과에 책임을 지고, 타인의 신뢰를 얻는 것을 우선시</b>하며 일하려고 노력합니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#77</code> 인턴 후 정규직 전환에 자신이 있나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+단순히 자신감을 묻는 것이 아니라, 지원자의 <b>자신감과 주도성, 목표 의식, 학습 태도 및 적응력, 실질적인 기여 가능성</b>을 평가하기 위한 질문입니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+네, 저는 <b>정규직 전환에 자신이 있습니다.</b> <br />
+인턴 기간은 단순히 배우는 시간을 넘어, <b>팀에 기여할 수 있는 첫 번째 기회</b>라고 생각합니다. 저는 입사 후 <b>주어진 업무에 빠르게 적응하고 회사의 개발 문화와 프로세스를 이해</b>하는 데 집중하여 <b>팀에 기여</b>할 수 있도록 노력하겠습니다. 특히 인턴 기간 동안 부족한 부분은 스스로 학습하고, <b>책임감 있게 과제를 수행</b>함으로써 <b>정규직 전환에 걸맞는 성과와 태도</b>를 보여드리고 싶습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#78</code> 
+A라는 사실에 대해 모두가 B라고 말하면 어떻게 할 것인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+이 질문은 <b>일종의 상황 판단력, 비판적 사고 능력</b>, 그리고 <b>조직 내 소통 태도</b>를 확인하는 질문입니다. 면접관은 지원자가 <b>다수의 의견에 휩쓸리지 않고 스스로 판단할 수 있는지, 자신의 의견이 소수일 때 어떻게 대응하는지, 다름을 존중하면서 자신의 의견을 전달할 수 있는지, 필요할 때 자신의 생각을 조정하거나 타협할 수 있는지</b>를 평가하고자 합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+저는 팀 안에서 <b>의견이 다를 수 있다는 것은 자연스러운 일</b>이라고 생각합니다. <br />
+모두가 B라고 말하더라도, 제가 A라고 판단했다면 감정적으로 대응하지 않고 <b>상대방의 의견을 경청한 후 제 생각을 표현</b>하겠습니다. 만약 상황에 따라 B로 결정해야 한다면 <b>타협</b>할 줄도 알아야 한다고 생각합니다. <br />
+중요한 것은 <b>제 의견을 고집하는 것이 아니라, 타인의 의견을 존중하고 팀 전체에 도움이 되는 방향으로 소통하고 결정하는 것</b>이라고 생각합니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#79</code> 대학 시절 가장 노력했던 것은 무엇이었나요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+단순한 과거 경험을 묻는 것이 아니라, <b>지원자의 열정, 목표 설정, 실행력, 문제 해결 태도</b>를 파악하려는 질문입니다. 면접관은 지원자가 <b>자기주도적 경험이 있는지, 어떤 목표를 세우고 어떻게 노력했는지, 과정을 통해 무엇을 배우고 성장했는지, 입사 후에도 꾸준히 노력하고 성장할 사람</b>인지 평가하고자 합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+대학 시절 가장 열심히 노력한 것은 <b>프론트엔드 개발 역량을 키우기 위한 프로젝트 활동</b>입니다. <br />
+처음에는 React를 혼자 공부하며 간단한 토이 프로젝트를 수행했고, 이후에는 팀 프로젝트에서 프론트엔드를 맡아 <b>기획부터 개발, 문서 작업까지 모든 과정에 참여</b>하였습니다. 특히 디자이너와 백엔드 팀원들과 <b>요구사항을 조율하고 문제를 함께 해결해 나갔던 경험</b>이 가장 기억에 남습니다. <br />
+이 경험을 바탕으로 회사에 입사한 후에도 <b>팀원들과 적극적으로 소통하고 협업하여 팀에 기여</b>하고 싶습니다.</p></blockquote>
+</details>
+
+<details>
+<summary><code class="language-plaintext highlighter-rouge">#80</code> 대인 관계에서 본인이 노력한 것이나 자신 있는 점은 무엇인가요?</summary>
+
+<blockquote class="prompt-tip"><p><strong><u>답변 Tip</u></strong><br>
+지원자의 <b>소통 능력, 갈등 해결 방식, 팀워크 역량</b> 등을 파악하기 위한 질문입니다. 이는 특히 협업이 중요한 직무(Ex. 프론트엔드, 기획, 마케팅 등)에서 자주 나오는 질문입니다. 면접관은 지원자가 <b>원만한 인간관계를 형성할 수 있는 사람인지, 팀 내 갈등 상황에서 어떻게 대처하는지, 의사소통 및 협업 능력이 있는지</b>를 평가하고자 합니다.</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Answer</u></strong><br>
+<b>저는 처음 만난 사람들과 소통하고자 노력했고, 원만한 관계를 형성하는 데 자신이 있습니다.</b> <br />
+저는 대학 시절 <b>체스 연합 동아리 활동</b>을 했습니다. 다양한 학교의 학생들과 교류하며 서로 다른 성향을 이해하려 노력했습니다. 특히 동아리를 대표해서 팀을 구성해 K-체스 리그에 참가하면서 서로 협력하려고 노력했고, 팀 동료에게 유용한 정보를 제공하면서 우호적이고 서로 신뢰할 수 있는 관계를 형성할 수 있었습니다. <br />
+이런 경험 덕분에 <b>새로운 환경에서도 빠르게 적응하고, 타인과 원만한 관계를 형성</b>하는 데 자신이 있습니다.</p></blockquote>
+</details>
+
 #################################################################################################################################################
 
 <details>

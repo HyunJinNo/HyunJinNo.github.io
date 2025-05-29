@@ -186,7 +186,7 @@ npx tailwindcss init
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   presets: [],
   theme: {
     extend: {}
@@ -194,6 +194,8 @@ module.exports = {
   plugins: []
 };
 ```
+
+위와 같이 생성된 `tailwind.config.js` 파일에서 content 부분에 src 폴더를 지정합니다.
 
 이후 `VSCode`에서 `F1` 을 누른 후 `Preferences: Open User Settings (JSON)` 항목을 선택해 `settings.json` 파일을 엽니다. 이후 해당 파일에서 다음 코드를 추가합니다.
 
@@ -219,7 +221,7 @@ module.exports = {
 
 다음과 같이 `twrnc` 라이브러리를 임포트한 후 Tailwind CSS를 사용할 수 있습니다.
 
-```typescript
+```tsx
 /* App.tsx */
 
 /**
@@ -281,7 +283,7 @@ export default tw;
 
 마지막으로 방금 생성한 `tw` 함수를 사용하면 됩니다.
 
-```typescript
+```tsx
 /* App.tsx */
 
 /**
@@ -302,11 +304,11 @@ export default App;
 
 ## prettier-plugin-tailwindcss 설정하기
 
-`prettier-plugin-tailwindcss`를 적용하기 위해선 `Prettier` 버전이 `v3` 이상이어야 합니다. 또한 `ESM`만 사용할 수 있다는 점을 주의합니다.
+<b>`prettier-plugin-tailwindcss`를 적용하기 위해선 `Prettier` 버전이 `v3` 이상이어야 합니다. 또한 `ESM`만 사용할 수 있다는 점을 주의합니다.</b>
 
 ### 패키지 설치하기
 
-먼저 다음 명령어를 입력하여 `Prettier`와 `prettier-plugin-tailwindcss` 패키지를 설치합니다. 만약 v2 버전의 prettier가 설치되어 있는 경우 해당 패키지를 삭제해야 합니다.
+먼저 다음 명령어를 입력하여 `Prettier`와 `prettier-plugin-tailwindcss` 패키지를 설치합니다. 만약 <b>v2 버전의 prettier가 설치되어 있는 경우 해당 패키지를 삭제</b>해야 합니다.
 
 ```bash
 npm install --save-dev prettier prettier-plugin-tailwindcss

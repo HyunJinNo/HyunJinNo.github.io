@@ -1,7 +1,7 @@
 ---
 title: React Navigation 설정 방법
-description: React Native 프로젝트에 React Navigation 설정 방법에 대해 정리한 페이지입니다.
-date: 2024-12-13 00:00:00 +/-TTTT
+description: React Native 프로젝트에서 React Navigation 설정 방법에 대해 정리한 페이지입니다.
+date: 2025-05-29 10:30:00 +/-TTTT
 categories: [Front-end]
 tags: [mobile, react-native, react-navigation, typescript]
 math: true
@@ -27,7 +27,7 @@ react-native-screens v4.11.0 <br />
 
 ## 개요
 
-React Native 프로젝트에 React Navigation 설정 방법에 대해 정리한 페이지입니다. <b>`React Native CLI`로 프로젝트를 시작하였으며 Android 플랫폼을 기준으로 설명합니다.</b>
+React Native 프로젝트에서 React Navigation 설정 방법에 대해 정리한 페이지입니다. <b>`React Native CLI`로 프로젝트를 생성하였으며 Android 플랫폼을 기준으로 설명합니다.</b>
 
 ## Step 1 - 패키지 설치하기
 
@@ -247,6 +247,12 @@ export const App = () => {
   return <Navigation />;
 };
 ```
+
+## Step 7 - React Navigation 설정 예시
+
+React Navigation을 설정한 예시는 다음과 같습니다.
+
+<img src="/assets/img/front-end/react-navigation/pic1.webp" alt="React Navigation 설정 예시" />
 
 ## 참고 자료
 

@@ -42,8 +42,6 @@ npm install react-native-splash-screen
 이미지를 추가한 후 `android/app/src/main/res` 폴더에 `layout 폴더`를 생성한 후 해당 폴더에 `launch_screen.xml` 파일을 생성한 후 다음과 같이 작성합니다. `android:background="#00B488"`처럼 원하는 배경색을 지정하는 등 커스텀하면 됩니다. 또한 `android:src="@drawable/solitour_logo"`처럼 `drawable` 폴더에 추가한 이미지를 등록하면 됩니다. 예를 들어 `splash_logo.png`를 추가하였을 경우 `@drawable/splash_logo`처럼 지정하면 됩니다.
 
 ```xml
-<!-- launch_screen.xml -->
-
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"

@@ -64,17 +64,17 @@ Template을 생성하기 전에 먼저 다음과 같이 GitHub Repository에서 
 
 ## ✔️ PR 유형
 
-- [ ] Chore: 빌드 부분 혹은 패키지 매니저 수정
-- [ ] Comment: 주석 관련 작업
-- [ ] Design: CSS 등 사용자 UI 디자인 변경
-- [ ] Docs: 문서 관련 작업
-- [ ] Feat: 새로운 기능 추가
-- [ ] Fix: 버그 수정
-- [ ] Refactor: 기존 기능에 영향을 주지 않는 변경사항 (Ex. 오타 수정, 탭 사이즈 변경, 변수명 변경, 코드 리팩토링 등)
-- [ ] Release: 배포 관련 작업
-- [ ] Remove: 파일 혹은 폴더 삭제
-- [ ] Rename: 파일 혹은 폴더명 수정
-- [ ] Test: 테스트 추가 혹은 테스트 리팩토링
+- [ ] Chore: 빌드 설정, 의존성 업데이트 등의 사소한 작업을 수행한 경우
+- [ ] Comment: 주석을 작성하거나 변경한 경우
+- [ ] Design: UI 관련 작업을 수행한 경우
+- [ ] Docs: 문서를 추가하거나, 삭제, 또는 변경한 경우
+- [ ] Feat: 새로운 기능을 추가한 경우
+- [ ] Fix: 버그를 고친 경우
+- [ ] Refactor: 기능 변경 없이 코드 리팩토링을 수행한 경우
+- [ ] Release: 배포를 수행한 경우
+- [ ] Remove: 파일 또는 폴더를 삭제한 경우
+- [ ] Rename: 파일 또는 폴더 명을 수정하거나 파일을 옮기는 작업을 수행한 경우
+- [ ] Test: 테스트를 추가하거나 테스트 리팩토링을 수행한 경우
 
 ## 📝 작업 내용
 
@@ -110,7 +110,11 @@ Ex. close #123
 
 PR Template을 사용하여 생성한 PR 예시는 다음과 같습니다.
 
-<img src="/assets/img/etc/github-template/pic3.avif" alt="pic3" >
+<img src="/assets/img/etc/github-template/pic3.avif" alt="PR 예시 1" >
+
+<img src="/assets/img/etc/github-template/pic13.avif" alt="PR 예시 2" >
+
+<img src="/assets/img/etc/github-template/pic14.avif" alt="PR 예시 3" >
 
 ## Issue Template 생성하기
 

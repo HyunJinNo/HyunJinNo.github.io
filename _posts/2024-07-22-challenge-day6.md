@@ -81,7 +81,7 @@ class Example extends SuperClass {
 
 ```typescript
 class Example implements IExample {
-  (...생략)
+  /* ... */
 }
 ```
 
@@ -114,7 +114,7 @@ interface Example {
 
 ```typescript
 abstract class Example {
-  (...생략)
+  /* ... */
 
   abstract work(): void;
 }

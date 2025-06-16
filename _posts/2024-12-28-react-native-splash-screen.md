@@ -62,13 +62,13 @@ npm install react-native-splash-screen
 스플래시 화면을 생성한 후 `android/app/src/main/java/com/[프로젝트 명]/MainActivity.kt`을 열고 다음 코드를 추가합니다.
 
 ```kotlin
-(...)
+/* ... */
 
 import android.os.Bundle
 import org.devio.rn.splashscreen.SplashScreen
 
 class MainActivity : ReactActivity() {
-  (...)
+  /* ... */
 
   override fun onCreate(savedInstanceState: Bundle?) {
     SplashScreen.show(this)
@@ -86,14 +86,14 @@ class MainActivity : ReactActivity() {
 import React, { useEffect } from "react";
 import SplashScreen from "react-native-splash-screen";
 
-(...)
+/* ... */
 
 export const App = () => {
   useEffect(() => {
     SplashScreen.hide();
   }, []);
 
-  (...)
+  /* ... */
 };
 ```
 

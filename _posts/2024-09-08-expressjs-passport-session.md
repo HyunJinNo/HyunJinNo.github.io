@@ -62,12 +62,11 @@ npm install passport passport-local express-session bcrypt mysql2
 다음과 같이 `app.js`에 패스포트와 세션 설정 코드를 추가합니다.
 
 ```javascript
-(...)
+/* ... */
 
 import session from "express-session";
 
-(...)
-
+/* ... */
 
 // 세션 설정
 app.use(
@@ -75,7 +74,7 @@ app.use(
     secret: process.env.SESSION_SECRET, // 세션 암호화에 사용되는 키
     resave: false, // 세션을 항상 저장할 지 여부
     saveUninitialized: false, // 세션이 저장되기 전에는 초기화되지 않은 상태로 세션을 미리 만들어 저장
-    cookie: { maxAge: 1000 * 60 * 60, httpOnly: true }, // 쿠키 유효기간: 1시간
+    cookie: { maxAge: 1000 * 60 * 60, httpOnly: true } // 쿠키 유효기간: 1시간
   })
 );
 
@@ -83,7 +82,7 @@ app.use(
 app.use(passport.initialize()); // req에 passport 요청을 심음
 app.use(passport.session()); // req.session 객체에 passport정보를 추가 저장
 
-(...)
+/* ... */
 ```
 
 위의 코드를 설명하자면 다음과 같습니다.

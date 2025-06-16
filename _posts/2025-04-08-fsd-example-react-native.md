@@ -266,7 +266,7 @@ export async function createDiary(data: DiaryCreateRequest) {
   return response.text();
 }
 
-(...생략)
+/* ... */
 ```
 
 만약 DTO를 다른 파일에서도 참조하는 경우에는 다음과 같이 `model` 세그먼트에 타입을 정의하고 이를 import하는 방식을 적용하였습니다.
@@ -436,7 +436,7 @@ export const DiaryCard = ({ children, diary }: DiaryCardProps) => {
     );
   }
 
-  (...생략)
+  /* ... */
 };
 ```
 

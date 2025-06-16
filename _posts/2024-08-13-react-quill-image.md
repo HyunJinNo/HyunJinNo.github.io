@@ -85,13 +85,13 @@ const imageHandler = () => {
         // 이미지가 DOM에 추가된 후 이미지에 스타일을 적용하기 위해 setTimeout 사용합니다.
         setTimeout(() => {
           const imageElement = document.querySelector(
-            `img[src="${response.fileUrl}"]`,
+            `img[src="${response.fileUrl}"]`
           );
           if (imageElement) {
             (imageElement as HTMLElement).style.borderRadius = "1rem";
             formContext.setValue(
               "contents",
-              quillRef.current!.getEditorContents().toString(),
+              quillRef.current!.getEditorContents().toString()
             );
           }
 
@@ -164,7 +164,7 @@ const imageHandler = () => {
     editor.insertEmbed(range.index, "image", url);
     editor.setSelection(range.index + 1, 0);
 
-    (...)
+    /* ... */
   }
   ```
 
@@ -176,13 +176,13 @@ const imageHandler = () => {
   // 이미지가 DOM에 추가된 후 이미지에 스타일을 적용하기 위해 setTimeout 사용합니다.
   setTimeout(() => {
     const imageElement = document.querySelector(
-      `img[src="${response.fileUrl}"]`,
+      `img[src="${response.fileUrl}"]`
     );
     if (imageElement) {
       (imageElement as HTMLElement).style.borderRadius = "1rem";
       formContext.setValue(
         "contents",
-        quillRef.current!.getEditorContents().toString(),
+        quillRef.current!.getEditorContents().toString()
       );
     }
 
@@ -236,13 +236,13 @@ const imageDropAndPasteHandler = async (
     // 이미지가 DOM에 추가된 후 이미지에 스타일을 적용하기 위해 setTimeout 사용합니다.
     setTimeout(() => {
       const imageElement = document.querySelector(
-        `img[src="${response.fileUrl}"]`,
+        `img[src="${response.fileUrl}"]`
       );
       if (imageElement) {
         (imageElement as HTMLElement).style.borderRadius = "1rem";
         formContext.setValue(
           "contents",
-          quillRef.current!.getEditorContents().toString(),
+          quillRef.current!.getEditorContents().toString()
         );
       }
 
@@ -365,13 +365,13 @@ const QuillEditorContainer = () => {
           // 이미지가 DOM에 추가된 후 이미지에 스타일을 적용하기 위해 setTimeout 사용합니다.
           setTimeout(() => {
             const imageElement = document.querySelector(
-              `img[src="${response.fileUrl}"]`,
+              `img[src="${response.fileUrl}"]`
             );
             if (imageElement) {
               (imageElement as HTMLElement).style.borderRadius = "1rem";
               formContext.setValue(
                 "contents",
-                quillRef.current!.getEditorContents().toString(),
+                quillRef.current!.getEditorContents().toString()
               );
             }
 
@@ -421,13 +421,13 @@ const QuillEditorContainer = () => {
       // 이미지가 DOM에 추가된 후 이미지에 스타일을 적용하기 위해 setTimeout 사용합니다.
       setTimeout(() => {
         const imageElement = document.querySelector(
-          `img[src="${response.fileUrl}"]`,
+          `img[src="${response.fileUrl}"]`
         );
         if (imageElement) {
           (imageElement as HTMLElement).style.borderRadius = "1rem";
           formContext.setValue(
             "contents",
-            quillRef.current!.getEditorContents().toString(),
+            quillRef.current!.getEditorContents().toString()
           );
         }
 
@@ -523,7 +523,7 @@ export default QuillEditor;
 다음과 같이 Quill 에디터를 사용하는 컴포넌트를 동적 임포트합니다.
 
 ```typescript
-(...)
+/* ... */
 
 import dynamic from "next/dynamic";
 import QuillEditorSkeleton from "@/components/skeleton/diary/write/QuillEditorSkeleton";
@@ -532,11 +532,11 @@ const QuillEditorContainer = dynamic(
   () => import("@/containers/diary/write/QuillEditorContainer"),
   {
     ssr: false,
-    loading: () => <QuillEditorSkeleton />,
+    loading: () => <QuillEditorSkeleton />
   }
 );
 
-(...)
+/* ... */
 ```
 
 ## Step 8 - 테스트 결과

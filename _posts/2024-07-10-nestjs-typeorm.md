@@ -94,13 +94,13 @@ ConfigModule은 환경 설정에 특화된 기능을 하는 모듈입니다. `@n
 ```typescript
 /* src/app.module.ts */
 
-(...)
+/* ... */
 
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ConfigModule } from '@nestjs/config';
-import config from './configs/config';
+import { Module } from "@nestjs/common";
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { ConfigModule } from "@nestjs/config";
+import config from "./configs/config";
 
 // 모듈 데코레이터
 @Module({
@@ -110,14 +110,13 @@ import config from './configs/config';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      cache: true, // 캐시하기, ConfigService의 get() 함수를 사용할 때 캐시에서 먼저 불러오게 되므로 성능상의 이점이 있음.
-    }),
+      cache: true // 캐시하기, ConfigService의 get() 함수를 사용할 때 캐시에서 먼저 불러오게 되므로 성능상의 이점이 있음.
+    })
 
-    (...)
-
+    /* ... */
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {}
 ```
@@ -185,19 +184,17 @@ export class User {
 `app.module.ts` 파일에서 다음과 같이 데이터베이스를 설정합니다.
 
 ```typescript
-(...)
+/* ... */
 
-import { TypeOrmModule } from '@nestjs/typeorm';
-
+import { TypeOrmModule } from "@nestjs/typeorm";
 
 // 모듈 데코레이터
 @Module({
   imports: [
-
-    (...)
+    /* ... */
 
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: "mysql",
       host: process.env.DB_HOST,
       port: Number(process.env.DB_PORT),
       username: process.env.DB_USERNAME,
@@ -206,12 +203,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [User],
       synchronize: true,
       logging: true,
-      dropSchema: false,
+      dropSchema: false
     }),
-    UserModule,
+    UserModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {}
 ```

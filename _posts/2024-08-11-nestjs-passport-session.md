@@ -62,7 +62,7 @@ npm install --save-dev @types/passport-local @types/express-session
 다음과 같이 `main.ts`에 패스포트와 세션 설정 코드를 추가합니다.
 
 ```typescript
-(...)
+/* ... */
 
 import * as session from "express-session";
 import * as passport from "passport";
@@ -70,8 +70,7 @@ import * as passport from "passport";
 // NestJS를 실행시키는 함수
 // NestJS에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
 async function bootstrap() {
-
-  (...)
+  /* ... */
 
   // 세션 사용
   app.use(
@@ -79,7 +78,7 @@ async function bootstrap() {
       secret: "very-important-secret", // 세션 암호화에 사용되는 키
       resave: false, // 세션을 항상 저장할 지 여부
       saveUninitialized: false, // 세션이 저장되기 전에는 초기화되지 않은 상태로 세션을 미리 만들어 저장
-      cookie: { maxAge: 1000 * 60 * 60 }, // 쿠키 유효기간: 1시간
+      cookie: { maxAge: 1000 * 60 * 60 } // 쿠키 유효기간: 1시간
     })
   );
 
@@ -87,7 +86,7 @@ async function bootstrap() {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  (...)
+  /* ... */
 }
 
 bootstrap();
@@ -277,7 +276,7 @@ export class AuthModule {}
 ```typescript
 // auth.controller.ts
 
-  (...)
+  /* ... */
 
   @UseGuards(LocalAuthGuard)
   @Post('login3')
@@ -291,5 +290,5 @@ export class AuthModule {}
     return req.user;
   }
 
-  (...)
+  /* ... */
 ```

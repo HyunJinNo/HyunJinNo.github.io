@@ -39,19 +39,19 @@ npm install cookie-parser @types/cookie-parser
 ```typescript
 // main.ts
 
-(...)
+/* ... */
 
 import * as cookieParser from "cookie-parser";
 
 // NestJS를 실행시키는 함수
 // NestJS에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
 async function bootstrap() {
-  (...)
+  /* ... */
 
   // cookie-parser 설정
   app.use(cookieParser());
 
-  (...)
+  /* ... */
 }
 
 bootstrap();
@@ -116,7 +116,7 @@ export class LoginGuard implements CanActivate {
 ```typescript
 // auth.controller.ts
 
-(...)
+/* ... */
 
 @UseGuards(LoginGuard) // LoginGuard 사용
 @Post('login2')
@@ -140,5 +140,5 @@ testGuard() {
   return '로그인된 때만 이 글이 보입니다.';
 }
 
-(...)
+/* ... */
 ```

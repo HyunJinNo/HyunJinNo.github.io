@@ -68,13 +68,12 @@ import { ValidationPipe } from "@nestjs/common";
 // NestJS를 실행시키는 함수
 // NestJS에서는 진입점을 bootstrap()으로 이름 짓는 것이 관례이다.
 async function bootstrap() {
-
-  (...)
+  /* ... */
 
   // 전역 파이프에 validationPipe 객체 추가
   app.useGlobalPipes(new ValidationPipe());
 
-  (...)
+  /* ... */
 }
 
 bootstrap();

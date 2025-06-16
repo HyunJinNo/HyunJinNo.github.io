@@ -46,10 +46,10 @@ React의 `createPortal`을 사용하면 컴포넌트 트리 구조와 상관없�
 ```tsx
 /* @/app/layout.tsx */
 
-(...생략)
+/* ... */
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -97,7 +97,7 @@ export const useModal = () => {
   return {
     isOpen,
     openModal,
-    closeModal,
+    closeModal
   };
 };
 ```
@@ -109,13 +109,13 @@ export const useModal = () => {
 ```typescript
 /* @/shared/lib/hooks/useModalBackHandler.ts */
 
-"use client"
+"use client";
 
 import { useEffect } from "react";
 
 export const useModalBackHandler = (
   isOpen: boolean,
-  closeModal: () => void,
+  closeModal: () => void
 ) => {
   useEffect(() => {
     if (isOpen) {
@@ -220,7 +220,7 @@ export const Modal = ({ children, isOpen, closeModal }: ModalProps) => {
     >
       {children}
     </div>,
-    document.getElementById("modal-root")!,
+    document.getElementById("modal-root")!
   );
 };
 ```
@@ -285,7 +285,7 @@ return createPortal(
   >
     {children}
   </div>,
-  document.getElementById("modal-root")!,
+  document.getElementById("modal-root")!
 );
 ```
 
@@ -302,7 +302,6 @@ return createPortal(
 <img src="/assets/img/front-end/createportal-modal/pic4.avif" alt="ModalTemplate.tsx">
 
 제가 진행한 프로젝트에서는 모달 창을 닫기 위해 X 버튼이 반복적으로 사용되며, 모달 창의 스타일 역시 재사용됩니다. 따라서 다음과 같이 재사용할 수 있는 ModalTemplate 컴포넌트를 구현하였습니다. X 버튼을 클릭했을 때 history를 제거할 수 있도록 `window.history.back();`을 추가하였습니다.
-
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
 X 모양의 아이콘을 사용하기 위해 <a href="https://react-icons.github.io/react-icons/" target="_blank">react-icons</a> 라이브러리를 사용하였습니다.</p></blockquote>
@@ -324,13 +323,13 @@ interface ModalTemplateProps {
 export const ModalTemplate = ({
   className,
   children,
-  closeModal,
+  closeModal
 }: ModalTemplateProps) => {
   return (
     <section
       className={[
         "scrollbar-hide relative flex max-h-[calc(100vh-1rem)] flex-col items-center overflow-y-scroll rounded-2xl bg-white pt-16",
-        className,
+        className
       ].join(" ")}
     >
       <MdClose
@@ -369,7 +368,7 @@ interface MyPageAccountDeleteModalProps {
 
 export const MyPageAccountDeleteModal = ({
   userInfo,
-  closeModal,
+  closeModal
 }: MyPageAccountDeleteModalProps) => {
   const { userDeleteText, handleUserDeleteTextChange, handleDeleteClick } =
     useMyPageAccountDeleteModal(userInfo, closeModal);

@@ -87,7 +87,7 @@ npm install --save-dev @types/socket.io
 이번 글에서는 별도의 프론트엔드 프레임워크를 사용하지 않고 html 파일을 직접 작성하여 테스트할 예정입니다. `NestJS`에서 정적 파일을 서비스하는 방법은 [serve-static 패키지를 설치해서 서비스하는 방법](../nestjs-file-upload/#step-4---정적-파일-서비스하기)도 있지만, 이번 글에서는 설정이 간단하므로 `Express.js`를 사용하여 `static asset`을 설정하는 방법을 선택하겠습니다. 다음과 같이 `main.ts` 파일에 정적 파일 경로를 지정하면 됩니다.
 
 ```typescript
-(...)
+/* ... */
 
 import { NestFactory } from "@nestjs/core";
 import { NestExpressApplication } from "@nestjs/platform-express";
@@ -98,12 +98,12 @@ async function bootstrap() {
   // NestFactory를 사용해서 NestApplication 객체 생성
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  (...)
+  /* ... */
 
   // 정적 파일 경로 지정
   app.useStaticAssets(join(__dirname, "..", "static"));
 
-  (...)
+  /* ... */
 }
 
 bootstrap();
@@ -261,17 +261,17 @@ export class RoomGateway {
 게이트웨이를 사용하려면 모듈에 등록해야 합니다. 이 때 주의해야 할 점은 게이트웨이는 다른 클래스에 주입해서 사용할 수 있는 프로바이더라는 점입니다.
 
 ```typescript
-(...)
+/* ... */
 
 import { ChatGateway, RoomGateway } from "./app.gateway";
 
 // 모듈 데코레이터
 @Module({
   imports: [
-    (...)
+    /* ... */
   ],
   controllers: [AppController],
-  providers: [AppService, ChatGateway, RoomGateway],
+  providers: [AppService, ChatGateway, RoomGateway]
 })
 export class AppModule {}
 ```

@@ -228,15 +228,8 @@ return (
 위에서 언급한 ToastProvider 컴포넌트는 토스트 메시지를 사용할 컴포넌트들을 children으로 전달받습니다. setToastMessage 함수를 사용하면 ToastProvider 컴포넌트가 리렌더링되고, 자식 컴포넌트에 해당하는 children도 리렌더링됩니다. 따라서 <b>토스트 메시지를 출력할 때 불필요한 리렌더링을 방지하기 위해 다음과 같이 children에 해당하는 컴포넌트를 `React.memo`로 감쌉니다.</b>
 
 ```tsx
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RootStackParamList } from "./navigationTypes";
-import { BottomTabs } from "./BottomTabs";
-import { tw } from "@src/shared/lib/utils";
-import { HangulImageTranslationScreen } from "@src/pages/hangulImageTranslation";
-import { BrailleImageTranslationScreen } from "@src/pages/brailleImageTranslation";
-import { HangulCameraTranslationScreen } from "@src/pages/hangulCameraTranslation";
-import { BrailleCameraTranslationScreen } from "@src/pages/brailleCameraTranslation";
+/* ... */
+
 import { memo } from "react";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -245,39 +238,7 @@ export const NavigationComponent = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="BottomTabs">
-        <Stack.Screen
-          name="BottomTabs"
-          component={BottomTabs}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="BrailleCameraTranslation"
-          component={BrailleCameraTranslationScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="BrailleImageTranslation"
-          component={BrailleImageTranslationScreen}
-          options={{
-            title: "점자 이미지 번역",
-            headerTitleStyle: tw`text-lg`,
-            headerTransparent: true
-          }}
-        />
-        <Stack.Screen
-          name="HangulCameraTranslation"
-          component={HangulCameraTranslationScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="HangulImageTranslation"
-          component={HangulImageTranslationScreen}
-          options={{
-            title: "한글 이미지 번역",
-            headerTitleStyle: tw`text-lg`,
-            headerTransparent: true
-          }}
-        />
+        {/* ... */}
       </Stack.Navigator>
     </NavigationContainer>
   );

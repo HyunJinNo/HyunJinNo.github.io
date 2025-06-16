@@ -144,7 +144,7 @@ console.log(person.getName()); // "이름: 사람1"
 만약 메서드 오버라이딩이 이뤄진 상황에서 prototype에 있는 메서드에 접근하려면 다음과 같이 `__proto__` 프로퍼티와 `call` 또는 `apply` 메서드를 사용하면 됩니다.
 
 ```javascript
-(... 생략)
+/* ... */
 
 console.log(person.__proto__.getName.call(person)); // "사람1"
 ```

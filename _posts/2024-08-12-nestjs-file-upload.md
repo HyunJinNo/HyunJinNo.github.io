@@ -37,7 +37,7 @@ npm install --save-dev @types/multer
 ```typescript
 // app.controller.ts
 
-  (...)
+  /* ... */
 
   @Post('file-upload') // POST 메서드로 localhost:3000/file-upload 호출 시 동작
   @UseInterceptors(FileInterceptor('file', multerOptions)) // 파일 인터셉터
@@ -49,7 +49,7 @@ npm install --save-dev @types/multer
     return `${file.originalname} File Uploaded check http://localhost:3000/uploads/${file.filename}`;
   }
 
-  (...)
+  /* ... */
 ```
 
 위의 코드를 설명하자면 다음과 같습니다.
@@ -124,7 +124,7 @@ npm install @nestjs/serve-static
 ```typescript
 // app.module.ts
 
-(...)
+/* ... */
 
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { join } from "path";
@@ -132,19 +132,18 @@ import { join } from "path";
 // 모듈 데코레이터
 @Module({
   imports: [
-    (...)
+    /* ... */
 
     ServeStaticModule.forRoot({
       // 초기화 함수 실행
       rootPath: join(__dirname, "..", "uploads"), // 실제 파일이 있는 디렉토리 경로
-      serveRoot: "/uploads", // url 뒤에 붙을 경로를 지정
-    }),
+      serveRoot: "/uploads" // url 뒤에 붙을 경로를 지정
+    })
 
-    (...)
-
+    /* ... */
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {}
 ```

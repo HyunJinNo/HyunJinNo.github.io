@@ -49,7 +49,7 @@ npx @nestjs/cli new [프로젝트 이름]
 ```javascript
 rules: {
 
-  (...)
+  /* ... */
 
   'prettier/prettier': [
     'error',

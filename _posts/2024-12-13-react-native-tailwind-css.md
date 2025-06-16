@@ -139,7 +139,7 @@ module.exports = withNativeWind(
 
 import "./styles/globals.css";
 
-(...)
+/* ... */
 ```
 
 최종 폴더 구조는 다음과 같습니다.
@@ -203,8 +203,7 @@ module.exports = {
 /* settings.json */
 
 {
-
-  (...)
+  /* ... */
 
   "tailwindCSS.classAttributes": ["style"],
   "tailwindCSS.experimental.classRegex": [
@@ -212,8 +211,7 @@ module.exports = {
     ["tw.style\\(([^)]*)\\)", "'([^']*)'"]
   ]
 
-  (...)
-
+  /* ... */
 }
 ```
 
@@ -322,7 +320,7 @@ npm install --save-dev prettier prettier-plugin-tailwindcss
 /* .prettierrc */
 
 {
-  (...)
+  /* ... */
 
   "plugins": ["prettier-plugin-tailwindcss"],
   "tailwindFunctions": ["tw"]

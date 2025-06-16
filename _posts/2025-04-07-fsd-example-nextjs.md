@@ -94,7 +94,7 @@ import { getNewAccessToken } from "./getNewAccessToken";
 
 export async function fetchWithAuth(
   input: string | URL | globalThis.Request,
-  init?: RequestInit,
+  init?: RequestInit
 ) {
   const response = await fetch(input, init);
 
@@ -107,7 +107,7 @@ export async function fetchWithAuth(
 
     return await fetch(input, {
       ...init,
-      headers: { Cookie: `access_token=${accessToken}` },
+      headers: { Cookie: `access_token=${accessToken}` }
     });
   }
 
@@ -173,7 +173,7 @@ export const LOCATION = [
   "충북"
 ] as const;
 
-(...생략)
+/* ... */
 ```
 
 #### lib
@@ -342,7 +342,7 @@ export async function createDiary(data: DiaryCreateRequest) {
   return response.text();
 }
 
-(...생략)
+/* ... */
 ```
 
 만약 DTO를 다른 파일에서도 참조하는 경우에는 다음과 같이 `model` 세그먼트에 타입을 정의하고 이를 import하는 방식을 적용하였습니다.
@@ -363,8 +363,8 @@ export async function getUserInfo() {
     {
       method: "GET",
       headers: { Cookie: `${accessToken?.name}=${accessToken?.value}` },
-      cache: "no-store",
-    },
+      cache: "no-store"
+    }
   );
 
   if (!response.ok) {
@@ -603,11 +603,11 @@ export async function createInformationBookmark(informationId: number) {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        Cookie: `${accessToken?.name}=${accessToken?.value}`,
+        Cookie: `${accessToken?.name}=${accessToken?.value}`
       },
       body: data.toString(),
-      cache: "no-store",
-    },
+      cache: "no-store"
+    }
   );
 
   if (!response.ok) {
@@ -626,11 +626,11 @@ export async function deleteInformationBookmark(informationId: number) {
       method: "DELETE",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        Cookie: `${accessToken?.name}=${accessToken?.value}`,
+        Cookie: `${accessToken?.name}=${accessToken?.value}`
       },
       body: data.toString(),
-      cache: "no-store",
-    },
+      cache: "no-store"
+    }
   );
 
   if (!response.ok) {
@@ -804,8 +804,8 @@ export async function applyGathering(gatheringId: number) {
     {
       method: "POST",
       headers: { Cookie: `${accessToken?.name}=${accessToken?.value}` },
-      cache: "no-store",
-    },
+      cache: "no-store"
+    }
   );
 
   if (!response.ok) {
@@ -816,7 +816,7 @@ export async function applyGathering(gatheringId: number) {
 export async function updateGatheringApplicantStatus(
   gatheringStatus: "WAIT" | "CONSENT" | "REFUSE",
   userId: number,
-  gatheringId: number,
+  gatheringId: number
 ) {
   const accessToken = (await cookies()).get("access_token");
   const response = await fetchWithAuth(
@@ -825,14 +825,14 @@ export async function updateGatheringApplicantStatus(
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Cookie: `${accessToken?.name}=${accessToken?.value}`,
+        Cookie: `${accessToken?.name}=${accessToken?.value}`
       },
       body: JSON.stringify({
         userId,
-        gatheringStatus,
+        gatheringStatus
       }),
-      cache: "no-store",
-    },
+      cache: "no-store"
+    }
   );
 
   if (!response.ok) {
@@ -847,8 +847,8 @@ export async function cancelGathering(gatheringId: number) {
     {
       method: "DELETE",
       headers: { Cookie: `${accessToken?.name}=${accessToken?.value}` },
-      cache: "no-store",
-    },
+      cache: "no-store"
+    }
   );
 
   if (!response.ok) {
@@ -1013,7 +1013,7 @@ import { Header } from "@/widgets/header";
 import type { Metadata } from "next";
 import Script from "next/script";
 
-(...생략)
+/* ... */
 ```
 
 ## FSD 아키텍처 적용 후기

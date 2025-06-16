@@ -130,12 +130,12 @@ export default useModalBackHandler;
 위에서 생성한 커스텀 훅을 사용하면 뒤로가기 버튼을 클릭 시 열린 모달 창을 닫을 수 있습니다. 다음은 useModalBackHandler 커스텀 훅을 사용한 예시입니다.
 
 ```typescript
-(...)
+/* ... */
 
 const [modalVisible, setModalVisible] = useState<boolean>(false);
 useModalBackHandler(modalVisible, () => setModalVisible(false));
 
-(...)
+/* ... */
 ```
 
 위의 코드에서 `modalVisible`이 true이면, 모달 창이 열린 상태이며, false일 경우 모달 창이 닫힌 상태임을 나타냅니다. 또한 `() => setModalVisible(false)`는 모달 창을 닫는 함수입니다.
@@ -145,14 +145,14 @@ useModalBackHandler(modalVisible, () => setModalVisible(false));
 위에서 정의한 커스텀 훅은 모바일 또는 웹 브라우저에서 뒤로가기 버튼을 눌렀을 때, 모달 창이 열리면서 추가한 history를 제거합니다. 하지만 일반적으로 모달 창에는 모달 창을 닫을 수 있는 버튼을 제공하므로 해당 버튼을 클릭했을 때 history를 제거할 수 있어야 합니다. 따라서 `window.history.back()`을 추가하여 뒤로가기 버튼이 아닌 다른 방법으로 모달 창을 닫을 때 history를 제거할 수 있도록 합니다.
 
 ```typescript
-(...)
+/* ... */
 
 closeModal={() => {
   window.history.back();
   setModalVisible(false);
 }}
 
-(...)
+/* ... */
 ```
 
 ## 테스트 결과

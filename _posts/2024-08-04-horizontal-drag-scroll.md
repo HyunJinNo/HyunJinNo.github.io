@@ -61,10 +61,9 @@ export type DragScrollType = {
 다음과 같이 좌우 드래그 스크롤 기능을 제공하는 `useDragScroll.ts` 파일을 생성하고 상태를 관리하는 변수를 선언합니다.
 
 ```typescript
-
 import { MouseEvent, RefObject, TouchEvent, useRef, useState } from "react";
 
-(...)
+/* ... */
 
 export default function useDragScroll(): DragScrollType {
   const listRef = useRef<HTMLDivElement>(null);
@@ -75,7 +74,7 @@ export default function useDragScroll(): DragScrollType {
   // 드래그 시작 시점의 스크롤 포지션이 포함된 x축 좌표값
   const [totalX, setTotalX] = useState<number>(0);
 
-  (...)
+  /* ... */
 }
 ```
 

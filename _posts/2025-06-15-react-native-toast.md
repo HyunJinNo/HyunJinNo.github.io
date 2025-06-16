@@ -1,6 +1,6 @@
 ---
 title: React Native 프로젝트에서 토스트 메시지 직접 구현하기
-description: React Native 프로젝트에서 토스트 메시지 기능을 직접 구현한 방법에 대해 정리한 페이지입니다.
+description: React Native 프로젝트에서 토스트 메시지 기능을 직접 구현하는 방법에 대해 정리한 페이지입니다.
 date: 2025-06-15 21:56:00 +/-TTTT
 categories: [Front-end]
 tags: [mobile, react-native, typescript]
@@ -22,7 +22,7 @@ react-native v0.79.2 </p></blockquote>
 
 ## 개요
 
-React Native 프로젝트에서 토스트 메시지 기능을 직접 구현한 방법에 대해 정리한 페이지입니다.
+React Native 프로젝트에서 토스트 메시지 기능을 직접 구현하는 방법에 대해 정리한 페이지입니다.
 
 ## 토스트 메시지 기능을 사용하는 방법
 
@@ -51,12 +51,39 @@ npm install react-native-toast-message
 ```
 
 ```tsx
+import Toast from "react-native-toast-message";
 
+export const App = () => {
+  return (
+    <>
+      <YourComponent>
+      <Toast />
+    </>
+  );
+};
 ```
+
+```typescript
+import Toast from "react-native-toast-message";
+
+Toast.show({
+  type: "success", // 'success' | 'error' | 'info'
+  text1: "성공!",
+  text2: "저장에 성공했습니다."
+});
+```
+
+<b>3. 커스텀 토스트 컴포넌트 사용</b>
+
+외부 라이브러리를 사용하기 않고 간단한 커스텀 토스트 컴포넌트를 구현하여 원하는 위치와 스타일로 토스트 메시지를 출력할 수 있습니다.
 
 ## 토스트 메시지 기능 구현하기
 
+이 문단에서는 간단한 커스텀 토스트 컴포넌트를 구현하는 방식을 설명합니다.
+
 ### Step 1 - Context 생성하기
+
+토스트 메시지를 앱 어디서든 쉽게 사용할 수 있도록 하려면, 토스트 컴포넌트를 루트에 두고 전역 상태(Context)를 통해 제어하는 방식이 좋습니다. 따라서 먼저 다음과 같이 토스트 메시지 설정을 담당하는 Context를 생성합니다.
 
 ```typescript
 import { createContext } from "react";
@@ -67,6 +94,8 @@ export const ToastDispatcherContext = createContext({
 ```
 
 ### Step 2 - ToastProvider 컴포넌트 구현하기
+
+생성된 Context를 이용하여 다음과 같이 ToastProvider 컴포넌트를 구현합니다. 해당 컴포넌트는 토스트 메시지 기능을 사용할 수 있는 컴포넌트들을 children으로 전달받습니다.
 
 ```tsx
 import { tw } from "@src/shared/lib/utils";
@@ -127,6 +156,72 @@ export const ToastProvider = ({ children }: ToastProviderProps) => {
   );
 };
 ```
+
+위의 코드를 설명하자면 다음과 같습니다.
+
+#### setToastMessage 함수
+
+```typescript
+const opacity = useAnimatedValue(0);
+
+const setToastMessage = useCallback(
+  (toastMessage: string) => {
+    setMessage(toastMessage);
+
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true
+    }).start(() => {
+      setTimeout(() => {
+        Animated.timing(opacity, {
+          toValue: 0,
+          duration: 500,
+          useNativeDriver: true
+        }).start();
+      }, 2000);
+    });
+  },
+  [opacity]
+);
+```
+
+토스트 메시지를 애니메이션을 활용하여 출력할 예정이므로 다음과 같이 토스트 메시지의 opacity를 `useAnimatedValue` 훅을 사용하여 설정합니다. 토스트 메시지를 출력할 때 처음에는 보이지 않다가 시간이 흐르면서 화면에 출력되어야 하므로 초깃값은 0(={ opacity: 0 })으로 설정합니다. 이후 setToastMessage 함수를 구현합니다. 해당 함수는 토스트 메시지를 출력하는 함수로, <b>토스트 메시지가 화면에 출력된 후 약 2초 동안 보이다가, 이후에 사라지도록 구현</b>되었습니다. 또한 `useState`로 선언한 message 상태가 변경되면 ToastProvider 컴포넌트가 리렌더링되고 setToastMessage 함수도 새로 생성됩니다. <b>setToastMessage 함수는 props로 전달하므로, 불필요한 리렌더링 유발을 방지하기 위해 `useCallback`을 사용</b>하였습니다.
+
+#### memoizedDispatcher 함수
+
+```typescript
+const memoizedDispatcher = useMemo(
+  () => ({ setToastMessage }),
+  [setToastMessage]
+);
+```
+
+구현한 ToastProvider 컴포넌트에서 Context의 value에 setToastMessage 함수를 넘길 때 객체 형태(`{ setToastMessage: setToastMessage }`)로 넘기고 있습니다. <b>ToastProvider 컴포넌트가 리렌더링될 떄마다 value에 지정한 객체도 새로 생성되므로 해당 Context를 구독하고 있는 모든 컴포넌트에 불필요한 리렌더링을 유발</b>하게 됩니다. 따라서 이를 방지하기 위해 <b>`useMemo`를 사용하여 Context의 value에 넘길 객체가 새로 생성되는 것을 방지</b>하였습니다.
+
+#### return
+
+```tsx
+return (
+  <ToastDispatcherContext value={memoizedDispatcher}>
+    {children}
+    <View
+      style={tw`absolute bottom-8 left-4 right-4 flex items-center justify-center px-4`}
+    >
+      <Animated.Text
+        style={tw.style(
+          "min-w-40 rounded-lg bg-black px-4 py-2 text-sm text-white",
+          { opacity }
+        )}
+      >
+        {message}
+      </Animated.Text>
+    </View>
+  </ToastDispatcherContext>
+);
+```
+
+토스트 메시지를 사용할 컴포넌트를 children으로 감싸는 부분입니다. 토스트 메시지는 화면 하단에 표시되도록 구현하였습니다.
 
 ### Step 3 - React.memo
 
@@ -189,7 +284,7 @@ export const NavigationComponent = () => {
 export const Navigation = memo(NavigationComponent);
 ```
 
-### Step 4 - 설정
+### Step 4 - app.tsx 설정
 
 ```tsx
 import { useEffect } from "react";

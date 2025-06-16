@@ -223,7 +223,9 @@ return (
 
 토스트 메시지를 사용할 컴포넌트를 children으로 감싸는 부분입니다. 토스트 메시지는 화면 하단에 표시되도록 구현하였습니다.
 
-### Step 3 - React.memo
+### Step 3 - React.memo 사용하기
+
+위에서 언급한 ToastProvider 컴포넌트는 토스트 메시지를 사용할 컴포넌트들을 children으로 전달받습니다. setToastMessage 함수를 사용하면 ToastProvider 컴포넌트가 리렌더링되고, 자식 컴포넌트에 해당하는 children도 리렌더링됩니다. 따라서 <b>토스트 메시지를 출력할 때 불필요한 리렌더링을 방지하기 위해 다음과 같이 children에 해당하는 컴포넌트를 `React.memo`로 감쌉니다.</b>
 
 ```tsx
 import { NavigationContainer } from "@react-navigation/native";
@@ -286,6 +288,8 @@ export const Navigation = memo(NavigationComponent);
 
 ### Step 4 - app.tsx 설정
 
+다음과 같이 토스트 메시지를 사용할 컴포넌트를, 위에서 구현한 ToastProvider 컴포넌트로 감쌉니다. 이렇게 하면 Navigation 컴포넌트를 포함한 자식 컴포넌트들은 `useContext` 훅을 사용하여 토스트 메시지를 출력할 수 있게 됩니다.
+
 ```tsx
 import { useEffect } from "react";
 import { Navigation } from "./routes";
@@ -313,18 +317,25 @@ export const App = () => {
 import { useContext } from "react";
 import { ToastDispatcherContext } from "@src/shared/model";
 
+/* ... */
+
 const { setToastMessage } = useContext(ToastDispatcherContext);
 
 const handleSaveButtonPress = () => {
   saveHangulToBrailleHistory(state.recognizedText, state.translatedText);
   setToastMessage("번역 기록을 저장하였습니다.");
 };
+
+/* ... */
 ```
+
+<img src="/assets/img/front-end/react-native-toast/pic1.webp" alt="토스트 메시지 출력 예시" />
 
 ## 참고 자료
 
 - <a href="https://www.winterlood.com/qna/React%20Context%EB%A5%BC%20%EC%9D%B4%EC%A4%91%EC%9C%BC%EB%A1%9C%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0" target="_blank">Q. React Context를 이중으로 사용하는 이유가 무엇인가요? (최적화 관련) - Winterlood</a>
 - <a href="https://reactnative.dev/docs/animations" target="_blank">Animations · React Native</a>
+- <a href="https://ko.react.dev/reference/react/memo" target="_blank">memo – React</a>
 - <a href="https://ko.react.dev/reference/react/useContext" target="_blank">useContext – React</a>
 - <a href="https://ko.react.dev/learn/passing-data-deeply-with-context" target="_blank">Context를 사용해 데이터를 깊게 전달하기 – React</a>
 - <a href="https://reactnative.dev/docs/toastandroid" target="_blank">ToastAndroid · React Native</a>

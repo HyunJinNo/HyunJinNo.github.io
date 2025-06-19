@@ -233,6 +233,24 @@ android/app/build/outputs/apk/release/app-release.apk
 
 <img src="/assets/img/front-end/react-native-apk/pic5.avif" alt="android/app/build/outputs/apk/release 디렉토리에서 app-release.apk를 확인할 수 있습니다." />
 
+## 참고: Release AAB 빌드하기
+
+`Release AAB`를 빌드하기 위해선 [Release APK 빌드하기](#release-apk-빌드하기) 문단에서 [Step 2 - Gradle에 서명 정보 추가하기](#step-2---gradle에-서명-정보-추가하기)까지 진행한 후 프로젝트 루트에서 다음 명령어를 입력하면 됩니다.
+
+```bash
+npx react-native build-android --mode=release
+```
+
+<img src="/assets/img/front-end/react-native-apk/pic6.avif" alt="Release AAB 빌드 결과" />
+
+빌드 완료 후 다음 경로에서 빌드된 AAB를 확인할 수 있습니다.
+
+```text
+android/app/build/outputs/bundle/release/app-release.aab
+```
+
+<img src="/assets/img/front-end/react-native-apk/pic7.avif" alt="android/app/build/outputs/bundle/release 디렉토리에서 app-release.aab를 확인할 수 있습니다." />
+
 ## 참고 자료
 
 - <a href="https://adjh54.tistory.com/252" target="_blank">[RN] React Native APK 파일 이해 및 구성, 실행 방법 : Keystore — Contributor</a>

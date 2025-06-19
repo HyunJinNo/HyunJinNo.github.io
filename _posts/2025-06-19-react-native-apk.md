@@ -37,7 +37,7 @@ React Native 프로젝트에서 APK 빌드 방법에 대해 정리한 페이지�
 
 ## Debug APK 빌드하기
 
-먼저 프로젝트 루트에서 android 폴더로 이동합니다.
+먼저 프로젝트 루트에서 `android` 폴더로 이동합니다.
 
 ```bash
 cd android
@@ -74,4 +74,65 @@ android/app/build/outputs/apk/debug/app-debug.apk
 
 ## Release APK 빌드하기
 
+### Step 1 - 배포용 키 생성하기
+
+먼저 프로젝트 루트에서 `android/app` 폴더로 이동합니다.
+
+```bash
+cd android/app
+```
+
+이후 다음 명령어를 입력하여 배포용 키를 생성합니다.
+
+```bash
+keytool -genkeypair -v -keystore release.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+```
+
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
+<b>keytool</b><br />
+- Java JDK에 포함된 도구로, 안드로이드 앱 출시용 서명에 사용할 keystore와 키를 생성할 때 사용합니다.<br />
+- keytool -help로 전체 옵션을 확인할 수 있습니다.<br />
+<br />
+<b>-genkey 또는 -genkeypair</b><br />
+- 공개키와 개인키를 생성합니다.<br />
+<br />
+<b>-v</b><br />
+- verbose라는 의미로, 생성 과정을 상세히 출력합니다.<br />
+<br />
+<b>-keystore release.keystore</b><br />
+- 생성할 keystore 파일의 이름과 경로를 지정합니다.<br />
+- 보통 android/app 폴더에 복사해 두고, Gradle 설정에서 참조합니다.<br />
+<br />
+<b>-alias my-key-alias</b><br />
+- keystore 안에 저장될 키에 붙일 별칭을 지정합니다.<br />
+- 하나의 keystore에 여러 키를 보관할 수 있으므로, 별칭을 사용하여 구분합니다.<br />
+- Ex. app-release, upload-key 등으로 직관적으로 짓는 것이 좋습니다.<br />
+<br />
+<b>-keyalg RSA</b><br />
+- 키 생성 알고리즘을 지정합니다.<br />
+<br />
+<b>-keysize 2048</b><br />
+- 키의 비트 길이를 지정합니다.<br />
+- 2048 비트는 현재 널리 권장되는 보안 수준이며, 배포 환경에서는 최소 2048 비트 이상을 사용하는 것이 권장됩니다.<br />
+<br />
+<b>-validity 10000</b><br />
+- 키의 유효 기간을 일(day) 단위로 지정합니다.<br />
+- 10000일이면 약 27년 동안 유효합니다.
+</p></blockquote>
+
+<img src="/assets/img/front-end/react-native-apk/pic3.jpg" alt="android.app 폴더에 keystore를 생성합니다." />
+
+### Step 2 - Gradle에 서명 정보 추가하기
+
+`android/gradle.properties` 파일에 다음 내용을 추가합니다.
+
+```properties
+MYAPP_UPLOAD_STORE_FILE=release.keystore
+MYAPP_UPLOAD_KEY_ALIAS=my-key-alias
+MYAPP_UPLOAD_STORE_PASSWORD=my-password
+MYAPP_UPLOAD_KEY_PASSWORD=my-password
+```
+
 ## 참고 자료
+
+- <a href="https://adjh54.tistory.com/252" target="_blank">[RN] React Native APK 파일 이해 및 구성, 실행 방법 : Keystore — Contributor</a>

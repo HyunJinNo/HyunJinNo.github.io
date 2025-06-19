@@ -26,6 +26,8 @@ React Native 프로젝트에서 APK 빌드 방법에 대해 정리한 페이지�
 
 ## Debug APK vs Release APK
 
+`Debug API`와 `Release APK`를 표로 비교하면 다음과 같습니다.
+
 | 항목        | Debug APK                                      | Release APK                                 |
 | ----------- | ---------------------------------------------- | ------------------------------------------- |
 | 목적        | 개발/테스트용                                  | 배포용                                      |
@@ -34,6 +36,8 @@ React Native 프로젝트에서 APK 빌드 방법에 대해 정리한 페이지�
 | 디버그 도구 | 로그, DevTools 등 사용 가능                    | 사용 불가능                                 |
 | 서명        | 디버그 키로 자동 서명됨                        | 배포용 키로 수동 서명 필요                  |
 | 명령어      | `assembleDebug`                                | `assembleRelease`                           |
+
+정리하자면, `Debug APK`는 개발 및 QA, 내부 테스트를 위해 디버깅 정보와 비최적화 코드, 디버그 키로 서명되어 빠른 문제 파악이 용이하지만 보안상 취약하며 성능 최적화가 되어 있지 않습니다. 반면에 `Release APK`는 배포를 위해 코드 최적화, 난독화, 불필요한 디버깅 정보 제거 등 보안과 성능 측면에서 개선된 APK로, 개발자가 생성한 keystore로 서명되어 업데이트 관리가 용이합니다.
 
 ## Debug APK 빌드하기
 
@@ -62,7 +66,7 @@ cd android
 - 단어 그대로 <b>디버깅용 APK</b>를 만드는 명령어<br />
 - 실제 생성 파일: android/app/build/outputs/apk/debug/app-debug.apk</p></blockquote>
 
-<img src="/assets/img/front-end/react-native-apk/pic1.jpg" alt="Debug APK 빌드 결과" />
+<img src="/assets/img/front-end/react-native-apk/pic1.avif" alt="Debug APK 빌드 결과" />
 
 빌드 완료 후 다음 경로에서 빌드된 APK를 확인할 수 있습니다.
 
@@ -70,7 +74,7 @@ cd android
 android/app/build/outputs/apk/debug/app-debug.apk
 ```
 
-<img src="/assets/img/front-end/react-native-apk/pic2.jpg" alt="android/app/build/outputs/apk/debug 디렉토리에서 app-debug.apk를 확인할 수 있습니다." />
+<img src="/assets/img/front-end/react-native-apk/pic2.avif" alt="android/app/build/outputs/apk/debug 디렉토리에서 app-debug.apk를 확인할 수 있습니다." />
 
 ## Release APK 빌드하기
 
@@ -122,7 +126,7 @@ keytool -genkeypair -v -keystore release.keystore -alias my-key-alias -keyalg RS
 
 명령어 입력 이후 다음과 같이 <b>비밀번호</b>와 이름, 조직 등 문항을 입력하면 keystore 파일이 생성됩니다.
 
-<img src="/assets/img/front-end/react-native-apk/pic3.jpg" alt="android.app 폴더에 keystore를 생성합니다." />
+<img src="/assets/img/front-end/react-native-apk/pic3.avif" alt="android.app 폴더에 keystore를 생성합니다." />
 
 ### Step 2 - Gradle에 서명 정보 추가하기
 
@@ -182,7 +186,7 @@ android {
 /* ... */
 ```
 
-<img src="/assets/img/front-end/react-native-apk/pic4.jpg" alt="build.gradle 파일을 열고 수정한 내용"/>
+<img src="/assets/img/front-end/react-native-apk/pic4.avif" alt="build.gradle 파일을 열고 수정한 내용"/>
 
 ### Step 3 - Release APK 생성하기
 
@@ -227,7 +231,7 @@ PS C:\Users\user\vscode\braille-translator\android>
 android/app/build/outputs/apk/release/app-release.apk
 ```
 
-<img src="/assets/img/front-end/react-native-apk/pic5.jpg" alt="android/app/build/outputs/apk/release 디렉토리에서 app-release.apk를 확인할 수 있습니다." />
+<img src="/assets/img/front-end/react-native-apk/pic5.avif" alt="android/app/build/outputs/apk/release 디렉토리에서 app-release.apk를 확인할 수 있습니다." />
 
 ## 참고 자료
 

@@ -66,7 +66,7 @@ Algorithm</p></blockquote>
 
 먼저 <b>각 원소의 부모 노드 인덱스를 저장하는 부모 배열(parent[])</b>과 <b>트리 높이 또는 집합의 크기를 관리하는 랭크 배열(rank[])</b>을 선언합니다. 그리고 각 집합의 부모 노드를 자기 자신으로, 모든 트리 높이를 0으로 초기화합니다.
 
-```typescript
+```javascript
 const size = 100;
 const parent = Array.from({ length: size }, (_value, index) => index); // [0, 1, 2, ..., 99]
 const rank = Array(size).fill(0); // [0, 0, 0, ..., 0]
@@ -79,7 +79,7 @@ const rank = Array(size).fill(0); // [0, 0, 0, ..., 0]
 
 <b>Find 연산은 원소 x가 속한 집합의 대표 원소(루트)를 찾아 반환</b>합니다. Find 연산을 구현할 때 주의해야 할 점은 <b>트리가 한쪽으로 편향되는 경우 Find 연산은 루트 노드를 찾을 때까지 부모 노드를 따라 올라가므로 Find 연산의 시간 복잡도가 O(n)</b>이 될 수 있습니다. 이러한 문제점을 해결하기 위해 `경로 압축(Path Compression)` 기법이 사용됩니다. 경로 압축은 Find 연산 수행 시 탐색 경로 상의 노드들을 <b>직접 루트에 연결</b>하여 트리를 평평하게 합니다. 경로 압축을 적용하면, 트리 높이를 최소화하여 이후 같은 노드에 대한 Find 연산을 빠르게 수행할 수 있습니다.
 
-```typescript
+```javascript
 const find = (x) => {
   if (parent[x] !== x) {
     parent[x] = find(parent[x]); // 재귀적으로 루트를 찾고, x의 부모를 루트로 직접 설정합니다.
@@ -92,7 +92,7 @@ const find = (x) => {
 
 <b>Union 연산은 원소 x가 속한 집합과 원소 y가 속한 집합을 합칩니다.</b> 일반적으로 한 집합의 루트를 다른 집합의 루트의 자식으로 설정합니다. Union 연산을 수행할 때 Union 순서에 따라 트리가 한쪽으로 편향되어 Find 연산의 시간 복잡도가 O(n)이 될 수 있습니다. 이러한 문제점을 해결하기 위해 `유니온 랭크(Union by Rank)` 기법이 사용됩니다. Union 연산 시 <b>더 작은 트리를 더 큰 트리 아래에 붙임</b>으로써 트리의 높이 증가를 최소화하여 Find 연산의 효율을 유지합니다.
 
-```typescript
+```javascript
 const union = (x, y) => {
   const rootX = find(x);
   const rootY = find(y);
@@ -118,7 +118,7 @@ const union = (x, y) => {
 
 <a href="https://www.acmicpc.net/problem/1717" target="_blank">1717번: 집합의 표현</a>
 
-```typescript
+```javascript
 const input = require("fs").readFileSync(0, "utf-8").toString().split("\n");
 
 // n: 집합의 수, 1 <= n <= 1_000_000

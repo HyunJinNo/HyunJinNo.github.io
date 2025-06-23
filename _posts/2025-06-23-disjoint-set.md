@@ -1,7 +1,7 @@
 ---
 title: 분리 집합 (Disjoint Set) 알고리즘
 description: 분리 집합 (Disjoint Set) 알고리즘에 대해 정리한 페이지입니다.
-date: 2024-03-25 00:00:00 +/-TTTT
+date: 2025-06-23 11:03:00 +/-TTTT
 categories: [Algorithms]
 tags: [algorithm]
 math: true

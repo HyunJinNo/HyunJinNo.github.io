@@ -35,7 +35,23 @@ Recruitment</p></blockquote>
 
 ### 코딩 테스트 전형
 
+<img src="../assets/img/etc/hanwha-systems-ict-recruitment-review/pic4.jpg" alt="코딩 테스트 전형 결과" />
+
 ### 면접 전형
+
+<img src="../assets/img/etc/hanwha-systems-ict-recruitment-review/pic5.jpg" alt="면접 일정" />
+
+<img src="../assets/img/etc/hanwha-systems-ict-recruitment-review/pic6.jpg" alt="면접 전형 결과 - 예비합격(추가합격 대상)" />
+
+<img src="../assets/img/etc/hanwha-systems-ict-recruitment-review/pic7.jpg" alt="면접 전형 결과 - 예비합격(추가합격 대상)" />
+
+<img src="../assets/img/etc/hanwha-systems-ict-recruitment-review/pic8.jpg" alt="면접 전형 결과 - 합격" />
+
+<img src="../assets/img/etc/hanwha-systems-ict-recruitment-review/pic9.jpg" alt="면접 전형 결과 - 합격" />
+
+<img src="../assets/img/etc/hanwha-systems-ict-recruitment-review/pic10.jpg" alt="면접 전형 결과 - 합격" />
+
+<img src="../assets/img/etc/hanwha-systems-ict-recruitment-review/pic11.jpg" alt="면접 전형 결과 - 합격" />
 
 ## 참고 자료
 

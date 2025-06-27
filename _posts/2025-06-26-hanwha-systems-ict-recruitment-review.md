@@ -21,11 +21,21 @@ Recruitment</p></blockquote>
 
 ## 채용 후기
 
-### 서류
+### 채용 공고
 
-### 코딩 테스트
+네이버 부스트캠프 웹 · 모바일 9기 수료 이후, 올해부터 본격적으로 취업 준비를 하던 중 아래와 같이 2025년 상반기 한화시스템 ICT 부문 신입사원 채용 공고를 보게 되었습니다.
 
-### 면접
+<img src="../assets/img/etc/hanwha-systems-ict-recruitment-review/pic1.jpg" alt="채용 공고" />
+
+<img src="../assets/img/etc/hanwha-systems-ict-recruitment-review/pic2.webp" alt="채용 공고" />
+
+모집 직무로는 `서비스 운영/개발`, `ERP 개발/운영`, `인프라 구축/운영`, `스마트팩토리 PI/구축`, 이렇게 4가지가 존재했습니다. 서류 작성 시 1지망, 2지망을 선택할 수 있는데, 저는 1지망으로 `서비스 운영/개발`, 2지망으로 `스마트팩토리 PI/구축`을 선택하였습니다.
+
+### 서류 전형
+
+### 코딩 테스트 전형
+
+### 면접 전형
 
 ## 참고 자료
 

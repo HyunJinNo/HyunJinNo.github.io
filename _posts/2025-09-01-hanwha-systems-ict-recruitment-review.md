@@ -1,7 +1,7 @@
 ---
 title: 2025년 상반기 한화시스템 ICT 부문 신입사원 채용 후기
 description: 2025년 상반기 한화시스템 ICT 부문 신입사원 채용 후기를 정리한 페이지입니다.
-date: 2025-06-26 22:11:00 +0900
+date: 2025-09-01 22:11:00 +0900
 categories: [기타]
 tags: [recruitment]
 math: true

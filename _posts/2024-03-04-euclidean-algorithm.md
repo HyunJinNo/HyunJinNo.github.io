@@ -23,7 +23,7 @@ Algorithm</p></blockquote>
 
 ## How to Use
 
-### 최소 공배수
+### 최대공약수 (Greatest Common Divisor, GCD)
 
 ```java
 // Java
@@ -55,7 +55,7 @@ const gcd = (a, b) => {
 };
 ```
 
-### 최대 공약수
+### 최소공배수 (Least Common Multiple, LCM)
 
 ```javascript
 /**

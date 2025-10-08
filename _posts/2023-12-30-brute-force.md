@@ -1,5 +1,5 @@
 ---
-title: 브루트포스 알고리즘
+title: 브루트포스 (Brute-force) 알고리즘
 description: 브루트포스 (Brute-force) 알고리즘에 대해 정리한 페이지입니다.
 date: 2023-12-30 00:00:00 +/-TTTT
 categories: [Algorithms]

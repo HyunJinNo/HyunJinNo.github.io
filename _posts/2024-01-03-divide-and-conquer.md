@@ -1,6 +1,6 @@
 ---
-title: Divide and Conquer
-description: Divide and Conquer 알고리즘에 대해 설명하는 페이지입니다.
+title: 분할 정복 (Divide and Conquer)
+description: 분할 정복 (Divide and Conquer)에 대해 정리한 페이지입니다.
 date: 2024-01-03 00:00:00 +/-TTTT
 categories: [Algorithms]
 tags: [algorithm]
@@ -15,28 +15,84 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Algorithm</p></blockquote>
 
-## Introduction
+## 개요
 
-- **Definition**
-  - **분할 정복(Divide & Conquer)** 은 가장 유명한 알고리즘 디자인 패러다임으로, 분할 정복 알고리즘들은 주어진 문제를 둘 이상의 부분 문제로 나눈 뒤 각 문제에 대한 답을 **재귀 호출**을 이용해 계산하고, 각 부분 문제의 답으로부터 전체 문제의 답을 계산해낸다.
-  - 일반적인 재귀 호출이 문제를 한 조각과 나머지 전체로 나누는 것과 달리, **분할 정복은 문제를 거의 같은 크기의 부분 문제로 나눈다**.
-  - 분할 정복을 사용하는 알고리즘들은 대개 다음과 같은 3가지 구성 요소를 지닌다.
-    1. 문제를 더 작은 문제로 분할하는 과정(Divide)
-    2. 각 문제에 대해 구한 답을 원래 문제에 대한 답으로 병합하는 과정(Merge)
-    3. 더 이상 답을 분할하지 않고 곧장 풀 수 있는 매우 작은 문제(Base case)
-  - 분할 정복은 많은 경우 **같은 작업을 더 빠르게 처리**해준다는 장점이 있다.
-- **Time complexity**
-  - 분할 정복의 시간 복잡도는 분할 과정 및 병합 과정에 영향을 받는다.
-  - 같은 문제라도 어떻게 분할하느냐에 따라 시간 복잡도 차이가 커진다.
-  - 문제를 분할하였을 때 여러 번 중복되어 계산되는 문제가 있다면 해당 부분에서 알고리즘의 효율성이 떨어지게 된다.
+`분할 정복(Divide and Conquer)`에 대해 정리한 페이지입니다.
 
-## How to Use
+## 분할 정복 (Divide and Conquer)
 
-1. 문제를 더 작은 문제로 분할한다.
-2. 각 문제에 대한 답을 재귀 호출을 통해 계산한다.
-3. 각 문제에 대해 계산한 답을 원래 문제에 대한 답으로 병합한다.
+### 개념
 
-## Examples
+`분할 정복(Divide and Conquer)`은 가장 유명한 알고리즘 디자인 패러다임으로, 주어진 문제를 둘 이상의 부분 문제로 나눈 뒤 각 문제에 대한 답을 재귀 호출을 이용해 계산하고, 각 부분 문제의 답으로부터 전체 문제의 답을 계산해내는 방식을 의미합니다.
 
-- <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Divide%20And%20Conquer/QUADTREE.java" target="_blank">QUADTREE</a>
-- <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Divide%20And%20Conquer/FENCE.java" target="_blank">FENCE</a>
+### 특징
+
+분할 정복의 가장 큰 특징은 문제를 작게 쪼개서 쪼개기 전 문제를 해결할 때보다 더 쉽게 해결하여 문제의 답을 계산하는 것입니다. 분할 정복은 다음 3단계로 이루어집니다.
+
+1. `분할(Divide)`
+
+   문제를 동일하거나 유사한 작은 문제로 나눕니다. 보통 <b>재귀</b>를 사용하여 분할합니다.
+
+2. `정복(Conquer)`
+
+   나눈 하위 문제를 <b>재귀적</b>으로 해결하며, 하위 문제가 충분히 작아지면(=Base case) 바로 해결합니다.
+
+3. `병합(Merge)`
+
+   하위 문제들의 해답을 모아 전체 문제의 답을 계산합니다.
+
+## Example
+
+- <a href="https://www.acmicpc.net/problem/1106" target="_blank">1106번: 호텔</a>
+
+  ```javascript
+  const path = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+  const input = require("fs")
+    .readFileSync(path, "utf-8")
+    .toString()
+    .split("\n");
+
+  // C: 늘려야하는 고객의 수, 1 <= C <= 1_000
+  // 1 <= N <= 20
+  const [C, N] = input[0].split(" ").map(Number);
+  const arr = [];
+  const cache = Array.from({ length: N }, () => Array(C).fill(-1));
+
+  for (let i = 1; i <= N; i++) {
+    arr.push(input[i].split(" ").map(Number));
+  }
+
+  arr.sort((a, b) => {
+    return b[1] / b[0] - a[1] / a[0];
+  });
+
+  const solution = (index, count) => {
+    if (count >= C) {
+      return 0;
+    } else if (index >= N) {
+      return Number.MAX_SAFE_INTEGER;
+    } else if (cache[index][count] !== -1) {
+      return cache[index][count];
+    }
+
+    let result = solution(index + 1, count);
+
+    for (let i = index; i < N; i++) {
+      result = Math.min(
+        result,
+        arr[index][0] + solution(index, count + arr[index][1])
+      );
+    }
+
+    cache[index][count] = result;
+    return result;
+  };
+
+  console.log(solution(0, 0));
+  ```
+
+## 참고 자료
+
+- <a href="https://namu.wiki/w/분할%20정복%20알고리즘?from=분할%20정복" target="_blank">분할 정복 알고리즘 - 나무위키</a>
+
+===============

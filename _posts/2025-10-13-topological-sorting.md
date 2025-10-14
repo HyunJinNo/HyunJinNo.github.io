@@ -196,62 +196,55 @@ console.log(answer.trim()); // "1 3 2 4"
 
 ## Example
 
-- <a href="https://www.acmicpc.net/problem/1516" target="_blank">1516번: 게임 개발</a>
+- <a href="https://www.acmicpc.net/problem/2056" target="_blank">2056번: 작업</a>
 
   ```javascript
-  const path = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
-  const input = require("fs")
-    .readFileSync(path, "utf-8")
-    .toString()
-    .split("\n");
+  const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+  const input = require("fs").readFileSync(path).toString().split("\n");
+  const N = Number(input[0]); // 수행해야 할 작업의 수, 3 <= N <= 10_000
 
-  const N = Number(input[0]); // 건물의 종류 수, 1 <= N <= 500
-  const answer = Array(N + 1).fill(0);
-  const cost = Array(N + 1).fill(0);
-  const inDegree = Array(N + 1).fill(0);
   const graph = Array.from({ length: N + 1 }, () => []);
+  const inDegree = Array(N + 1).fill(0);
+  const cost = Array(N + 1).fill(0);
 
   for (let i = 1; i <= N; i++) {
     const arr = input[i].split(" ").map(Number);
-    cost[i] = arr[0];
+    const time = arr[0]; // 각각의 작업마다 걸리는 시간, 1 <= time <= 100
+    const count = arr[1]; // 선행 관계에 있는 작업들의 개수, 0 <= count <= 100
 
-    let index = 1;
-    while (arr[index] !== -1) {
-      graph[arr[index++]].push(i);
+    cost[i] = time;
+
+    for (let j = 2; j < 2 + count; j++) {
+      graph[arr[j]].push(i);
       inDegree[i]++;
     }
   }
 
-  const list = [];
-  let size = 0;
-  let index = 0;
+  const answer = Array(N + 1).fill(0);
+  const queue = [];
+  let peekIndex = 0;
 
   for (let i = 1; i <= N; i++) {
     if (inDegree[i] === 0) {
       answer[i] = cost[i];
-      list.push([i, cost[i]]);
-      size++;
+      queue.push([i, cost[i]]); // [node, totalTime]
     }
   }
 
-  while (index < size) {
-    const [src, time] = list[index++];
-    graph[src].forEach((dest) => {
-      inDegree[dest]--;
-      answer[dest] = Math.max(answer[dest], time + cost[dest]);
+  while (peekIndex < queue.length) {
+    const [node, totalTime] = queue[peekIndex++];
 
-      if (inDegree[dest] === 0) {
-        list.push([dest, answer[dest]]);
-        size++;
+    graph[node].forEach((nextNode) => {
+      inDegree[nextNode]--;
+      answer[nextNode] = Math.max(answer[nextNode], totalTime + cost[nextNode]);
+
+      if (inDegree[nextNode] === 0) {
+        queue.push([nextNode, answer[nextNode]]);
       }
     });
   }
 
-  let result = "";
-  for (let i = 1; i <= N; i++) {
-    result += `${answer[i]}\n`;
-  }
-  console.log(result.trim());
+  console.log(Math.max(...answer));
   ```
 
 ## 참고 자료

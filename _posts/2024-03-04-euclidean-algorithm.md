@@ -1,6 +1,6 @@
 ---
-title: Euclidean Algorithm
-description: 유클리드 알고리즘에 대해 설명하는 페이지입니다.
+title: 유클리드 (Euclidean) Algorithm
+description: 유클리드 (Euclidean) 알고리즘에 대해 정리한 페이지입니다.
 date: 2024-03-04 00:00:00 +/-TTTT
 categories: [Algorithms]
 tags: [algorithm]
@@ -15,18 +15,21 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Algorithm</p></blockquote>
 
-## Introduction
+## 개요
 
-- **Definition**
-  - **유클리드 알고리즘(Euclidean Algorithm))** 은 두 수의 최대공약수를 구하는데 사용되는 방법입니다.
-  - 유클리드 알고리즘은 두 수 a, b(a > b)의 공약수의 집합은 (a - b)와 b의 공약수 집합과 같다는 점을 이용합니다. 즉, a, b의 최대공약수 gcd(a, b)는 항상 (a - b)와 b의 최대공약수 gcd(a - b, b)와 같습니다.
+`유클리드(Euclidean)` 알고리즘에 대해 정리한 페이지입니다.
 
-## How to Use
+## 유클리드 (Euclidean) 알고리즘
 
-### 최대공약수 (Greatest Common Divisor, GCD)
+### 개념
+
+`유클리드(Euclidean)` 알고리즘은 두 수의 `최대공약수(Greatest Common Divisor, GCD)`를 구하는데 사용되는 알고리즘입니다. 유클리드 알고리즘은 두 자연수 `a`, `b`(`a > b`)에 대해 `a`와 `b`의 최대공약수는 `b`와 `a % b`의 최대공약수과 같다는 점을 이용합니다. 즉, `GCD(a, b)= GCD(b, a % b)`라는 식이 성립하며, 나머지 `b`가 0이 될 때까지 반복하여 최대공약수를 구하게 됩니다.
+
+### 구현
+
+#### 최대공약수 (Greatest Commmon Divisor, GCD)
 
 ```java
-// Java
 int gcd(int a, int b) {
     if (b == 0) {
         return a;
@@ -37,7 +40,6 @@ int gcd(int a, int b) {
 ```
 
 ```kotlin
-// Kotlin
 fun gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
 ```
 
@@ -53,9 +55,14 @@ const gcd = (a, b) => {
     return gcd(b, a % b);
   }
 };
+
+const a = 21;
+const b = 15;
+
+console.log(gcd(Math.max(a, b), Math.min(a, b))); // 3
 ```
 
-### 최소공배수 (Least Common Multiple, LCM)
+#### 최소공배수 (Least Common Multiple, LCM)
 
 ```javascript
 /**
@@ -74,10 +81,46 @@ const a = 21;
 const b = 15;
 
 const lcm = (a * b) / gcd(Math.max(a, b), Math.min(a, b));
+console.log(lcm); // 105
 ```
 
-## Examples
+## Example
 
-- <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Number%20Theory/Euclidean%20Algorithm/POTION.java" target="_blank">POTION</a>
-- <a href="https://github.com/HyunJinNo/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/Bronze%20I/2609.%E2%80%85%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98%EC%99%80%E2%80%85%EC%B5%9C%EC%86%8C%EA%B3%B5%EB%B0%B0%EC%88%98/%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98%EC%99%80%E2%80%85%EC%B5%9C%EC%86%8C%EA%B3%B5%EB%B0%B0%EC%88%98.kt" target="_blank">2609. 최대공약수와 최소공배수</a>
-- <a href="https://www.acmicpc.net/problem/5347" target="_blank">5347번: LCM</a>
+- <a href="https://www.acmicpc.net/problem/9613" target="_blank">9613번: GCD 합</a>
+
+  ```javascript
+  const path =
+    process.platform === "linux" ? "/dev/stdin" : "./algorithm/input.txt";
+  const input = require("fs").readFileSync(path).toString().split("\n");
+  const t = Number(input[0]); // 테스트 케이스의 수, 1 <= t <= 100
+
+  /**
+   * @param {number} a
+   * @param {number} b
+   */
+  const gcd = (a, b) => {
+    if (b === 0) {
+      return a;
+    } else {
+      return gcd(b, a % b);
+    }
+  };
+
+  for (let i = 1; i <= t; i++) {
+    const temp = input[i].split(" ").map(Number);
+    const [n, arr] = [temp[0], temp.slice(1)];
+    let result = 0;
+
+    for (let j = 0; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        result += gcd(arr[j], arr[k]);
+      }
+    }
+
+    console.log(result);
+  }
+  ```
+
+## 참고 자료
+
+- <a href="https://namu.wiki/w/유클리드%20호제법" target="_blank">유클리드 호제법 - 나무위키</a>

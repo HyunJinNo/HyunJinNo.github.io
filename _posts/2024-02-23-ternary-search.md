@@ -1,6 +1,6 @@
 ---
-title: Ternary Search
-description: Ternary Search 알고리즘에 대해 설명하는 페이지입니다.
+title: 삼분 탐색 (Ternary Search) 알고리즘
+description: 삼분 탐색 (Ternary Search) 알고리즘에 대해 정리한 페이지입니다.
 date: 2024-02-23 00:00:00 +/-TTTT
 categories: [Algorithms]
 tags: [algorithm]
@@ -12,19 +12,169 @@ image:
 comments: true
 ---
 
-<blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
+<blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
 Algorithm</p></blockquote>
 
-## Introduction
+## 개요
 
-- **Definition**
-  - **삼분 탐색(Ternary search)** 은 **이분법**이 매 반복마다 답의 후보 구간을 절반으로 잘라 각 위치에서 함수의 값을 계산하는 것과 비슷하게, **답의 후보 구간을 삼등분하는 두 위치에서 함수의 값을 계산하는 탐색 방식이다.**
-  - 삼분 탐색은 **볼록 함수(Convex function) 또는 오목 함수(Concave function)** 에서 **극값, 또는 최대/최소 값**을 찾을 때 유용하게 사용되는 기법이다.
-  - 삼분 탐색은 한 번 반복할 때마다 **후보 구간의 크기를 2/3**로 줄여나간다.
-  - 그래프를 갖는 함수의 최대점을 찾는 문제는 여러 가지 방법으로 풀 수 있다. 함수를 **직접 미분**하거나, **국소 탐색 알고리즘** 등으로 해결할 수 있다. 그러나 **삼분 탐색은 미분할 수 없는 함수에도 사용할 수 있으며, 국소 탐색에 비해 훨씬 빠르게 동작하고 수렴 판정이 용이**하기 때문에 더 자주 사용된다.
-    > **국소 탐색(Local search)** 은 임의의 답을 하나 만들어 놓고 이 값을 조금씩 갱신하면서 답이 더 좋아지는 쪽으로 움직이는 알고리즘이다.
+`삼분 탐색(Ternary Search)` 알고리즘에 대해 정리한 페이지입니다.
 
-## Examples
+## 삼분 탐색 (Ternary Search) 알고리즘
 
-- <a href="https://github.com/HyunJinNo/Algorithm/blob/main/Ternary%20search/FOSSIL.java" target="_blank">FOSSIL</a>
-- <a href="https://github.com/HyunJinNo/Algorithm/tree/main/%EB%B0%B1%EC%A4%80/Gold/11664.%E2%80%85%EC%84%A0%EB%B6%84%EA%B3%BC%E2%80%85%EC%A0%90" target="_blank">11664. 선분과 점</a>
+### 개념
+
+`삼분 탐색(Ternary Search)` 알고리즘은 탐색 구간을 절반으로 나누는 이분 탐색과 유사하게, 탐색 구간을 두 부분이 아닌 <b>세 부분</b>으로 나누는 탐색 방식입니다. 주로 `볼록 함수(Convex function)` 또는 `오목 함수(Concave function)`에서 <b>극값 또는 최대/최소값</b>을 찾을 때 자주 사용됩니다.
+
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
+<b>볼록 함수(Convex function)</b>: <b>아래로 볼록</b>하게 생긴 함수<br />
+<b>오목 함수(Concave function)</b>: <b>위로 볼록</b>하게 생긴 함수</p></blockquote>
+
+### 특징
+
+삼분 탐색 알고리즘의 특징은 다음과 같습니다.
+
+- `단봉 함수(Unimodal function)`
+
+  삼분 탐색 알고리즘은 단봉 함수에서만 사용할 수 있습니다. 만약 함수의 기울기가 0인 구간이 존재하고 그 때의 함수값이 극값이 아니라면 삼분 탐색 알고리즘을 사용할 수 없습니다.
+
+  <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
+  <b>단봉 함수(Unimodal function)</b>: 어떤 점까지 증가하다고 그 이후로 감소하거나, 반대로 감소하다가 증가하는 형태의 함수</p></blockquote>
+
+- `3등분`
+
+  이분 탐색이 탐색 구간을 절반으로 나누고 하나의 중간점을 사용한다면, 삼분 탐색은 탐색 구간을 3등분하고 두 개의 중간점을 사용합니다.
+
+- `정수와 실수`
+
+  정수 뿐만 아니라 실수 구간에서도 삼분 탐색 알고리즘을 사용할 수 있습니다. 특히 실수 구간에서는 `오차 허용값(ε)`을 기준으로 반복합니다.
+
+- `시간 복잡도(Time Complexity)`
+
+  탐색 구간을 3등분하여 매번 구간 길이를 2/3로 줄이므로 `O(log₃N)`의 시간 복잡도를 갖습니다.
+
+### 활용
+
+삼분 탐색 알고리즘은 다음과 같은 분야에서 활용됩니다.
+
+- `극값 찾기`
+
+  볼록 함수 또는 오목 함수에서 극값을 찾는데 활용됩니다.
+
+- `최대/최소값 찾기`
+
+  2차 함수, 3차 함수의 최대/최소값을 찾는데 활용됩니다.
+
+### 구현
+
+삼분 탐색 알고리즘을 구현하기 위해선 먼저 탐색 구간을 파악해야 합니다. 탐색 구간이 [lo, hi]일 때, 탐색 구간을 3등분하기 위해 설정하는 두 개의 중간점의 위치는 각각 `(2 * lo + hi) / 3`, `(lo * 2 + hi) / 3`입니다.
+
+예를 들어 `y = -0.5x² + 2x + 12`라는 2차 함수에서 탐색 구간이 [-3, 6]일 때의 최댓값을 찾는 문제가 있을 경우, 탐색 구간을 3등분하기 위해 설정하는 두 개의 중간점은 `x = (2 * (-3) + 6) / 3 = 0`, `x = (-3 + 2 * 6) / 3 = 3`입니다.
+
+<img src="/assets/img/algorithms/ternary-search/pic1.avif" alt="y = -0.5x² + 2x + 12" />
+
+위의 사진을 보면 알 수 있듯이 `x = 0`인 지점보다 `x = 3`인 지점의 함수값이 더 큰 것을 알 수 있습니다. 이를 통해 최댓값은 왼쪽 1/3 구간 [-3, 0]에는 없다는 점을 알 수 있습니다. 만약 구간 [-3, 0]에 최댓값이 있다면 왼쪽 중간점의 함수값이 오른쪽 중간점의 함수값보다 커야하기 때문입니다. 따라서 왼쪽 1/3 구간을 배제하고 나머지 2/3 구간을 탐색하는 식으로 진행됩니다.
+
+이 예시를 자바스크립트 코드로 나타내면 다음과 같습니다.
+
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
+삼분 탐색을 실수 구간에서 사용할 때, 실수는 무한히 많은 값을 가지기 때문에 left와 right 사이를 완전히 좁혀서 한 점으로 만드는 것을 불가능합니다. 따라서 무한 루프를 방지하기 위해 보통 충분히 작아진 구간에서 멈출 수 있도록 <b>오차 허용값(ε)</b>을 사용합니다.</p></blockquote>
+
+```javascript
+const func = (x) => {
+  return -0.5 * x * x + 2 * x + 12;
+};
+
+let left = -3;
+let right = 6;
+const eps = 1e-6; // 오차 허용값: 0.000001
+
+while (right - left > eps) {
+  const a = (2 * left + right) / 3;
+  const b = (left + 2 * right) / 3;
+
+  if (func(a) > func(b)) {
+    right = b;
+  } else {
+    left = a;
+  }
+}
+
+console.log(left); // 1.9999996102999702
+console.log(func(left)); // 13.999999999999924
+```
+
+## Example
+
+- <a href="https://www.acmicpc.net/problem/11664" target="_blank">11664번: 선분과 점</a>
+
+  ```typescript
+  const path: string =
+    process.platform === "linux" ? "/dev/stdin" : "./TypeScript/src/input.txt";
+  const input: readonly number[] = require("fs")
+    .readFileSync(path)
+    .toString()
+    .split(" ")
+    .map(Number);
+
+  class Point {
+    public readonly x: number;
+    public readonly y: number;
+    public readonly z: number;
+
+    constructor(x: number, y: number, z: number) {
+      this.x = x;
+      this.y = y;
+      this.z = z;
+    }
+  }
+
+  const A = new Point(input[0], input[1], input[2]);
+  const B = new Point(input[3], input[4], input[5]);
+  const C = new Point(input[6], input[7], input[8]);
+
+  /**
+   * 두 점 사이의 거리를 반환하는 함수
+   * @param point 선분 위의 점
+   * @param C 점 C
+   * @returns 두 점 사이의 거리
+   */
+  const getDistance = (point: Point, C: Point): number => {
+    return Math.sqrt(
+      (point.x - C.x) ** 2 + (point.y - C.y) ** 2 + (point.z - C.z) ** 2
+    );
+  };
+
+  const solve = (): number => {
+    let lo = new Point(A.x, A.y, A.z);
+    let hi = new Point(B.x, B.y, B.z);
+
+    for (let iter = 0; iter < 100; iter++) {
+      const a = new Point(
+        (lo.x * 2 + hi.x) / 3,
+        (lo.y * 2 + hi.y) / 3,
+        (lo.z * 2 + hi.z) / 3
+      );
+      const b = new Point(
+        (lo.x + hi.x * 2) / 3,
+        (lo.y + hi.y * 2) / 3,
+        (lo.z + hi.z * 2) / 3
+      );
+
+      if (getDistance(a, C) > getDistance(b, C)) {
+        lo = a;
+      } else {
+        hi = b;
+      }
+    }
+
+    return getDistance(lo, C);
+  };
+
+  console.log(solve());
+  ```
+
+## 참고 자료
+
+- <a href="https://www.yes24.com/product/goods/8006522" target="_blank">알고리즘 문제 해결 전략 세트 | 구종만 | 인사이트(insight) - 예스24</a>
+- <a href="https://00ad-8e71-00ff-055d.tistory.com/41" target="_blank">39. Ternary Search</a>
+- <a href="https://namu.wiki/w/볼록함수" target="_blank">볼록함수 - 나무위키</a>

@@ -39,30 +39,120 @@ $(a−b)\,mod\;m=[(a\,mod\;m)−(b\,mod\;m)]\,mod\;m$
 
 #### 곱셈
 
-$(a*b)\,mod\;m=[(a\,mod\;m)*(b\,mod\;m)]\,mod\;m$
+$(a \times b)\,mod\;m=[(a\,mod\;m)\times(b\,mod\;m)]\,mod\;m$
 
-### 거듭제곱
+#### 거듭제곱
 
 $(aᵇ)\,mod\;m=((a\,mod\;m)ᵇ)\,mod\;m$
 
-### 모듈러 역원을 이용한 나눗셈
+#### 모듈러 역원을 이용한 나눗셈
 
-모듈러 연산에서는 $(a/b)\,mod\;m$을 직접 구할 수 없습니다. 대신 b의 `곱셈 역원(Multiplicative inverse)`를 곱하는 방식으로 계산할 수 있습니다.
+모듈러 연산에서는 $(a/b)\,mod\;m$을 직접 구할 수 없습니다. 대신 b의 `모듈러 역원(Modular inverse)`를 곱하는 방식으로 계산할 수 있습니다.
 
-$(a/b)\,mod\;m=(a*b⁻¹)\,mod\;m$
+$(a/b)\,mod\;m=(a\times b⁻¹)\,mod\;m$
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong> <br />
-<b>모듈러 역원(Modular Inverse)</b>: 정수 a와 m에 대해 <b>(a * x) mod m = 1</b>을 만족하는 정수 x를 a의 모듈러 역원이라고 합니다. 예를 들어 정수 a가 3이고 m이 11일 때 (3 * 4) mod 11 = 1이므로 3의 모듈러 역원은 4입니다. <br />
+<b>모듈러 역원(Modular inverse)</b>: 정수 a와 m에 대해 <b>(a * x) mod m = 1</b>을 만족하는 정수 x를 a의 모듈러 역원이라고 합니다. 예를 들어 정수 a가 3이고 m이 11일 때 (3 × 4) mod 11 = 1이므로 3의 모듈러 역원은 4입니다. <br />
 </p></blockquote>
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong> <br />
 b의 곱셈 역원은 항상 존재하는 것이 아니라, <b>b와 m이 서로소</b>일 때만 존재합니다. 다만 출제되는 대부분의 알고리즘 문제에서는 m이 <b>소수</b>인 경우가 많습니다.</p></blockquote>
 
-모듈러 역원은 주로 TODO
+모듈러 역원을 구하는 방법으로는 여러 가지가 있습니다.
+
+<br />
+
+<b>1. 페르마의 소정리</b>
+
+만약 m이 소수인 경우, 아래의 `페르마의 소정리`를 활용하여 모듈러 역원을 쉽게 구할 수 있습니다.
+
+$(a⁻¹)\,mod\;m = (aᵐ⁻²)\,mod\;m$
+
+숫자 3의 모듈러 역원을 구하면 다음과 같이 4임을 확인할 수 있습니다.
+
+$3⁻¹\,mod\;11 = 3¹¹⁻²\,mod\;11=3⁹\,mod\;11=19683\,mod\;11=4$
+
+<br />
+
+<b>2. 확장 유클리드 알고리즘(Extended Euclidean Algorithm)</b>
+
+확장 유클리드 알고리즘(Extended Euclidean Algorithm)을 활용하여 모듈러 역원을 구할 수 있습니다.
+
+$a\times x+m\times y=gcd(a,m)$ 에서 <b>gcd가 1일 때(=a와 m이 서로소)</b>의 x 값이 a의 역원입니다.
+
+$3x+11y=1$
+
+$x=-7,\,y=2$
+
+$(-7)\,mod\;11=4\,mod\;11=4$
+
+```javascript
+const modInverse = (a, m) => {
+  if (m === 1) {
+    return 0;
+  }
+
+  const m0 = m;
+  let x0 = 0;
+  let x1 = 1;
+
+  while (a > 1) {
+    const q = Math.floor(a / m);
+    [a, m] = [m, a % m];
+    [x0, x1] = [x1 - q * x0, x0];
+  }
+
+  if (x1 < 0) {
+    x1 += m0;
+  }
+  return x1;
+};
+
+console.log(modInverse(3, 11)); // 4
+```
 
 ## Example
 
-- TODO
+- <a href="https://www.acmicpc.net/problem/16134" target="_blank">16134번: 조합 (Combination)</a>
+
+  ```kotlin
+  import java.io.*
+
+  const val p = 1000000007
+
+  fun main() {
+      val br = BufferedReader(InputStreamReader(System.`in`))
+      val bw = BufferedWriter(OutputStreamWriter(System.out))
+
+      // 0 <= r <= n <= 1,000,000
+      val (n, r) = br.readLine().split(" ").map { it.toInt() }
+      br.close()
+
+      val factorial = LongArray(n + 1) { 0 }
+      factorial[0] = 1L
+      factorial[1] = 1L
+      for (i in 2..n) {
+          factorial[i] = (i * factorial[i - 1]) % p
+      }
+
+      val result = factorial[n] * expdiv(factorial[r] * factorial[n - r] % p, p - 2) % p
+
+      bw.write("$result")
+      bw.flush()
+      bw.close()
+  }
+
+  fun expdiv(n: Long, e: Int): Long {
+      return when (e) {
+          0 -> 1
+          1 -> n
+          else -> {
+              val temp = expdiv(n, e / 2)
+              if (e % 2 == 0) (temp * temp) % p else (((n * temp) % p) * temp) % p
+          }
+      }
+  }
+  ```
 
 ## 참고 자료
 

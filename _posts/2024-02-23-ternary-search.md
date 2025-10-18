@@ -68,7 +68,9 @@ Algorithm</p></blockquote>
 
 삼분 탐색 알고리즘을 구현하기 위해선 먼저 탐색 구간을 파악해야 합니다. 탐색 구간이 [lo, hi]일 때, 탐색 구간을 3등분하기 위해 설정하는 두 개의 중간점의 위치는 각각 `(2 * lo + hi) / 3`, `(lo * 2 + hi) / 3`입니다.
 
-예를 들어 `y = -0.5x² + 2x + 12`라는 2차 함수에서 탐색 구간이 [-3, 6]일 때의 최댓값을 찾는 문제가 있을 경우, 탐색 구간을 3등분하기 위해 설정하는 두 개의 중간점은 `x = (2 * (-3) + 6) / 3 = 0`, `x = (-3 + 2 * 6) / 3 = 3`입니다.
+#### 실수 구간 삼분 탐색
+
+예를 들어 $y=-0.5x²+2x+12$ 라는 2차 함수에서 탐색 구간이 [-3, 6]일 때의 최댓값을 찾는 문제가 있을 경우, 탐색 구간을 3등분하기 위해 설정하는 두 개의 중간점은 `x = (2 * (-3) + 6) / 3 = 0`, `x = (-3 + 2 * 6) / 3 = 3`입니다.
 
 <img src="/assets/img/algorithms/ternary-search/pic1.avif" alt="y = -0.5x² + 2x + 12" />
 
@@ -101,6 +103,41 @@ while (right - left > eps) {
 
 console.log(left); // 1.9999996102999702
 console.log(func(left)); // 13.999999999999924
+```
+
+#### 정수 구간 삼분 탐색
+
+실수 구간에서 삼분 탐색을 사용할 때 left와 right 사이를 완전히 좁혀서 한 점으로 만드는 것이 불가능하듯이, 정수 구간에서 삼분 탐색을 사용할 때도 한 점으로 만드는 것이 불가능합니다. 이 경우 오차 허용값 대신, <b>탐색 구간이 충분히 좁아질 때까지 반복하다가 브루트포스로 확인</b>하는 방식을 사용합니다.
+
+$y=(x-4)²+2$ 라는 2차 함수에서 탐색 구간이 [-10, 10]일 때 최댓값을 찾는 문제가 있다고 가정합니다. 이 경우 `right - left > 2`일 때만 탐색을 반복하다가, 탐색 종료 이후 남은 몇 개의 정수 값만 직접 확인해서 최댓값을 찾으면 됩니다.
+
+```javascript
+const func = (x) => {
+  return (x - 4) * (x - 4) + 2;
+};
+
+let left = -10;
+let right = 10;
+
+while (right - left > 2) {
+  const a = Math.floor((2 * left + right) / 3);
+  const b = Math.floor((left + 2 * right) / 3);
+
+  if (func(a) > func(b)) {
+    left = a;
+  } else {
+    right = b;
+  }
+}
+
+let answer = func(left);
+
+for (let num = left + 1; num <= right; num++) {
+  answer = Math.min(answer, func(num));
+}
+
+console.log(left, right); // 3 5
+console.log(answer); // 2
 ```
 
 ## Example
@@ -171,6 +208,48 @@ console.log(func(left)); // 13.999999999999924
   };
 
   console.log(solve());
+  ```
+
+- <a href="https://www.acmicpc.net/problem/8986" target="_blank">8986번: 전봇대</a>
+
+  ```javascript
+  const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+  const input = require("fs").readFileSync(path).toString().trim().split("\n");
+
+  const N = Number(input[0]); // 전봇대의 수, 1 <= N <= 100_000
+  const x = input[1].split(" ").map(Number); // 1 <= x[i] <= 1_000_000_000
+
+  let left = 0;
+  let right = x[N - 1];
+
+  const check = (x1) => {
+    let result = 0;
+
+    for (let i = 1; i < N; i++) {
+      result += Math.abs(x1 * i - x[i]);
+    }
+
+    return result;
+  };
+
+  while (left + 2 < right) {
+    const a = Math.floor((left * 2 + right) / 3);
+    const b = Math.floor((left + 2 * right) / 3);
+
+    if (check(a) < check(b)) {
+      right = b;
+    } else {
+      left = a;
+    }
+  }
+
+  let answer = check(left);
+
+  for (let num = left + 1; num <= right; num++) {
+    answer = Math.min(answer, check(num));
+  }
+
+  console.log(answer);
   ```
 
 ## 참고 자료

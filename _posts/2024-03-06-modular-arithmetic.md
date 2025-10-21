@@ -117,45 +117,55 @@ const modInverse = (a, m) => {
 
 ## Example
 
-- <a href="https://www.acmicpc.net/problem/16134" target="_blank">16134번: 조합 (Combination)</a>
+- <a href="https://www.acmicpc.net/problem/3955" target="_blank">3955번: 캔디 분배</a>
 
-  ```kotlin
-  import java.io.*
+  ```javascript
+  const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+  const input = require("fs").readFileSync(path).toString().split("\n");
 
-  const val p = 1000000007
+  const t = Number(input[0]); // 테스트 케이스의 개수, 0 < t < 100
+  let answer = "";
 
-  fun main() {
-      val br = BufferedReader(InputStreamReader(System.`in`))
-      val bw = BufferedWriter(OutputStreamWriter(System.out))
+  const extendedGCD = (a, b) => {
+    if (b === 0) {
+      return { gcd: a, x: 1, y: 0 };
+    } else {
+      const { gcd, x: x1, y: y1 } = extendedGCD(b, a % b);
 
-      // 0 <= r <= n <= 1,000,000
-      val (n, r) = br.readLine().split(" ").map { it.toInt() }
-      br.close()
+      const x = y1;
+      const y = x1 - Math.floor(a / b) * y1;
 
-      val factorial = LongArray(n + 1) { 0 }
-      factorial[0] = 1L
-      factorial[1] = 1L
-      for (i in 2..n) {
-          factorial[i] = (i * factorial[i - 1]) % p
-      }
+      return { gcd, x, y };
+    }
+  };
 
-      val result = factorial[n] * expdiv(factorial[r] * factorial[n - r] % p, p - 2) % p
+  const modInverse = (a, m) => {
+    const { gcd, x } = extendedGCD(a, m);
 
-      bw.write("$result")
-      bw.flush()
-      bw.close()
+    if (gcd !== 1) {
+      return "IMPOSSIBLE\n";
+    }
+
+    let result = ((x % m) + m) % m;
+
+    while (a * result <= m) {
+      result += m;
+    }
+
+    return `${result > 1_000_000_000 ? "IMPOSSIBLE" : result}\n`;
+  };
+
+  for (let i = 1; i <= t; i++) {
+    // K: 참가자 수
+    // C: 한 봉지에 들어있는 사탕의 개수
+    // 1 <= K, C <= 1_000_000_000
+    const [K, C] = input[i].split(" ").map(Number);
+
+    // (C * x) mod K = 1
+    answer += modInverse(C, K);
   }
 
-  fun expdiv(n: Long, e: Int): Long {
-      return when (e) {
-          0 -> 1
-          1 -> n
-          else -> {
-              val temp = expdiv(n, e / 2)
-              if (e % 2 == 0) (temp * temp) % p else (((n * temp) % p) * temp) % p
-          }
-      }
-  }
+  console.log(answer.trim());
   ```
 
 - <a href="https://www.acmicpc.net/problem/14565" target="_blank">14565번: 역원(Inverse) 구하기</a>

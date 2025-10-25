@@ -116,57 +116,141 @@ const union = (x, y) => {
 
 ## Example
 
-<a href="https://www.acmicpc.net/problem/1717" target="_blank">1717번: 집합의 표현</a>
+- <a href="https://www.acmicpc.net/problem/1717" target="_blank">1717번: 집합의 표현</a>
 
-```javascript
-const input = require("fs").readFileSync(0, "utf-8").toString().split("\n");
+  ```javascript
+  const input = require("fs").readFileSync(0, "utf-8").toString().split("\n");
 
-// n: 집합의 수, 1 <= n <= 1_000_000
-// m: 연산의 개수, 1 <= m <= 100_000
-const [n, m] = input[0].split(" ").map(Number);
-const parent = Array.from({ length: n + 1 }, (_value, index) => index);
-const rank = Array(n + 1).fill(0);
-let answer = "";
+  // n: 집합의 수, 1 <= n <= 1_000_000
+  // m: 연산의 개수, 1 <= m <= 100_000
+  const [n, m] = input[0].split(" ").map(Number);
+  const parent = Array.from({ length: n + 1 }, (_value, index) => index);
+  const rank = Array(n + 1).fill(0);
+  let answer = "";
 
-const find = (x) => {
-  if (parent[x] !== x) {
-    parent[x] = find(parent[x]);
-  }
-  return parent[x];
-};
+  const find = (x) => {
+    if (parent[x] !== x) {
+      parent[x] = find(parent[x]);
+    }
+    return parent[x];
+  };
 
-const union = (x, y) => {
-  const rootX = find(x);
-  const rootY = find(y);
+  const union = (x, y) => {
+    const rootX = find(x);
+    const rootY = find(y);
 
-  if (rootX === rootY) {
-    return;
-  }
+    if (rootX === rootY) {
+      return;
+    }
 
-  if (rank[rootX] < rank[rootY]) {
-    parent[rootX] = rootY;
-  } else if (rank[rootX] > rank[rootY]) {
-    parent[rootY] = rootX;
-  } else {
-    parent[rootY] = rootX;
-    rank[rootX]++;
-  }
-};
-
-for (let i = 1; i <= m; i++) {
-  const [num, a, b] = input[i].split(" ").map(Number);
-
-  if (num === 0) {
-    union(a, b);
-  } else {
-    // num === 1
-    if (find(a) === find(b)) {
-      answer += "YES\n";
+    if (rank[rootX] < rank[rootY]) {
+      parent[rootX] = rootY;
+    } else if (rank[rootX] > rank[rootY]) {
+      parent[rootY] = rootX;
     } else {
-      answer += "NO\n";
+      parent[rootY] = rootX;
+      rank[rootX]++;
+    }
+  };
+
+  for (let i = 1; i <= m; i++) {
+    const [num, a, b] = input[i].split(" ").map(Number);
+
+    if (num === 0) {
+      union(a, b);
+    } else {
+      // num === 1
+      if (find(a) === find(b)) {
+        answer += "YES\n";
+      } else {
+        answer += "NO\n";
+      }
     }
   }
-}
 
-console.log(answer.trimEnd());
-```
+  console.log(answer.trimEnd());
+  ```
+
+- <a href="https://www.acmicpc.net/problem/4803" target="_blank">4803번: 트리</a>
+
+  ```javascript
+  const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+  const input = require("fs").readFileSync(path).toString().split("\n");
+  let num = 1;
+  let index = 0;
+  let answer = "";
+
+  while (true) {
+    // n: 정점의 개수, 1 <= n <= 500
+    // m: 간선의 개수, m <= n * (n - 1) / 2
+    const [n, m] = input[index++].split(" ").map(Number);
+
+    if (n === 0 && m === 0) {
+      break;
+    }
+
+    const parent = Array.from({ length: n + 1 }, (_value, index) => index);
+    const rank = Array(n + 1).fill(0);
+    const noTree = new Set();
+
+    const find = (x) => {
+      if (parent[x] !== x) {
+        parent[x] = find(parent[x]);
+      }
+      return parent[x];
+    };
+
+    const union = (x, y) => {
+      const rootX = find(x);
+      const rootY = find(y);
+
+      if (rootX === rootY) {
+        noTree.add(rootX);
+        return;
+      }
+
+      if (rank[rootX] < rank[rootY]) {
+        rank[rootX] = rootY;
+      } else if (rank[rootX] > rank[rootY]) {
+        rank[rootY] = rootX;
+      } else {
+        parent[rootY] = rootX;
+        rank[rootY]++;
+
+        if (noTree.has(rootX) || noTree.has(rootY)) {
+          noTree.add(rootX);
+          noTree.add(rootY);
+        }
+      }
+
+      return true;
+    };
+
+    for (let iter = 0; iter < m; iter++) {
+      const [a, b] = input[index++].split(" ").map(Number);
+      union(a, b);
+    }
+
+    let count = 0;
+    const set = new Set();
+
+    for (let i = 1; i <= n; i++) {
+      if (!set.has(find(i)) && !noTree.has(find(i))) {
+        set.add(find(i));
+        count++;
+      }
+    }
+
+    if (count === 0) {
+      answer += `Case ${num}: No trees.\n`;
+    } else if (count === 1) {
+      answer += `Case ${num}: There is one tree.\n`;
+    } else {
+      answer += `Case ${num}: A forest of ${count} trees.\n`;
+    }
+
+    num++;
+  }
+
+  console.log(answer.trim());
+  ```

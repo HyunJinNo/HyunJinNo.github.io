@@ -83,20 +83,19 @@ const tree = Array(arr.length * 4);
  * node 노드가 arr[left...right] 배열을 표현할 때
  * node를 루트로 하는 서브 트리를 초기화하는 함수
  *
- * @param {number[]} arr 배열
  * @param {number} left 시작 인덱스
  * @param {number} right 끝 인덱스
  * @param {number} node 루트
  */
-const init = (arr, left, right, node) => {
+const init = (left, right, node) => {
   if (left === right) {
     tree[node] = arr[left];
     return;
   }
 
   const mid = Math.floor((left + right) / 2);
-  init(arr, left, mid, node * 2); // 왼쪽 자식
-  init(arr, mid + 1, right, node * 2 + 1); // 오른쪽 자식
+  init(left, mid, node * 2); // 왼쪽 자식
+  init(mid + 1, right, node * 2 + 1); // 오른쪽 자식
   tree[node] = tree[node * 2] + tree[node * 2 + 1];
 };
 ```
@@ -104,138 +103,161 @@ const init = (arr, left, right, node) => {
 #### 질의 (Query): O(log N)
 
 ```javascript
+/**
+ * node가 표현하는 범위 arr[nodeLeft...nodeRight]가 주어질 때,
+ * 이 범위와 arr[left...right]의 교집합의 구간 합을 구합니다.
+ *
+ * @param {number} left
+ * @param {number} right
+ * @param {number} node
+ * @param {number} nodeLeft
+ * @param {number} nodeRight
+ * @returns 구간 합
+ */
+const query = (left, right, node, nodeLeft, nodeRight) => {
+  // 두 구간이 겹치지 않는 경우
+  if (right < nodeLeft || nodeRight < left) {
+    return 0;
+  }
 
+  // node가 표현하는 범위가 arr[left...right]에 완전히 포함되는 경우
+  if (left <= nodeLeft && nodeRight <= right) {
+    return tree[node];
+  }
+
+  // 양쪽 구간을 나눠서 푼 뒤 결과를 합칩니다.
+  const mid = Math.floor((nodeLeft + nodeRight) / 2);
+  const leftSum = query(left, right, node * 2, nodeLeft, mid);
+  const rightSum = query(left, right, node * 2 + 1, mid + 1, nodeRight);
+  return leftSum + rightSum;
+};
 ```
 
 #### 갱신 (Update): O(log N)
 
 ```javascript
-
-```
-
-#### 배열의 구간 최소 쿼리를 해결하기 위한 세그먼트 트리의 구현
-
-- <b>구간 최소 쿼리(Range Minimum Query, RMQ)</b>
-  - <b>구간 최소 쿼리</b>는 특정 구간의 최소치를 찾는 문제에서 주로 사용된다.
-  - 구간 최소 쿼리는 배열로 표현된다.
-
-```ts
-// TypeScript
-
-class RMQ {
-  private _size: number; // 배열의 길이
-  private _rangeMin: Array<number>; // 각 구간의 최소치
-
-  constructor(arr: Array<number>) {
-    this._size = arr.length;
-    this._rangeMin = Array<number>(this._size * 4);
-    this.init(arr, 0, this._size - 1, 1);
+/**
+ * arr[index] = newValue로 바뀌었을 때
+ * node를 루트로 하는 세그먼트 트리를 갱신합니다.
+ *
+ * @param {number} index
+ * @param {number} newValue
+ * @param {number} node
+ * @param {number} nodeLeft
+ * @param {number} nodeRight
+ */
+const update = (index, newValue, node, nodeLeft, nodeRight) => {
+  // index가 노드가 표현하는 구간과 상관없는 경우에는 무시합니다.
+  if (index < nodeLeft || nodeRight < index) {
+    return;
   }
 
-  /**
-   * node 노드가 arr[left..right] 배열을 표현할 때
-   * node를 루트로 하는 서브트리를 초기화하고, 이 구간의 최소치를 반환한다.
-   * @param arr 배열
-   * @param left 시작 인덱스
-   * @param right 끝 인덱스
-   * @param node 루트
-   */
-  private init = (
-    arr: Array<number>,
-    left: number,
-    right: number,
-    node: number
-  ): number => {
-    if (left === right) {
-      this._rangeMin[node] = arr[left];
-      return this._rangeMin[node];
-    }
+  // 트리의 리프까지 내려온 경우
+  if (nodeLeft === nodeRight) {
+    tree[node] = newValue;
+    return;
+  }
 
-    const mid = Math.floor((left + right) / 2);
-    const leftMin = this.init(arr, left, mid, node * 2);
-    const rightMin = this.init(arr, mid + 1, right, node * 2 + 1);
+  const mid = Math.floor((nodeLeft + nodeRight) / 2);
+  update(index, newValue, node * 2, nodeLeft, mid);
+  update(index, newValue, node * 2 + 1, mid + 1, nodeRight);
+  tree[node] = tree[node * 2] + tree[node * 2 + 1];
+};
+```
 
-    this._rangeMin[node] = Math.min(leftMin, rightMin);
-    return this._rangeMin[node];
-  };
+#### 최종 구현
 
-  /**
-   * node가 표현하는 범위 arr[nodeLeft..nodeRight]가 주어질 때,
-   * 이 범위와 arr[left..right]의 교집합의 최소치를 구한다.
-   */
-  private _query = (
-    left: number,
-    right: number,
-    node: number,
-    nodeLeft: number,
-    nodeRight: number
-  ): number => {
-    // 두 구간이 겹치지 않으면 아주 큰 값을 반환한다: 무시됨
-    if (right < nodeLeft || nodeRight < left) {
-      return Number.MAX_SAFE_INTEGER;
-    }
+최종 구현 결과는 다음과 같습니다.
 
-    // node가 표현하는 범위가 arr[left..right]에 완전히 포함되는 경우
-    if (left <= nodeLeft && nodeRight <= right) {
-      return this._rangeMin[node];
-    }
+```javascript
+const arr = [1, 3, 5, 7, 9, 11];
+const tree = Array(arr.length * 4);
 
-    // 양쪽 구간을 나눠서 푼 뒤 결과를 합친다.
-    const mid = Math.floor((nodeLeft + nodeRight) / 2);
-    return Math.min(
-      this._query(left, right, node * 2, nodeLeft, mid),
-      this._query(left, right, node * 2 + 1, mid + 1, nodeRight)
-    );
-  };
+/**
+ * node 노드가 arr[left...right] 배열을 표현할 때
+ * node를 루트로 하는 서브 트리를 초기화하는 함수
+ *
+ * @param {number} left 시작 인덱스
+ * @param {number} right 끝 인덱스
+ * @param {number} node 루트
+ */
+const init = (left, right, node) => {
+  if (left === right) {
+    tree[node] = arr[left];
+    return;
+  }
 
-  /**
-   * query()을 외부에서 호출하기 위한 인터페이스
-   */
-  public query = (left: number, right: number): number => {
-    return this._query(left, right, 1, 0, this._size - 1);
-  };
+  const mid = Math.floor((left + right) / 2);
+  init(left, mid, node * 2); // 왼쪽 자식
+  init(mid + 1, right, node * 2 + 1); // 오른쪽 자식
+  tree[node] = tree[node * 2] + tree[node * 2 + 1];
+};
 
-  /**
-   * arr[index] = newValue로 바뀌었을 때 node를 루트로 하는
-   * 구간 트리를 갱신하고 노드가 표현하는 구간의 최소치를 반환한다.
-   * @param index
-   * @param newValue
-   * @param node
-   * @param nodeLeft
-   * @param nodeRight
-   */
-  private _update = (
-    index: number,
-    newValue: number,
-    node: number,
-    nodeLeft: number,
-    nodeRight: number
-  ): number => {
-    // index가 노드가 표현하는 구간과 상관없는 경우엔 무시한다.
-    if (index < nodeLeft || nodeRight < index) {
-      return this._rangeMin[node];
-    }
+/**
+ * node가 표현하는 범위 arr[nodeLeft...nodeRight]가 주어질 때,
+ * 이 범위와 arr[left...right]의 교집합의 구간 합을 구합니다.
+ *
+ * @param {number} left
+ * @param {number} right
+ * @param {number} node
+ * @param {number} nodeLeft
+ * @param {number} nodeRight
+ * @returns 구간 합
+ */
+const query = (left, right, node, nodeLeft, nodeRight) => {
+  // 두 구간이 겹치지 않는 경우
+  if (right < nodeLeft || nodeRight < left) {
+    return 0;
+  }
 
-    // 트리의 leaf까지 내려온 경우
-    if (nodeLeft === nodeRight) {
-      this._rangeMin[node] = newValue;
-      return newValue;
-    }
+  // node가 표현하는 범위가 arr[left...right]에 완전히 포함되는 경우
+  if (left <= nodeLeft && nodeRight <= right) {
+    return tree[node];
+  }
 
-    const mid = Math.floor((nodeLeft + nodeRight) / 2);
-    return Math.min(
-      this._update(index, newValue, node * 2, nodeLeft, mid),
-      this._update(index, newValue, node * 2 + 1, mid + 1, nodeRight)
-    );
-  };
+  // 양쪽 구간을 나눠서 푼 뒤 결과를 합칩니다.
+  const mid = Math.floor((nodeLeft + nodeRight) / 2);
+  const leftSum = query(left, right, node * 2, nodeLeft, mid);
+  const rightSum = query(left, right, node * 2 + 1, mid + 1, nodeRight);
+  return leftSum + rightSum;
+};
 
-  /**
-   * update()을 외부에서 호출하기 위한 인터페이스
-   */
-  public update = (index: number, newValue: number): number => {
-    return this._update(index, newValue, 1, 0, this._size - 1);
-  };
-}
+/**
+ * arr[index] = newValue로 바뀌었을 때
+ * node를 루트로 하는 세그먼트 트리를 갱신합니다.
+ *
+ * @param {number} index
+ * @param {number} newValue
+ * @param {number} node
+ * @param {number} nodeLeft
+ * @param {number} nodeRight
+ */
+const update = (index, newValue, node, nodeLeft, nodeRight) => {
+  // index가 노드가 표현하는 구간과 상관없는 경우에는 무시합니다.
+  if (index < nodeLeft || nodeRight < index) {
+    return;
+  }
+
+  // 트리의 리프까지 내려온 경우
+  if (nodeLeft === nodeRight) {
+    tree[node] = newValue;
+    return;
+  }
+
+  const mid = Math.floor((nodeLeft + nodeRight) / 2);
+  update(index, newValue, node * 2, nodeLeft, mid);
+  update(index, newValue, node * 2 + 1, mid + 1, nodeRight);
+  tree[node] = tree[node * 2] + tree[node * 2 + 1];
+};
+
+init(0, arr.length - 1, 1);
+console.log(query(0, 2, 1, 0, arr.length - 1)); // 1 + 3 + 5 = 9
+update(0, 2, 1, 0, arr.length - 1);
+console.log(query(0, 2, 1, 0, arr.length - 1)); // 2 + 3 + 5 = 10
+console.log(query(0, 3, 1, 0, arr.length - 1)); // 2 + 3 + 5 + 7 = 17
+update(3, 8, 1, 0, arr.length - 1);
+console.log(query(0, 3, 1, 0, arr.length - 1)); // 2 + 3 + 5 + 8 = 18
+console.log(query(3, 5, 1, 0, arr.length - 1)); // 8 + 9 + 11 = 28
 ```
 
 ## Example

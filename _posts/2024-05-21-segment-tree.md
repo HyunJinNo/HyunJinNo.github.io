@@ -23,7 +23,7 @@ Algorithm</p></blockquote>
 
 ### 개념
 
-`세그먼트 트리(Segment Tree)`는 저장된 자료들을 적절히 전처리해 그들에 대한 질의들을 빠르게 대답할 수 있게 구현한 이진 트리 기반 자료 구조입니다. 즉, 세그머트 트리는 배열의 구간 정보를 트리 형태로 저장하는 자료 구조로, 주로 구간 합, 구간 최솟값, 구간 최댓값 등 1차원 배열의 특정 구간에 대한 질문을 빠르게 대답하는 데 사용됩니다.
+`세그먼트 트리(Segment Tree)`는 저장된 자료들을 적절히 전처리해 그들에 대한 질의들을 빠르게 대답할 수 있게 구현한 이진 트리 기반 자료 구조입니다. 즉, 세그먼트 트리는 배열의 구간 정보를 트리 형태로 저장하는 자료 구조로, 주로 구간 합, 구간 최솟값, 구간 최댓값 등 1차원 배열의 특정 구간에 대한 질문을 빠르게 대답하는 데 사용됩니다.
 
 ### 특징
 
@@ -69,25 +69,32 @@ Algorithm</p></blockquote>
 
 위의 트리 구조에서 루트 노드는 전체 구간에 대한 정보를 저장하고, 왼쪽 자식은 구간의 왼쪽 절반 정보를, 오른쪽 자식은 구간의 오른쪽 절반 정보를 저장합니다.
 
-### 구현
+### 구간 합을 처리하는 세그먼트 트리 구현
 
-이번 글에서는 구간 합을 처리하는 세그먼트 트리를 구현하는 방법에 대해서 설명하겠습니다.
+이번 글에서는 <b>구간 합을 처리하는 세그먼트 트리</b>를 구현하는 방법에 대해서 설명하겠습니다.
 
 #### 전처리: O(N)
+
+먼저 배열 arr이 주어질 때 세그먼트 트리를 나타낼 배열(tree) 하나를 선언합니다. 세그먼트 트리는 `완전 이진 트리` 형태로 구성되기 때문에 리프의 개수가 N 개 일 때, 전체 노드는 대략 2N ~ 4N 개가 필요합니다. 따라서 인덱스 초과를 방지하기 위해 tree 배열을 초기화할 때 배열의 길이를 `arr.length * 4`로 설정합니다.
 
 ```javascript
 const arr = [1, 3, 5, 7, 9, 11];
 const tree = Array(arr.length * 4);
+```
 
+트리 선언 이후에는 다음과 같이 재귀 방식을 활용하여 세그먼트 트리를 생성할 수 있습니다. 루트 노드는 전체 구간에 대한 정보를 저장하고, 왼쪽 자식은 구간의 왼쪽 절반 정보를, 오른쪽 자식은 구간의 오른쪽 절반 정보를 저장하므로 `node`가 루트일 때, 왼쪽 구간 정보와 오른쪽 구간 정보를 활용하여 부모 노드에 값을 저장합니다.
+
+```javascript
 /**
  * node 노드가 arr[left...right] 배열을 표현할 때
  * node를 루트로 하는 서브 트리를 초기화하는 함수
  *
- * @param {number} left 시작 인덱스
- * @param {number} right 끝 인덱스
- * @param {number} node 루트
+ * @param {number} left 현재 노드가 표현하는 구간의 시작 인덱스
+ * @param {number} right 현재 노드가 표현하는 구간의 끝 인덱스
+ * @param {number} node 루트 (현재 구간을 표현하는 트리의 노드 번호)
  */
 const init = (left, right, node) => {
+  // 세그먼트 트리의 리프 노드인 경우
   if (left === right) {
     tree[node] = arr[left];
     return;
@@ -100,18 +107,32 @@ const init = (left, right, node) => {
 };
 ```
 
+실제로 세그먼트 트리를 초기화하면 트리 구조는 다음과 같이 구성됩니다.
+
+```text
+               tree[1] = 36  (전체 합)
+             /                      \
+    tree[2] = 9                 tree[3] = 27
+        /     \                   /        \
+   tree[4]=4  tree[5]=5     tree[6]=16  tree[7]=11
+   /     \
+tree[8]=1 tree[9]=3
+```
+
 #### 질의 (Query): O(log N)
+
+다음으로 `arr[nodeLeft...nodeRight]`에 대한 구간 합 연산 결과를 반환하는 query 함수를 구현합니다. 탐색 중인 구간 `[left, right]`가 `[nodeLeft, nodeRight]` 구간에 완전히 포함되는 경우 그 노드의 값을 반환하면 됩니다. 반대로 구간이 겹치지 않는 경우 0를 리턴하여 무시하도록 구현하며, 일부만 겹치는 경우 왼쪽 자식과 오른쪽 자식을 탐색하여 구간 합을 계산하면 됩니다.
 
 ```javascript
 /**
  * node가 표현하는 범위 arr[nodeLeft...nodeRight]가 주어질 때,
  * 이 범위와 arr[left...right]의 교집합의 구간 합을 구합니다.
  *
- * @param {number} left
- * @param {number} right
- * @param {number} node
- * @param {number} nodeLeft
- * @param {number} nodeRight
+ * @param {number} left 구하고자 하는 구간 합의 시작 인덱스
+ * @param {number} right 구하고자 하는 구간 합의 끝 인덱스
+ * @param {number} node 현재 탐색 중인 세그먼트 트리의 노드 번호
+ * @param {number} nodeLeft 현재 노드가 표현하는 구간의 시작 인덱스
+ * @param {number} nodeRight 현재 노드가 표현하는 구간의 끝 인덱스
  * @returns 구간 합
  */
 const query = (left, right, node, nodeLeft, nodeRight) => {
@@ -135,16 +156,18 @@ const query = (left, right, node, nodeLeft, nodeRight) => {
 
 #### 갱신 (Update): O(log N)
 
+마지막으로 배열의 값이 변경되었을 때, 해당 구간을 포함하는 노드들을 갱신하는 update 함수를 구현합니다. `arr[index]`의 값이 `newValue`로 바뀌었을 때 세그먼트 트리의 관련된 노드들을 모두 재계산하여 반영합니다.
+
 ```javascript
 /**
  * arr[index] = newValue로 바뀌었을 때
  * node를 루트로 하는 세그먼트 트리를 갱신합니다.
  *
- * @param {number} index
- * @param {number} newValue
- * @param {number} node
- * @param {number} nodeLeft
- * @param {number} nodeRight
+ * @param {number} index 값이 바뀐 배열의 인덱스
+ * @param {number} newValue 새로운 값
+ * @param {number} node 현재 탐색 중인 세그먼트 트리의 노드 번호
+ * @param {number} nodeLeft 현재 노드가 표현하는 구간의 시작 인덱스
+ * @param {number} nodeRight 현재 노드가 표현하는 구간의 끝 인덱스
  */
 const update = (index, newValue, node, nodeLeft, nodeRight) => {
   // index가 노드가 표현하는 구간과 상관없는 경우에는 무시합니다.
@@ -177,11 +200,12 @@ const tree = Array(arr.length * 4);
  * node 노드가 arr[left...right] 배열을 표현할 때
  * node를 루트로 하는 서브 트리를 초기화하는 함수
  *
- * @param {number} left 시작 인덱스
- * @param {number} right 끝 인덱스
- * @param {number} node 루트
+ * @param {number} left 현재 노드가 표현하는 구간의 시작 인덱스
+ * @param {number} right 현재 노드가 표현하는 구간의 끝 인덱스
+ * @param {number} node 루트 (현재 구간을 표현하는 트리의 노드 번호)
  */
 const init = (left, right, node) => {
+  // 세그먼트 트리의 리프 노드인 경우
   if (left === right) {
     tree[node] = arr[left];
     return;
@@ -197,11 +221,11 @@ const init = (left, right, node) => {
  * node가 표현하는 범위 arr[nodeLeft...nodeRight]가 주어질 때,
  * 이 범위와 arr[left...right]의 교집합의 구간 합을 구합니다.
  *
- * @param {number} left
- * @param {number} right
- * @param {number} node
- * @param {number} nodeLeft
- * @param {number} nodeRight
+ * @param {number} left 구하고자 하는 구간 합의 시작 인덱스
+ * @param {number} right 구하고자 하는 구간 합의 끝 인덱스
+ * @param {number} node 현재 탐색 중인 세그먼트 트리의 노드 번호
+ * @param {number} nodeLeft 현재 노드가 표현하는 구간의 시작 인덱스
+ * @param {number} nodeRight 현재 노드가 표현하는 구간의 끝 인덱스
  * @returns 구간 합
  */
 const query = (left, right, node, nodeLeft, nodeRight) => {
@@ -226,11 +250,11 @@ const query = (left, right, node, nodeLeft, nodeRight) => {
  * arr[index] = newValue로 바뀌었을 때
  * node를 루트로 하는 세그먼트 트리를 갱신합니다.
  *
- * @param {number} index
- * @param {number} newValue
- * @param {number} node
- * @param {number} nodeLeft
- * @param {number} nodeRight
+ * @param {number} index 값이 바뀐 배열의 인덱스
+ * @param {number} newValue 새로운 값
+ * @param {number} node 현재 탐색 중인 세그먼트 트리의 노드 번호
+ * @param {number} nodeLeft 현재 노드가 표현하는 구간의 시작 인덱스
+ * @param {number} nodeRight 현재 노드가 표현하는 구간의 끝 인덱스
  */
 const update = (index, newValue, node, nodeLeft, nodeRight) => {
   // index가 노드가 표현하는 구간과 상관없는 경우에는 무시합니다.
@@ -261,6 +285,8 @@ console.log(query(3, 5, 1, 0, arr.length - 1)); // 8 + 9 + 11 = 28
 ```
 
 ## Example
+
+- <a href="" target="_blank">TODO</a>
 
 ## 참고 자료
 

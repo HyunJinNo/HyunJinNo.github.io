@@ -1,5 +1,5 @@
 ---
-title: 유클리드 (Euclidean) Algorithm
+title: 유클리드 (Euclidean) 알고리즘
 description: 유클리드 (Euclidean) 알고리즘에 대해 정리한 페이지입니다.
 date: 2024-03-04 00:00:00 +/-TTTT
 categories: [Algorithms]

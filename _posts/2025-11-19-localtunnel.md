@@ -23,7 +23,7 @@ localtunnel</p></blockquote>
 
 ### 개념
 
-`localtunnel`은 로컬에서 실행 중인 서버를 외부에서 접근할 수 있는 임시 URL로 만들어주는 서비스입니다. 즉, localtunnel을 사용하면 로컬에서 개발 중인 서버(Ex. localhost:3000)를 외부에서 접속할 수 있습니다.
+`localtunnel`은 로컬에서 실행 중인 서버를 외부에서 접근할 수 있는 임시 URL로 만들어주는 서비스입니다. 즉, `localtunnel`을 사용하면 로컬에서 개발 중인 서버(Ex. localhost:3000)를 외부에서 접속할 수 있습니다.
 
 ### 특징
 
@@ -82,15 +82,39 @@ brew install localtunnel
 </html>
 ```
 
+<img src="/assets/img/etc/localtunnel/pic1.avif" alt="Live Server로 실행한 로컬 서버" />
+
+<img src="/assets/img/etc/localtunnel/pic2.avif" alt="localhost:5500에서 실행 중인 로컬 서버" />
+
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
 VSCode에서 <b>Live Server</b>라는 Extension을 설치하여 실행하였습니다.</p></blockquote>
+
+로컬 서버가 실행되었으면 다음 명령어를 입력하여 localtunnel을 실행합니다.
 
 ```bash
 lt --port <포트 번호>
 ```
 
+또는
+
+```bash
+lt --port <포트 번호> --subdomain <서브도메인>
+```
+
+<img src="/assets/img/etc/localtunnel/pic3.avif" alt="localtunnel 실행" />
+
+표시된 URL로 접속하면 다음과 같은 페이지가 나타납니다. 해당 페이지에는 `Tunnel Password`를 입력하는 부분이 있는데, 웹 페이지 하단에 표시된 링크(<a href="https://loca.lt/mytunnelpassword" target="_blank">https://loca.lt/mytunnelpassword</a>)에 접속하여 확인할 수 있는 공인 IP 주소를 입력한 후 Click to Submit 버튼을 누르면 됩니다.
+
+<img src="/assets/img/etc/localtunnel/pic4.avif" alt="Tunnel Password에는 공인 IP 주소를 입력하면 됩니다." />
+
+Click to Submit 버튼을 클릭하면 다음과 같이 외부에서 로컬 서버에 접근할 수 있게 됩니다.
+
+<img src="/assets/img/etc/localtunnel/pic5.avif" alt="맥북에서 접속한 모습" />
+
+<img src="/assets/img/etc/localtunnel/pic6.avif" alt="모바일에서 접속한 모습" />
+
 ## 참고 자료
 
 - <a href="https://theboroer.github.io/localtunnel-www/" target="_blank">Localtunnel ~ Expose yourself to the world</a>
 - <a href="https://velog.io/@bbaa3218/로컬-호스트-서버-배포하기-ngrok-localtunnel" target="_blank">로컬 호스트 서버 배포하기 (ngrok, localtunnel)</a>
-- <a href="https://kibua20.tistory.com/151" target="\_blank외부 망에서 Localhost를 접속하기: localtunnel (무료, domain제공)a>
+- <a href="https://kibua20.tistory.com/151" target="_blank">외부 망에서 Localhost를 접속하기: localtunnel (무료, domain제공)<a>

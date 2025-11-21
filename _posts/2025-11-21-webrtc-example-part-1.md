@@ -1,6 +1,6 @@
 ---
-title: WebRTC 사용법 - Part 1
-description: WebRTC (Web Real-Time Communication) 사용법에 대해 정리한 페이지입니다.
+title: WebRTC로 1:1 화상 회의 구현 방법
+description: WebRTC로 1:1 화상 회의 구현 방법에 대해 정리한 페이지입니다.
 date: 2025-11-21 00:00:00 +/-TTTT
 categories: [Computer Science]
 tags: [webrtc]
@@ -71,10 +71,11 @@ Mesh 방식의 WebRTC 연결 흐름은 다음과 같이 동작합니다.
   <body>
     <h1>WebRTC Example</h1>
 
-    <video id="localVideo" autoplay></video>
     <!-- 내 영상 -->
-    <video id="remoteVideo" autoplay></video>
+    <video id="localVideo" autoplay></video>
+
     <!-- 상대 영상 -->
+    <video id="remoteVideo" autoplay></video>
 
     <button id="startButton">Start</button>
     <button id="callButton">Call</button>
@@ -84,6 +85,8 @@ Mesh 방식의 WebRTC 연결 흐름은 다음과 같이 동작합니다.
   </body>
 </html>
 ```
+
+<img src="/assets/img/cs/webrtc-example-part-1/pic2.avif" alt="HTML" />
 
 #### CSS
 
@@ -466,9 +469,11 @@ server.listen(port, () => {
 });
 ```
 
-## 정리
+### 구현 결과
 
-TODO
+모바일과 맥북으로 1:1 화상 회의에 접속한 결과는 다음과 같습니다.
+
+<img src="/assets/img/cs/webrtc-example-part-1/pic3.avif" alt="1:1 화상 회의 구현 결과" />
 
 ## 참고 자료
 
@@ -476,4 +481,4 @@ TODO
 - <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity" target="_blank">WebRTC connectivity - Web APIs | MDN</a>
 - <a href="https://hwanheejung.tistory.com/47" target="_blank">[WebRTC] 화상 회의를 구현하는 방법 (1:1)</a>
 - <a href="https://velog.io/@jasondal91/내가-이해한-WebRTC" target="_blank">내가 이해한 WebRTC</a>
-- <a href="https://juyami.tistory.com/120" target="_blank">WebRTC] React+TypeScript+WebRTC 개념정리 + 구현하기</a>
+- <a href="https://juyami.tistory.com/120" target="_blank">[WebRTC] React+TypeScript+WebRTC 개념정리 + 구현하기</a>

@@ -1,7 +1,7 @@
 ---
 title: WebRTC 사용법 - Part 1
 description: WebRTC (Web Real-Time Communication) 사용법에 대해 정리한 페이지입니다.
-date: 2025-11-09 00:00:00 +/-TTTT
+date: 2025-11-21 00:00:00 +/-TTTT
 categories: [Computer Science]
 tags: [webrtc]
 math: true
@@ -43,7 +43,7 @@ Mesh 방식은 구현이 간단하고 서버 비용이 적게 든다는 장점�
 
 Mesh 방식의 WebRTC 연결 흐름은 다음과 같이 동작합니다.
 
-<img src="/assets/img/cs/webrtc-example-part-1/pic1.png" alt="Mesh 방식의 WebRTC 흐름" />
+<img src="/assets/img/cs/webrtc-example-part-1/pic1.avif" alt="Mesh 방식의 WebRTC 흐름" />
 
 1. A/B 브라우저의 미디어 접근 요청(getUserMedia())
 2. A가 offer를 생성 → 시그널링 서버 → B에게 전달

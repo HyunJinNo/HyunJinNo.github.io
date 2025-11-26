@@ -75,7 +75,7 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 
 브라우저는 계산된 레이아웃 정보를 바탕으로 각 요소를 실제 화면에 그리는 페인팅 단계를 실행합니다. 이 때, 각 요소의 배경, 테두리, 글자 등을 그리게 됩니다. 이 과정에서 브라우저는 성능 최적화를 위해 요소를 독립적인 `레이어(Layer)`로 분리하여 렌더링합니다. 이는 성능 저하를 초래할 수 있는 `레이아웃 스래싱(Layout Thrashing)`을 방지하기 위함입니다.
 
-<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
 <b>레이아웃 스레싱(Layout Thrashing)</b>이란 웹 페이지에서 JavaScript가 <b>반복적으로 DOM을 읽고 쓰는 작업을 수행</b>할 때, 브라우저가 불필요하게 <b>레이아웃 계산을 여러 번 강제로 실행</b>하며 성능이 급격히 저하되는 현상을 말합니다.</p></blockquote>
 
 ### Step 7 - 합성(Composite)
@@ -90,9 +90,19 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 
   웹 페이지 내에서 요소의 위치 또는 크기에 변화가 있는 경우, 즉 DOM이나 CSSOM에 변경이 발생하면, 영향을 받는 부분에 대해 다시 레이아웃 계산이 필요합니다. 이 경우, 변경된 부분에 대해 다시 렌더 트리를 구성하고 레이아웃 및 페인팅 단계, 합성도 다시 수행됩니다. 예를 들어, 요소의 크기, 위치, margin 등이 변경될 때 리플로우가 발생하며, 이 경우 페인팅과 합성도 다시 수행됩니다. width, height, padding, margin, border-width와 같은 크기 관련 속성, position, top, left와 같은 위치 관련 속성, display, flex 속성과 같은 레이아웃 관련 속성, font-size, font-weight와 같은 폰트 크기 관련 속성이 리플로우를 유발하는 속성입니다.
 
+  <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
+  리플로우 과정은 다음과 같은 과정을 거치게 됩니다.<br />
+  <br />
+  DOM + CSSOM → 렌더 트리 → <b>레이아웃</b> → 페인팅 → 합성</p></blockquote>
+
 - `리페인트(Repaint)`
 
   레이아웃 변화 없이 색상, 배경 등 스타일만 변경되면 리페인트만 일어나며, 레이아웃 재계산없이 다시 화면을 그립니다. color, background-color와 같은 색상 관련 속성, border-color, border-radius와 같은 테두리 관련 속성이 리페인트를 유발하는 속성입니다.
+
+  <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
+  리페인트 과정은 레이아웃 단계를 건너뛰며, 다음과 같은 과정을 거치게 됩니다. <br />
+  <br />
+  DOM + CSSOM → 렌더 트리 → 페인팅 → 합성</p></blockquote>
 
 <blockquote class="prompt-tip"><p><strong><u>Tips</u></strong><br>
 리플로우와 리페인트는 웹 페이지가 렌더링되는 과정에서 발생하는 중요한 작업들로, 이 둘을 잘 관리하는 것이 성능 최적화에 도움이 됩니다.<br />

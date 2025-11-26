@@ -80,7 +80,11 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 
 ### Step 7 - 합성(Composite)
 
-이 단계에서는 여러 레이어(Layer)를 합성하여 최종 화면을 출력합니다. 이 때, GPU와 합성 스레드가 협력하여, 스크롤이나 애니메이션 시 부드러운 업데이트를 가능하게 합니다. `transform`, `opacity` 속성은 GPU 가속을 지원하며 별도 레이어에서 처리되어 리플로우를 일으키지 않고 애니메이션이 가능합니다.
+이 단계에서는 여러 레이어(Layer)를 합성하여 최종 화면을 출력합니다. 이 때, GPU와 합성 스레드가 협력하여, 스크롤이나 애니메이션 시 부드러운 업데이트를 가능하게 합니다.
+
+<blockquote class="prompt-tip"><p><strong><u>Tips</u></strong><br>
+<b>transform</b>, <b>opacity</b> 속성은 GPU 가속을 지원하며 <b>별도 레이어</b>에서 처리되어 레이아웃 단계와 페인트 단계를 건너뜁니다.
+</p></blockquote>
 
 ### Step 8 - 리렌더링
 
@@ -119,8 +123,12 @@ transform과 opacity 속성은 GPU 가속을 사용할 수 있어 리플로우�
 
 <b>- will-change 속성 사용</b><br />
 
-will-change 속성은 요소의 변화를 미리 브라우저에게 알려주어 브라우저가 GPU 가속을 활용하여 최적화하는 데 도움을 줍니다. 단, will-change 속성을 너무 많이 사용하면 오히려 성능이 저하될 수 있으므로 주의해야 합니다.
+will-change 속성은 요소의 변화를 미리 브라우저에게 알려주어 브라우저가 GPU 가속을 활용하여 최적화하는 데 도움을 줍니다. 단, will-change 속성을 너무 많이 사용하면 레이어가 너무 많아지면서 그만큼 메모리를 많이 사용하기 때문에 오히려 성능이 저하될 수 있으므로 주의해야 합니다.
 
+</p></blockquote>
+
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
+2D transform(Ex. translate, scale, rotate 등)은 처음부터 레이어를 분리하지 않고 변화가 일어나는 순간 레이어를 분리합니다. 반면에 3D transform(EX. translateZ, translate3D 등)과 will-change는 처음부터 레이어를 분리합니다.
 </p></blockquote>
 
 ## 참고 자료

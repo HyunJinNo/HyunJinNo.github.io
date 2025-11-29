@@ -210,9 +210,9 @@ const union = (x, y) => {
       }
 
       if (rank[rootX] < rank[rootY]) {
-        rank[rootX] = rootY;
+        parent[rootX] = rootY;
       } else if (rank[rootX] > rank[rootY]) {
-        rank[rootY] = rootX;
+        parent[rootY] = rootX;
       } else {
         parent[rootY] = rootX;
         rank[rootY]++;

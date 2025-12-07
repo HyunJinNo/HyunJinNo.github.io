@@ -3,7 +3,7 @@ title: 이미지 지연 로딩 (Image Lazy Loading)
 description: 이미지 지연 로딩 방법에 대해 정리한 페이지입니다.
 date: 2025-12-05 00:00:00 +/-TTTT
 categories: [Front-end]
-tags: [react]
+tags: [react, intersection-observer]
 math: true
 toc: true
 pin: false
@@ -13,7 +13,7 @@ comments: true
 ---
 
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
-React</p></blockquote>
+React, Intersection Observer</p></blockquote>
 
 ## 개요
 
@@ -40,38 +40,45 @@ img 태그에 `loading="lazy"` 속성만 추가하면 간단하게 이미지 지
 React에서 `loading="lazy"` 속성을 활용한 이미지 지연 로딩 예시는 다음과 같습니다.
 
 ```tsx
+import pic1_avif from "@/shared/assets/pic1.avif";
+import pic1_webp from "@/shared/assets/pic1.webp";
 import pic1 from "@/shared/assets/pic1.jpg";
+
+import pic2_avif from "@/shared/assets/pic2.avif";
+import pic2_webp from "@/shared/assets/pic2.webp";
 import pic2 from "@/shared/assets/pic2.jpg";
+
+import pic3_avif from "@/shared/assets/pic3.avif";
+import pic3_webp from "@/shared/assets/pic3.webp";
 import pic3 from "@/shared/assets/pic3.jpg";
+
+import pic4_avif from "@/shared/assets/pic4.avif";
+import pic4_webp from "@/shared/assets/pic4.webp";
 import pic4 from "@/shared/assets/pic4.jpg";
 
 export const LoadingAttributePage = () => {
   return (
     <div className="flex flex-col items-center gap-80">
-      <img
-        className="aspect-video w-160"
-        src={pic1}
-        alt="pic1"
-        loading="lazy"
-      />
-      <img
-        className="aspect-video w-160"
-        src={pic2}
-        alt="pic2"
-        loading="lazy"
-      />
-      <img
-        className="aspect-video w-160"
-        src={pic3}
-        alt="pic3"
-        loading="lazy"
-      />
-      <img
-        className="aspect-video w-160"
-        src={pic4}
-        alt="pic4"
-        loading="lazy"
-      />
+      <picture className="h-90 w-160">
+        <source srcSet={pic1_avif} type="image/avif" />
+        <source srcSet={pic1_webp} type="image/webp" />
+        <img src={pic1} alt="pic1" loading="lazy" />
+      </picture>
+      <picture className="h-90 w-160">
+        <source srcSet={pic2_avif} type="image/avif" />
+        <source srcSet={pic2_webp} type="image/webp" />
+        <img src={pic2} alt="pic2" loading="lazy" />
+      </picture>
+      <picture className="h-90 w-160">
+        <source srcSet={pic3_avif} type="image/avif" />
+        <source srcSet={pic3_webp} type="image/webp" />
+        <img src={pic3} alt="pic3" loading="lazy" />
+      </picture>
+      <picture className="h-90 w-160">
+        <source srcSet={pic4_avif} type="image/avif" />
+        <source srcSet={pic4_webp} type="image/webp" />
+        <img src={pic4} alt="pic4" loading="lazy" />
+      </picture>
     </div>
   );
 };
@@ -86,10 +93,22 @@ export const LoadingAttributePage = () => {
 `Intersection Observer`는 브라우저에서 제공하는 API로, 웹 페이지의 특정 요소를 관찰(observe)하면 페이지 스크롤 시 해당 요소가 화면에 들어왔는지 아닌지를 알려 줍니다. 이 `Intersection Observer`를 활용하여 뷰포트에 들어오는 이미지만 로드하도록 구현할 수 있습니다. <b>이미지 로딩은 img 태그의 src가 할당되는 순간 일어나므로, 최초에는 img 태그의 src 속성 대신 다른 속성에다가 이미지 URL을 할당하다가, Intersection Observer의 콜백이 실행되는 순간 src를 할당하는 식</b>으로 이미지 지연 로딩을 구현할 수 있습니다. 이 방식은 주로 <b>사용자의 스크롤 위치에 따라 이미지 로딩을 세밀하게 제어하고 싶을 때 사용</b>합니다.
 
 ```tsx
+import pic1_avif from "@/shared/assets/pic1.avif";
+import pic1_webp from "@/shared/assets/pic1.webp";
 import pic1 from "@/shared/assets/pic1.jpg";
+
+import pic2_avif from "@/shared/assets/pic2.avif";
+import pic2_webp from "@/shared/assets/pic2.webp";
 import pic2 from "@/shared/assets/pic2.jpg";
+
+import pic3_avif from "@/shared/assets/pic3.avif";
+import pic3_webp from "@/shared/assets/pic3.webp";
 import pic3 from "@/shared/assets/pic3.jpg";
+
+import pic4_avif from "@/shared/assets/pic4.avif";
+import pic4_webp from "@/shared/assets/pic4.webp";
 import pic4 from "@/shared/assets/pic4.jpg";
+
 import { useEffect, useRef } from "react";
 
 export const IntersectionObserverPage = () => {
@@ -102,9 +121,14 @@ export const IntersectionObserverPage = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          (entry.target as HTMLImageElement).src = (
-            entry.target as HTMLImageElement
-          ).dataset.src!;
+          const target = entry.target as HTMLImageElement;
+          const webpElement = target.previousSibling as HTMLSourceElement;
+          const avifElement = webpElement.previousSibling as HTMLSourceElement;
+
+          target.src = target.dataset.src!;
+          webpElement.srcset = webpElement.dataset.srcset!;
+          avifElement.srcset = avifElement.dataset.srcset!;
+
           observer.unobserve(entry.target);
         }
       }, {});
@@ -122,30 +146,26 @@ export const IntersectionObserverPage = () => {
 
   return (
     <div className="flex flex-col items-center gap-80">
-      <img
-        className="aspect-video w-160"
-        data-src={pic1}
-        alt="pic1"
-        ref={imgRef1}
-      />
-      <img
-        className="aspect-video w-160"
-        data-src={pic2}
-        alt="pic2"
-        ref={imgRef2}
-      />
-      <img
-        className="aspect-video w-160"
-        data-src={pic3}
-        alt="pic3"
-        ref={imgRef3}
-      />
-      <img
-        className="aspect-video w-160"
-        data-src={pic4}
-        alt="pic4"
-        ref={imgRef4}
-      />
+      <picture className="h-90 w-160">
+        <source data-srcset={pic1_avif} type="image/avif" />
+        <source data-srcset={pic1_webp} type="image/webp" />
+        <img data-src={pic1} alt="pic1" ref={imgRef1} />
+      </picture>
+      <picture className="h-90 w-160">
+        <source data-srcset={pic2_avif} type="image/avif" />
+        <source data-srcset={pic2_webp} type="image/webp" />
+        <img data-src={pic2} alt="pic2" ref={imgRef2} />
+      </picture>
+      <picture className="h-90 w-160">
+        <source data-srcset={pic3_avif} type="image/avif" />
+        <source data-srcset={pic3_webp} type="image/webp" />
+        <img data-src={pic3} alt="pic3" ref={imgRef3} />
+      </picture>
+      <picture className="h-90 w-160">
+        <source data-srcset={pic4_avif} type="image/avif" />
+        <source data-srcset={pic4_webp} type="image/webp" />
+        <img data-src={pic4} alt="pic4" ref={imgRef4} />
+      </picture>
     </div>
   );
 };
@@ -155,13 +175,17 @@ export const IntersectionObserverPage = () => {
 
 위의 코드를 설명하자면 다음과 같습니다.
 
-<b>1. data-src 속성 사용하기</b>
+<b>1. data 속성 사용하기</b>
 
 ```tsx
-<img className="aspect-video w-160" data-src={pic1} alt="pic1" ref={imgRef1} />
+<picture className="h-90 w-160">
+  <source data-srcset={pic1_avif} type="image/avif" />
+  <source data-srcset={pic1_webp} type="image/webp" />
+  <img data-src={pic1} alt="pic1" ref={imgRef1} />
+</picture>
 ```
 
-이미지 로딩은 img 태그의 src가 할당되는 순간 일어나므로, 최초에는 img 태그의 src 속성 대신 data-src 속성에 할당합니다.
+이미지 로딩은 img 태그의 src가 할당되는 순간 일어나므로, 최초에는 img 태그의 src 속성 대신 data 속성에 할당합니다.
 
 <b>2. Intersection Observer 생성하기</b>
 
@@ -170,9 +194,14 @@ useEffect(() => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        (entry.target as HTMLImageElement).src = (
-          entry.target as HTMLImageElement
-        ).dataset.src!;
+        const target = entry.target as HTMLImageElement;
+        const webpElement = target.previousSibling as HTMLSourceElement;
+        const avifElement = webpElement.previousSibling as HTMLSourceElement;
+
+        target.src = target.dataset.src!;
+        webpElement.srcset = webpElement.dataset.srcset!;
+        avifElement.srcset = avifElement.dataset.srcset!;
+
         observer.unobserve(entry.target);
       }
     }, {});
@@ -182,7 +211,7 @@ useEffect(() => {
 }, []);
 ```
 
-`isIntersecting`은 해당 요소가 뷰포트 내에 들어왔는지를 나타내는 값입니다. 이 값을 통해 해당 요소가 화면에 들어오면 data-src에 있는 값을 src로 옮겨 이미지를 로드하게 됩니다. 또한 `observer.unobserve(entry.target)` 코드는 해당 요소의 observe를 해제하는 코드로, 한 번 이미지를 로드한 후에는 다시 호출할 필요가 없으므로 해제합니다.
+`isIntersecting`은 해당 요소가 뷰포트 내에 들어왔는지를 나타내는 값입니다. 이 값을 통해 해당 요소가 화면에 들어오면 data 속성에 있는 값을 src로 옮겨 이미지를 로드하게 됩니다. 또한 `observer.unobserve(entry.target)` 코드는 해당 요소의 observe를 해제하는 코드로, 한 번 이미지를 로드한 후에는 다시 호출할 필요가 없으므로 해제합니다.
 
 <b>3. img 컴포넌트 관찰하기</b>
 

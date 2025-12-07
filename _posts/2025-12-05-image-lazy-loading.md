@@ -3,7 +3,7 @@ title: 이미지 지연 로딩 (Image Lazy Loading)
 description: 이미지 지연 로딩 방법에 대해 정리한 페이지입니다.
 date: 2025-12-05 00:00:00 +/-TTTT
 categories: [Front-end]
-tags: [react, intersection-observer]
+tags: [react, nextjs, intersection-observer]
 math: true
 toc: true
 pin: false
@@ -13,7 +13,7 @@ comments: true
 ---
 
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
-React, Intersection Observer</p></blockquote>
+React, Next.js, Intersection Observer</p></blockquote>
 
 ## 개요
 

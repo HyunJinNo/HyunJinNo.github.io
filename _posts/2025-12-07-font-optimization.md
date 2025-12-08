@@ -94,15 +94,27 @@ CSS에서 `@font-face`의 `font-display` 속성을 활용하면 폰트가 적용
 | 현대 브라우저 | 지원                                         | 지원                                     | 지원                                  |
 | 파일 확장자   | .ttf / .otf                                  | .woff                                    | .woff2                                |
 
-<img src="/assets/img/front-end/font-optimization/pic1.png" alt="TTF/OTF" />
+<img src="/assets/img/front-end/font-optimization/pic1.avif" alt="TTF/OTF" />
 
-<img src="/assets/img/front-end/font-optimization/pic2.png" alt="WOFF" />
+<img src="/assets/img/front-end/font-optimization/pic2.avif" alt="WOFF" />
 
-<img src="/assets/img/front-end/font-optimization/pic3.png" alt="WOFF2" />
+<img src="/assets/img/front-end/font-optimization/pic3.avif" alt="WOFF2" />
 
-<img src="/assets/img/front-end/font-optimization/pic4.png" alt="폰트 포맷들의 용량 비교" />
+<img src="/assets/img/front-end/font-optimization/pic4.avif" alt="폰트 포맷들의 용량 비교" />
 
 <a href="https://transfonter.org/" target="_blank">Online @font-face generator — Transfonter</a>
+
+위의 사진을 보면 알 수 있듯이, WOFF2 포맷은 다른 폰트 포맷과 대비에 용량이 훨씬 작습니다. 따라서 <b>WOFF2를 우선으로 적용하고 만약 브라우저가 WOFF2를 지원하지 않는 경우 WOFF를, WOFF도 지원하지 않으면 TTF 또는 OTF를 적용하도록 구현</b>하는 것이 최선입니다.
+
+```css
+@font-face {
+  font-family: "Pretendard";
+  src: url("@/shared/assets/fonts/Pretendard-Regular.woff2") format("woff2"), url("@/shared/assets/fonts/Pretendard-Regular.woff")
+      format("woff"),
+    url("@/shared/assets/fonts/Pretendard-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+```
 
 ### Subset Font
 

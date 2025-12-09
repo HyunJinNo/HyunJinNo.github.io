@@ -13,7 +13,7 @@ comments: true
 ---
 
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
-React, Next.js, Font</p></blockquote>
+React, Font</p></blockquote>
 
 ## 개요
 
@@ -102,8 +102,6 @@ CSS에서 `@font-face`의 `font-display` 속성을 활용하면 폰트가 적용
 
 <img src="/assets/img/front-end/font-optimization/pic4.avif" alt="폰트 포맷들의 용량 비교" />
 
-<a href="https://transfonter.org/" target="_blank">Online @font-face generator — Transfonter</a>
-
 위의 사진을 보면 알 수 있듯이, WOFF2 포맷은 다른 폰트 포맷과 대비에 용량이 훨씬 작습니다. 따라서 <b>WOFF2를 우선으로 적용하고 만약 브라우저가 WOFF2를 지원하지 않는 경우 WOFF를, WOFF도 지원하지 않으면 TTF 또는 OTF를 적용하도록 구현</b>하는 것이 최선입니다.
 
 ```css
@@ -116,9 +114,32 @@ CSS에서 `@font-face`의 `font-display` 속성을 활용하면 폰트가 적용
 }
 ```
 
-### Subset Font
+<blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
+다음 링크에서 폰트 포맷을 변환할 수 있습니다.<br />
+<a href="https://transfonter.org/" target="_blank">Online @font-face generator — Transfonter</a>
+</p></blockquote>
 
-TODO
+### 서브셋 폰트 (Subset Font)
+
+`서브셋 폰트(Subset Font)`는 <b>원본 폰트 파일에서 실제로 사용하는 글자만 남기고 나머지를 제거한 폰트</b>를 의미합니다. `서브셋 폰트`를 사용하면 원본 폰트 파일을 사용하는 것보다 파일 크기가 감소하기 때문에 웹 페이지 로딩 속도를 개선할 수 있으며 대역폭을 절감할 수 있습니다.
+
+예를 들어 다음과 같이 파일 용량이 766 KB인 Pretendard-Regular.woff2 파일이 있는 경우,
+
+<img src="/assets/img/front-end/font-optimization/pic5.avif" alt="원본 폰트 파일 크기: 766 KB" />
+
+이 폰트 파일을 서브셋팅(Subsetting)하여 서브셋 폰트를 생성하면 파일 크기를 크게 줄일 수 있습니다. 서브셋 폰트를 만드는 방법은 여러 가지가 있지만, 이 글에서는 Transfonter 서비스를 이용하여 생성하겠습니다.
+
+<a href="https://transfonter.org/" target="_blank">Online @font-face generator — Transfonter</a>
+
+<img src="/assets/img/front-end/font-optimization/pic6.avif" alt="Transfonter" />
+
+변환하고자 하는 원본 폰트 파일을 선택한 후, Characters에 폰트를 적용할 문자(Ex. "서브셋 폰트")를 넣은 후 Convert 버튼을 누르면 서브셋 폰트를 생성할 수 있습니다.
+
+<img src="/assets/img/front-end/font-optimization/pic7.avif" alt="Transfonter" />
+
+실제로 서브셋 폰트를 사용하였을 때 파일 용량이 크게 줄어든 것을 확인할 수 있습니다.
+
+<img src="/assets/img/front-end/font-optimization/pic8.avif" alt="서브셋 폰트 파일 크기: 2.1 KB" />
 
 ## 참고 자료
 
@@ -127,3 +148,4 @@ TODO
 - <a href="https://mong-blog.tistory.com/entry/CSS-font-display-%EA%B8%80%EA%BC%B4-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B0%A9%EC%8B%9D%EC%9D%84-%EB%B3%80%EA%B2%BD%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95" target="_blank">[CSS] font-display, 글꼴 렌더링 방식을 변경하는 방법 :: Mong dev blog</a>
 - <a href="https://codingeverybody.kr/css-font-display-%EC%86%8D%EC%84%B1/" target="_blank">CSS font-display 속성 – 올바른 이해와 사용 방법 - 코딩에브리바디</a>
 - <a href="https://itpro.tistory.com/174" target="_blank">폰트 파일 확장자 정보에 대하여 — 이프로그의 IT이야기</a>
+- <a href="https://velog.io/@s0zzang/%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94-%EC%9B%B9%ED%8F%B0%ED%8A%B8-%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B0%80%EC%9D%B4%EB%93%9C" target="_blank">[성능최적화] 웹폰트 최적화 가이드</a>

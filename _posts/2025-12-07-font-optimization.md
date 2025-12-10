@@ -3,7 +3,7 @@ title: 폰트 최적화
 description: 폰트 최적화 방법에 대해 정리한 페이지입니다.
 date: 2025-12-07 00:00:00 +/-TTTT
 categories: [Front-end]
-tags: [react, nextjs, font]
+tags: [react, font]
 math: true
 toc: true
 pin: false

@@ -146,7 +146,36 @@ console.log(result); // ['ain', 'ain', 'ain']
 ```javascript
 const str = "The rain in Spain stays mainly in the plain";
 const result = str.matchAll(/ain/g);
-console.log([...result]); // [['ain'], ['ain'], ['ain']]
+
+console.log([...result]);
+/*
+[
+  [
+    'ain',
+    index: 5,
+    input: 'The rain in Spain stays mainly in the plain',
+    groups: undefined
+  ],
+  [
+    'ain',
+    index: 14,
+    input: 'The rain in Spain stays mainly in the plain',
+    groups: undefined
+  ],
+  [
+    'ain',
+    index: 25,
+    input: 'The rain in Spain stays mainly in the plain',
+    groups: undefined
+  ],
+  [
+    'ain',
+    index: 40,
+    input: 'The rain in Spain stays mainly in the plain',
+    groups: undefined
+  ]
+]
+*/
 ```
 
 #### replace
@@ -165,8 +194,8 @@ console.log(result); // 'The quick brown fox jumps over the lazy cat.'
 
 ```javascript
 const str = "The quick brown fox jumps over the lazy dog.";
-const result = str.replace(/dog/, "cat");
-console.log(result); // 'The quick brown fox jumps over the lazy cat.'
+const result = str.split(/fox/);
+console.log(result); // ['The quick brown ', ' jumps over the lazy dog.']
 ```
 
 #### search

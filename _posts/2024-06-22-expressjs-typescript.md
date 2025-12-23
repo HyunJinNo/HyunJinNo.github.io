@@ -23,11 +23,11 @@ ts-node v10.9.2 <br />
 typescript v5.5.2 <br />
 nodemon v3.1.4 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 타입스크립트(TypeScript)로 Express.js 애플리케이션 설정 방법에 대해 설명하겠습니다.
 
-## Step 1 - package.json 파일 생성
+## 2. Step 1 - package.json 파일 생성
 
 먼저 다음 명령어를 입력하여 `package.json` 파일을 생성합니다.
 
@@ -35,7 +35,7 @@ nodemon v3.1.4 </p></blockquote>
 npm init -y
 ```
 
-## Step 2 - Express, TypeScript 관련 패키지 설치하기
+## 3. Step 2 - Express, TypeScript 관련 패키지 설치하기
 
 먼저 다음 명령어를 입력하여 Express 패키지를 설치합니다.
 
@@ -55,13 +55,13 @@ npm install express
 npm install --save-dev @types/node @types/express ts-node typescript nodemon
 ```
 
-## Step 3 - package.json 스크립트 설정
+## 4. Step 3 - package.json 스크립트 설정
 
-### scripts란?
+### 4.1. scripts란?
 
 `package.json` 파일의 scripts 항목을 통해 다양한 명령어를 설정할 수 있습니다. 해당 항목을 통해 빌드, 실행 등에 사용되는 명령어를 설정합니다.
 
-### scripts 설정
+### 4.2. scripts 설정
 
 `package.json` 파일의 scripts 항목에 다음 코드를 입력합니다.
 
@@ -79,7 +79,7 @@ npm install --save-dev @types/node @types/express ts-node typescript nodemon
 - `start`: 빌드된 JavaScript 코드를 실행할 때 사용하는 명령어로, `build` 명령어로 컴파일한 후 `production 모드`로 실행할 때 사용합니다.
 - `dev`: TypeScript 코드를 컴파일하지 않고 `development 모드`로 실행할 때 사용합니다.
 
-## Step 4 - TypeScript 설정 파일
+## 5. Step 4 - TypeScript 설정 파일
 
 프로젝트 최상위 디렉토리에 `tsconfig.json` 파일을 생성합니다. `npx tsc --init` 명령어를 통해 `tsconfig.json` 파일을 초기화하여 생성할 수 있습니다.
 
@@ -105,13 +105,13 @@ npx tsc --init
 
 `compilerOptions` 항목에서 outDir 부분의 주석을 해제하고 TypeScript 코드가 JavaScript 코드로 컴파일되어 저장될 디렉토리를 `dist`로 설정합니다. 또한 `include` 항목을 생성하여 컴파일될 코드를 `src` 디렉토리로 설정하고, `exclude` 항목을 생성하여 `node_modules` 디렉토리 내의 코드를 컴파일 대상에서 제외합니다.
 
-## Step 5 - TypeScript로 Express 애플리케이션 실행하기
+## 6. Step 5 - TypeScript로 Express 애플리케이션 실행하기
 
-### src 디렉토리 생성
+### 6.1. src 디렉토리 생성
 
 먼저 프로젝트 최상단 디렉토리 내에 `src` 디렉토리를 생성합니다.
 
-### app.ts 파일 생성
+### 6.2. app.ts 파일 생성
 
 방금 생성한 `src` 디렉토리 내에 `app.ts` 파일을 생성하고 해당 파일 내에 다음 코드를 입력합니다.
 
@@ -134,7 +134,7 @@ app.listen(port, () => {
 });
 ```
 
-### 서버 실행 (development 모드)
+### 6.3. 서버 실행 (development 모드)
 
 VSCode의 terminal을 열고 프로젝트 디렉토리로 이동하여 다음 명령어를 입력합니다.
 
@@ -146,13 +146,13 @@ npm run dev
 
 <img src="/assets/img/back-end/expressjs-typescript/pic1.avif" alt="pic1"  />
 
-### 코드 수정 후 서버 재시작하기
+### 6.4. 코드 수정 후 서버 재시작하기
 
 위에서 설치한 패키지 중 `nodemon`은 코드 변경 시 서버를 자동으로 재시작하기 위해 사용합니다. `app.ts` 파일 내의 `res.send("Express with TypeScript")` 부분을 수정해보도록 하겠습니다. 문자열 `Express with TypeScript`를 `Express.js with TypeScript`로 수정한 후 파일을 저장합니다. 파일을 저장하면 `nodemon`이 `src` 디렉토리 내의 `app.ts` 파일을 재실행합니다. 서버가 재시작한 후 <a href="http://localhost:4000/" target="_blank">http://localhost:4000/</a>에 다시 접속하면 `Express.js with TypeScript`가 화면에 표시되어 있을 것입니다.
 
 <img src="/assets/img/back-end/expressjs-typescript/pic2.avif" alt="pic2" />
 
-### 서버 실행 (production 모드)
+### 6.5. 서버 실행 (production 모드)
 
 `development 모드`가 잘 실행됐음을 확인했으니 이번에는 서버를 `production 모드` 로 실행해보도록 하겠습니다.
 VSCode의 terminal에서 `Ctrl + C`를 눌러 서버를 종료한 후 다음 명령어를 입력합니다.

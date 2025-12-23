@@ -18,15 +18,15 @@ TypeScript, Next.js, Modal</p></blockquote>
 <blockquote class="prompt-info"><p><strong><u>Environment</u></strong> <br />
 Next.js v14.2.3</p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 모달 창(Modal Window)이 열린 상태에서 뒤로가기 버튼을 클릭했을 때 모달 창을 닫는 방법에 대해 설명하겠습니다.
 
-## 모달 창(Modal Window)란?
+## 2. 모달 창(Modal Window)란?
 
 `모달 창(Modal Window)`란 사용자 인터페이스(UI)에서 화면의 다른 부분과의 상호 작용을 잠시 차단하고, 사용자가 반드시 확인하거나 조작해야 하는 창 또는 대화 상자를 말합니다. 웹에서는 주로 브라우저 프로그램 자체에서 새 창을 띄우는 팝업 창과 달리 같은 창 내부에서 상위 레이어를 띄우는 방식을 사용하는 창을 의미합니다.
 
-### 모달 창의 주요 특징
+### 2.1. 모달 창의 주요 특징
 
 모달창의 주요 특징은 다음과 같습니다.
 
@@ -62,7 +62,7 @@ Next.js v14.2.3</p></blockquote>
 
     데이터를 입력하거나 특정 작업을 처리할 때 사용됩니다.
 
-### 모달 창의 종류
+### 2.2. 모달 창의 종류
 
 모달 창의 종류는 다음과 같습니다.
 
@@ -82,7 +82,7 @@ Next.js v14.2.3</p></blockquote>
 
   하나의 모달 창에서 또 다른 모달 창을 열 수 있지만, 사용자가 혼란을 겪을 수 있으므로 UX 관점에서는 지양됩니다.
 
-## Step 1 - useModalBackHandler 커스텀 훅 생성하기
+## 3. Step 1 - useModalBackHandler 커스텀 훅 생성하기
 
 먼저 다음과 같이 뒤로가기 버튼을 눌렀을 때 모달 창을 닫을 수 있는 커스텀 훅을 생성합니다.
 
@@ -125,7 +125,7 @@ export default useModalBackHandler;
 
 위의 커스텀 훅은 모달 창이 열릴 때(isOpen가 true일 때) `window.history.pushState`를 사용하여 history에 새로운 상태를 추가합니다. 그리고 뒤로가기 버튼이 눌리면 발생하는 이벤트인 `popstate` 이벤트를 감지하여 뒤로가기 버튼을 클릭했을 때 모달 창을 닫습니다.
 
-## Step 2 - useModalBackHandler 커스텀 훅 사용하기
+## 4. Step 2 - useModalBackHandler 커스텀 훅 사용하기
 
 위에서 생성한 커스텀 훅을 사용하면 뒤로가기 버튼을 클릭 시 열린 모달 창을 닫을 수 있습니다. 다음은 useModalBackHandler 커스텀 훅을 사용한 예시입니다.
 
@@ -140,7 +140,7 @@ useModalBackHandler(modalVisible, () => setModalVisible(false));
 
 위의 코드에서 `modalVisible`이 true이면, 모달 창이 열린 상태이며, false일 경우 모달 창이 닫힌 상태임을 나타냅니다. 또한 `() => setModalVisible(false)`는 모달 창을 닫는 함수입니다.
 
-## Step 3 - 모달 창을 닫을 때 history 제거하기
+## 5. Step 3 - 모달 창을 닫을 때 history 제거하기
 
 위에서 정의한 커스텀 훅은 모바일 또는 웹 브라우저에서 뒤로가기 버튼을 눌렀을 때, 모달 창이 열리면서 추가한 history를 제거합니다. 하지만 일반적으로 모달 창에는 모달 창을 닫을 수 있는 버튼을 제공하므로 해당 버튼을 클릭했을 때 history를 제거할 수 있어야 합니다. 따라서 `window.history.back()`을 추가하여 뒤로가기 버튼이 아닌 다른 방법으로 모달 창을 닫을 때 history를 제거할 수 있도록 합니다.
 
@@ -155,7 +155,7 @@ closeModal={() => {
 /* ... */
 ```
 
-## 테스트 결과
+## 6. 테스트 결과
 
 테스트 결과는 다음과 같습니다.
 

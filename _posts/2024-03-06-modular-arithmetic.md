@@ -15,37 +15,37 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Algorithm</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `모듈러 연산(Modular Arithmetic)`에 대해 정리한 페이지입니다.
 
-## 모듈러 연산 (Modular Arithmetic)
+## 2. 모듈러 연산 (Modular Arithmetic)
 
-### 개념
+### 2.1. 개념
 
 `모듈러 연산` 또는 `모듈러 산술`은 수학에서 나머지를 다루는 산술 체계를 의미합니다. 정수 `a`를 정수 `m`으로 나눈 나머지를 `a mod m`으로 표현합니다.
 
-### 모듈러 연산의 성질
+### 2.2. 모듈러 연산의 성질
 
 모듈러 연산의 주요 성질들은 다음과 같습니다.
 
-#### 덧셈
+#### 2.2.1. 덧셈
 
 $(a+b)\,mod\;m=[(a\,mod\;m)+(b\,mod\;m)]\,mod\;m$
 
-#### 뺄셈
+#### 2.2.2. 뺄셈
 
 $(a−b)\,mod\;m=[(a\,mod\;m)−(b\,mod\;m)]\,mod\;m$
 
-#### 곱셈
+#### 2.2.3. 곱셈
 
 $(a \times b)\,mod\;m=[(a\,mod\;m)\times(b\,mod\;m)]\,mod\;m$
 
-#### 거듭제곱
+#### 2.2.4. 거듭제곱
 
 $(aᵇ)\,mod\;m=((a\,mod\;m)ᵇ)\,mod\;m$
 
-#### 모듈러 역원을 이용한 나눗셈
+#### 2.2.5. 모듈러 역원을 이용한 나눗셈
 
 모듈러 연산에서는 $(a/b)\,mod\;m$을 직접 구할 수 없습니다. 대신 b의 `모듈러 역원(Modular inverse)`를 곱하는 방식으로 계산할 수 있습니다.
 
@@ -115,7 +115,7 @@ const modInverse = (a, m) => {
 };
 ```
 
-## Example
+## 3. Example
 
 - <a href="https://www.acmicpc.net/problem/3955" target="_blank">3955번: 캔디 분배</a>
 
@@ -206,7 +206,7 @@ const modInverse = (a, m) => {
   console.log(N - A, extendedGCD(A, N).gcd === 1 ? modInverse(A, N) : -1);
   ```
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://ko.wikipedia.org/wiki/모듈러_산술" target="_blank">모듈러 산술 - 위키백과, 우리 모두의 백과사전</a>
 - <a href="https://namu.wiki/w/합동식" target="_blank">합동식 - 나무위키</a>

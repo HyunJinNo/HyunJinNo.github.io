@@ -15,17 +15,17 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
 createPortal, Modal, Next.js, React, TypeScript</p></blockquote>
 
-## 개요
+## 1. 개요
 
 React의 `createPortal`로 모달 창(Modal Window)을 구현하는 방법에 대해 정리한 페이지입니다.
 
-## createPortal이란?
+## 2. createPortal이란?
 
-### 개념
+### 2.1. 개념
 
 React의 `createPortal`을 사용하면 컴포넌트 트리 구조와 상관없이, 지정된 DOM의 자식 컴포넌트로 렌더링할 수 있습니다. 주로 Modal, Tooltip, Dropdown, Toast 메시지 등 부모 컴포넌트의 레이아웃이나 스타일링 제약을 벗어나 독립적으로 렌더링되어야 하는 UI 요소들을 구현할 때 사용합니다.
 
-### 주요 특징
+### 2.2. 주요 특징
 
 `createPortal`의 주요 특징은 다음과 같습니다.
 
@@ -37,9 +37,9 @@ React의 `createPortal`을 사용하면 컴포넌트 트리 구조와 상관없�
 
   `portal`로 렌더링된 요소도 React의 컴포넌트 트리에 포함되기 때문에 부모 컴포넌트의 이벤트 버블링을 그대로 따릅니다.
 
-## Modal 구현하기
+## 3. Modal 구현하기
 
-### Step 1 - Portal 추가하기
+### 3.1. Step 1 - Portal 추가하기
 
 먼저 다음과 같이 id 값이 `modal-root`인 `Portal` 하나를 추가합니다.
 
@@ -72,7 +72,7 @@ export default function RootLayout({
 }
 ```
 
-### Step 2 - useModal 커스텀 훅 생성하기
+### 3.2. Step 2 - useModal 커스텀 훅 생성하기
 
 모달 창의 상태를 관리하기 위해 다음 커스텀 훅을 생성합니다.
 
@@ -102,7 +102,7 @@ export const useModal = () => {
 };
 ```
 
-### Step 3 - useModalBackHandler 커스텀 훅 생성하기
+### 3.3. Step 3 - useModalBackHandler 커스텀 훅 생성하기
 
 모바일 UX를 고려하여 모바일에서 모달 창(Modal Window)이 열린 상태에서 뒤로가기 버튼을 눌렀을 때 모달 창을 닫을 수 있도록 다음 커스텀 훅을 생성합니다.
 
@@ -146,7 +146,7 @@ export const useModalBackHandler = (
 
 <a href="../modal-back-button">모달 창(Modal Window) 뒤로가기 이벤트 처리 방법</a>
 
-### Step 4 - usePreventBodyScroll 커스텀 훅 생성하기
+### 3.4. Step 4 - usePreventBodyScroll 커스텀 훅 생성하기
 
 모달 창이 열렸을 때 모달 창 외부의 스크롤을 막기 위해 다음 커스텀 훅을 생성합니다.
 
@@ -178,7 +178,7 @@ export const usePreventBodyScroll = (dependency: boolean) => {
 
 <img src="/assets/img/front-end/createportal-modal/pic2.webp" alt="모달 창이 열렸을 때 스크롤 막기" />
 
-### Step 5 - Modal 컴포넌트 생성하기
+### 3.5. Step 5 - Modal 컴포넌트 생성하기
 
 먼저 다음과 같이 Modal 컴포넌트를 생성합니다.
 
@@ -297,7 +297,7 @@ return createPortal(
 
 <br />
 
-### Step 6 - ModalTemplate 컴포넌트 생성하기
+### 3.6. Step 6 - ModalTemplate 컴포넌트 생성하기
 
 <img src="/assets/img/front-end/createportal-modal/pic4.avif" alt="ModalTemplate.tsx">
 
@@ -346,7 +346,7 @@ export const ModalTemplate = ({
 };
 ```
 
-### Step 7 - Modal 사용하기
+### 3.7. Step 7 - Modal 사용하기
 
 지금까지 구현한 커스텀 훅과 컴포넌트를 사용하여 다음과 같이 Modal을 사용할 수 있습니다.
 
@@ -446,6 +446,6 @@ export const DeleteAccount = ({ userInfo }: DeleteAccountProps) => {
 
 <img src="/assets/img/front-end/createportal-modal/pic5.webp" alt="Modal 사용하기" />
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://ko.react.dev/reference/react-dom/createPortal" target="_blank">createPortal – React</a>

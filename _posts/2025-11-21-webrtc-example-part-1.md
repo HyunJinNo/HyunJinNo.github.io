@@ -15,7 +15,7 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
 WebRTC</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `WebRTC(Web Real-Time Communication)`를 사용해 브라우저끼리 직접 연결(P2P)하여 <b>Mesh 방식으로 1:1 화상 회의</b>를 구현하는 방법을 정리한 페이지입니다.
 
@@ -29,7 +29,7 @@ WebRTC로 화상 회의를 구현할 수 있는 방식에는 크게 다음 3가�
 
 이번 글에서는 WebRTC의 가장 기본 구조이자 가장 단순한 방식인 <b>Mesh</b> 방식으로 구현합니다.
 
-## Mesh 방식
+## 2. Mesh 방식
 
 Mesh 방식은 WebRTC의 가장 기본 구조이자 가장 단순한 방식으로, 브라우저끼리 직접 연결(P2P)을 맺게 됩니다. Peer 수가 늘어날 수록 각 연결에 대한 리소스 소모가 커지며, 특히 대역폭과 CPU에 부담이 생길 수 있습니다. 또한 서버 비용이 거의 없다는 특징이 있습니다.
 
@@ -39,7 +39,7 @@ Mesh 방식은 구현이 간단하고 서버 비용이 적게 든다는 장점�
 
 <a href="../webrtc/#webrtc-접근-방식">WebRTC 접근 방식</a>
 
-## 구현 구조 (Mesh 방식 흐름)
+## 3. 구현 구조 (Mesh 방식 흐름)
 
 Mesh 방식의 WebRTC 연결 흐름은 다음과 같이 동작합니다.
 
@@ -51,11 +51,11 @@ Mesh 방식의 WebRTC 연결 흐름은 다음과 같이 동작합니다.
 4. 양쪽이 ICE Candidate(네트워크 정보) 교환
 5. P2P 연결 성공 → 영상 주고받기 시작
 
-## WebRTC로 1:1 화상 회의 구현하기
+## 4. WebRTC로 1:1 화상 회의 구현하기
 
-### Front-end
+### 4.1. Front-end
 
-#### HTML
+#### 4.1.1. HTML
 
 다음과 같이 내 영상, 상대 영상, 2개의 버튼이 존재하는 UI를 구현합니다. "Start" 버튼은 자신의 카메라/마이크 스트림을 가져오기 위해서 사용되는 버튼이며, "Call" 버튼은 Peer 간 연결을 위해 사용되는 버튼입니다.
 
@@ -88,7 +88,7 @@ Mesh 방식의 WebRTC 연결 흐름은 다음과 같이 동작합니다.
 
 <img src="/assets/img/cs/webrtc-example-part-1/pic2.avif" alt="HTML" />
 
-#### CSS
+#### 4.1.2. CSS
 
 영상 크기를 설정하고 버튼을 눌렀을 때의 배경색을 설정하는 부분입니다.
 
@@ -104,7 +104,7 @@ button:active {
 }
 ```
 
-#### JavaScript
+#### 4.1.3. JavaScript
 
 WebRTC의 핵심 로직에 해당하는 부분입니다.
 
@@ -407,9 +407,9 @@ peerConnection.addEventListener("track", (event) => {
 });
 ```
 
-### Back-end
+### 4.2. Back-end
 
-#### 시그널링 서버 (Signaling Server)
+#### 4.2.1. 시그널링 서버 (Signaling Server)
 
 WebRTC 연결을 위해 offer/answer/candidate를 교환하는 역할만 수행하는 서버입니다. `Socket.io`를 사용하여 한 명의 Peer로부터 받은 WebRTC 데이터를 그대로 상대방에게 전달하는 역할만 수행합니다. 즉, WebRTC 데이터는 서버를 거쳐가기만 하며 실제 영상 및 음성 데이터는 서버로 전송되지 않고 브라우저끼리 직접(P2P) 전송합니다.
 
@@ -469,13 +469,13 @@ server.listen(port, () => {
 });
 ```
 
-### 구현 결과
+### 4.3. 구현 결과
 
 모바일과 맥북으로 1:1 화상 회의에 접속한 결과는 다음과 같습니다.
 
 <img src="/assets/img/cs/webrtc-example-part-1/pic3.avif" alt="1:1 화상 회의 구현 결과" />
 
-## 참고 자료
+## 5. 참고 자료
 
 - <a href="https://developer.mozilla.org/ko/docs/Web/API/WebRTC_API" target="_blank">WebRTC API - Web API | MDN</a>
 - <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity" target="_blank">WebRTC connectivity - Web APIs | MDN</a>

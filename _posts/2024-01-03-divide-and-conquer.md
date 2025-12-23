@@ -15,17 +15,17 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Algorithm</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `분할 정복(Divide and Conquer)`에 대해 정리한 페이지입니다.
 
-## 분할 정복 (Divide and Conquer)
+## 2. 분할 정복 (Divide and Conquer)
 
-### 개념
+### 2.1. 개념
 
 `분할 정복(Divide and Conquer)`은 가장 유명한 알고리즘 디자인 패러다임으로, 주어진 문제를 둘 이상의 부분 문제로 나눈 뒤 각 문제에 대한 답을 재귀 호출을 이용해 계산하고, 각 부분 문제의 답으로부터 전체 문제의 답을 계산해내는 방식을 의미합니다.
 
-### 특징
+### 2.2. 특징
 
 분할 정복의 가장 큰 특징은 문제를 작게 쪼개서 쪼개기 전 문제를 해결할 때보다 더 쉽게 해결하여 문제의 답을 계산하는 것입니다. 분할 정복은 다음 3단계로 이루어집니다.
 
@@ -41,7 +41,7 @@ Algorithm</p></blockquote>
 
    하위 문제들의 해답을 모아 전체 문제의 답을 계산합니다.
 
-## Example
+## 3. Example
 
 - <a href="https://www.acmicpc.net/problem/1106" target="_blank">1106번: 호텔</a>
 
@@ -91,8 +91,6 @@ Algorithm</p></blockquote>
   console.log(solution(0, 0));
   ```
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://namu.wiki/w/분할%20정복%20알고리즘?from=분할%20정복" target="_blank">분할 정복 알고리즘 - 나무위키</a>
-
-===============

@@ -18,7 +18,7 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Info</u></strong> <br />
 해당 게시글은 제가 2022년 12월 24일 <a href="https://cafe.naver.com/chesssystem" target="_blank">체스 카페 마법사에 제자 : 네이버 카페</a>에 <a href="https://cafe.naver.com/chesssystem?iframe_url_utf8=%2FArticleRead.nhn%253Fclubid%3D10294651%2526articleid%3D31298" target="_blank">작성한 글</a>을 옮겨온 것입니다.을 옮겨온 것입니다. </p></blockquote>
 
-## 본문
+## 1. 본문
 
 해당 글에서 사용한 E-Board에 대해서는 아래 글을 참고
 

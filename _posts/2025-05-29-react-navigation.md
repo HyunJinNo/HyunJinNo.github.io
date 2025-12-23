@@ -25,11 +25,11 @@ react-native-safe-area-context v5.4.1 <br />
 react-native-screens v4.11.0 <br />
 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 React Native 프로젝트에서 React Navigation 설정 방법에 대해 정리한 페이지입니다. <b>`React Native CLI`로 프로젝트를 생성하였으며 Android 플랫폼을 기준으로 설명합니다.</b>
 
-## Step 1 - 패키지 설치하기
+## 2. Step 1 - 패키지 설치하기
 
 먼저 다음 명령어를 입력하여 React Navigation 관련 패키지들을 설치합니다.
 
@@ -37,7 +37,7 @@ React Native 프로젝트에서 React Navigation 설정 방법에 대해 정리�
 npm install @react-navigation/native react-native-screens react-native-safe-area-context
 ```
 
-## Step 2 - MainActivity.kt 설정하기
+## 3. Step 2 - MainActivity.kt 설정하기
 
 `android/app/src/main/java/[프로젝트 명]/MainActivity.kt` 파일을 열고 다음 코드를 추가합니다.
 
@@ -83,7 +83,7 @@ class MainActivity : ReactActivity() {
 }
 ```
 
-## Step 3 - @react-navigation/native-stack 패키지 설치하기
+## 4. Step 3 - @react-navigation/native-stack 패키지 설치하기
 
 다음 명렁어를 입력하여 `@react-navigation/native-stack` 패키지를 설치합니다.
 
@@ -91,7 +91,7 @@ class MainActivity : ReactActivity() {
 npm install @react-navigation/native-stack
 ```
 
-## Step 4 - 타입 정의하기
+## 5. Step 4 - 타입 정의하기
 
 React Navigation을 TypeScript로 사용할 때, 안전한 내비게이션과 라우팅을 위해 타입을 정의해야 합니다.
 
@@ -118,7 +118,7 @@ declare global {
 
 위의 코드를 설명하자면 다음과 같습니다.
 
-### 스택 내비게이션의 화면 목록 정의
+### 5.1. 스택 내비게이션의 화면 목록 정의
 
 ```typescript
 export type RootStackParamList = {
@@ -129,7 +129,7 @@ export type RootStackParamList = {
 
 `RootStackParamList`는 스택 내비게이션에 포함된 화면들을 정의한 타입입니다. 위의 코드에서는 `Home`과 `Setting`이라는 두 개의 화면이 존재하며, 둘 다 매개변수를 받지 않기 때문에 `undefined`로 설정되어 있습니다. 만약 어떤 화면이 매개변수를 받는다면, `Profile: { userId: string }`과 같이 명시하면 됩니다.
 
-### 전역 타입 확장
+### 5.2. 전역 타입 확장
 
 ```typescript
 declare global {
@@ -141,7 +141,7 @@ declare global {
 
 `ReactNavigation.RootParamList`를 확장하여 `RootStackParamList`와 연결합니다. 이렇게 하면 `useNavigation` 같은 훅을 사용할 때 자동으로 타입을 인식할 수 있습니다.
 
-### 화면 컴포넌트용 Props 타입
+### 5.3. 화면 컴포넌트용 Props 타입
 
 ```typescript
 declare global {
@@ -180,7 +180,7 @@ export const DiaryUpdateScreen = ({
 };
 ```
 
-## Step 5 - 화면 컴포넌트 생성하기
+## 6. Step 5 - 화면 컴포넌트 생성하기
 
 다음과 같이 간단한 화면 컴포넌트를 정의합니다.
 
@@ -215,7 +215,7 @@ export const SettingScreen = () => {
 };
 ```
 
-## Step 6 - 내비게이션 설정하기
+## 7. Step 6 - 내비게이션 설정하기
 
 다음과 같이 `createNativeStackNavigator` 함수를 통해 Stack을 생성한 후 내비게이션을 설정합니다.
 
@@ -248,12 +248,12 @@ export const App = () => {
 };
 ```
 
-## Step 7 - React Navigation 설정 예시
+## 8. Step 7 - React Navigation 설정 예시
 
 React Navigation을 설정한 예시는 다음과 같습니다.
 
 <img src="/assets/img/front-end/react-navigation/pic1.webp" alt="React Navigation 설정 예시" />
 
-## 참고 자료
+## 9. 참고 자료
 
 - <a href="https://reactnavigation.org/" target="_blank">React Navigation | React Navigation</a>

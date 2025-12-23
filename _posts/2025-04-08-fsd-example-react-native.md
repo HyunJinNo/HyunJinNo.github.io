@@ -18,13 +18,13 @@ React Native, FSD, Development History, TypeScript, mobile</p></blockquote>
 <blockquote class="prompt-info"><p><strong><u>Environment</u></strong> <br />
 react-native v0.76.5 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 React Native 프로젝트에서 FSD 아키텍처를 적용하면서 경험한 내용에 대해 정리한 페이지입니다. FSD 아키텍처의 개념에 대해선 다음 링크를 참고하시길 바랍니다.
 
 <a href="../fsd">FSD 아키텍처</a>
 
-## FSD 아키텍처 적용 전
+## 2. FSD 아키텍처 적용 전
 
 FSD 아키텍처 적용 전에는 다음과 같은 폴더 구조를 채택하였습니다.
 
@@ -32,7 +32,7 @@ FSD 아키텍처 적용 전에는 다음과 같은 폴더 구조를 채택하였
 
 위의 아키텍처 구조는 Screen 단위로 구분한 것으로 특정 Screen에서 사용하는 컴포넌트를 빠르게 찾을 수 있었습니다. 하지만 해당 폴더 구조는 특정 기능과 관련된 코드들이 너무 광범위하게 흩어져 있어서 기능을 수정하는 등 코드를 유지보수하기가 어려웠습니다. 따라서 기존의 아키텍처 구조를 변경하여 코드를 유지보수하기 쉽도록 개선할 필요성을 느꼈습니다. 이와 같은 상황에서 FSD 아키텍처를 적용하여 애플리케이션을 독립적인 비즈니스 기능 단위로 분할하면 유지보수하기 쉽다고 판단하여 아래와 같이 FSD 아키텍처를 적용하기로 결정하였습니다.
 
-## FSD 아키텍처 적용하기
+## 3. FSD 아키텍처 적용하기
 
 FSD 아키텍처는 다음과 같은 계층 구조를 갖습니다.
 
@@ -56,7 +56,7 @@ src
 
 각 레이어 구현 방식에 대해 설명하자면 아래와 같습니다.
 
-### shared
+### 3.1. shared
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic4.avif" alt="shared 레이어" />
 
@@ -73,7 +73,7 @@ shared
 └── ui      # 프로젝트 전반에 걸쳐 재사용할 수 있는 UI 컴포넌트
 ```
 
-#### api
+#### 3.1.1. api
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic5.avif" alt="shared 레이어의 api 세그먼트" />
 
@@ -105,7 +105,7 @@ export const getNewAccessToken = async () => {
 };
 ```
 
-#### config
+#### 3.1.2. config
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic6.avif" alt="shared 레이어의 config 세그먼트" />
 
@@ -130,17 +130,17 @@ export const COLOR = {
 } as const;
 ```
 
-#### lib
+#### 3.1.3. lib
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic7.avif" alt="shared 레이어의 lib 세그먼트" />
 
 `lib` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 유틸리티 함수나 커스텀 훅을 정의하였습니다. 유틸리티 함수와 커스텀 훅을 구분하기 위해 다음과 같이 `lib` 세그먼트 내에 `hooks` 폴더를 생성하여 커스텀 훅들을 모아두었고, `utils` 폴더를 생성하여 유틸리티 함수들을 모아두었습니다.
 
-#### model
+#### 3.1.4. model
 
 `model` 세그먼트는 프로젝트 전반에 걸쳐 사용되는 전역 상태나 비즈니스 로직을 관리하는 역할을 수행하는 세그먼트로 정의하였습니다. 제가 진행한 React Native 프로젝트에서는 해당 세그먼트를 사용하지 않았습니다.
 
-#### ui
+#### 3.1.5. ui
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic8.avif" alt="shared 레이어의 ui 세그먼트" />
 
@@ -195,7 +195,7 @@ export const BottomSheetModalTemplate = forwardRef<
 });
 ```
 
-### entities
+### 3.2. entities
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic9.avif" alt="entities 레이어" />
 
@@ -217,7 +217,7 @@ entities
 └── (...)
 ```
 
-#### api
+#### 3.2.1. api
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic11.avif" alt="entities 레이어의 api 세그먼트" />
 
@@ -299,7 +299,7 @@ export async function getUserInfo() {
 }
 ```
 
-#### config
+#### 3.2.2. config
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic12.avif" alt="entities 레이어의 config 세그먼트" />
 
@@ -321,7 +321,7 @@ export const FEELING_IMAGE: FEELING_IMAGE_TYPE = {
 } as const;
 ```
 
-#### model
+#### 3.2.3. model
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic13.avif" alt="entities 레이어의 model 세그먼트" />
 
@@ -349,7 +349,7 @@ export const useUserInfo = (enabled?: boolean) => {
 };
 ```
 
-#### ui
+#### 3.2.4. ui
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic15.avif" alt="entities 레이어의 ui 세그먼트" />
 
@@ -440,7 +440,7 @@ export const DiaryCard = ({ children, diary }: DiaryCardProps) => {
 };
 ```
 
-### features
+### 3.3. features
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic16.avif" alt="features 레이어" />
 
@@ -460,7 +460,7 @@ features
 ├── (...)
 ```
 
-#### api
+#### 3.3.1. api
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic17.avif" alt="features 레이어의 api 세그먼트" />
 
@@ -497,7 +497,7 @@ export async function updateNickname(nickname: string) {
 }
 ```
 
-#### config
+#### 3.3.2. config
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic18.avif" alt="features 레이어의 config 세그먼트" />
 
@@ -525,7 +525,7 @@ export const LOCATION_LIST = [
 ] as const;
 ```
 
-#### model
+#### 3.3.3. model
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic19.avif" alt="features 레이어의 model 세그먼트" />
 
@@ -600,7 +600,7 @@ export const useNicknameModal = (
 };
 ```
 
-#### ui
+#### 3.3.4. ui
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic20.avif" alt="features 레이어의 ui 세그먼트" />
 
@@ -649,7 +649,7 @@ export const NicknameEditor = ({ nickname }: NicknameEditorProps) => {
 };
 ```
 
-### widgets
+### 3.4. widgets
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic21.avif" alt="widgets 레이어" />
 
@@ -669,15 +669,15 @@ widgets
 ├── (...)
 ```
 
-#### api
+#### 3.4.1. api
 
 `api` 세그먼트는 widget 단위의 API 요청, DTO 등 API 관련 파일을 모아두는 역할을 수행하는 세그먼트로 정의하였습니다. 제가 진행한 React Native 프로젝트에서는 해당 세그먼트를 사용하지 않았습니다.
 
-#### config
+#### 3.4.2. config
 
 `config` 세그먼트는 widget 단위의 상수 파일을 모아두는 역할을 수행하는 세그먼트로 정의하였습니다. 제가 진행한 React Native 프로젝트에서는 해당 세그먼트를 사용하지 않았습니다.
 
-#### model
+#### 3.4.3. model
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic22.avif" alt="widgets 레이어의 model 세그먼트" />
 
@@ -744,7 +744,7 @@ export const useDiaryCreateButton = (
 };
 ```
 
-#### ui
+#### 3.4.4. ui
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic23.avif" alt="widgets 레이어의 ui 세그먼트" />
 
@@ -780,7 +780,7 @@ export const DiaryCreateEditor = () => {
 };
 ```
 
-### pages
+### 3.5. pages
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic24.avif" alt="pages 레이어" />
 
@@ -797,7 +797,7 @@ pages
 ├── (...)
 ```
 
-#### ui
+#### 3.5.1. ui
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic25.avif" alt="pages 레이어의 ui 세그먼트" />
 
@@ -845,7 +845,7 @@ export const SurveyContentScreen = () => {
 };
 ```
 
-### app
+### 3.6. app
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic26.avif" alt="app 레이어" />
 
@@ -862,7 +862,7 @@ app
 └── index.ts
 ```
 
-#### providers
+#### 3.6.1. providers
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic27.avif" alt="app 레이어의 providers 세그먼트" />
 
@@ -902,7 +902,7 @@ export const NetInfoProvider = ({ children }: NetInfoProviderProps) => {
 };
 ```
 
-#### routes
+#### 3.6.2. routes
 
 <img src="/assets/img/front-end/fsd-example-react-native/pic28.avif" alt="app 레이어의 routes 세그먼트" />
 
@@ -989,11 +989,11 @@ export const DiaryUpdateScreen = ({
 };
 ```
 
-#### styles
+#### 3.6.3. styles
 
 `styles` 세그먼트는 전역 스타일 설정을 담당하는 레이어입니다. 제가 진행한 React Native 프로젝트에서는 `Tailwind CSS`를 사용하여 CSS 파일이 필요하지 않아서 해당 세그먼트를 사용하지 않았습니다.
 
-#### app.tsx
+#### 3.6.4. app.tsx
 
 `app.tsx` 파일은 애플리케이션의 진입점에 해당합니다.
 
@@ -1023,7 +1023,7 @@ export const App = () => {
 };
 ```
 
-## FSD 아키텍처 적용 후기
+## 4. FSD 아키텍처 적용 후기
 
 FSD 아키텍처를 적용하면서 느낀 장점은 레이어별로 기능을 명확히 구분함으로써 코드를 유지보수하기 쉽다는 것이었습니다. 기존의 폴더 구조에서는 기능을 유지보수하고자 할 때 광범위하게 흩어져 있는 코드들을 추적하여야 했기 때문에 가독성이 떨어지고 코드를 이해하고 수정하기 쉽지 않았습니다. 하지만 FSD 아키텍처를 적용함으로써 기능별로 코드가 명확히 분리되어 있기 때문에 특정 기능 수정 시 특정 모듈만 집중해서 수정할 수 있으며 다른 부분에 미치는 영향을 최소화할 수 있어서 유지보수성을 크게 향상시킬 수 있었습니다.
 
@@ -1031,7 +1031,7 @@ FSD 아키텍처를 적용하면서 느낀 장점은 레이어별로 기능을 �
 
 <b>이렇듯 FSD 아키텍처는 가이드라인만을 제시할 뿐, 엄격한 기준이 없기 때문에 프로젝트를 진행하면서 팀원들이 혼란을 겪지 않고 일관성을 지킬 수 있도록 명확한 기준을 세우는 것이 좋을 것 같습니다.</b>
 
-## 참고 자료
+## 5. 참고 자료
 
 - <a href="https://github.com/TripInfoWeb/solitour-mobile" target="_blank">https://github.com/TripInfoWeb/solitour-mobile</a>
 - <a href="https://feature-sliced.github.io/documentation/kr/docs/reference/layers" target="_blank">Layers | Feature-Sliced Design</a>

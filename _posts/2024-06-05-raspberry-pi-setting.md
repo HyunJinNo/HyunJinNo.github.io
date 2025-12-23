@@ -18,50 +18,50 @@ Raspberry Pi, Linux</p></blockquote>
 <blockquote class="prompt-info"><p><strong><u>Environment</u></strong> <br />
 OS: Raspberry Pi OS (64 bit) </p></blockquote>
 
-## 개요
+## 1. 개요
 
 라즈베리파이 초기 설정 방법에 대해 정리한 페이지입니다.
 
-## Step 1 - Raspberry Pi Imager 설치
+## 2. Step 1 - Raspberry Pi Imager 설치
 
-### Raspberry Pi Imager 설치 파일 다운로드
+### 2.1. Raspberry Pi Imager 설치 파일 다운로드
 
 아래 사이트에 접속하여 Raspberry Pi Imager 설치 파일을 다운로드합니다.
 이 때 자신의 PC에 맞는 OS를 선택합니다. 저는 Windows를 선택하였습니다.
 
 <a href="https://www.raspberrypi.com/software/" target="_blank">Raspberry Pi OS</a>
 
-### Raspberry Pi Imager 설치하기
+### 2.2. Raspberry Pi Imager 설치하기
 
 <img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic1.avif" alt="pic1"  />
 
 Install 버튼을 눌러 Raspberry Pi Imager를 설치합니다.
 
-## Step 2 - 운영체제 설치
+## 3. Step 2 - 운영체제 설치
 
 먼저 자신의 PC에 SD카드를 삽입합니다. 그리고 방금 설치한 Raspberry Pi Imager를 실행합니다.
 
 <img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic2.avif" alt="pic2" />
 
-### 디바이스 선택
+### 3.1. 디바이스 선택
 
 **장치 선택**을 클릭하여 자신의 라즈베리파이 버전을 선택합니다. 저는 **Raspberry Pi 4**를 선택하였습니다.
 
-### 운영체제 선택
+### 3.2. 운영체제 선택
 
 **운영체제 선택**을 클릭하여 설치하고자 하는 OS를 선택합니다. 저는 **Raspberry Pi OS (64-bit)**를 선택하였습니다.
 
-### 저장소 선택
+### 3.3. 저장소 선택
 
 **저장소 선택**을 클릭하여 OS를 설치하려는 SD카드를 선택합니다.
 
 <img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic3.avif" alt="pic3" />
 
-### 다음
+### 3.4. 다음
 
 디바이스, 운영체제, 저장소를 모두 선택한 후 `다음`버튼을 클릭합니다.
 
-### OS 커스터마이징
+### 3.5. OS 커스터마이징
 
 <img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic4.avif" alt="pic4" />
 
@@ -77,7 +77,7 @@ Install 버튼을 눌러 Raspberry Pi Imager를 설치합니다.
 
 추후 원격접속을 통해 Raspberry Pi를 사용할 수 있도록 <b>SSH 사용</b>을 선택합니다.
 
-### 설치
+### 3.6. 설치
 
 <img src="/assets/img/raspberry-pi/raspberry-pi-setting/pic7.avif" alt="pic7" />
 
@@ -88,23 +88,23 @@ Install 버튼을 눌러 Raspberry Pi Imager를 설치합니다.
 
 설치가 완료되면 SD카드를 PC에서 제거한 뒤 Raspberry Pi에 삽입합니다.
 
-## Step 3 - Raspberry Pi 실행 및 접속
+## 4. Step 3 - Raspberry Pi 실행 및 접속
 
-### 실행
+### 4.1. 실행
 
 라즈베리파이에 SD카드를 삽입한 후 전원을 연결합니다. 초기 설정이 완료될 때까지 다소 시간이 걸리는 편입니다.
 
-### IP 주소 확인하기
+### 4.2. IP 주소 확인하기
 
 라즈베리파이의 Terminal을 열어서 `ifconfig` 명령어를 입력하여 현재 IP 주소를 확인합니다. 무선 네트워크에 연결된 경우 wlan0 부분에서 <b>inet 192.xxx.xx.xxx</b> 부분을 확인하면 됩니다.
 
-### PuTTY 설치하기
+### 4.3. PuTTY 설치하기
 
 Putty는 윈도우 환경에서 리눅스 서버나 다른 원격 시스템에 SSH (Secure Shell), Telnet, Rlogin 등을 사용하여 접속할 수 있는 클라이언트입니다. PuTTY가 설치되어 있지 않을 경우 아래 사이트에 접속하여 설치합니다.
 
 <a href="https://www.putty.org/" target="_blank">PuTTY 설치</a>
 
-### PuTTY로 원격 접속하기
+### 4.4. PuTTY로 원격 접속하기
 
 설치한 PuTTY를 실행합니다.
 

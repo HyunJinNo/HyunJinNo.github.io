@@ -15,15 +15,15 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
 Docker, Next.js</p></blockquote>
 
-## 개요
+## 1. 개요
 
 Next.js 프로젝트에 Docker를 적용하는 방법에 대해 정리한 페이지입니다.
 
-## Docker 이미지 빌드하기
+## 2. Docker 이미지 빌드하기
 
 Docker 이미지를 빌드하기 위해선 먼저 `Dockerfile`을 작성해야 합니다. 저는 제가 현재 진행하고 있는 Next.js 애플리케이션을 기준으로 Docker 이미지를 생성하겠습니다.
 
-### Step 1 - .env 설정하기
+### 2.1. Step 1 - .env 설정하기
 
 ```bash
 BACKEND_URL=http://localhost:8080
@@ -32,7 +32,7 @@ NEXT_PUBLIC_BACKEND_URL=http://localhost:8080
 
 이번 글에서는 백엔드 서버를 `localhost:8080`에서 실행할 예정입니다. Docker 컨테이너 내에서 `localhost`는 컨테이너 자신을 가리키므로 `http://localhost:8080`로는 백엔드 서버에 접근할 수 없습니다. 따라서 다음과 같이 Docker 컨테이너 내에서 백엔드 서버에 접근하려면 특별한 도메인을 사용해야 합니다.
 
-#### Windows / macOS
+#### 2.1.1. Windows / macOS
 
 Windows 또는 macOS 환경에서 `host.docker.internal`을 사용하면 Docker 컨테이너에서 호스트를 참조할 수 있습니다. 따라서 다음과 같이 `http://localhost:8080`를 `http://host.docker.internal:8080`으로 수정하면 됩니다.
 
@@ -41,7 +41,7 @@ BACKEND_URL=http://host.docker.internal:8080
 NEXT_PUBLIC_BACKEND_URL=http://host.docker.internal:8080
 ```
 
-#### Linux
+#### 2.1.2. Linux
 
 Linux 환경에서는 `host.docker.internal`이 없습니다. 따라서 `--add-host` 옵션으로 호스트 IP를 직접 지정해야 합니다.
 
@@ -56,7 +56,7 @@ NEXT_PUBLIC_BACKEND_URL=http://host.docker.internal:8080
 docker run -p 3000:3000 --rm --add-host=host.docker.internal:host-gateway solitour-frontend:v1.1.0
 ```
 
-### Step 2 - Next.js standalone 설정하기
+### 2.2. Step 2 - Next.js standalone 설정하기
 
 `Next.js` 애플리케이션에서 어떠한 설정을 하지 않고 Docker 이미지를 빌드하는 경우 다음과 같이 Docker 이미지 용량이 매우 커집니다.
 
@@ -66,7 +66,7 @@ docker run -p 3000:3000 --rm --add-host=host.docker.internal:host-gateway solito
 
 <img src="/assets/img/front-end/nextjs-docker/pic2.avif" alt="standalone" />
 
-### Step 3 - .dockerignore 생성하기
+### 2.3. Step 3 - .dockerignore 생성하기
 
 `.dockerignore` 파일은 Docker가 이미지를 빌드할 때 복사하지 말아야 할 파일이나 디렉토리를 지정하는 파일입니다. 이 파일은 Docker Context 내에 불필요한 파일들이 빌드 이미지에 포함되는 것을 방지하여, 빌드 속도를 높이고 이미지 크기를 줄이는 데 중요한 역할을 합니다.
 
@@ -126,7 +126,7 @@ Dockerfile
 
   민감한 정보를 포함하는 파일을 이미지에서 제외함으로써 보안을 강화할 수 있습니다.
 
-### Step 4 - Dockerfile 작성하기
+### 2.4. Step 4 - Dockerfile 작성하기
 
 Docker 이미지를 생성하기 위해선 먼저 `Dockerfile`을 작성해야 합니다. VSCode에서 Dockerfile을 쉽게 작성하기 위해 다음과 같이 VSCode에서 `Docker` extensions를 설치합니다.
 
@@ -191,7 +191,7 @@ docker build -t solitour-frontend:v1.1.0 .
 
 각 단계를 자세히 설명하자면 다음과 같습니다.
 
-#### 1. 빌드 단계
+#### 2.4.1. 1. 빌드 단계
 
 ```docker
 # 1. 빌드 단계
@@ -205,7 +205,7 @@ FROM node:20-alpine AS build
 
 참고로 `node` 이미지는 개발 편의성 및 다양한 도구가 포함된 이미지로, 개발 환경이나 복잡한 빌드 작업에 적합합니다. 반면에 `node:alpine` 이미지는 크기가 작고 가벼운 이미지로, 프로덕션 환경이나 리소스가 제한된 환경에 적합합니다. 따라서 이미지 크기를 최소화해야 하기 위해 `node:alpine` 이미지를 선택하였습니다.
 
-#### 1-1. 작업 디렉토리 설정
+#### 2.4.2. 1-1. 작업 디렉토리 설정
 
 ```docker
 # 1-1. 작업 디렉토리 설정
@@ -216,7 +216,7 @@ WORKDIR /app
 
 `WORKDIR`는 애플리케이션 파일을 저장하고 실행할 작업 디렉토리를 지정하는 명령어입니다.
 
-#### 1-2. 의존성 파일 복사
+#### 2.4.3. 1-2. 의존성 파일 복사
 
 ```docker
 # 1-2. 의존성 파일 복사
@@ -225,7 +225,7 @@ COPY package.json package-lock.json ./
 
 `COPY`는 `COPY [source] [dest]` 형식으로 사용하며, 호스트 파일 시스템의 파일이나 폴더를 컨테이너의 파일 시스템으로 복사하는 명령어입니다. 위의 예시에서는 `package.json`과 `package-lock.json` 파일을 먼저 복사하여 의존성 설치 준비를 마칩니다.
 
-#### 1-3. 의존성 설치
+#### 2.4.4. 1-3. 의존성 설치
 
 ```docker
 # 1-3. 의존성 설치
@@ -235,7 +235,7 @@ RUN npm install
 
 `RUN`은 컨테이너 안에서 명령어를 실행할 때 사용하는 명령어입니다. 위의 예시에서는 `npm install` 명령어로 `package.json`에 지정된 의존성을 설치합니다.
 
-#### 1-4. 애플리케이션 코드 복사
+#### 2.4.5. 1-4. 애플리케이션 코드 복사
 
 ```docker
 # 1-4. 애플리케이션 코드 복사
@@ -245,7 +245,7 @@ COPY . .
 
 애플리케이션의 소스 코드를 모두 복사하는 부분입니다.
 
-#### 1-5. 애플리케이션 빌드
+#### 2.4.6. 1-5. 애플리케이션 빌드
 
 ```docker
 # 1-5. 애플리케이션 빌드
@@ -254,7 +254,7 @@ RUN npm run build
 
 애플리케이션을 빌드하는 부분입니다.
 
-#### 2. 런타임 단계
+#### 2.4.7. 2. 런타임 단계
 
 ```docker
 # 2. 런타임 단계
@@ -263,7 +263,7 @@ FROM node:20-alpine
 
 빌드가 완료된 후 불필요한 빌드 도구를 제외하고 필요한 파일만 이미지에 포함시킬 수 있도록 별칭을 사용하지 않는 새로운 `node:20-alpine` 이미지를 기반으로 런타임 단계를 시작합니다.
 
-#### 2-1. 빌드 결과물과 필요한 파일만 복사
+#### 2.4.8. 2-1. 빌드 결과물과 필요한 파일만 복사
 
 ```docker
 # 2-1. 빌드 결과물과 필요한 파일만 복사
@@ -275,7 +275,7 @@ COPY --from=build /app/public ./public
 
 `--from=build`라는 옵션을 사용하여 `build` 단계에서 생성된 파일 중에서 애플리케이션을 실행하는 데 필요한 파일들만 복사합니다.
 
-#### 2-2. 포트 설정
+#### 2.4.9. 2-2. 포트 설정
 
 ```docker
 # 2-2. 포트 설정
@@ -285,7 +285,7 @@ EXPOSE 3000
 
 `EXPOSE`는 컨테이너가 사용하는 포트를 명시적으로 지정하는 명령어로, 호스트와 통신할 포트를 설정합니다. 위의 예시에서는 3000 포트를 노출하여 외부에서 애플리케이션에 접근 가능하도록 설정합니다.
 
-#### 2-3. 애플리케이션 실행
+#### 2.4.10. 2-3. 애플리케이션 실행
 
 ```docker
 # 2-3. 애플리케이션 실행
@@ -296,7 +296,7 @@ CMD [ "node", "server.js" ]
 
 `CMD`는 컨테이너가 시작될 때 실행할 명령어를 지정하는 명령어입니다. `CMD`는 하나의 Dockerfile 안에서 한 번만 사용할 수 있습니다. 위의 예시에서는 `node server.js` 명령어를 실행하여 Next.js 애플리케이션을 실행합니다.
 
-### Step 5 - 이미지 빌드하기
+### 2.5. Step 5 - 이미지 빌드하기
 
 Dockerfile이 있는 디렉토리에서 터미널을 열고 다음 명령어를 입력하여 Docker 이미지를 빌드합니다.
 
@@ -338,7 +338,7 @@ PS C:\Users\user\vscode\solitour-frontend> docker build -t solitour-frontend:v1.
 
 <img src="/assets/img/front-end/nextjs-docker/pic4.avif" alt="Docker 이미지 빌드 결과" />
 
-## 컨테이너 실행하기
+## 3. 컨테이너 실행하기
 
 Docker 이미지가 빌드된 후 다음 명령어를 입력하여 컨테이너를 실행합니다.
 
@@ -356,7 +356,7 @@ docker run -p 3000:3000 --rm --add-host=host.docker.internal:host-gateway solito
 
 <img src="/assets/img/front-end/nextjs-docker/pic5.avif" alt="컨테이너 실행 결과" />
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://docs.docker.com/" target="_blank">Docker Docs</a>
 - <a href="https://yoo11052.tistory.com/143" target="_blank">[Docker] 컨테이너 내부에서 Host로 접근하기</a>

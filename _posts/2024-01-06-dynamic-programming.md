@@ -15,17 +15,17 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Algorithm</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `동적 계획법(Dynamic Programming)`에 대해 정리한 페이지입니다.
 
-## 동적 계획법 (Dynamic Programming, DP)
+## 2. 동적 계획법 (Dynamic Programming, DP)
 
-### 개념
+### 2.1. 개념
 
 `동적 계획법(Dynamic Programming)`은 처음 주어진 문제를 더 작은 부분 문제들로 나눈 뒤 각 부분 문제의 답들로부터 원래 문제에 대한 답을 계산하는 알고리즘 기법입니다. 기본적으로 동적 계획법의 접근 방식은 주어진 문제를 부분 문제로 나눈 뒤 각 문제에 대한 답을 계산하고, 각 부분 문제의 답으로부터 전체 문제의 답을 계산해낸다는 점에서 <a href="../divide-and-conquer">분할 정복</a>과 비슷합니다. 하지만 동적 계획법은 분할 정복과 달리 중복되는 부분 문제가 존재하고, 해당 부분 문제의 결과를 재활용하여 중복 계산을 제거해 시간을 단축한다는 점에서 분할 정복과 차이점이 있습니다. 즉, 동적 계획법은 <b>"분할 정복 + 메모이제이션(Memoization)"</b>이라고 볼 수 있습니다.
 
-### 특징
+### 2.2. 특징
 
 동적 계획법의 특징은 다음과 같습니다.
 
@@ -52,11 +52,11 @@ Algorithm</p></blockquote>
 
   동적 계획법은 중복 계산을 제거하므로 단순 재귀보다 시간 복잡도가 크게 개선됩니다. 예를 들어 피보나치 수열을 단순 재귀로 구현하면 `O(2ᴺ)`이지만, 동적 계획법을 적용하면 `O(N)`입니다.
 
-### 구현
+### 2.3. 구현
 
 동적 계획법은 다음 2가지 방식으로 구현할 수 있습니다.
 
-#### Top-down (Memoization)
+#### 2.3.1. Top-down (Memoization)
 
 Top-down 방식은 큰 문제부터 시작해서 계속 작은 부분 문제로 나누면서 해결하는 방식을 의미합니다. Top-down 방식은 <b>재귀</b>를 주로 활용하면서 중복되는 부분 문제에 대해 중복 계산을 피하기 위해 <b>cache</b>라는 메모리 공간에 이미 계산한 값을 저장합니다.
 
@@ -91,7 +91,7 @@ console.log(fib(10)); // 55
 console.log(cache); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 ```
 
-#### Bottom-up (Tabulation)
+#### 2.3.2. Bottom-up (Tabulation)
 
 Bottom-up 방식은 작은 부분 문제부터 시작해서 <b>테이블(배열)</b>에 값을 저장하며 해결하는 방식을 의미합니다. Bottom-up 방식은 <b>반복문</b>을 주로 활용하며, 재귀 호출이 없어 Top-down 방식보다 더 빠른 경우가 많습니다.
 
@@ -119,7 +119,7 @@ console.log(fib[10]); // 55
 console.log(fib); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 ```
 
-## Example
+## 3. Example
 
 - <a href="https://www.acmicpc.net/problem/1106" target="_blank">1106번: 호텔</a>
 

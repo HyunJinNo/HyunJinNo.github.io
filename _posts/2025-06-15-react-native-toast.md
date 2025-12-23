@@ -20,11 +20,11 @@ OS: Windows 11 <br />
 react v19.0.0 <br />
 react-native v0.79.2 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 React Native 프로젝트에서 토스트 메시지 기능을 직접 구현하는 방법에 대해 정리한 페이지입니다.
 
-## 토스트 메시지 기능을 사용하는 방법
+## 2. 토스트 메시지 기능을 사용하는 방법
 
 React Native에서 토스트 메시지를 구현하는 방법은 여러 가지가 있습니다.
 
@@ -77,11 +77,11 @@ Toast.show({
 
 외부 라이브러리를 사용하기 않고 간단한 커스텀 토스트 컴포넌트를 구현하여 원하는 위치와 스타일로 토스트 메시지를 출력할 수 있습니다.
 
-## 토스트 메시지 기능 구현하기
+## 3. 토스트 메시지 기능 구현하기
 
 이 문단에서는 간단한 커스텀 토스트 컴포넌트를 구현하는 방식을 설명합니다.
 
-### Step 1 - Context 생성하기
+### 3.1. Step 1 - Context 생성하기
 
 토스트 메시지를 앱 어디서든 쉽게 사용할 수 있도록 하려면, 토스트 컴포넌트를 루트에 두고 전역 상태(Context)를 통해 제어하는 방식이 좋습니다. 따라서 먼저 다음과 같이 토스트 메시지 설정을 담당하는 Context를 생성합니다.
 
@@ -93,7 +93,7 @@ export const ToastDispatcherContext = createContext({
 });
 ```
 
-### Step 2 - ToastProvider 컴포넌트 구현하기
+### 3.2. Step 2 - ToastProvider 컴포넌트 구현하기
 
 생성된 Context를 이용하여 다음과 같이 ToastProvider 컴포넌트를 구현합니다. 해당 컴포넌트는 토스트 메시지 기능을 사용할 수 있는 컴포넌트들을 children으로 전달받습니다.
 
@@ -159,7 +159,7 @@ export const ToastProvider = ({ children }: ToastProviderProps) => {
 
 위의 코드를 설명하자면 다음과 같습니다.
 
-#### setToastMessage 함수
+#### 3.2.1. setToastMessage 함수
 
 ```typescript
 const opacity = useAnimatedValue(0);
@@ -188,7 +188,7 @@ const setToastMessage = useCallback(
 
 토스트 메시지를 애니메이션을 활용하여 출력할 예정이므로 다음과 같이 토스트 메시지의 opacity를 `useAnimatedValue` 훅을 사용하여 설정합니다. 토스트 메시지를 출력할 때 처음에는 보이지 않다가 시간이 흐르면서 화면에 출력되어야 하므로 초깃값은 0(={ opacity: 0 })으로 설정합니다. 이후 setToastMessage 함수를 구현합니다. 해당 함수는 토스트 메시지를 출력하는 함수로, <b>토스트 메시지가 화면에 출력된 후 약 2초 동안 보이다가, 이후에 사라지도록 구현</b>되었습니다. 또한 `useState`로 선언한 message 상태가 변경되면 ToastProvider 컴포넌트가 리렌더링되고 setToastMessage 함수도 새로 생성됩니다. <b>setToastMessage 함수는 props로 전달하므로, 불필요한 리렌더링 유발을 방지하기 위해 `useCallback`을 사용</b>하였습니다.
 
-#### memoizedDispatcher 함수
+#### 3.2.2. memoizedDispatcher 함수
 
 ```typescript
 const memoizedDispatcher = useMemo(
@@ -199,7 +199,7 @@ const memoizedDispatcher = useMemo(
 
 구현한 ToastProvider 컴포넌트에서 Context의 value에 setToastMessage 함수를 넘길 때 객체 형태(`{ setToastMessage: setToastMessage }`)로 넘기고 있습니다. <b>ToastProvider 컴포넌트가 리렌더링될 떄마다 value에 지정한 객체도 새로 생성되므로 해당 Context를 구독하고 있는 모든 컴포넌트에 불필요한 리렌더링을 유발</b>하게 됩니다. 따라서 이를 방지하기 위해 <b>`useMemo`를 사용하여 Context의 value에 넘길 객체가 새로 생성되는 것을 방지</b>하였습니다.
 
-#### return
+#### 3.2.3. return
 
 ```tsx
 return (
@@ -223,7 +223,7 @@ return (
 
 토스트 메시지를 사용할 컴포넌트를 children으로 감싸는 부분입니다. 토스트 메시지는 화면 하단에 표시되도록 구현하였습니다.
 
-### Step 3 - React.memo 사용하기
+### 3.3. Step 3 - React.memo 사용하기
 
 위에서 언급한 ToastProvider 컴포넌트는 토스트 메시지를 사용할 컴포넌트들을 children으로 전달받습니다. setToastMessage 함수를 사용하면 ToastProvider 컴포넌트가 리렌더링되고, 자식 컴포넌트에 해당하는 children도 리렌더링됩니다. 따라서 <b>토스트 메시지를 출력할 때 불필요한 리렌더링을 방지하기 위해 다음과 같이 children에 해당하는 컴포넌트를 `React.memo`로 감쌉니다.</b>
 
@@ -247,7 +247,7 @@ export const NavigationComponent = () => {
 export const Navigation = memo(NavigationComponent);
 ```
 
-### Step 4 - app.tsx 설정
+### 3.4. Step 4 - app.tsx 설정
 
 다음과 같이 토스트 메시지를 사용할 컴포넌트를, 위에서 구현한 ToastProvider 컴포넌트로 감쌉니다. 이렇게 하면 Navigation 컴포넌트를 포함한 자식 컴포넌트들은 `useContext` 훅을 사용하여 토스트 메시지를 출력할 수 있게 됩니다.
 
@@ -270,7 +270,7 @@ export const App = () => {
 };
 ```
 
-### Step 5 - 구현 예시
+### 3.5. Step 5 - 구현 예시
 
 구현한 토스트 메시지 기능을 사용한 예시는 다음과 같습니다.
 
@@ -292,7 +292,7 @@ const handleSaveButtonPress = () => {
 
 <img src="/assets/img/front-end/react-native-toast/pic1.webp" alt="토스트 메시지 출력 예시" />
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://www.winterlood.com/qna/React%20Context%EB%A5%BC%20%EC%9D%B4%EC%A4%91%EC%9C%BC%EB%A1%9C%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0" target="_blank">Q. React Context를 이중으로 사용하는 이유가 무엇인가요? (최적화 관련) - Winterlood</a>
 - <a href="https://reactnative.dev/docs/animations" target="_blank">Animations · React Native</a>

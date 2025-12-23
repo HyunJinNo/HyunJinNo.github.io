@@ -15,13 +15,13 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
 Origin, Site</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `출처(Origin)`와 `사이트(Site)`에 대해 정리한 페이지입니다.
 
-## 출처 (Origin)
+## 2. 출처 (Origin)
 
-### 출처의 개념
+### 2.1. 출처의 개념
 
 <b>`출처(Origin)`란 URL의 프로토콜(스키마)(Ex. http, https), 도메인(호스트), 포트 번호의 조합</b>으로 정의됩니다.
 
@@ -44,9 +44,9 @@ Origin, Site</p></blockquote>
 | `https://www.example.com`         | 동일 출처 | 모두 일치(포트 번호 443번이 생략됨) |
 | `https://www.example.com/account` | 동일 출처 | 모두 일치 (경로는 관련 없음)        |
 
-## 사이트 (Site)
+## 3. 사이트 (Site)
 
-### 사이트의 개념
+### 3.1. 사이트의 개념
 
 `사이트(Site)`란 도메인 이름의 `등록 가능한 도메인(Registrable Domain)` 부분을 의미합니다. 여기서 `등록 가능한 도메인`이란, <b>공개 접미사 목록의 항목</b>과 <b>바로 앞의 도메인 이름 부분</b>으로 구성됩니다.
 
@@ -61,7 +61,7 @@ Origin, Site</p></blockquote>
 
 예를 들어 `https://www.example.com`의 등록 가능한 도메인은 `example.com`입니다. 또힌 두 URL의 `등록 가능한 도메인`이 일치할 때 `동일 사이트(Same-Site)`로 간주되고, 다른 경우 `교차 사이트(Cross-Site)`로 간주됩니다. 예를 들어, `https://www.example.com`과 `https://api.example.com`은 동일 사이트로 간주됩니다. 반면에 `https://www.example.com`과 `http://www.example.co.kr`는 등록 가능한 도메인이 각각 `example.com`과 `example.co.kr`이므로 교차 사이트로 간주됩니다.
 
-### 교차 사이트와 동일 사이트 예시
+### 3.2. 교차 사이트와 동일 사이트 예시
 
 `https://www.example.com`를 기준으로 교차 사이트와 동일 사이트를 구분한 예시는 다음과 같습니다.
 
@@ -74,7 +74,7 @@ Origin, Site</p></blockquote>
 | `https://api.example.com`     | 동일 사이트                  | 모두 일치(하위 도메인이 다른 것은 관련 없음)                  |
 | `http://www.example.com`      | 교차 사이트 또는 동일 사이트 | 스키마가 포함되면 교차 사이트, 포함되지 않는 경우 동일 사이트 |
 
-## 참고 자료
+## 4. 참고 자료
 
 - `Origin`
   - <a href="https://web.dev/articles/same-site-same-origin?hl=ko" target="_blank">&apos;동일 사이트&apos; 및 &apos;동일 출처&apos; &nbsp;|&nbsp; Articles &nbsp;|&nbsp; web.dev</a>

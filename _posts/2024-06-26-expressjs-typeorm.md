@@ -21,11 +21,11 @@ typeorm v0.3.20 <br />
 reflect-metadata v0.2.2 <br />
 mysql2 v3.10.1 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 Express.js 애플리케이션에 TypeORM 적용 방법에 대해 설명하겠습니다.
 
-## Step 1 - TypeORM 관련 패키지 설치
+## 2. Step 1 - TypeORM 관련 패키지 설치
 
 다음 명령어를 입력하여 TypeORM과 MySQL을 사용하기 위한 database driver를 설치합니다.
 
@@ -38,7 +38,7 @@ mysql2 v3.10.1 </p></blockquote>
 npm install typeorm reflect-metadata mysql2 dotenv
 ```
 
-## Step 2 - 폴더 구조
+## 3. Step 2 - 폴더 구조
 
 먼저 다음과 같이 express.js 폴더 구조를 생성합니다.
 
@@ -61,7 +61,7 @@ npm install typeorm reflect-metadata mysql2 dotenv
 └── tsconfig.json
 ```
 
-## Step 3 - TypeScript Configuration
+## 4. Step 3 - TypeScript Configuration
 
 `TypeORM`에서 `reflect-metadata` 라이브러리를 사용할 수 있도록 `tsconfig.json` 파일을 열고 `compilerOptions` 항목에 다음 옵션들을 추가합니다.
 
@@ -78,13 +78,13 @@ npm install typeorm reflect-metadata mysql2 dotenv
 }
 ```
 
-## Step 4 - .env 파일 생성
+## 5. Step 4 - .env 파일 생성
 
-### .env 파일이란?
+### 5.1. .env 파일이란?
 
 env 파일은 환경 변수 파일을 의미하며 API 키나 DB 관련 정보 등 외부에 노출되면 안되고 개발자만 알아야하는 정보들을 저장하는데 사용됩니다.
 
-### .env 파일 설정
+### 5.2. .env 파일 설정
 
 다음과 같이 프로젝트 최상위 디렉토리에 `.env` 파일을 생성하고 다음과 같이 MySQL 데이터베이스 관련 데이터를 입력합니다.
 
@@ -107,7 +107,7 @@ DB_PASSWORD=password
 DB_DATABASE=test
 ```
 
-## Step 5 - entity 생성
+## 6. Step 5 - entity 생성
 
 다음과 같이 `/src/entity` 디렉토리에 `Person.ts` 파일을 생성하고 다음과 같이 entity를 생성합니다.
 
@@ -130,9 +130,9 @@ export class Person {
 }
 ```
 
-## Step 6 - DataSource Configuration
+## 7. Step 6 - DataSource Configuration
 
-### DataSource 객체 생성
+### 7.1. DataSource 객체 생성
 
 `/src/database` 디렉토리에 `dataSource.ts` 파일을 생성하고 다음과 같이 DataSource 옵션을 입력합니다.
 
@@ -178,7 +178,7 @@ export default AppDataSource;
 
 <a href="https://typeorm.io/data-source-options" target="_blank">Data Source Options | TypeORM</a>
 
-### 초기화
+### 7.2. 초기화
 
 `app.ts` 파일을 열고 다음과 같이 database connection에 대한 초기화를 진행합니다.
 
@@ -221,9 +221,9 @@ AppDataSource.initialize()
   .catch((err) => console.error(err));
 ```
 
-## Step 7 - TypeORM 사용 예시
+## 8. Step 7 - TypeORM 사용 예시
 
-### Repository 사용
+### 8.1. Repository 사용
 
 `Repository`를 사용하여 데이터베이스를 연동한 예시는 다음과 같습니다.
 
@@ -327,7 +327,7 @@ router.delete(
 );
 ```
 
-### Postman 사용
+### 8.2. Postman 사용
 
 `Postman`을 사용하여 API를 요청한 예시는 다음과 같습니다.
 

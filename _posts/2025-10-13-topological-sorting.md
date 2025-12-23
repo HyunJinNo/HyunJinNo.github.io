@@ -15,17 +15,17 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Algorithm</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `위상 정렬(Topological Sorting)` 알고리즘에 대해 정리한 페이지입니다.
 
-## 위상 정렬 (Topological Sorting)
+## 2. 위상 정렬 (Topological Sorting)
 
-### 개념
+### 2.1. 개념
 
 `위상 정렬(Topological Sorting)` 알고리즘은 방향 그래프(Directed Graph)에서 정점들의 방문 순서를 정하는 알고리즘입니다. <b>유향 비순환 그래프(Directed acyclic graph, DAG)에서 특정 정점을 다른 정점보다 먼저 방문해야 할 때 정점들의 방문 순서를 결정</b>하기 위해 위상 정렬 알고리즘을 사용합니다.
 
-### 특징
+### 2.2. 특징
 
 위상 정렬 알고리즘의 특징은 다음과 같습니다.
 
@@ -37,11 +37,11 @@ Algorithm</p></blockquote>
 
   정점의 개수가 V이고, 간선의 개수가 E일 때, 위상 정렬 알고리즘의 시간 복잡도는 `O(V + E)`입니다.
 
-### 구현
+### 2.3. 구현
 
 위상 정렬을 구현하는 알고리즘은 크게 Kahn 알고리즘과 DFS 방법이 있으며, 두 방법 모두 시간 복잡도는 `O(V + E)`입니다. 이번 글에서는 Kahn 알고리즘만 설명합니다.
 
-#### Kahn 알고리즘
+#### 2.3.1. Kahn 알고리즘
 
 Kahn 알고리즘은 `진입 차수(Indegree)`를 기반으로 하는 알고리즘으로 다음과 같은 절차로 진행됩니다.
 
@@ -194,7 +194,7 @@ while (peekIndex < queue.length) {
 console.log(answer.trim()); // "1 3 2 4"
 ```
 
-## Example
+## 3. Example
 
 - <a href="https://www.acmicpc.net/problem/2056" target="_blank">2056번: 작업</a>
 
@@ -247,6 +247,6 @@ console.log(answer.trim()); // "1 3 2 4"
   console.log(Math.max(...answer));
   ```
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://namu.wiki/w/위상%20정렬" target="_blank">위상 정렬 - 나무위키</a>

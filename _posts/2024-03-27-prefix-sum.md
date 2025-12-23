@@ -15,13 +15,13 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Algorithm</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `누적 합(Prefix Sum)` 알고리즘에 대해 정리한 페이지입니다.
 
-## 누적 합 (Prefix Sum) 알고리즘
+## 2. 누적 합 (Prefix Sum) 알고리즘
 
-### 개념
+### 2.1. 개념
 
 `누적 합(Prefix Sum)` 알고리즘은 배열의 구간 합(부분 합)을 빠르게 구할 수 있게 해주는 알고리즘 기법을 의미합니다. 다음과 같이 `scores`라는 1차원 정수 배열이 있을 때 첫 번째 원소부터 특정 index까지의 누적 합 배열 `S`이 있으면 다음과 같이 정의할 수 있습니다.
 
@@ -36,7 +36,7 @@ const scores = [100, 97, 86, 79, 66, 52, 49, 42, 31];
 const S = [100, 197, 283, 362, 428, 480, 529, 571, 602];
 ```
 
-### 시간 복잡도 (Time Complexity)
+### 2.2. 시간 복잡도 (Time Complexity)
 
 일반적으로 단순히 배열을 순회하면서 합을 구하면 한 번 계산할 때마다 `O(N)`의 시간이 걸립니다. 하지만 누적 합 배열을 미리 계산해두면 구간 합을 `O(1)`의 시간에 구할 수 있습니다. 특히 <b>누적 합 알고리즘은 구간 합을 여러 번 계산해야 할 때 효율적</b>입니다. 예를 들어 구간 합을 M번 구하는 문제가 있을 때, 단순 덧셈 방식은 `O(N * M)`의 시간이 걸리지만, 누적 합 알고리즘을 사용하면 누적 합 배열을 미리 계산해 두는데 걸리는 `O(N)` 시간이 소모된 이후에는 구간 합을 계산하는데 걸리는 시간이 거의 없으며, 총 `O(N + M)`의 시간 복잡도를 갖습니다.
 
@@ -47,9 +47,9 @@ const S = [100, 197, 283, 362, 428, 480, 529, 571, 602];
 | 단순 덧셈    | `O(N)`            | 없음                |
 | 누적 합 사용 | `O(1)`            | `O(N)`              |
 
-### 구현
+### 2.3. 구현
 
-#### 1차원 배열에서의 누적 합
+#### 2.3.1. 1차원 배열에서의 누적 합
 
 ```javascript
 const scores = [10, 20, 30, 40, 50];
@@ -79,7 +79,7 @@ const rangeSum = (a, b) => {
 console.log(rangeSum(1, 3)); // 90
 ```
 
-#### 2차원 배열에서의 누적 합
+#### 2.3.2. 2차원 배열에서의 누적 합
 
 ```javascript
 const arr = [
@@ -147,7 +147,7 @@ const rangeSum = (startRow, startCol, endRow, endCol) => {
 console.log(rangeSum(1, 1, 3, 3)); // 310
 ```
 
-## Example
+## 3. Example
 
 - <a href="https://www.acmicpc.net/problem/1806" target="_blank">1806번: 부분합</a>
 
@@ -197,6 +197,6 @@ console.log(rangeSum(1, 1, 3, 3)); // 310
   console.log(`${answer === Infinity ? 0 : answer}`);
   ```
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://book.acmicpc.net/algorithm/prefix-sum" target="_blank">누적 합</a>

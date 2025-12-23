@@ -18,19 +18,19 @@ TypeScript, Prettier, ESLint, VSCode</p></blockquote>
 <blockquote class="prompt-info"><p><strong><u>Environment</u></strong> <br />
 eslint v9.11.1 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 VSCode에서 Prettier와 ESLint 설정 방법에 대해 설명하겠습니다. <b>ESLint의 경우 v9.11.1 버전을 기준으로 설명하겠습니다.</b>
 
-## Prettier란?
+## 2. Prettier란?
 
 `Prettier`란 코드의 포맷을 자동으로 정리해주는 `코드 포맷터(Code Formatter)`입니다. JavaScript, TypeScript, HTML 등 다양한 프로그래밍 언어를 지원하며, Prettier를 사용하면 일관된 코드 스타일을 유지할 수 있습니다. 이를 통해 팀으로 협업하는 데 있어서 코드 스타일을 통일할 수 있다는 장점이 있습니다.
 
-## ESLint란?
+## 3. ESLint란?
 
 `ESLint`란 JavaScript와 TypeScript 코드에서 문법 오류나 잠재적 문제를 식별하거나, 코드 스타일 규칙을 통일하는데 사용하는 도구입니다. ESLint를 사용하면 코드 품질을 높이고 일관된 코드 스타일을 유지할 수 있습니다. 주로 버그를 예방하거나, 유지 보수를 쉽게 하기 위해 사용합니다.
 
-## Step 1 - VSCode Extensions
+## 4. Step 1 - VSCode Extensions
 
 먼저 다음과 같이 VSCode에서 Extensions 탭을 클릭하여 `Prettier - Code formatter`와 `ESLint`를 검색하여 설치합니다.
 
@@ -38,7 +38,7 @@ eslint v9.11.1 </p></blockquote>
 
 <img src="/assets/img/front-end/prettier-eslint/pic2.avif" alt="pic2" />
 
-## Step 2 - Prettier 설정하기
+## 5. Step 2 - Prettier 설정하기
 
 VSCode에서 `Prettier - Code formatter`를 설치하고 설정 파일을 따로 생성하지 않으면 Prettier의 디폴트 규칙이 적용됩니다. Prettier의 디폴트 규칙 예시는 다음과 같습니다.
 
@@ -48,7 +48,7 @@ VSCode에서 `Prettier - Code formatter`를 설치하고 설정 파일을 따로
 - `줄바꿈`: 80자 기준으로 자동으로 줄바꿈합니다.
 - `탭 사용 여부`: 탭 대신 스페이스로 들여쓰기합니다.
 
-### .prettierrc 파일 생성하기
+### 5.1. .prettierrc 파일 생성하기
 
 Prettier 규칙을 설정하려면 다음과 같이 `.prettierrc` 설정 파일을 생성해야 합니다. **자주 사용되는 Prettier 옵션**을 기반으로 설정 파일을 생성한 예시는 다음과 같습니다.
 
@@ -149,7 +149,7 @@ Prettier 규칙을 설정하려면 다음과 같이 `.prettierrc` 설정 파일�
 
 <a href="https://prettier.io/docs/en/options" target="_blank">https://prettier.io/docs/en/options</a>
 
-### Editor: Format On Save
+### 5.2. Editor: Format On Save
 
 파일을 저장할 때마다 자동으로 코드 포맷팅을 적용하려면 VSCode 설정에서 다음과 같이 `Editor: Format On Save` 항목을 체크하면 됩니다.
 
@@ -171,11 +171,11 @@ Prettier 규칙을 설정하려면 다음과 같이 `.prettierrc` 설정 파일�
 
 <img src="/assets/img/front-end/prettier-eslint/pic7.avif" alt="pic7" />
 
-## Step 3 - ESLint 설정하기
+## 6. Step 3 - ESLint 설정하기
 
 <b>이 글에서 다루는 ESLint 설정 방법은 `v9.11.1` 버전을 기준으로 설명합니다. 다른 버전을 사용하고 있다면 설정 방법이 다를 수 있습니다.</b>
 
-### ESLint 설치하기
+### 6.1. ESLint 설치하기
 
 먼저 다음 명령어를 입력하여 ESLint 설치 및 ESLint 초기화를 진행합니다.
 
@@ -206,7 +206,7 @@ npx eslint --init
 
 모든 선택이 끝나면 자동으로 패키지가 설치된 후, 설정 파일이 생성됩니다.
 
-### .eslint.config.mjs 파일 설정하기
+### 6.2. .eslint.config.mjs 파일 설정하기
 
 위의 초기화 과정이 끝나면 다음과 같은 `eslint.config.mjs` 파일이 생성됩니다.
 
@@ -299,7 +299,7 @@ ESLint 설정 시 주로 사용되는 속성들에 대해 설명하자면 다음
 
 <a href="https://eslint.org/docs/latest/" target="_blank">Documentation - ESLint - Pluggable JavaScript Linter</a>
 
-## 참고 자료
+## 7. 참고 자료
 
 - <a href="https://prettier.io/" target="_blank">Prettier · Opinionated Code Formatter</a>
 - <a href="https://eslint.org/" target="_blank">Find and fix problems in your JavaScript code - ESLint - Pluggable JavaScript Linter</a>

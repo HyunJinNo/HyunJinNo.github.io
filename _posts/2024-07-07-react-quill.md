@@ -19,11 +19,11 @@ TypeScript, Next.js, Quill</p></blockquote>
 Next.js v14.2.3 <br />
 react-quill v2.0.0 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 Next.js에서 ReactQuill 사용 방법에 대해 정리한 페이지입니다.
 
-## Step 1 - ReactQuill 패키지 설치
+## 2. Step 1 - ReactQuill 패키지 설치
 
 다음 명령어를 입력하여 ReactQuill 패키지를 설치합니다.
 
@@ -31,15 +31,15 @@ Next.js에서 ReactQuill 사용 방법에 대해 정리한 페이지입니다.
 npm install react-quill
 ```
 
-## Step 2 - ReactQuill 모듈 로드하기
+## 3. Step 2 - ReactQuill 모듈 로드하기
 
-### document is not found
+### 3.1. document is not found
 
 `React` 프로젝트와 달리 `Next.js`에서 ReactQuill를 직접 로드하려고 하면 `document is not found` 에러가 발생합니다.
 이는 ReactQuill에서 `document` 객체를 활용하기 때문입니다. 따라서 Next.js에서는 `document`가 먼저 로드된 후에 `ReactQuill` 모듈을
 불러오도록 수정해야 합니다.
 
-### Dynamic Import
+### 3.2. Dynamic Import
 
 `document`가 로드된 후 `ReactQuill` 모듈을 로드하기 위해선 `지연 로딩(lazy loading)`을 활용하면 됩니다. Next.js에서는 `지연 로딩(lazy loading)`을 두 가지 방식으로 지원합니다.
 
@@ -62,7 +62,7 @@ const ReactQuill = dynamic(() => import("react-quill"), {
 
 위의 코드에서 `ssr: false`는 pre-rendering, 즉 서버 사이드 렌더링을 하지 않고 클라이언트 사이드에서만 로드하겠다는 의미입니다. 또한 `loading`은 동적 임포트가 완료되기 전에 표시할 컴포넌트를 지정하는 부분입니다.
 
-## Step 3 - Quill 에디터 사용하기
+## 4. Step 3 - Quill 에디터 사용하기
 
 다음과 같이 Quill 에디터를 사용하는 컴포넌트를 작성합니다.
 
@@ -88,7 +88,7 @@ const ReactQuill = dynamic(() => import("react-quill"), {
 
   <img src="/assets/img/front-end/react-quill/pic4.avif" alt="pic4" />
 
-## Step 4 - Quill 에디터 커스텀하기
+## 5. Step 4 - Quill 에디터 커스텀하기
 
 css 파일을 생성하여 위에서 생성한 Quill 에디터 컴포넌트를 커스텀할 수 있습니다. 다음은 Quill 에디터를 커스텀한 예시입니다.
 

@@ -20,11 +20,11 @@ OS: Windows 11 <br />
 react v19.0.0 <br />
 react-native v0.79.2 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 React Native 프로젝트에서 APK 빌드 방법에 대해 정리한 페이지입니다. `Debug APK (테스트용 APK)` 빌드 방법과 `Release APK (배포용 APK)` 빌드 방법을 각각 정리하였습니다.
 
-## Debug APK vs Release APK
+## 2. Debug APK vs Release APK
 
 `Debug API`와 `Release APK`를 표로 비교하면 다음과 같습니다.
 
@@ -39,7 +39,7 @@ React Native 프로젝트에서 APK 빌드 방법에 대해 정리한 페이지�
 
 정리하자면, `Debug APK`는 개발 및 QA, 내부 테스트를 위해 디버깅 정보와 비최적화 코드, 디버그 키로 서명되어 빠른 문제 파악이 용이하지만 보안상 취약하며 성능 최적화가 되어 있지 않습니다. 반면에 `Release APK`는 배포를 위해 코드 최적화, 난독화, 불필요한 디버깅 정보 제거 등 보안과 성능 측면에서 개선된 APK로, 개발자가 생성한 keystore로 서명되어 업데이트 관리가 용이합니다.
 
-## Debug APK 빌드하기
+## 3. Debug APK 빌드하기
 
 먼저 프로젝트 루트에서 `android` 폴더로 이동합니다.
 
@@ -76,9 +76,9 @@ android/app/build/outputs/apk/debug/app-debug.apk
 
 <img src="/assets/img/front-end/react-native-apk/pic2.avif" alt="android/app/build/outputs/apk/debug 디렉토리에서 app-debug.apk를 확인할 수 있습니다." />
 
-## Release APK 빌드하기
+## 4. Release APK 빌드하기
 
-### Step 1 - 배포용 키 생성하기
+### 4.1. Step 1 - 배포용 키 생성하기
 
 먼저 프로젝트 루트에서 `android/app` 폴더로 이동합니다.
 
@@ -128,7 +128,7 @@ keytool -genkeypair -v -keystore release.keystore -alias my-key-alias -keyalg RS
 
 <img src="/assets/img/front-end/react-native-apk/pic3.avif" alt="android.app 폴더에 keystore를 생성합니다." />
 
-### Step 2 - Gradle에 서명 정보 추가하기
+### 4.2. Step 2 - Gradle에 서명 정보 추가하기
 
 `android/gradle.properties` 파일에 다음 내용을 추가합니다.
 
@@ -188,7 +188,7 @@ android {
 
 <img src="/assets/img/front-end/react-native-apk/pic4.avif" alt="build.gradle 파일을 열고 수정한 내용"/>
 
-### Step 3 - Release APK 생성하기
+### 4.3. Step 3 - Release APK 생성하기
 
 먼저 프로젝트 루트에서 `android` 폴더로 이동합니다.
 
@@ -233,7 +233,7 @@ android/app/build/outputs/apk/release/app-release.apk
 
 <img src="/assets/img/front-end/react-native-apk/pic5.avif" alt="android/app/build/outputs/apk/release 디렉토리에서 app-release.apk를 확인할 수 있습니다." />
 
-## 참고: Release AAB 빌드하기
+## 5. 참고: Release AAB 빌드하기
 
 `Release AAB`를 빌드하기 위해선 [Release APK 빌드하기](#release-apk-빌드하기) 문단에서 [Step 2 - Gradle에 서명 정보 추가하기](#step-2---gradle에-서명-정보-추가하기)까지 진행한 후 프로젝트 루트에서 다음 명령어를 입력하면 됩니다.
 
@@ -251,7 +251,7 @@ android/app/build/outputs/bundle/release/app-release.aab
 
 <img src="/assets/img/front-end/react-native-apk/pic7.avif" alt="android/app/build/outputs/bundle/release 디렉토리에서 app-release.aab를 확인할 수 있습니다." />
 
-## 참고 자료
+## 6. 참고 자료
 
 - <a href="https://adjh54.tistory.com/252" target="_blank">[RN] React Native APK 파일 이해 및 구성, 실행 방법 : Keystore — Contributor</a>
 - <a href="https://reactnative.dev/docs/signed-apk-android" target="_blank">Publishing to Google Play Store · React Native</a>

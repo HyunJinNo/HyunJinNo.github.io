@@ -15,7 +15,7 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Design Pattern, Java</p></blockquote>
 
-## Introduction
+## 1. Introduction
 
 - **Purpose**
   - Provide an **interface that delegates creation calls** to one or more concrete classes in order to deliver **specific objects.**
@@ -29,7 +29,7 @@ Design Pattern, Java</p></blockquote>
   - Delegates object creation to a factory object.
   - Uses **composition and delegation.**
 
-## Participants
+## 2. Participants
 
 - **AbstractFactory**
   - Declares an interface for operations that create abstract product objects.
@@ -43,7 +43,7 @@ Design Pattern, Java</p></blockquote>
 - **Client**
   - **Uses only interfaces** declared by AbstractFactory and AbstractProduct classes.
 
-## How to Use (Example)
+## 3. How to Use (Example)
 
 - **Abstract Factory**
 

@@ -15,17 +15,17 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Algorithm</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `에라토스테네스의 체(Sieve of Eratosthenes)` 알고리즘에 대해 정리한 페이지입니다.
 
-## 에라토스테네스의 체 (Sieve of Eratosthenes) 알고리즘
+## 2. 에라토스테네스의 체 (Sieve of Eratosthenes) 알고리즘
 
-### 개념
+### 2.1. 개념
 
 `에라토스테네스의 체(Sieve of Eratosthenes)` 알고리즘은 주어진 정수 `n` 이하의 모든 소수를 효율적으로 찾는 알고리즘입니다. 에라토스테네스의 체 알고리즘의 시간 복잡도는 `O(N log(log N))`으로 매우 빠르기 때문에 대부분의 경우 빠르게 소수를 찾을 수 있습니다.
 
-### 구현
+### 2.2. 구현
 
 에라토스테네스의 체 구현은 다음과 같은 과정으로 이루어집니다.
 
@@ -97,7 +97,7 @@ for (let i = 2; i * i <= n; i++) {
 }
 ```
 
-## Example
+## 3. Example
 
 - <a href="https://www.acmicpc.net/problem/11690" target="_blank">11690번: LCM(1, 2, ..., n)</a>
 
@@ -140,7 +140,7 @@ for (let i = 2; i * i <= n; i++) {
   console.log(answer);
   ```
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://ko.wikipedia.org/wiki/에라토스테네스의_체" target="_blank">에라토스테네스의 체 - 위키백과, 우리 모두의 백과사전</a>
 - <a href="https://namu.wiki/w/에라토스테네스의%20체" target="_blank">에라토스테네스의 체 - 나무위키</a>

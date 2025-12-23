@@ -15,7 +15,7 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Design Pattern, Java</p></blockquote>
 
-## Introduction
+## 1. Introduction
 
 - **Purpose**
   - Identifies the **framework of an algorithm**, allowing implementing classes to define the actual behavior.
@@ -25,7 +25,7 @@ Design Pattern, Java</p></blockquote>
   - Parent classes should be able to **uniformly invoke behavior in their subclasses**.
   - Most or all subclasses need to implement the behavior.
 
-## Characteristics
+## 2. Characteristics
 
 - The template pattern **defines the steps of an algorithm** and **allows the subclasses to implement one or more of the steps**.
 - Encapsulates an algorithm by creating a template for it.
@@ -37,11 +37,11 @@ Design Pattern, Java</p></blockquote>
   - The superclass facilitates reuse of methods.
   - Code changes will occur in only one place.
 
-## Hook Method
+## 3. Hook Method
 
 - A **hook** is a method that is declared in the abstract class, but only given an empty or default implementation.
 
-## How to Use (Example)
+## 4. How to Use (Example)
 
 - **Superclass**
 

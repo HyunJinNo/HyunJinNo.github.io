@@ -15,17 +15,17 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 TypeScript, Next.js, ForwardRef</p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 React에서 컴포넌트에 `ref`를 전달할 때 사용하는 고차 함수인 `forwardRef` 사용 방법에 대해 설명하겠습니다.
 
-## ref란?
+## 2. ref란?
 
-### 개념
+### 2.1. 개념
 
 `ref`는 React에서 특정 DOM 요소나 컴포넌트에 대해 직접 접근해야 할 때 사용합니다. 일반적으로 React에서는 컴포넌트의 상태나 props를 통해 UI를 업데이트하지만, 가끔 직접 접근해서 제어해야 하는 상황이 발생할 수도 있는데, 이런 경우 `ref`를 사용합니다. `ref`를 사용하면 코드를 DOM에 직접 접근하거나 조작할 수 있습니다.
 
-### ref를 사용하는 경우
+### 2.2. ref를 사용하는 경우
 
 `ref`를 사용하는 예시는 다음과 같습니다.
 
@@ -45,7 +45,7 @@ TypeScript, Next.js, ForwardRef</p></blockquote>
 
   외부 라이브러리가 DOM을 직접 조작해야 할 때 `ref`로 DOM 요소를 전달할 수 있습니다.
 
-### ref 사용 시 주의사항
+### 2.3. ref 사용 시 주의사항
 
 `ref`를 사용할 때 알아두어야 할 주의사항은 다음과 같습니다.
 
@@ -57,11 +57,11 @@ TypeScript, Next.js, ForwardRef</p></blockquote>
 
   `ref`는 렌더링에 영향을 주지 않습니다. `ref` 값이 변경되어도 컴포넌트는 다시 렌더링되지 않으므로, 만약 UI에 영향을 미쳐야 한다면 `ref` 대신 `상태(state)`를 사용해야 합니다.
 
-## forwardRef란?
+## 3. forwardRef란?
 
 `forwardRef`란 React에서 컴포넌트에 `ref`를 전달하기 위해 사용하는 고차 함수입니다. 기본적으로 함수형 컴포넌트를 사용하는 경우, 부모 컴포넌트에서 자식 컴포넌트로 `ref`를 전달할 수 없지만, `forwardRef`를 사용하면 부모 컴포넌트에서 자식 컴포넌트로 `ref`를 전달할 수 있습니다. 이를 통해 자식 컴포넌트의 DOM 요소나 다른 컴포넌트의 인스턴스에 직접 접근할 수 있습니다.
 
-## Step 1 - 자식 컴포넌트
+## 4. Step 1 - 자식 컴포넌트
 
 TypeScript에서 `forwardRef`를 사용할 때, `props`와 `ref`의 타입을 명시적으로 지정해야 합니다. `ref`는 전달된 DOM 요소나 컴포넌트 인스턴스의 타입을 정의하고, `props`는 해당 컴포넌트에 전달될 프로퍼티를 정의하면 됩니다.
 
@@ -83,7 +83,7 @@ export default MyChildComponent;
 
 위의 코드에서 `HTMLDivElement`는 `ref`가 참조할 DOM 요소의 타입을 나타냅니다. `div` 태그를 참조하고 있으므로 `HTMLDivElement`를 지정하였습니다. 또한 `Props`는 해당 컴포넌트에 전달될 프로퍼티들을 정의한 인터페이스를 지정하였습니다.
 
-## Step 2 - displayName 설정하기
+## 5. Step 2 - displayName 설정하기
 
 TypeScript에서 `forwardRef`를 사용할 때 **Component definition is missing display name**라는 오류가 발생합니다. 이는 `forwardRef`를 호출할 때 익명 함수를 넘기게 되면 React 개발자 도구에서 해당 컴포넌트의 이름을 알 수 없기 때문에 해당 경고가 발생하는 것입니다. 이를 해결하기 위해 `forwardRef`로 래핑된 컴포넌트에 이름을 `displayName`을 사용하여 설정하면 됩니다.
 
@@ -106,7 +106,7 @@ MyChildComponent.displayName = "MyChildComponent";
 export default MyChildComponent;
 ```
 
-## Step 3 - 부모 컴포넌트
+## 6. Step 3 - 부모 컴포넌트
 
 부모 컴포넌트에서는 `useRef`를 사용하여 `ref`를 생성하고, 해당 `ref`를 자식 컴포넌트로 전달합니다.
 

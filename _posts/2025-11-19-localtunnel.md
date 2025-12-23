@@ -15,17 +15,17 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
 localtunnel</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `localtunnel` 설치 방법 및 사용법에 대해 정리한 페이지입니다.
 
-## localtunnel
+## 2. localtunnel
 
-### 개념
+### 2.1. 개념
 
 `localtunnel`은 로컬에서 실행 중인 서버를 외부에서 접근할 수 있는 임시 URL로 만들어주는 서비스입니다. 즉, `localtunnel`을 사용하면 로컬에서 개발 중인 서버(Ex. localhost:3000)를 외부에서 접속할 수 있습니다.
 
-### 특징
+### 2.2. 특징
 
 `localtunnel`의 특징은 다음과 같습니다.
 
@@ -45,9 +45,9 @@ localtunnel</p></blockquote>
 
   원하는 이름으로 URL을 설정할 수 있습니다. (Ex. yourname.loca.lt)
 
-### 설치 방법
+### 2.3. 설치 방법
 
-#### npm
+#### 2.3.1. npm
 
 `node.js`가 설치되어 있는 경우, `npm`으로 간단히 설치할 수 있습니다. `-g` 옵션을 사용하여 글로벌로 설치하면 됩니다.
 
@@ -55,7 +55,7 @@ localtunnel</p></blockquote>
 npm install -g localtunnel
 ```
 
-#### Homebrew
+#### 2.3.2. Homebrew
 
 `Homebrew`가 설치되어 있는 경우, 다음 명령어를 입력하여 간단히 설치할 수 있습니다.
 
@@ -63,7 +63,7 @@ npm install -g localtunnel
 brew install localtunnel
 ```
 
-### 사용 방법
+### 2.4. 사용 방법
 
 먼저 로컬 서버를 실행해야 합니다. 다음과 같은 HTML에 대해 `localhost:5500`에서 실행한다고 가정합니다.
 
@@ -113,7 +113,7 @@ Click to Submit 버튼을 클릭하면 다음과 같이 외부에서 로컬 서�
 
 <img src="/assets/img/etc/localtunnel/pic6.avif" alt="모바일에서 접속한 모습" />
 
-## 참고 자료
+## 3. 참고 자료
 
 - <a href="https://theboroer.github.io/localtunnel-www/" target="_blank">Localtunnel ~ Expose yourself to the world</a>
 - <a href="https://velog.io/@bbaa3218/로컬-호스트-서버-배포하기-ngrok-localtunnel" target="_blank">로컬 호스트 서버 배포하기 (ngrok, localtunnel)</a>

@@ -20,11 +20,11 @@ Node.js v20.11.1 <br />
 @nestjs/cli v10.3.2 <br />
 reflect-metadata v0.2.2 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 NestJS 기초 사용 방법에 대해 설명하도록 하겠습니다.
 
-## Step 1 - NestJS 애플리케이션 생성
+## 2. Step 1 - NestJS 애플리케이션 생성
 
 다음 명령어를 입력하여 `@nestjs.cli`를 사용하여 NestJS 애플리케이션을 생성합니다.
 
@@ -38,7 +38,7 @@ npx @nestjs/cli new [프로젝트 이름]
 ? Which package manager would you ❤️ to use? npm
 ```
 
-## Step 2 - eslintrc 설정 파일 수정
+## 3. Step 2 - eslintrc 설정 파일 수정
 
 자신이 사용하는 운영체제에 따라 다음과 같이 `Delete `␍` eslint (prettier/prettier)` 오류가 발생할 수 있습니다.
 
@@ -60,7 +60,7 @@ rules: {
 },
 ```
 
-## Step 3 - Folder Structure / Architecture 확인하기
+## 4. Step 3 - Folder Structure / Architecture 확인하기
 
 `nest-cli`로 생성한 프로젝트 구조는 다음과 같습니다.
 
@@ -77,7 +77,7 @@ rules: {
 └── (...)
 ```
 
-### NestJS의 Naming 규칙
+### 4.1. NestJS의 Naming 규칙
 
 NestJS의 Naming Convention은 다음과 같습니다.
 
@@ -95,7 +95,7 @@ NestJS의 Naming Convention은 다음과 같습니다.
 - 같은 디렉토리에 있는 클래스는 index.ts를 통해서 임포트하는 것이 권장됩니다.
 - 인터페이스를 사용해서 타입을 정의하고 구체적인 내용을 클래스를 만들어 인터페이스를 상속하는 방식으로 작성합니다.
 
-### main.ts
+### 4.2. main.ts
 
 main.ts 파일은 NestJS 서버의 시작점이 되는 파일입니다. NestJS에서는 진입점을 `bootstrap()`으로 하는 것이 관례입니다.
 
@@ -116,7 +116,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-### 모듈명.controller.ts
+### 4.3. 모듈명.controller.ts
 
 컨트롤러는 유저가 보낸 HTTP 요청을 어떤 코드에서 처리할지 결정하는 역할을 합니다.
 
@@ -137,7 +137,7 @@ export class AppController {
 }
 ```
 
-### 모듈명.service.ts
+### 4.4. 모듈명.service.ts
 
 서비스는 비즈니스 로직을 담는 파일입니다.
 
@@ -152,7 +152,7 @@ export class AppService {
 }
 ```
 
-### 모듈명.module.ts
+### 4.5. 모듈명.module.ts
 
 모듈은 수평적으로 흩어진 Provider와 Controller들을 논리적인 기능이나 도메인에 따라 하나로 묶어주는 역할을 하며, 재사용성을 높여줍니다.
 
@@ -171,7 +171,7 @@ import { BlogModule } from "./blog/blog.module";
 export class AppModule {}
 ```
 
-## Step 4 - Blog API 만들기
+## 5. Step 4 - Blog API 만들기
 
 데이터베이스를 사용하지 않는 간단한 Blog API를 만들어 보겠습니다. 먼저 다음과 같이 모듈 단위로 애플리케이션을 구성합니다.
 
@@ -194,7 +194,7 @@ export class AppModule {}
 
 modules 디렉토리에 도메인별 모듈을 저장합니다. 각 모듈은 해당 기능과 관련된 컨트롤러, 서비스, DTO 등을 포함합니다.
 
-### blog.controller.ts
+### 5.1. blog.controller.ts
 
 ```typescript
 import {
@@ -251,7 +251,7 @@ export class BlogController {
 위의 코드에서 `Get`, `Post`, `Delete`, `Put` 등의 데코레이터는 모두 함수에 붙이는 것으로, HTTP 요청 방식에 따라 해당 데코레이터가 붙은 함수를 실행합니다.
 `@Body`는 함수의 body로 오는 값을 매개변수에 할당하며, `@Param`은 URL param의 값을 함수 매개변수에 할당합니다.
 
-### blog.service.ts
+### 5.2. blog.service.ts
 
 ```typescript
 import { Injectable } from "@nestjs/common";
@@ -301,7 +301,7 @@ export class BlogService {
 
 Blog API 로직을 위와 같이 service 파일에 작성합니다.
 
-### blog.module.ts
+### 5.3. blog.module.ts
 
 ```typescript
 import { Module } from "@nestjs/common";
@@ -319,7 +319,7 @@ export class BlogModule {}
 
 위와 같이 blog 컨트롤러와 서비스를 모듈 파일에 선언합니다.
 
-### blog.dto.ts
+### 5.4. blog.dto.ts
 
 ```typescript
 // 게시글의 타입을 인터페이스로 정의
@@ -336,7 +336,7 @@ export interface PostDto {
 `Dto`란 `data transfer object`의 약자입니다. 주로 데이터 전송을 위한 객체로, 애플리케이션 계층 간에 데이터를 주고받을 때 사용됩니다.
 타입스크립트에서는 데이터만 가지고 있는 타입을 선언할 때 클래스보다는 인터페이스를 많이 사용합니다.
 
-### app.module.ts
+### 5.5. app.module.ts
 
 작성한 Blog 모듈을 사용하기 위해 다음과 같이 app 디렉토리의 최상위 모듈 파일에 모듈을 import 합니다.
 
@@ -355,9 +355,9 @@ import { BlogModule } from "./modules/blog/blog.module";
 export class AppModule {}
 ```
 
-## Step 5 - Postman으로 테스트하기
+## 6. Step 5 - Postman으로 테스트하기
 
-### 서버 실행하기
+### 6.1. 서버 실행하기
 
 Postman을 사용하여 위의 API가 잘 작동하는지 확인하도록 하겠습니다. 먼저 다음 명령어를 입력하여 서버를 시작합니다.
 
@@ -373,12 +373,12 @@ npm run start:dev  // development 모드로 실행할 때 사용
 npm run start:prod // production 모드로 실행할 때 사용
 ```
 
-### 게시글 작성
+### 6.2. 게시글 작성
 
 <img src="/assets/img/back-end/nestjs-basic/pic2.avif" alt="pic2" />
 
 <img src="/assets/img/back-end/nestjs-basic/pic3.avif" alt="pic3" />
 
-### 게시글 조회
+### 6.3. 게시글 조회
 
 <img src="/assets/img/back-end/nestjs-basic/pic4.avif" alt="pic4" />

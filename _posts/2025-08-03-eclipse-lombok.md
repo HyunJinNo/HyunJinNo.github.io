@@ -15,20 +15,20 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Java, Lombok, Spring Boot</p></blockquote>
 
-## 개요
+## 1. 개요
 
 Eclipse IDE에서 Lombok을 설치하고 적용하는 방법에 대해 정리한 페이지입니다.
 
 <blockquote class="prompt-info"><p><strong><u>Tips</u></strong> <br />
 Lombok 최신 버전 정보는 <a href="https://projectlombok.org/download" target="_blank">https://projectlombok.org/download</a>에서 확인하실 수 있습니다.</p></blockquote>
 
-## Lombok이란?
+## 2. Lombok이란?
 
-### 개념
+### 2.1. 개념
 
 `Lombok`은 Java의 데이터(모델) 클래스를 생성할 때 반복적으로 사용해야 하는 Getter/Setter와 같은 메서드를 자동으로 생성해주는 라이브러리입니다. `Lombok`을 사용하면 애너테이션만 붙이면 컴파일 시점에 필요한 코드가 자동으로 생성되어 소스 코드가 훨씬 깔끔해지고 가독성이 좋아지며 유지보수도 쉬워집니다.
 
-### 장점
+### 2.2. 장점
 
 `Lombok`을 사용할 때의 장점은 다음과 같습니다.
 
@@ -36,7 +36,7 @@ Lombok 최신 버전 정보는 <a href="https://projectlombok.org/download" targ
 - 반복되는 코드를 생략할 수 있어 가독성이 좋아집니다.
 - Lombok을 안다면 간단하게 코드를 유추할 수 있어 유지보수에 용이합니다.
 
-### 주요 Lombok 애너테이션
+### 2.3. 주요 Lombok 애너테이션
 
 Lombok의 주요 애너테이션은 다음과 같습니다.
 
@@ -56,13 +56,13 @@ Lombok 애너테이션에 대해선 다음 링크에서 자세하게 확인하�
 
 <a href="https://projectlombok.org/features/" target="_blank">https://projectlombok.org/features/</a>
 
-## Lombok 적용하기
+## 3. Lombok 적용하기
 
-### Step 1 - Lombok 의존성 추가하가
+### 3.1. Step 1 - Lombok 의존성 추가하가
 
 먼저 다음과 같이 프로젝트에 Lombok 의존성을 추가합니다.
 
-#### Maven
+#### 3.1.1. Maven
 
 Maven 프로젝트의 경우 `pom.xml`에 Lombok 의존성을 추가합니다.
 
@@ -75,7 +75,7 @@ Maven 프로젝트의 경우 `pom.xml`에 Lombok 의존성을 추가합니다.
 </dependency>
 ```
 
-#### Gradle
+#### 3.1.2. Gradle
 
 Gradle 프로젝트의 경우 `build.gradle` Lombok 의존성을 추가합니다.
 
@@ -86,7 +86,7 @@ dependencies {
 }
 ```
 
-### Step 2 - lombok.jar 설치하기
+### 3.2. Step 2 - lombok.jar 설치하기
 
 다음 링크에 접속하여 `lombok.jar` 파일을 다운로드합니다.
 
@@ -106,13 +106,13 @@ java -jar lombok.jar
 
 <img src="/assets/img/back-end/eclipse-lombok/pic3.avif" alt="Lombok 설치하기" />
 
-### Step 3 - Lombok 적용하기
+### 3.3. Step 3 - Lombok 적용하기
 
 `Lombok` 설치 이후에는 `Eclipse IDE`에서 `Project > Clean`을 클릭하면 `Lombok`을 적용할 수 있습니다.
 
 <img src="/assets/img/back-end/eclipse-lombok/pic4.avif" alt="Lombok 적용하기" />
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://projectlombok.org/setup/maven" target="_blank">https://projectlombok.org/setup/maven</a>
 - <a href="https://projectlombok.org/setup/gradle" target="_blank">https://projectlombok.org/setup/gradle</a>

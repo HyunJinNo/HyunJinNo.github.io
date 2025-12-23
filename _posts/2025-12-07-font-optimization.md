@@ -15,19 +15,19 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
 React, Font</p></blockquote>
 
-## 개요
+## 1. 개요
 
 폰트 최적화 방법에 대해 정리한 페이지입니다.
 
-## 폰트 최적화 (Font Optimization)
+## 2. 폰트 최적화 (Font Optimization)
 
-### 중요성
+### 2.1. 중요성
 
 웹 성능에서 폰트는 이미지 다음으로 큰 리소스로, 웹 페이지 로딩 속도에 큰 영향을 미칩니다. 또한 폰트를 다운로드하면서 기본 폰트가 웹 폰트로 바뀌면서 `CLS(Cumulative Layout Shift)`가 증가하는 등의 문제가 발생합니다. 따라서 폰트 최적화는 로딩 속도, 레이아웃 이동, 사용자 경험 등 여러 측면에서 중요합니다.
 
-### FOUT vs FOIT
+### 2.2. FOUT vs FOIT
 
-#### FOUT (Flash of Unstyled Text)
+#### 2.2.1. FOUT (Flash of Unstyled Text)
 
 `FOUT(Flash of Unstyled Text)`는 폰트 로딩 중 발생하는 시각적 현상으로, 폰트의 다운로드 여부와 상관없이 먼저 텍스트를 보여준 후 폰트가 다운로드되면 그때 폰트를 적용하는 방식입니다. 이 방식의 특징은 다음과 같습니다.
 
@@ -39,7 +39,7 @@ React, Font</p></blockquote>
 
   폰트 교체 시 `레이아웃 이동(CLS)`이 발생할 수 있습니다.
 
-#### FOIT (Flash of Invisible Text)
+#### 2.2.2. FOIT (Flash of Invisible Text)
 
 `FOIT(Flash of Invisible Text)`는 폰트 로딩 중 발생하는 시각적 현상으로, 폰트가 완전히 다운로드되기 전까지 텍스트 자체를 숨기는 방식입니다. 이 방식의 특징은 다음과 같습니다.
 
@@ -51,7 +51,7 @@ React, Font</p></blockquote>
 
   텍스트가 보이지 않아 사용자에게 페이지가 느리게 느껴집니다.
 
-#### font-display
+#### 2.2.3. font-display
 
 CSS에서 `@font-face`의 `font-display` 속성을 활용하면 폰트가 적용되는 시점을 제어할 수 있습니다. <b>현대 웹 개발에서는 FOUT 방식인 `font-display: swap`이 권장</b>됩니다. `font-display` 속성에서 설정할 수 있는 값들을 정리하면 다음과 같습니다.
 
@@ -82,7 +82,7 @@ CSS에서 `@font-face`의 `font-display` 속성을 활용하면 폰트가 적용
 | fallback     | `FOIT (timeout = 0.1s)` / 폰트가 다운로드되기를 기다리다가 0.1초가 지나도 폰트가 다운로드되지 않으면 기본 폰트로 텍스트를 보여줍니다. 이후 3초가 지나도 폰트가 다운로드되지 않으면 기본 폰트로 유지합니다. 3초가 지난 후 다운로드를 완료한 경우 폰트를 적용하지 않고 캐시해 둡니다. |
 | optional     | `FOIT (timeout = 0.1s)` / 폰트가 다운로드되기를 기다리다가 0.1초가 지나도 폰트가 다운로드되지 않으면 기본 폰트로 텍스트를 보여줍니다. 이후 사용자의 네트워크 상태에 따라 기본 폰트로 유지할지, 아니면 다운로드한 폰트를 적용할지 브라우저가 결정합니다.                             |
 
-### TTF/OTF vs WOFF vs WOFF2
+### 2.3. TTF/OTF vs WOFF vs WOFF2
 
 웹 브라우저에서 사용하는 폰트 포맷들의 특징을 표로 정리하면 다음과 같습니다.
 
@@ -119,7 +119,7 @@ CSS에서 `@font-face`의 `font-display` 속성을 활용하면 폰트가 적용
 <a href="https://transfonter.org/" target="_blank">Online @font-face generator — Transfonter</a>
 </p></blockquote>
 
-### 서브셋 폰트 (Subset Font)
+### 2.4. 서브셋 폰트 (Subset Font)
 
 `서브셋 폰트(Subset Font)`는 <b>원본 폰트 파일에서 실제로 사용하는 글자만 남기고 나머지를 제거한 폰트</b>를 의미합니다. `서브셋 폰트`를 사용하면 원본 폰트 파일을 사용하는 것보다 파일 크기가 감소하기 때문에 웹 페이지 로딩 속도를 개선할 수 있으며 대역폭을 절감할 수 있습니다.
 
@@ -141,7 +141,7 @@ CSS에서 `@font-face`의 `font-display` 속성을 활용하면 폰트가 적용
 
 <img src="/assets/img/front-end/font-optimization/pic8.avif" alt="서브셋 폰트 파일 크기: 2.1 KB" />
 
-## 참고 자료
+## 3. 참고 자료
 
 - <a href="https://www.yes24.com/Product/Goods/115209526" target="_blank">프론트엔드 성능 최적화 가이드 | 유동균 | 인사이트(insight) - 예스24</a>
 - <a href="https://developer.mozilla.org/ko/docs/Web/CSS/Reference/At-rules/@font-face/font-display" target="_blank">font-display - CSS: Cascading Style Sheets | MDN</a>

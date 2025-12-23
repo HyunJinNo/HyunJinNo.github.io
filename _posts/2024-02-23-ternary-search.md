@@ -15,13 +15,13 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
 Algorithm</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `삼분 탐색(Ternary Search)` 알고리즘에 대해 정리한 페이지입니다.
 
-## 삼분 탐색 (Ternary Search) 알고리즘
+## 2. 삼분 탐색 (Ternary Search) 알고리즘
 
-### 개념
+### 2.1. 개념
 
 `삼분 탐색(Ternary Search)` 알고리즘은 탐색 구간을 절반으로 나누는 이분 탐색과 유사하게, 탐색 구간을 두 부분이 아닌 <b>세 부분</b>으로 나누는 탐색 방식입니다. 주로 `볼록 함수(Convex function)` 또는 `오목 함수(Concave function)`에서 <b>극값 또는 최대/최소값</b>을 찾을 때 자주 사용됩니다.
 
@@ -29,7 +29,7 @@ Algorithm</p></blockquote>
 <b>볼록 함수(Convex function)</b>: <b>아래로 볼록</b>하게 생긴 함수<br />
 <b>오목 함수(Concave function)</b>: <b>위로 볼록</b>하게 생긴 함수</p></blockquote>
 
-### 특징
+### 2.2. 특징
 
 삼분 탐색 알고리즘의 특징은 다음과 같습니다.
 
@@ -52,7 +52,7 @@ Algorithm</p></blockquote>
 
   탐색 구간을 3등분하여 매번 구간 길이를 2/3로 줄이므로 `O(log₃N)`의 시간 복잡도를 갖습니다.
 
-### 활용
+### 2.3. 활용
 
 삼분 탐색 알고리즘은 다음과 같은 분야에서 활용됩니다.
 
@@ -64,11 +64,11 @@ Algorithm</p></blockquote>
 
   2차 함수, 3차 함수의 최대/최소값을 찾는데 활용됩니다.
 
-### 구현
+### 2.4. 구현
 
 삼분 탐색 알고리즘을 구현하기 위해선 먼저 탐색 구간을 파악해야 합니다. 탐색 구간이 [lo, hi]일 때, 탐색 구간을 3등분하기 위해 설정하는 두 개의 중간점의 위치는 각각 `(2 * lo + hi) / 3`, `(lo * 2 + hi) / 3`입니다.
 
-#### 실수 구간 삼분 탐색
+#### 2.4.1 실수 구간 삼분 탐색
 
 예를 들어 $y=-0.5x²+2x+12$ 라는 2차 함수에서 탐색 구간이 [-3, 6]일 때의 최댓값을 찾는 문제가 있을 경우, 탐색 구간을 3등분하기 위해 설정하는 두 개의 중간점은 `x = (2 * (-3) + 6) / 3 = 0`, `x = (-3 + 2 * 6) / 3 = 3`입니다.
 
@@ -105,7 +105,7 @@ console.log(left); // 1.9999996102999702
 console.log(func(left)); // 13.999999999999924
 ```
 
-#### 정수 구간 삼분 탐색
+#### 2.4.2. 정수 구간 삼분 탐색
 
 실수 구간에서 삼분 탐색을 사용할 때 left와 right 사이를 완전히 좁혀서 한 점으로 만드는 것이 불가능하듯이, 정수 구간에서 삼분 탐색을 사용할 때도 한 점으로 만드는 것이 불가능합니다. 이 경우 오차 허용값 대신, <b>탐색 구간이 충분히 좁아질 때까지 반복하다가 브루트포스로 확인</b>하는 방식을 사용합니다.
 
@@ -140,7 +140,7 @@ console.log(left, right); // 3 5
 console.log(answer); // 2
 ```
 
-## Example
+## 3. Example
 
 - <a href="https://www.acmicpc.net/problem/11664" target="_blank">11664번: 선분과 점</a>
 
@@ -252,7 +252,7 @@ console.log(answer); // 2
   console.log(answer);
   ```
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://www.yes24.com/product/goods/8006522" target="_blank">알고리즘 문제 해결 전략 세트 | 구종만 | 인사이트(insight) - 예스24</a>
 - <a href="https://00ad-8e71-00ff-055d.tistory.com/41" target="_blank">39. Ternary Search</a>

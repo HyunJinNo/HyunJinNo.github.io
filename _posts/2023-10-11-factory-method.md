@@ -15,7 +15,7 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Design Pattern, Java</p></blockquote>
 
-## Introduction
+## 1. Introduction
 
 - **Purpose**
   - Exposes a **method for creating objects, allowing subclasses** to control the actual creation process.
@@ -28,7 +28,7 @@ Design Pattern, Java</p></blockquote>
   - Defines an interface for creating an object, but lets subclasses decide which class to instantiate.
   - Lets a class defer instantiation to subclasses.
 
-## How to Use (Example)
+## 2. How to Use (Example)
 
 - **Product**
 

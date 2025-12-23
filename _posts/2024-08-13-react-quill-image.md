@@ -19,17 +19,17 @@ TypeScript, Next.js, Quill, Image</p></blockquote>
 Next.js v14.2.3 <br />
 react-quill v2.0.0 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 `Quill` 에디터를 사용하여 이미지를 삽입할 때 <b>`base64` 형식 대신 `URL`을 사용하는 법</b>과 <b>이미지 크기를 조절하는 법</b>, 그리고 <b>이미지 drag & drop 적용 방법<b/>을 설명하겠습니다.
 
-## Step 1 - 사전 준비
+## 2. Step 1 - 사전 준비
 
 이번 글에서 사용하는 에디터는 `Quill` 에디터로, `ReactQuill` 패키지를 설치하여 사용합니다. `Next.js`에서 `ReactQuill`을 사용하는 방법은 다음 링크를 참고하시길 바랍니다.
 
 <a href="../react-quill/">Next.js에서 ReactQuill 사용 방법</a>
 
-## Step 2 - Quill 이미지 관련 패키지 설치하기
+## 3. Step 2 - Quill 이미지 관련 패키지 설치하기
 
 Quill 에디터의 이미지 크기를 조절하기 위해 사용하는 패키지는 여러 가지가 존재합니다. 이번 글에서는 `quill-image-resize-module-ts` 패키지를 설치하겠습니다. 또한 이미지 drag & drop 기능을 적용하기 위해 `quill-image-drop-and-paste` 패키지를 설치하겠습니다. 다음 명령어를 입력하여 `quill-image-resize-module-ts` 패키지와 `quill-image-drop-and-paste` 패키지를 설치합니다.
 
@@ -37,7 +37,7 @@ Quill 에디터의 이미지 크기를 조절하기 위해 사용하는 패키�
 npm install quill-image-resize-module-ts quill-image-drop-and-paste
 ```
 
-## Step 3 - Ref 객체
+## 4. Step 3 - Ref 객체
 
 다음과 같이 `Ref 객체`를 정의합니다.
 
@@ -49,7 +49,7 @@ const quillRef = useRef<ReactQuill>(null);
 
 **주의할 점으로 Quill 에디터에서 Ref 객체를 사용하기 위해선 ReactQuill 모듈을 `Next.js`에서 지원하는 `next/dynamic`로 `동적 임포트(dynamic import)`하는 방법을 사용하면 안됩니다. 동적 임포트를 사용하는 경우 ReactQuill에서 Ref를 지정하려고 하면 오류가 발생합니다. 따라서 일반적인 방법으로 ReactQuill 모듈을 임포트하되, 해당 Quill 에디터를 사용하는 컴포넌트 자체를 동적 임포트해야 합니다.**
 
-## Step 4 - 이미지 핸들러 구현하기
+## 5. Step 4 - 이미지 핸들러 구현하기
 
 다음과 같이 Quill 에디터에서 이미지를 추가할 때 이미지 처리를 수행하는 이미지 핸들러를 정의합니다.
 
@@ -255,7 +255,7 @@ const imageDropAndPasteHandler = async (
 
 위의 코드를 보면 알 수 있듯이, 이미지를 가져오는 부분만 다르고 비즈니스 로직은 동일합니다.
 
-## Step 5 - Quill 모듈
+## 6. Step 5 - Quill 모듈
 
 다음과 같이 Quill 모듈을 정의합니다.
 
@@ -316,11 +316,11 @@ const modules = useMemo(() => {
 
   이미지 drag & drop 기능을 적용합니다.
 
-## Step 6 - 최종 코드
+## 7. Step 6 - 최종 코드
 
 최종 코드는 다음과 같습니다.
 
-### QuillEditorContainer.tsx
+### 7.1. QuillEditorContainer.tsx
 
 ```tsx
 "use client";
@@ -485,7 +485,7 @@ const QuillEditorContainer = () => {
 export default QuillEditorContainer;
 ```
 
-### QuillEditor.tsx
+### 7.2. QuillEditor.tsx
 
 ```tsx
 import "react-quill/dist/quill.snow.css";
@@ -518,7 +518,7 @@ const QuillEditor = ({ quillRef, modules, content, onChange }: Props) => {
 export default QuillEditor;
 ```
 
-## step 7 - Dynamic Import
+## 8. step 7 - Dynamic Import
 
 다음과 같이 Quill 에디터를 사용하는 컴포넌트를 동적 임포트합니다.
 
@@ -539,19 +539,19 @@ const QuillEditorContainer = dynamic(
 /* ... */
 ```
 
-## Step 8 - 테스트 결과
+## 9. Step 8 - 테스트 결과
 
 테스트 결과는 다음과 같습니다.
 
 <img src="/assets/img/front-end/react-quill-image/pic1.avif" alt="pic1" />
 
-## 더 알아보기
+## 10. 더 알아보기
 
 위의 소스 코드는 제가 참여하고 있는 프로젝트의 소스 코드에서 가져온 것입니다. 프로젝트 내에서 사용된 방법을 확인하려면 다음 GitHub 링크를 참고하시길 바랍니다.
 
 <a href="https://github.com/TripInfoWeb/solitour-frontend" target="_blank">solitour-frontend</a>
 
-## 참고 자료
+## 11. 참고 자료
 
 - <a href="https://velog.io/@runprogrmm/Next.js-React-react-quill-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0#%EC%BB%A4%EC%8A%A4%ED%85%80-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%B8%EB%93%A4%EB%9F%AC-%EB%A7%8C%EB%93%A4%EA%B8%B0" target="_blank">(Next.js) (React) react-quill 에디터로 이미지 처리하기</a>
 - <a href="https://www.npmjs.com/package/quill-image-resize-module-ts" target="_blank">quill-image-resize-module-ts</a>

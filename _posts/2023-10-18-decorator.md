@@ -15,7 +15,7 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Design Pattern, Java</p></blockquote>
 
-## Introduction
+## 1. Introduction
 
 - **Purpose**
   - Allows for the **dynamic wrapping** of objects in order to **modify their existing responsibilities** and behaviors.
@@ -42,7 +42,7 @@ Design Pattern, Java</p></blockquote>
   - can generate a lot of small classes (ex. Java I/O)
   - hard to understand if not familiar with the pattern
 
-## How to Use (Example)
+## 2. How to Use (Example)
 
 - **Decorated Class**
 

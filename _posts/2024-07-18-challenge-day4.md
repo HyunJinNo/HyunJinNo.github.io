@@ -16,11 +16,11 @@ comments: true
 누군가 작성한 것을 그대로 쓰는 것이 아니라 <b>나만의 언어로 재구조화하여 작성</b>해야 합니다. <br />
 기술 키워드에 대한 상세 내용도 좋고, 미션 해결 과정에서 기능 구현을 성공한 사례도, 트러블 슈팅 경험도 좋습니다.</p></blockquote>
 
-## 학습한 내용
+## 1. 학습한 내용
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/C-memlayout.svg" alt="pic" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
 
-### Stack
+### 1.1. Stack
 
 - 함수의 호출과 관계되는 지역 변수와 매개변수가 저장되는 영역
 - 함수의 호출과 함께 할당되며, 함수의 호출이 완료되면 소멸한다.
@@ -34,7 +34,7 @@ comments: true
   - 스택 크기가 제한되어 있음.
   - 변수의 크기를 조정할 수 없음.
 
-### Heap
+### 1.2. Heap
 
 - 사용자가 시스템 콜 등을 통해 관리할 수 있는 메모리 영역
   - C처럼 사용자가 일일이 다 할당/미할당을 관리해야할 수도 있고, Java처럼 특정 구문에서 생성된 다음에 Garbage Collector이 자동으로 미할당하는 경우도 있다.
@@ -48,7 +48,7 @@ comments: true
   - 접근이 상대적으로 느리다. ⇒ [런타임 때 동적으로 주소가 결정되기 때문에 어느 주소에 접근할지 미리 계산하고 최적화 하는 것이 힘듦](https://stackoverflow.com/questions/24057331/is-accessing-data-in-the-heap-faster-than-from-the-stack)
   - 사용자가 수동으로 관리해야 하거나 (C) 너무 과하게 사용하지 않고 있는지 의식하고 있어야 한다. (Java 등 자동 할당의 경우)
 
-### GVAR/BSS
+### 1.3. GVAR/BSS
 
 - 범위가 정해지지 않는 전역 변수를 포함하는 영역
 - GVAR는 초깃값을 0이 아닌 특정한 값으로 지정한 경우 사용함.
@@ -56,7 +56,7 @@ comments: true
   - `BSS`: 초기화되지 않는 데이터가 저장됨.
   - `GVAR`: 초기화된 데이터가 저장됨.
 
-### Text (Code)
+### 1.4. Text (Code)
 
 - 프로그램에 있는 함수 코드, 제어문, 상수 등을 포함하는 영역
 - 실행할 프로그램의 코드가 저장되는 영역으로, CPU가 해당 영역에 저장된 명령어를 하나씩 가져가서 처리한다. 위치 파악은 PC로 한다.
@@ -64,7 +64,7 @@ comments: true
   - JVM에서는 TEXT 영역을 사용하지 않는다.
   - Node.js나 브라우저에서는 TEXT 영역 대신 코드 영역이 별도로 존재한다.
 
-### Stack Pointer
+### 1.5. Stack Pointer
 
 - 현재 실행되고 있는 함수와 관련된 스택 영역이 어디인지 가리키는 포인터.
 - 레지스터에 보관. OS가 이를 참고해 접근
@@ -73,13 +73,13 @@ comments: true
     - 재귀 형태의 함수의 경우, 본인들의 스택 시작 위치를 주소 값으로 저장하면 매우 비효율적. 어차피 현재 실행되고 있는 함수의 SP만 알면 된다. 함수 동작에 필요한 지역변수, 그리고 끝났을 때의 반환 위치 등을 저장하는 곳이니까.
 - 함수 호출 시 본인이 사용할 스택 영역을 먼저 확보하고, 함수 반환시 본인이 사용했던 스택 영역을 반환하며 이를 SP의 위치를 조절하는 형태로 구현한다. (컴파일러가 어셈블리를 만들 때 추가)
 
-### Program Counter (PC)
+### 1.6. Program Counter (PC)
 
 - 현재 실행되고 있는 코드의 **다음** 실행될 주소의 위치를 가리킴
   - [현재 위치가 아닌 그 다음 위치를 가리키는 이유는 아키텍처 구조랑 어셈블러/링커의 동작 방식이랑 관련이 있다.](https://stackoverflow.com/questions/24091566/why-does-the-arm-pc-register-point-to-the-instruction-after-the-next-one-to-be-e)
 - 과제에서도 코드의 다음 실행될 주소의 위치를 가리키게 할지는 고민해봐야 할 듯.
 
-## 참고 자료
+## 2. 참고 자료
 
 - [스택(Stack)과 힙(Heap) 차이점](https://junghyun100.github.io/%ED%9E%99-%EC%8A%A4%ED%83%9D%EC%B0%A8%EC%9D%B4%EC%A0%90/)
 - [운영체제 메모리 구조](https://devfunny.tistory.com/650)

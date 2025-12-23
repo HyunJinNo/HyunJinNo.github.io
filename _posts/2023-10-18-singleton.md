@@ -15,7 +15,7 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Design Pattern, Java</p></blockquote>
 
-## Introduction
+## 1. Introduction
 
 - **Purpose**
   - Ensures that **only one instance** of a class is allowed within a system.
@@ -23,7 +23,7 @@ Design Pattern, Java</p></blockquote>
   - Exactly one instance of a class is required.
   - Controlled access to a single object is necessary.
 
-## How to Use (Example)
+## 2. How to Use (Example)
 
 - **For single-thread**
 

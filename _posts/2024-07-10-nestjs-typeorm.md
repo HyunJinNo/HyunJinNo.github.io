@@ -19,11 +19,11 @@ comments: true
 - <i>@nestjs/typeorm v10.0.2</i>
 - <i>mysql2 v3.10.2</i>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 NestJS에서 TypeORM 사용 방법에 대해 설명하겠습니다.
 
-## Step 1 - TypeORM 관련 패키지 설치
+## 2. Step 1 - TypeORM 관련 패키지 설치
 
 다음 명령어를 입력하여 TypeORM과 MySQL을 사용하기 위한 database driver를 설치합니다.
 
@@ -36,7 +36,7 @@ comments: true
 npm install typeorm @nestjs/typeorm mysql2 @nestjs/config
 ```
 
-## Step 2 - 폴더 구조
+## 3. Step 2 - 폴더 구조
 
 먼저 다음과 같이 NestJS 폴더 구조를 생성합니다.
 
@@ -58,13 +58,13 @@ npm install typeorm @nestjs/typeorm mysql2 @nestjs/config
 └── (...)
 ```
 
-## Step 3 - .env 파일 생성
+## 4. Step 3 - .env 파일 생성
 
-### .env 파일이란?
+### 4.1. .env 파일이란?
 
 env 파일은 환경 변수 파일을 의미하며 API 키나 DB 관련 정보 등 외부에 노출되면 안되고 개발자만 알아야하는 정보들을 저장하는데 사용됩니다.
 
-### .env 파일 설정
+### 4.2. .env 파일 설정
 
 다음과 같이 프로젝트 최상위 디렉토리에 `.env` 파일을 생성하고 다음과 같이 MySQL 데이터베이스 관련 데이터를 입력합니다.
 
@@ -87,7 +87,7 @@ DB_PASSWORD="password"
 DB_DATABASE="test"
 ```
 
-## Step 4 - ConfigModule 설정하기
+## 5. Step 4 - ConfigModule 설정하기
 
 ConfigModule은 환경 설정에 특화된 기능을 하는 모듈입니다. `@nestjs/config` 패키지에 포함되어 있는 클래스이며, 다음과 같이 app.module.ts에 ConfigModule을 설정합니다.
 
@@ -135,7 +135,7 @@ export class AppModule {}
 | **load**            | **커스텀 환경 설정 파일을 로딩 시에 사용합니다. (ts 파일, YAML 파일 등)**                                                                           |
 | **expandVariables** | **확장 변수의 사용 여부를 나타냅니다.**                                                                                                             |
 
-## Step 5 - entity 생성
+## 6. Step 5 - entity 생성
 
 다음과 같이 `/src/entities` 디렉토리에 `user.entity.ts` 파일을 생성하고 다음과 같이 entity를 생성합니다.
 
@@ -177,9 +177,9 @@ export class User {
 }
 ```
 
-## Step 6 - 데이터베이스 설정하기
+## 7. Step 6 - 데이터베이스 설정하기
 
-### TypeOrmModule.forRoot()
+### 7.1. TypeOrmModule.forRoot()
 
 `app.module.ts` 파일에서 다음과 같이 데이터베이스를 설정합니다.
 
@@ -232,9 +232,9 @@ export class AppModule {}
 
 <a href="https://typeorm.io/data-source-options" target="_blank">Data Source Options | TypeORM</a>
 
-## Step 7 - User 모듈 설정하기
+## 8. Step 7 - User 모듈 설정하기
 
-### user.module.ts
+### 8.1. user.module.ts
 
 다음과 같이 `user.module.ts` 파일을 생성합니다.
 
@@ -257,7 +257,7 @@ export class UserModule {}
 
 위의 코드에서 `imports` 안에 서비스에서 사용할 Repository를 모듈에 등록하였습니다.
 
-### user.controller.ts
+### 8.2. user.controller.ts
 
 다음과 같이 `user.controller.ts` 파일을 생성합니다.
 
@@ -309,7 +309,7 @@ export class UserController {
 }
 ```
 
-### user.service.ts
+### 8.3. user.service.ts
 
 TypeORM 라이브러리에서는 `Repository` 클래스를 지원합니다. 다음과 같이 `user.service.ts` 파일을 생성합니다.
 
@@ -364,7 +364,7 @@ export class UserService {
 
 <a href="https://typeorm.delightful.studio/classes/_repository_repository_.repository.html" target="_blank">Repository | typeorm</a>
 
-## Step 8 - Postman 사용 및 테스트
+## 9. Step 8 - Postman 사용 및 테스트
 
 `Postman`을 사용하여 API를 요청한 예시는 다음과 같습니다.
 

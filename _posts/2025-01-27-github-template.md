@@ -136,7 +136,7 @@ Issue Template은 GitHub Repository에서 직접 만들어도 되고, 아니면 
 
 #### 4.1.1. Bug Report 생성하기
 
-다음은 `Bug Report`를 생성한 예시입니다. 코드는 [아래](#bug-report-생성하기-1)에서 확인하실 수 있습니다.
+다음은 `Bug Report`를 생성한 예시입니다. 코드는 [아래](#421-bug-report-생성하기)에서 확인하실 수 있습니다.
 
 <img src="/assets/img/etc/github-template/pic8.avif" alt="pic8" >
 
@@ -144,7 +144,7 @@ Issue Template은 GitHub Repository에서 직접 만들어도 되고, 아니면 
 
 #### 4.1.2. Feature Request 생성하기
 
-다음은 `Feature Request`를 생성한 예시입니다. 코드는 [아래](#feature-request-생성하기-1)에서 확인하실 수 있습니다.
+다음은 `Feature Request`를 생성한 예시입니다. 코드는 [아래](#422-feature-request-생성하기)에서 확인하실 수 있습니다.
 
 <img src="/assets/img/etc/github-template/pic9.avif" alt="pic9" >
 

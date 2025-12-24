@@ -89,7 +89,7 @@ module.exports = {
 
 ### 2.4. Step 4 - metro.config.js 수정하기
 
-`metro.config.js` 파일을 열고 다음과 같이 수정합니다. `input` 부분에는 [Step 2 - Tailwind CSS 설정하기](#step-2---tailwind-css-설정하기)에서 생성한 `globals.css` 파일의 경로를 지정하면 됩니다.
+`metro.config.js` 파일을 열고 다음과 같이 수정합니다. `input` 부분에는 [2.2. Step 2 - Tailwind CSS 설정하기](#22-step-2---tailwind-css-설정하기)에서 생성한 `globals.css` 파일의 경로를 지정하면 됩니다.
 
 ```javascript
 /* metro.config.js */

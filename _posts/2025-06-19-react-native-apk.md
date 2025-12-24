@@ -139,7 +139,7 @@ MYAPP_UPLOAD_STORE_PASSWORD=[keystore 파일의 비밀번호]
 MYAPP_UPLOAD_KEY_PASSWORD=[keystore 안에 생성된 개별 키(alias)의 비밀번호]
 ```
 
-예를 들어 [step 1 - 배포용 키 생성하기](#step-1---배포용-키-생성하기)에서 생성한 keystore를 기준으로 설정한다면 다음과 같이 입력하면 됩니다.
+예를 들어 [4.1. step 1 - 배포용 키 생성하기](#41-step-1---배포용-키-생성하기)에서 생성한 keystore를 기준으로 설정한다면 다음과 같이 입력하면 됩니다.
 
 ```properties
 MYAPP_UPLOAD_STORE_FILE=release.keystore
@@ -235,7 +235,7 @@ android/app/build/outputs/apk/release/app-release.apk
 
 ## 5. 참고: Release AAB 빌드하기
 
-`Release AAB`를 빌드하기 위해선 [Release APK 빌드하기](#release-apk-빌드하기) 문단에서 [Step 2 - Gradle에 서명 정보 추가하기](#step-2---gradle에-서명-정보-추가하기)까지 진행한 후 프로젝트 루트에서 다음 명령어를 입력하면 됩니다.
+`Release AAB`를 빌드하기 위해선 [4. Release APK 빌드하기](#4-release-apk-빌드하기) 문단에서 [4.2. Step 2 - Gradle에 서명 정보 추가하기](#42-step-2---gradle에-서명-정보-추가하기)까지 진행한 후 프로젝트 루트에서 다음 명령어를 입력하면 됩니다.
 
 ```bash
 npx react-native build-android --mode=release

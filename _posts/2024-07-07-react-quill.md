@@ -81,7 +81,7 @@ const ReactQuill = dynamic(() => import("react-quill"), {
 
     <img src="/assets/img/front-end/react-quill/pic3.avif" alt="pic3" />
 
-- `import "@/styles/quillEditor.css";`: Quill 에디터를 커스텀하는 css 파일을 임포트합니다. 해당 부분은 아래 [Step 4 - Quill 에디터 커스텀하기](#step-4---quill-에디터-커스텀하기) 부분에서 다루도록 하겠습니다.
+- `import "@/styles/quillEditor.css";`: Quill 에디터를 커스텀하는 css 파일을 임포트합니다. 해당 부분은 아래 [5. Step 4 - Quill 에디터 커스텀하기](#5-step-4---quill-에디터-커스텀하기) 부분에서 다루도록 하겠습니다.
 - `modules`: Quill 에디터의 toolbar를 커스텀하는 부분입니다. 이미지 삽입 기능을 추가하거나 글씨 관련 기능 추가 등 여러 기능을 커스텀할 수 있습니다. 옵션들의 경우 다음 링크를 참고하시길 바랍니다.
 
   <a href="https://quilljs.com/docs/modules/toolbar" target="_blank">Toolbar Module - Quill Rich Text Editor</a>

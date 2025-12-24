@@ -243,7 +243,7 @@ const ref = useRef<HTMLDivElement>(null);
 useModalBackHandler(isOpen, closeModal);
 ```
 
-[Step 3 - useModalBackHandler 커스텀 훅 생성하기](#step-3---usemodalbackhandler-커스텀-훅-생성하기)에서 생성한 useModalBackHandler 커스텀 훅을 사용하여 뒤로가기 이벤트를 처리합니다.
+[3.3. Step 3 - useModalBackHandler 커스텀 훅 생성하기](#33-step-3---usemodalbackhandler-커스텀-훅-생성하기)에서 생성한 useModalBackHandler 커스텀 훅을 사용하여 뒤로가기 이벤트를 처리합니다.
 
 <br />
 
@@ -253,7 +253,7 @@ useModalBackHandler(isOpen, closeModal);
 usePreventBodyScroll(isOpen);
 ```
 
-[Step 4 - usePreventBodyScroll 커스텀 훅 생성하기](#step-4---usepreventbodyscroll-커스텀-훅-생성하기)에서 생성한 usePreventBodyScroll 커스텀 훅을 사용하여 모달 창이 열렸을 때의 외부 스크롤을 방지합니다.
+[3.4. Step 4 - usePreventBodyScroll 커스텀 훅 생성하기](#34-step-4---usepreventbodyscroll-커스텀-훅-생성하기)에서 생성한 usePreventBodyScroll 커스텀 훅을 사용하여 모달 창이 열렸을 때의 외부 스크롤을 방지합니다.
 
 <br />
 
@@ -289,7 +289,7 @@ return createPortal(
 );
 ```
 
-[Step 1 - Portal 추가하기](#step-1---portal-추가하기)에서 추가한 `Portal`에 모달 창을 표시합니다. 이 때 `e.target`과 `ref.current`를 비교하여 모달 창의 배경을 클릭했을 때 모달 창을 닫을 수 있도록 구현합니다. 또한 배경을 클릭했을 때, 모달 창을 열면서 추가한 history를 제거할 수 있도록 `window.history.back();`을 추가합니다.
+[3.1. Step 1 - Portal 추가하기](#31-step-1---portal-추가하기)에서 추가한 `Portal`에 모달 창을 표시합니다. 이 때 `e.target`과 `ref.current`를 비교하여 모달 창의 배경을 클릭했을 때 모달 창을 닫을 수 있도록 구현합니다. 또한 배경을 클릭했을 때, 모달 창을 열면서 추가한 history를 제거할 수 있도록 `window.history.back();`을 추가합니다.
 
 위와 같이 구현할 경우 아래 이미지에서 검은 부분, 즉 배경을 클릭하면 모달 창이 닫히게 됩니다.
 
@@ -350,7 +350,7 @@ export const ModalTemplate = ({
 
 지금까지 구현한 커스텀 훅과 컴포넌트를 사용하여 다음과 같이 Modal을 사용할 수 있습니다.
 
-먼저 아래와 같이 [Step 6 - ModalTemplate 컴포넌트 생성하기](#step-6---modaltemplate-컴포넌트-생성하기)에서 구현한 ModalTemplate 컴포넌트를 사용하여 모달 UI를 구현합니다. 이 때, 모달 창을 닫는 `closeModal` 메서드를 부모 컴포넌트로부터 전달 받습니다.
+먼저 아래와 같이 [3.6. Step 6 - ModalTemplate 컴포넌트 생성하기](#36-step-6---modaltemplate-컴포넌트-생성하기)에서 구현한 ModalTemplate 컴포넌트를 사용하여 모달 UI를 구현합니다. 이 때, 모달 창을 닫는 `closeModal` 메서드를 부모 컴포넌트로부터 전달 받습니다.
 
 ```tsx
 /* @/features/deleteAccount/ui/MyPageAccountDeleteModal.tsx */

@@ -15,17 +15,17 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br>
 Video, Image, WebM, WebP, AVIF</p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 `WebM`, `WebP`, `AVIF`에 대해 정리하고, `WebM`과 `WebP`, `AVIF`을 사용해서 <b>지금 보고 있는 블로그의 성능을 개선한 방법</b>에 대해 설명하겠습니다.
 
-## WebM
+## 2. WebM
 
-### WebM의 개념
+### 2.1. WebM의 개념
 
 `WebM`이란 HTML5 환경에서 동영상과 오디오 콘텐츠를 재생하기 위해 설계된 오픈 소스 비디오 포맷으로 구글이 2010년에 개발하였습니다. 주로 HTML5 video 태그와 함께 사용되며, <b>VP8/VP9/AV1 비디오 코덱</b>과 <b>Vorbis/Opus 오디오 코덱</b>을 결합한 컨테이너 형식입니다.
 
-### WebM의 특징
+### 2.2. WebM의 특징
 
 `WebM`의 특징은 다음과 같습니다.
 
@@ -47,7 +47,7 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
   <img src="/assets/img/front-end/webm-webp-avif/pic1.avif" alt="pic1" />
 
-### MP4 vs WebM
+### 2.3. MP4 vs WebM
 
 웹 브라우저에서 자주 사용하는 비디오 포맷인 `MP4`와 `WebM`을 비교하여 표로 정리하면 다음과 같습니다.
 
@@ -59,13 +59,13 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 | 파일 확장자 | .mp4                                                                          | .webm                                                                          |
 | 품질        | 높은 품질의 비디오                                                            | VP8/VP9 코덱은 H.265에 비해 압축률이 떨어져서 화질이 소폭 떨어집니다.          |
 
-## WebP와 AVIF
+## 3. WebP와 AVIF
 
-### WebP의 개념
+### 3.1. WebP의 개념
 
 `WebP`란 웹 페이지의 로딩 속도와 효율성을 극대화하기 위해 개발된 최신 이미지 파일 포맷으로 구글이 2010년에 개발하였습니다. `WebP`는 `JPEG`, `PNG`, `GIF`와 같은 기존 이미지 포맷을 대체하기 위해 개발되었으며, 더 나은 압축률과 품질을 제공합니다. `WebP`는 손실(Lossy) 및 무손실(Lossless) 압축을 모두 지원하며, 투명도(알파 채널)와 애니메이션도 처리할 수 있습니다.
 
-### WebP의 특징
+### 3.2. WebP의 특징
 
 `WebP`의 특징은 다음과 같습니다.
 
@@ -91,11 +91,11 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
   <img src="/assets/img/front-end/webm-webp-avif/pic2.avif" alt="pic2" />
 
-### AVIF의 개념
+### 3.3. AVIF의 개념
 
 `AVIF(AV1 Image File Format)`은 `Alliance for Open Media(AOMedia)`에서 2019년에 개발한 최신 이미지 파일 포맷입니다. `AVIF`는 AV1 비디오 코덱을 기반으로 하여, 기존의 `JPEG`, `PNG`, `WebP` 등과 비교했을 때 훨씬 뛰어난 압축률과 품질을 제공합니다. `AVIF`는 손실(Lossy) 및 무손실(Lossless) 압축을 모두 지원하며, 투명도(알파 채널)와 애니메이션도 처리할 수 있습니다.
 
-### AVIF의 특징
+### 3.4. AVIF의 특징
 
 <b>`AVIF`는 `WebP`와 유사한 특징을 가지고 있습니다.</b> `AVIF`의 특징은 다음과 같습니다.
 
@@ -128,7 +128,7 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
   <img src="/assets/img/front-end/webm-webp-avif/pic3.avif" alt="pic3" />
 
-### JPEG vs PNG vs GIF vs SVG vs WebP vs AVIF
+### 3.5. JPEG vs PNG vs GIF vs SVG vs WebP vs AVIF
 
 웹 브라우저에서 사용하는 이미지 포맷들의 특징, 장단점 등을 비교하여 표로 정리하면 다음과 같습니다.
 
@@ -144,9 +144,9 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
 <img src="/assets/img/front-end/webm-webp-avif/pic4.avif" alt="pic4" />
 
-## 웹 성능 개선하기
+## 4. 웹 성능 개선하기
 
-### Step 1 - 성능 개선 전 (MP4, JPG/PNG)
+### 4.1. Step 1 - 성능 개선 전 (MP4, JPG/PNG)
 
 기존의 블로그는 성능 및 파일 용량 측면에서 개선이 많이 필요하였습니다. 특히 다음 사진과 같이 빌드 결과물의 용량이 `228 MB`가 되는 문제가 있었습니다.
 
@@ -158,7 +158,7 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
 이처럼 `MP4`, `JPG`, `PNG`만을 계속 사용하면 블로그 글을 작성할 수록 파일 용량이 점점 더 커지는 것이 문제가 될 것이라고 생각하였습니다. 또한 사용하는 비디오, 이미지 용량이 크기 때문에 로딩 속도도 느리고 네트워크 트래픽도 큰 부분도 고려하였습니다. 이와 같은 점을 고려했을 때 파일 용량을 줄이는 것이 필요하다고 판단하였고, 결과적으로 모든 비디오 파일 포맷을 `WebM`으로, 모든 이미지 포맷을 `WebP`로 변경하기로 결정하였습니다.
 
-### Step 2 - 성능 개선 1 (WebM, WebP)
+### 4.2. Step 2 - 성능 개선 1 (WebM, WebP)
 
 먼저 블로그에서 사용하는 비디오 포맷을 `WebM`으로 변경하였습니다. 그리고 블로그에서 사용하는 이미지 포맷을 전부 `WebP`로 변경하였습니다.
 
@@ -178,7 +178,7 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
 <img src="/assets/img/front-end/webm-webp-avif/pic12.avif" alt="pic12" />
 
-### Step 3 - 성능 개선 2 (WebM, AVIF)
+### 4.3. Step 3 - 성능 개선 2 (WebM, AVIF)
 
 이미지를 `JPG`와 `PNG`에서 `WebP`로 변환함으로써 성능을 많이 개선시킬 수 있었지만, `AVIF`는 `WebP`보다 압축률이 더 좋기 때문에 `AVIF`를 사용함으로써 이미지 용량을 좀 더 줄일 수 있습니다. 따라서 다음과 같이 일부 이미지를 제외하고 `WebP` 포맷의 이미지를 `AVIF`로 변경하였습니다.
 
@@ -194,7 +194,7 @@ Video, Image, WebM, WebP, AVIF</p></blockquote>
 
 <img src="/assets/img/front-end/webm-webp-avif/pic16.avif" alt="pic16" />
 
-## 참고 자료
+## 5. 참고 자료
 
 - `WebM`
   - <a href="https://namu.wiki/w/WebM" target="_blank">WebM - 나무위키</a>

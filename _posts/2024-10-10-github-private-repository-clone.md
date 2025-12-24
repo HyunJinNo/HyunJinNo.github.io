@@ -18,11 +18,11 @@ Raspberry Pi, Linux, GitHub</p></blockquote>
 <blockquote class="prompt-info"><p><strong><u>Environment</u></strong> <br />
 OS: Raspberry Pi OS (64 bit) </p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 깃허브(GitHub)에서 Private Repository를 clone하는 방법에 대해 설명하겠습니다.
 
-## Step 0 - Private Repository Clone 시도하기
+## 2. Step 0 - Private Repository Clone 시도하기
 
 먼저 다음과 같이 Private Repository를 그대로 clone하려고 하면 다음과 같은 오류가 발생합니다.
 
@@ -30,7 +30,7 @@ OS: Raspberry Pi OS (64 bit) </p></blockquote>
 
 이는 2021년 8월 13일 이후로 비밀번호 인증을 통해 git clone하는 방식이 더 이상 지원되지 않기 때문입니다. 따라서 GitHub에서 Private Repository를 clone하기 위해선 다음과 같은 과정을 거쳐야 합니다.
 
-## Step 1 - Personal Access Token 발급받기
+## 3. Step 1 - Personal Access Token 발급받기
 
 Private Repository를 clone하기 위해선 먼저 Personal Access Token을 발급 받아야 합니다.
 
@@ -64,7 +64,7 @@ Private Repository를 clone하기 위해선 먼저 Personal Access Token을 발�
 
 <br />
 
-## Step 2 - Private Repository clone하기
+## 4. Step 2 - Private Repository clone하기
 
 이후에 발급 받은 토큰을 활용하여 다음과 같이 Private Repository를 clone할 수 있습니다.
 

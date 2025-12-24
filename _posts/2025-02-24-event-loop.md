@@ -15,20 +15,20 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
 JavaScript, Event Loop, Execution Context</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `이벤트 루프(Event Loop)`에 대해 정리한 페이지입니다.
 
-## 이벤트 루프 (Event Loop)
+## 2. 이벤트 루프 (Event Loop)
 
-### 이벤트 루프의 개념
+### 2.1. 이벤트 루프의 개념
 
 <b>자바스크립트의 `이벤트 루프(Event Loop)`는 싱글 스레드 환경에서 비동기 작업, Non-blocking I/O, 동시성을 가능하게 하는 핵심 메커니즘입니다.</b> 자바스크립트 엔진(V8 등)은 단일 콜 스택만 사용하지만, 브라우저의 Web API나 Node.js의 libuv, 이벤트 루프, 태스크 큐를 이용하여 비동기 작업과 동시성을 지원합니다.
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
 자바스크립트는 <b>싱글 스레드</b> 언어로 콜 스택이 하나만 존재합니다. 콜 스택이 하나만 존재하므로 자바스크립트 엔진은 <b>한 번에 한 가지 작업만 수행</b>합니다. 함수가 호출되면 해당 함수의 실행 컨텍스트가 콜 스택(Call Stack)에 쌓이고, 실행이 끝나면 제거됩니다. 하나의 함수가 완전히 실행되어 콜 스택에서 제거되기 전에는 다른 작업이 끼어들 수 없습니다.</p></blockquote>
 
-### 이벤트 루프의 구성 요소
+### 2.2. 이벤트 루프의 구성 요소
 
 이벤트 루프는 다음 요소들과 상호 작용합니다.
 
@@ -61,7 +61,7 @@ JavaScript, Event Loop, Execution Context</p></blockquote>
 
   이벤트 루프는 콜 스택이 비어 있을 때 태스크 큐 내에 존재하는 콜백을 콜 스택으로 옮겨서 비동기 코드를 실행하도록 돕는 역할을 수행합니다.
 
-### 이벤트 루프의 동작 원리
+### 2.3. 이벤트 루프의 동작 원리
 
 이벤트 루프를 통해 비동기 코드가 실행되는 과정은 다음과 같습니다.
 
@@ -81,9 +81,9 @@ JavaScript, Event Loop, Execution Context</p></blockquote>
 
    콜 스택에 추가된 콜백 함수는 호출된 후 콜 스택에서 제거됩니다.
 
-### 이벤트 루프의 동작 순서 예시
+### 2.4. 이벤트 루프의 동작 순서 예시
 
-#### 예시 1 - setTimeout & Promise
+#### 2.4.1. 예시 1 - setTimeout & Promise
 
 ```javascript
 console.log("A");
@@ -157,7 +157,7 @@ console.log("D");
 
 <img src="/assets/img/cs/event-loop/pic17.avif" alt="실행 결과" />
 
-#### 예시 2 - async/await
+#### 2.4.2. 예시 2 - async/await
 
 ```javascript
 const A = () => Promise.resolve("A");
@@ -240,7 +240,7 @@ myFunc();
 console.log("D");
 ```
 
-### 주의 사항
+### 2.5. 주의 사항
 
 비동기 코드(Ex. `setTimeout`, `fetch`, `Promise.then`)는 <b>콜 스택이 비어있을 때(정확히는 콜 스택 내에 전역 실행 컨텍스트만 존재하고 더 이상 실행할 동기 코드가 없는 경우)만 실행</b>할 수 있습니다. 만약 다음과 같이 무한 루프 함수가 실행되고 있으면 콜 스택이 비워지지 않으므로 비동기 코드가 실행되지 않습니다.
 
@@ -256,7 +256,7 @@ console.log("D");
 
 <img src="/assets/img/cs/event-loop/pic31.avif" alt="반복문이 콜 스택을 오랫동안 차지하므로 비동기 코드가 실행되기까지 훨씬 더 오랜 시간이 걸립니다." />
 
-## 참고 자료
+## 3. 참고 자료
 
 - <a href="https://inpa.tistory.com/entry/%F0%9F%94%84-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%A3%A8%ED%94%84-%EA%B5%AC%EC%A1%B0-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC" target="_blank">🔄 자바스크립트 이벤트 루프 동작 구조 & 원리 끝판왕</a>
 - <a href="https://yong-nyong.tistory.com/71" target="_blank">[JavaScript] 이벤트 루프(Event Loop)에 대해서 파헤쳐 봅시다.</a>

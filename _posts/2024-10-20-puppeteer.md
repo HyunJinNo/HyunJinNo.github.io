@@ -20,15 +20,15 @@ Node.js v20.11.1 <br />
 express v4.21.0 <br />
 Puppeteer-core v23.5.3 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 `Puppeteer` 라이브러리를 활용하여 `웹 스크래핑(Web Scraping)`하는 방법에 대해 설명하겠습니다.
 
-## Puppeteer란?
+## 2. Puppeteer란?
 
 `Puppeteer` 라이브러리는 Headless Chrome 또는 Headless Chromium 브라우저를 제어하기 위한 Node.js 라이브러리입니다. Puppeteer는 주로 웹 스크래핑, UI 테스트 자동화, 스크린샷 및 PDF 생성 등 다양한 작업에 활용됩니다. Puppeteer는 기본적으로 백그라운드에서 headless(= No visible UI)로 동작하지만, 원한다면 headless 모드를 비활성화해서 실제 브라우저 창을 띄워서 동작하도록 할 수 있습니다.
 
-## Puppeteer의 주요 기능
+## 3. Puppeteer의 주요 기능
 
 Puppeteer의 주요 기능은 다음과 같습니다.
 
@@ -60,7 +60,7 @@ Puppeteer의 주요 기능은 다음과 같습니다.
 
   `Single Page Application(SPA)`에서 네트워크 요청이 완료된 이후에 페이지를 처리하는 기능을 지원합니다.
 
-## Step 1 - Puppeteer 설치하기
+## 4. Step 1 - Puppeteer 설치하기
 
 Puppeteer를 설치하기 위해선 다음 두 가지 명령어 중 하나를 입력하면 됩니다.
 
@@ -102,7 +102,7 @@ npm install puppeteer-core
 
 저의 경우 개발 환경에 이미 Chrome이 설치되어 있기 때문에 파일 크기를 줄이기 위해 `puppeteer-core`를 설치하였습니다. 또한 제가 자주 사용하는 `Raspberry Pi`의 경우 `Raspberry Pi OS Full 버전`이 설치되어 있으며, Chromium이 기본적으로 설치되어 있기 때문에 브라우저 설치가 불필요하므로 `puppeteer-core`를 선택하였습니다.
 
-## Step 2 - 웹 스크래핑 코드 작성하기
+## 5. Step 2 - 웹 스크래핑 코드 작성하기
 
 이번 글에서는 웹 스크래핑 예시로 네이버 뉴스 데이터를 추출해 보겠습니다. 다음 두 웹 페이지에서 언론사별 뉴스와 최신 뉴스 데이터를 추출하겠습니다.
 
@@ -116,7 +116,7 @@ npm install puppeteer-core
 <figcaption><a href="https://news.naver.com/main/list.naver?mode=LSD&mid=sec&sid1=001&listType=title" target="_blank">https://news.naver.com/main/list.naver?mode=LSD&mid=sec&sid1=001&listType=title</a></figcaption>
 </figure>
 
-### 브라우저 실행하기
+### 5.1. 브라우저 실행하기
 
 먼저 다음과 같이 브라우저를 실행하고 페이지를 여는 코드를 작성합니다.
 
@@ -162,7 +162,7 @@ const browser = await puppeteer.launch({
 });
 ```
 
-### 언론사별 뉴스 데이터 가져오기
+### 5.2. 언론사별 뉴스 데이터 가져오기
 
 다음과 같이 언론사별 뉴스 데이터를 스크래핑하는 코드를 작성합니다.
 
@@ -266,7 +266,7 @@ const getPressList = async (page: Page) => {
 위의 코드에서 `waitForSelector`는 지정한 선택자가 DOM 나타날 때까지 기다리는 함수입니다. 페이지가 완전히 로드되지 않았거나, 동적으로 렌더링되는 요소를 너무 빨리 가져오려고 하면 데이터를 가져오는데 실패할 수 있습니다. 따라서 Puppeteer의 `waitForSelector`를 사용하여 특정 DOM 요소가 완전히 렌더링된 후에 데이터를 가져오도록 설정합니다.
 또한 `evaluate` 함수는 브라우저 환경, 즉 웹 페이지 내에서 자바스크립트 코드를 실행하여 특정 DOM 요소의 데이터를 가져오는데 사용됩니다.
 
-### 최신 뉴스 데이터 가져오기
+### 5.3. 최신 뉴스 데이터 가져오기
 
 최신 뉴스 데이터를 가져오는 코드는 언론사별 뉴스 데이터를 가져오는 코드와 크게 다르지 않습니다. 다음과 같이 해당 웹 페이지로 이동한 후 웹 스크래핑을 진행하면 됩니다.
 
@@ -303,7 +303,7 @@ const getLatestNewsList = async (page: Page) => {
 };
 ```
 
-### 전체 코드
+### 5.4. 전체 코드
 
 전체 코드는 다음과 같습니다.
 
@@ -459,7 +459,7 @@ const getLatestNewsList = async (page: Page) => {
 };
 ```
 
-## Step 3 - 웹 스크래핑하기
+## 6. Step 3 - 웹 스크래핑하기
 
 위에서 작성한 웹 스크래핑 코드를 통해 웹 스크래핑한 결과는 다음과 같습니다.
 
@@ -468,6 +468,6 @@ const getLatestNewsList = async (page: Page) => {
 Your browser does not support the video format. Please try a different browser.
 </video>
 
-## 참고 자료
+## 7. 참고 자료
 
 - <a href="https://pptr.dev/" target="_blank">Puppeteer | Puppeteer</a>

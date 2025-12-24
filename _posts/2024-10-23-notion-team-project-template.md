@@ -15,7 +15,7 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br />
 Notion</p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 제가 만든 노션 팀 프로젝트 협업 템플릿을 공유하고자 합니다. 다음 링크에 접속한 후 우측 상단의 버튼을 클릭하여 해당 노션 템플릿을 복제하실 수 있습니다.
 
@@ -23,8 +23,8 @@ Notion</p></blockquote>
 
 <img src="/assets/img/etc/notion-team-project-template/pic1.avif" alt="pic1" />
 
-## 템플릿 미리보기
+## 2. 템플릿 미리보기
 
-### Info.
+### 2.1. Info.
 
 <img src="/assets/img/etc/notion-team-project-template/pic2.avif" alt="pic2" />

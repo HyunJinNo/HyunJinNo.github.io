@@ -18,27 +18,27 @@ Raspberry Pi, Linux, GitHub, CI, CD, GitHub Actions, Next.js, VSCode, YML</p></b
 <blockquote class="prompt-info"><p><strong><u>Environment</u></strong> <br />
 OS: Raspberry Pi OS (64 bit)</p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 `GitHub Actions`로 CI/CD 구축 방법에 대해 설명하겠습니다.
 
-## CI/CD란?
+## 2. CI/CD란?
 
 CI/CD는 소프트웨어 개발 및 배포 프로세스를 자동화하고 효율화하는 방법론으로, `Continuous Integration(지속적 통합)`과 `Continuous Deployment(지속적 배포)`를 의미합니다.
 
-### CI (Continous Integration)
+### 2.1. CI (Continous Integration)
 
 CI는 새로운 코드 변경 사항을 정기적으로 빌드 및 테스트되어 공유 Repository에 통합되는 것을 의미합니다. CI의 주요 목표는 코드 변경 사항을 빠르게 병합하고, 자동화된 빌드 및 테스트를 통해 코드 품질을 보장하는 것입니다. CI를 활용하면 코드 품질이 높아지고, 버그가 조기에 발견되므로 코드의 안정성이 증가한다는 장점이 있습니다. 또한 변경 사항이 작아 충돌이 적고, 개발자 간 협업이 원활해진다는 장점도 있습니다.
 
-### CD (Continuous Deployment)
+### 2.2. CD (Continuous Deployment)
 
 CD는 코드가 통합된 후 프로덕션 환경에 배포하는 것을 자동화하는 것을 의미합니다. CD를 활용하면 개발자가 코드를 푸시할 때마다 자동으로 프로덕션에 배포되어, 사용자가 변경 사항을 바로 확인할 수 있습니다. 또한 배포 과정의 오류가 줄어들고, 배포 속도가 빨라진다는 장점이 있습니다.
 
-## GitHub Actions란?
+## 3. GitHub Actions란?
 
 `GitHub Actions`란 GitHub에서 제공하는 `CI/CD(Continuous Integration/Continuous Deployment)` 서비스로, 프로젝트 내의 workflow를 자동화할 수 있게 도와줍니다. 이를 통해 코드 빌드, 테스트, 배포 등의 작업을 GitHub Repository 내에서 직접 설정하고 실행할 수 있습니다. GitHub Actions는 GitHub의 YAML 기반 설정 파일을 통해 다양한 이벤트(Ex. Push, Pull Request 등)에 따라 실행되도록 workflow를 구성할 수 있습니다.
 
-### GitHub Actions 구성 요소
+### 3.1. GitHub Actions 구성 요소
 
 GitHub Actions 구성 요소는 다음과 같습니다.
 
@@ -62,11 +62,11 @@ GitHub Actions 구성 요소는 다음과 같습니다.
 
   GitHub Actions에서 제공하는 재사용 가능한 작업 단위입니다. Node.js 설치, AWS S3에 파일 업로드 등을 액션으로 사용할 수 있습니다.
 
-## Step 1 - GitHub Actions 시작하기
+## 4. Step 1 - GitHub Actions 시작하기
 
 GitHub Actions을 사용하려면 먼저 yml 설정 파일을 생성해야 합니다. yml 설정 파일은 GitHub Repository에서 직접 만들어도 되고, 아니면 VSCode에서 만들어도 됩니다.
 
-### GitHub Repository에서 만들기
+### 4.1. GitHub Repository에서 만들기
 
 먼저 다음과 같이 GitHub Repository의 Actions 탭을 클릭합니다.
 
@@ -76,7 +76,7 @@ GitHub Actions을 사용하려면 먼저 yml 설정 파일을 생성해야 합�
 
 <img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic3.avif" alt="pic3" />
 
-### VSCode에서 만들기
+### 4.2. VSCode에서 만들기
 
 먼저 다음과 같이 VSCode에서 `GitHub Actions` Extensions을 설치합니다.
 
@@ -86,7 +86,7 @@ GitHub Actions을 사용하려면 먼저 yml 설정 파일을 생성해야 합�
 
 <img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic10.avif" alt="pic10" />
 
-## Step 2 - Workflow 작성하기
+## 5. Step 2 - Workflow 작성하기
 
 다음 예시는 Next.js 애플리케이션을 Raspberry Pi에 배포하고자 CI/CD를 구축한 예시입니다.
 
@@ -94,7 +94,7 @@ GitHub Actions을 사용하려면 먼저 yml 설정 파일을 생성해야 합�
 
 위의 workflow 설정에 대해 설명하자면 다음과 같습니다.
 
-### workflow 이름 설정하기
+### 5.1. workflow 이름 설정하기
 
 ```yml
 # workflow 이름 설정
@@ -105,7 +105,7 @@ name: GitHub Actions로 Next.js 앱 CI/CD 구축 예시
 
 <img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic5.avif" alt="pic5" />
 
-### 이벤트 설정하기
+### 5.2. 이벤트 설정하기
 
 ```yml
 # workflow를 트리거하는 이벤트 설정
@@ -117,7 +117,7 @@ on:
 
 `on` 필드에서는 workflow를 트리거하는 이벤트를 정의합니다. 가장 많이 사용하는 이벤트로는 push, pull_request 등이 있습니다. 위의 예시는 main 브랜치에 코드 푸시가 이루어질 때 workflow를 트리거합니다.
 
-### Job 설정하기
+### 5.3. Job 설정하기
 
 <img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic12.avif" alt="pic12" />
 
@@ -220,7 +220,7 @@ GitHub Secrets를 사용하려면 먼저 다음과 같이 GitHub Repository 내�
 
 위에 스크립트를 설명하자면 먼저 빌드 파일이 있는 폴더로 이동한 후 의존성 업데이트를 진행합니다. 이후 이전에 실행되고 있던 프로덕션 서버를 종료한 후 새로운 프로덕션 서버를 백그라운드로 실행합니다.
 
-## Step 3 - CI/CD 테스트하기
+## 6. Step 3 - CI/CD 테스트하기
 
 CI/CD 테스트 결과는 다음과 같습니다.
 
@@ -228,7 +228,7 @@ CI/CD 테스트 결과는 다음과 같습니다.
 
 <img src="/assets/img/raspberry-pi/github-actions-ci-cd/pic9.avif" alt="pic9" />
 
-## 참고 자료
+## 7. 참고 자료
 
 - <a href="https://docs.github.com/ko/actions" target="_blank">GitHub Actions 설명서</a>
 - <a href="https://github.com/marketplace?type=actions" target="_blank">GitHub Marketplace</a>

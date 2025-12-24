@@ -15,13 +15,13 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br>
 JavaScript, Prototype</p></blockquote>
 
-## 개요
+## 1. 개요
 
 자바스크립트 프로토타입에 대해 정리한 페이지입니다.
 
-## 프로토타입 (Prototype)
+## 2. 프로토타입 (Prototype)
 
-### 프로토타입의 개념
+### 2.1. 프로토타입의 개념
 
 자바스크립트는 `프로토타입(Prototype)` 기반 언어입니다. C++, Java와 같은 클래스 기반 언어에서는 <b>"상속"</b>을 사용하지만, 프로토타입 기반 언어에서는 어떤 객체를 <b>원형(Prototype)</b>으로 삼고 이를 복제(참조)함으로써 상속과 비슷한 효과를 얻습니다.
 
@@ -48,7 +48,7 @@ console.log(person.__proto__); // { getName: [Function (anonymous)] }
 console.log(Person.prototype === person.__proto__); // true
 ```
 
-### prototype 프로퍼티와 \_\_proto\_\_ 프로퍼티
+### 2.2. prototype 프로퍼티와 \_\_proto\_\_ 프로퍼티
 
 `prototype` 프로퍼티는 모든 함수 객체에 존재하는 속성으로, 해당 함수가 생성자 함수로 사용될 때 생성되는 인스턴스들이 상속받을 속성과 메서드를 저장합니다. 그리고 인스턴스의 `__proto__` 프로퍼티는 생성자 함수의 `prototype` 프로퍼티를 참조합니다. 다음 사진을 보면 알 수 있듯이, 내용물이 동일하고 일치 연산자(===)를 사용하여 비교했을 때 true가 반환되는 것을 확인할 수 있습니다.
 
@@ -78,7 +78,7 @@ this 바인딩에 대해선 다음 링크에서 확인하실 수 있습니다.
 
 <a href="../javascript-this" target="_blank">자바스크립트 this | 노현진's Blog</a>
 
-### constructor 프로퍼티
+### 2.3. constructor 프로퍼티
 
 생성자 함수의 프로퍼티인 `prototype` 객체 내부에는 `constructor`라는 프로퍼티가 있습니다. 해당 프로퍼티는 생성자 함수 자신을 가리킵니다. `constructor` 프로퍼티는 인스턴스가 자신의 생성자 함수가 무엇인지를 알고자 할 때 필요한 수단입니다.
 
@@ -117,7 +117,7 @@ const p5 = new p1.constructor("사람5"); // Person { _name: '사람5' } true
 
 <img src="/assets/img/cs/prototype/pic2.avif" alt="constructor를 변경하더라도 참조하는 대상이 변경될 뿐 이미 만들어진 인스턴스의 원형이 바뀌거나 데이터 타입이 변경되지는 않습니다." />
 
-### 메서드 오버라이드
+### 2.4. 메서드 오버라이드
 
 자바스크립트 엔진은 메서드를 찾을 때 가장 가까운 대상인 자신의 프로퍼티를 탐색하고, 없으면 그 다음으로 가까운 대상인 `__proto__`를 검색하는 순서로 진행합니다. 이런 특징을 활용한다면 다음과 같이 `prototype`에 정의된 메서드를 오버라이드할 수 있습니다.
 
@@ -149,7 +149,7 @@ console.log(person.getName()); // "이름: 사람1"
 console.log(person.__proto__.getName.call(person)); // "사람1"
 ```
 
-### 프로토타입 체인 (Prototype Chain)
+### 2.5. 프로토타입 체인 (Prototype Chain)
 
 어떤 데이터의 `__proto__` 프로퍼티 내부에 다시 `__proto__` 프로퍼티가 연쇄적으로 이어진 것을 `프로토타입 체인(Prototype Chain)`이라고 합니다. 또한 이 체인을 따라가며 검색하는 것을 `프로토타입 체이닝(Prototype Chaining)`이라고 합니다. 어떤 메서드를 호출하면 자바스크립트 엔진은 데이터 자신의 프로퍼티들을 검색해서 원하는 메서드가 있으면 그 메서드를 실행하고, 없으면 `__proto__`를 검색해서 있으면 그 메서드를 실행하고, 없으면 다시 `__proto__`를 검색해서 실행합니다. 자바스크립트 데이터는 모두 프로토타입 체인 구조를 갖습니다.
 
@@ -181,7 +181,7 @@ console.log([2, 3, 4].getFirst()); // 2
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
 string, number, boolean과 같은 원시값은 평소에는 객체가 아니지만, 프로퍼티나 메서드에 접근할 때 일시적으로 관련 래퍼 객체(String, Number, Boolean)으로 변환되어 프로토타입에 정의된 메서드를 사용할 수 있습니다.</p></blockquote>
 
-## 참고 자료
+## 3. 참고 자료
 
 - <a href="https://www.yes24.com/Product/Goods/78586788" target="_blank">코어 자바스크립트 - 예스 24</a>
 - <a href="https://poiemaweb.com/js-prototype" target="_blank">Prototype | PoiemaWeb</a>

@@ -14,11 +14,11 @@ comments: true
 
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br> TypeScript, Debounce, Throttle</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `Debounce`와 `Throttle`에 대해 정리한 페이지입니다.
 
-## Debounce와 Throttle이란?
+## 2. Debounce와 Throttle이란?
 
 `Debounce`와 `Throttle`은 성능 최적화를 위한 기술로, 주로 사용자의 입력 이벤트(스크롤, 창 크기 조정 등)가 너무 자주 발생하는 경우 이를 조절하는 역할을 수행합니다. 이 둘의 핵심은 모두 <b>특정 함수의 호출 횟수를 줄여서 웹 성능이 저하되는 것을 방지하는 것</b>입니다.
 
@@ -29,11 +29,11 @@ comments: true
 | `Debounce` | 특정 시간 동안 이벤트가 발생하지 않으면 함수를 실행 | 검색 입력, 자동 저장, 실시간 필터                 |
 | `Throttle` | 일정 시간 간격으로 함수를 실행                      | 무한 스크롤, 버튼 중복 클릭 방지, 윈도우 리사이즈 |
 
-## Debounce
+## 3. Debounce
 
 `Debounce`는 연속적인 이벤트가 발생해도 마지막 이벤트가 발생한 후 일정 시간이 지나야 함수를 실행하도록 제한하는 역할을 수행합니다. `Debounce`는 마지막 이벤트만 처리해야 하는 경우에 사용하는 것이 적절하며, 주로 검색 자동 완성, 검색어 입력 시 API 호출 등의 상황에서 사용합니다.
 
-### 동작 원리
+### 3.1. 동작 원리
 
 `Debounce`의 동작 원리는 다음과 같습니다.
 
@@ -41,7 +41,7 @@ comments: true
 2. 만약 기존 타이머가 완료되기 전에 이벤트가 발생하는 경우 기존 타이머를 제거하고 새로운 타이머를 설정합니다.
 3. 타이머가 완료되면 함수를 실행합니다. 이후 `1.`부터 반복합니다.
 
-### useDebounce 구현하기
+### 3.2. useDebounce 구현하기
 
 `useDebounce` 커스텀 훅을 구현한 예시는 다음과 같습니다.
 
@@ -94,7 +94,7 @@ timeout.current = setTimeout(() => {
 
 마지막 이벤트가 발생한 후 일정 시간이 지난 후에 함수를 실행하는 코드입니다.
 
-### 사용 예시
+### 3.3. 사용 예시
 
 ```typescript
 /* useSurveyContentItemList.ts */
@@ -174,11 +174,11 @@ export const useSurveyContentItemList = (
 Your browser does not support the video format. Please try a different browser.
 </video>
 
-## Throttle
+## 4. Throttle
 
 `Throttle`은 일정 시간 간격으로 함수가 최대 한 번만 실행되도록 제한하는 역할을 수행합니다. `Throttle`은 이벤트 발생 빈도를 줄이고 정기적으로 실행해야 하는 경우에 사용하는 것이 적절하며, 주로 무한 스크롤, 버튼 중복 클릭 방지, 윈도우 리사이즈 등에서 사용됩니다.
 
-### 동작 원리
+### 4.1. 동작 원리
 
 `Throttle`의 동작 원리는 다음과 같습니다.
 
@@ -186,7 +186,7 @@ Your browser does not support the video format. Please try a different browser.
 2. 만약 타이머가 완료되기 전에 이벤트가 발생하는 경우 함수를 호출하지 않습니다.
 3. 타이머가 완료된 후에 이벤트가 발생하면 `1.`부터 반복합니다.
 
-### useThrottle 구현하기
+### 4.2. useThrottle 구현하기
 
 `useThrottle` 커스텀 훅을 구현한 예시는 다음과 같습니다.
 
@@ -241,7 +241,7 @@ timeout.current = setTimeout(() => {
 
 함수 호출 후 일정 시간이 지난 후에 함수를 실행할 수 있도록 타이머를 설정하는 부분입니다.
 
-### 사용 예시
+### 4.3. 사용 예시
 
 ```tsx
 /* LobbyItem.tsx */
@@ -312,6 +312,6 @@ const LobbyItem = ({ room, setTargetRoom }: LobbyItemProps) => {
 export default LobbyItem;
 ```
 
-## 참고 자료
+## 5. 참고 자료
 
 - <a href="https://velog.io/@ansrjsdn/TypeScript%EC%97%90%EC%84%9C-useDebounce-useThrottle-%EB%A7%8C%EB%93%A4%EA%B8%B0" target="_blank">TypeScript에서 useDebounce, useThrottle 만들기</a>

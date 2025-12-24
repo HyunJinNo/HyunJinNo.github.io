@@ -14,15 +14,15 @@ comments: true
 
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br> Rendering</p></blockquote>
 
-## 개요
+## 1. 개요
 
 브라우저 렌더링 과정에 대해 정리한 페이지입니다.
 
-## 브라우저 렌더링 과정
+## 2. 브라우저 렌더링 과정
 
 `브라우저 렌더링(Browser Rendring)`은 HTML, CSS, JavaScript 등의 웹 페이지 자원을 화면에 그리는 과정을 말합니다. 그리고 `브라우저 렌더링 과정(Browser Rendering Process)`은 웹 페이지를 사용자에게 보여주기 위해 거치는 일련의 과정으로 여러 단계로 구성됩니다. 브라우저 렌더링 과정은 <b>네트워크 요청 → HTML/CSS 파싱 → DOM/CSSOM 생성 → 렌더 트리 생성 → 레이아웃 계산 → 페인팅 → 합성</b>의 순서로 진행됩니다. 브라우저 렌더링 과정을 단계별로 설명하자면 다음과 같습니다.
 
-### Step 1 - 네트워크 요청 및 리소스 로드
+### 2.1. Step 1 - 네트워크 요청 및 리소스 로드
 
 먼저 사용자가 주소창에 URL을 입력하면 브라우저는 URL을 scheme, hostname, port, path, query, fragment로 분해하여, 해당 URL이 올바른 형식인지 검증합니다.
 
@@ -36,7 +36,7 @@ TCP 연결이 확립되면 브라우저는 해당 IP 주소를 통해 서버에 
 
 <img src="/assets/img/front-end/browser-rendering-process/pic2.avif" alt="pic2" />
 
-### Step 2 - HTML 파싱 및 DOM 트리 생성
+### 2.2. Step 2 - HTML 파싱 및 DOM 트리 생성
 
 브라우저는 다운로드한 HTML 문서를 파싱하여 `DOM 트리`를 생성합니다. 이때, HTML 태그를 노드로 변환하고, 노드 간의 계층 관계를 형성합니다. 이 과정은 HTML 문서의 위에서 아래 방향으로 이루어집니다.
 
@@ -51,34 +51,34 @@ script 태그에서 <b>async</b> 속성 또는 <b>defer</b> 속성을 사용하�
 <b>async</b>: async 속성을 사용하면 스크립트를 백그라운드에서 다운로드한 후 다운로드가 완료되면 즉시 실행합니다. (스크립트 실행 중에는 HTML 파싱이 일시 중지됩니다.) 여러 async 스크립트가 있는 경우, 다운로드가 완료되는 순서대로 자바스크립트를 실행합니다.<br />
 <b>defer</b>: defer 속성을 사용하면 스크립트를 백그라운드에서 다운로드한 후 HTML 파싱이 완료된 후(모든 DOM이 로드된 후) 자바스크립트를 실행합니다. (DOMContentLoaded 이벤트가 발생하기 전에 실행됩니다.) 여러 defer 스크립트가 있는 경우, HTML에 작성된 순서대로 자바스크립트를 실행합니다.</p></blockquote>
 
-### Step 3 - CSS 파싱 및 CSSOM 트리 생성
+### 2.3. Step 3 - CSS 파싱 및 CSSOM 트리 생성
 
 HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드한 CSS 파일을 파싱하여 `CSSOM(CSS Object Model) 트리`를 생성합니다. 이때, CSS 속성을 노드로 변환하고 노드 간의 계층 관계를 형성합니다. 이 과정에서 브라우저는 CSS의 cascading 규칙에 따라 최종 스타일을 결정합니다.
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
 <b>CSSOM(CSS Object Model)</b>은 CSS 객체 모델로 자바스크립트가 CSS를 동적으로 조작할 수 있게 해줍니다. HTML 대신 CSS가 대상인 DOM이라고 할 수 있습니다.</p></blockquote>
 
-### Step 4 - 렌더 트리 생성
+### 2.4. Step 4 - 렌더 트리 생성
 
 `DOM 트리`와 `CSSOM 트리`를 결합하여 `렌더 트리`를 생성합니다. 이때, 실제 화면에 표시될 요소만을 선택하여 `렌더 트리`를 형성합니다. 즉, `display: none` 속성이 적용된 요소는 `렌더 트리`에 포함되지 않습니다. 반면에 `visibility: hidden` 속성이 적용된 요소는 공간을 차지하므로 `렌더 트리`에 포함됩니다.
 
 렌더 트리의 각 노드는 `DOM 트리`의 요소와 연결되며, `CSSOM 트리`에서 해당 요소에 적용된 스타일 정보를 포함합니다. 즉, 렌더 트리는 HTML 문서의 구조와 각 요소의 스타일 정보를 모두 포함한 트리입니다.
 
-### Step 5 - 레이아웃/리플로우(Layout/Reflow)
+### 2.5. Step 5 - 레이아웃/리플로우(Layout/Reflow)
 
 `렌더 트리`가 생성되면 각 노드의 정확한 위치와 크기를 계산하는 레이아웃(또는 리플로우) 단계가 시작됩니다. 이 과정에서 `상대적 단위(%, em, rem 등)`를 실제 px 단위로 변환하며, 요소의 박스 모델(margin, border, padding, content)을 고려하여 최종 배치가 결정됩니다.
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br>
 <b>박스 모델(Box Model)</b>은 모든 HTML 요소는 박스(Box) 형태의 영역으로 이루어져 있다는 개념입니다. 박스(Box)는 마진(margin), 테두리(border), 패딩(padding), 내용(content)로 구분됩니다.</p></blockquote>
 
-### Step 6 - 페인팅(Painting)
+### 2.6. Step 6 - 페인팅(Painting)
 
 브라우저는 계산된 레이아웃 정보를 바탕으로 각 요소를 실제 화면에 그리는 페인팅 단계를 실행합니다. 이 때, 각 요소의 배경, 테두리, 글자 등을 그리게 됩니다. 이 과정에서 브라우저는 성능 최적화를 위해 요소를 독립적인 `레이어(Layer)`로 분리하여 렌더링합니다. 이는 성능 저하를 초래할 수 있는 `레이아웃 스래싱(Layout Thrashing)`을 방지하기 위함입니다.
 
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
 <b>레이아웃 스레싱(Layout Thrashing)</b>이란 웹 페이지에서 JavaScript가 <b>반복적으로 DOM을 읽고 쓰는 작업을 수행</b>할 때, 브라우저가 불필요하게 <b>레이아웃 계산을 여러 번 강제로 실행</b>하며 성능이 급격히 저하되는 현상을 말합니다.</p></blockquote>
 
-### Step 7 - 합성(Composite)
+### 2.7. Step 7 - 합성(Composite)
 
 이 단계에서는 여러 레이어(Layer)를 합성하여 최종 화면을 출력합니다. 이 때, GPU와 합성 스레드가 협력하여, 스크롤이나 애니메이션 시 부드러운 업데이트를 가능하게 합니다.
 
@@ -86,7 +86,7 @@ HTML 파싱과 `DOM 트리` 생성이 완료되면, 브라우저는 다운로드
 <b>transform</b>, <b>opacity</b> 속성은 GPU 가속을 지원하며 <b>별도 레이어</b>에서 처리되어 레이아웃 단계와 페인트 단계를 건너뜁니다.
 </p></blockquote>
 
-### Step 8 - 리렌더링
+### 2.8. Step 8 - 리렌더링
 
 리렌더링이 발생하면 `리플로우(Reflow)`와 `리페인트(Repaint)`가 발생합니다.
 
@@ -131,7 +131,7 @@ will-change 속성은 요소의 변화를 미리 브라우저에게 알려주어
 2D transform(Ex. translate, scale, rotate 등)은 처음부터 레이어를 분리하지 않고 변화가 일어나는 순간 레이어를 분리합니다. 반면에 3D transform(EX. translateZ, translate3D 등)과 will-change는 처음부터 레이어를 분리합니다.
 </p></blockquote>
 
-## 참고 자료
+## 3. 참고 자료
 
 - `네트워크 요청 및 리소스 로드`
   - <a href="https://jyostudy.tistory.com/207" target="_blank">주소창에 www.naver.com을 쳤을 때 일어나는 일</a>

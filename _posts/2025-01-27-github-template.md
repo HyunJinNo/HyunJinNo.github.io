@@ -14,11 +14,11 @@ comments: true
 
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong> <br> Git, GitHub</p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 GitHub에서 PR & Issue Template을 생성하는 방법에 대해 설명하겠습니다.
 
-## GitHub Label 설정하기
+## 2. GitHub Label 설정하기
 
 Template을 생성하기 전에 먼저 다음과 같이 GitHub Repository에서 Label을 설정하기를 권장합니다. Label은 PR과 Issue에서 카테고리를 분류하기 위해 사용합니다.
 
@@ -41,7 +41,7 @@ Template을 생성하기 전에 먼저 다음과 같이 GitHub Repository에서 
 | rename     | 파일 또는 폴더 명을 수정하거나 파일을 옮기는 작업만을 수행한 경우 | #940658 |
 | test       | 테스트를 추가하거나 테스트 리팩토링을 수행한 경우                 | #FBCA04 |
 
-## PR Template 생성하기
+## 3. PR Template 생성하기
 
 먼저 다음과 같이 프로젝트 최상위 폴더에서 `.github` 폴더를 생성한 후 해당 폴더에서 `pull_request_template.md` 파일을 생성합니다.
 
@@ -116,11 +116,11 @@ PR Template을 사용하여 생성한 PR 예시는 다음과 같습니다.
 
 <img src="/assets/img/etc/github-template/pic14.avif" alt="PR 예시 3" >
 
-## Issue Template 생성하기
+## 4. Issue Template 생성하기
 
 Issue Template은 GitHub Repository에서 직접 만들어도 되고, 아니면 VSCode에서 만들 수 있습니다.
 
-### GitHub Repository에서 생성하기
+### 4.1. GitHub Repository에서 생성하기
 
 먼저 GitHub Repository에서 `Setting` 탭을 클릭합니다.
 
@@ -134,7 +134,7 @@ Issue Template은 GitHub Repository에서 직접 만들어도 되고, 아니면 
 
 <img src="/assets/img/etc/github-template/pic6.avif" alt="pic6" >
 
-#### Bug Report 생성하기
+#### 4.1.1. Bug Report 생성하기
 
 다음은 `Bug Report`를 생성한 예시입니다. 코드는 [아래](#bug-report-생성하기-1)에서 확인하실 수 있습니다.
 
@@ -142,7 +142,7 @@ Issue Template은 GitHub Repository에서 직접 만들어도 되고, 아니면 
 
 <img src="/assets/img/etc/github-template/pic7.avif" alt="pic7" >
 
-#### Feature Request 생성하기
+#### 4.1.2. Feature Request 생성하기
 
 다음은 `Feature Request`를 생성한 예시입니다. 코드는 [아래](#feature-request-생성하기-1)에서 확인하실 수 있습니다.
 
@@ -150,13 +150,13 @@ Issue Template은 GitHub Repository에서 직접 만들어도 되고, 아니면 
 
 <img src="/assets/img/etc/github-template/pic10.avif" alt="pic10" >
 
-### VSCode에서 생성하기
+### 4.2. VSCode에서 생성하기
 
 먼저 다음과 같이 프로젝트 최상위 폴더에서 `.github` 폴더를 생성한 후 해당 폴더 내에 `ISSUE_TEMPLATE` 폴더를 생성한 후 `bug_report.md`, `feature_request.md` 파일을 생성합니다.
 
 <img src="/assets/img/etc/github-template/pic11.avif" alt="pic11" >
 
-#### Bug Report 생성하기
+#### 4.2.1. Bug Report 생성하기
 
 `bug_report.md` 파일을 열고 다음과 같이 작성할 수 있습니다.
 
@@ -193,7 +193,7 @@ assignees: ""
 - 없는 경우 해당 단락을 삭제해 주세요.
 ```
 
-#### Feature Request 생성하기
+#### 4.2.2. Feature Request 생성하기
 
 `feature_request.md` 파일을 열고 다음과 같이 작성할 수 있습니다.
 
@@ -227,7 +227,7 @@ assignees: ""
 - 없는 경우 해당 단락을 삭제해 주세요.
 ```
 
-### 생성 결과
+### 4.3. 생성 결과
 
 Issue Template을 생성한 후 GitHub Repository의 `Issues` 탭을 클릭한 후 `New issue` 버튼을 클릭하면 다음과 같이 Template이 표시됩니다.
 

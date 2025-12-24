@@ -21,17 +21,17 @@ express v4.21.0 <br />
 socket.io v4.8.0 <br />
 typeorm v0.3.20 </p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 `Express.js`에서 `socket.io`를 활용하여 채팅 애플리케이션을 만드는 방법을 설명하겠습니다. 웹소켓에 대한 개념의 경우 다음 링크에 작성하였으니 참고하시길 바랍니다.
 
 <a href="../websocket">웹소켓 (WebSocket)</a>
 
-## socket.io란?
+## 2. socket.io란?
 
 `socket.io`란 웹소켓을 기반으로 서버와 클라이언트의 양방향 통신을 지원하는 라이브러리입니다. 주로 실시간 웹 애플리케이션을 개발할 때 자주 사용되는 JavaScript 라이브러리입니다. 기본적으로 웹소켓을 지원하며, 웹소켓을 지원하지 않는 브라우저에서는 롱폴링 방식을 사용한 통신을 지원합니다. 또한 재접속, 브로드캐스트, 멀티플렉싱(채팅방) 기능도 제공합니다.
 
-## socket.io의 특징
+## 3. socket.io의 특징
 
 `socket.io`의 특징은 다음과 같습니다.
 
@@ -59,9 +59,9 @@ typeorm v0.3.20 </p></blockquote>
 
   네임스페이스 내에서 클라이언트를 그룹으로 묶어 특정 그룹(룸)으로 메세지를 보낼 수 있습니다. 예를 들어, 같은 채팅방에 있는 사용자들에게만 메세지를 전송할 때 유용합니다.
 
-## Step 1 - 서버 설정하기
+## 4. Step 1 - 서버 설정하기
 
-### socket.io 패키지 설치하기
+### 4.1. socket.io 패키지 설치하기
 
 먼저 다음 명령어를 입력하여 `socket.io` 패키지를 설치합니다.
 
@@ -69,7 +69,7 @@ typeorm v0.3.20 </p></blockquote>
 npm install socket.io
 ```
 
-### chat 테이블 생성하기
+### 4.2. chat 테이블 생성하기
 
 채팅 내용을 저장하기 위해 다음과 같이 채팅 내용을 저장하는 `chat` 테이블을 생성합니다. 해당 테이블은 작성자 닉네임 정보와 채팅 내용을 저장하는 테이블입니다.
 
@@ -99,7 +99,7 @@ export class Chat {
 }
 ```
 
-### 채팅 API 구현하기
+### 4.3. 채팅 API 구현하기
 
 사용자가 채팅 애플리케이션에 접속할 때 기존의 채팅 내용을 불러올 수 있어야 합니다. 다음과 같이 모든 채팅 목록을 조회하는 API를 작성합니다. 또한 추가적으로 채팅을 입력하면 저장할 수 있는 API도 작성합니다.
 
@@ -144,7 +144,7 @@ export const chatService = {
 };
 ```
 
-### HTTP 서버와 Socket.IO 연결하기
+### 4.4. HTTP 서버와 Socket.IO 연결하기
 
 다음과 같이 `app.ts` 파일에서 HTTP 서버와 Socket.IO를 연결하는 코드를 작성합니다.
 
@@ -248,9 +248,9 @@ chatNamespace.on("connection", async (socket) => {
 
 위의 코드에서 소켓 연결이 성공한 경우 기존의 채팅 메세지 목록을 웹 페이지에 접속한 클라이언트에게 전송합니다. 또한 클라이언트로부터 채팅 메세지를 전달받는 경우 DB에 저장한 후 메세지를 보낸 클라이언트를 포함한 모든 클라이언트에게 채팅 메세지를 전달합니다. 이 때 `/chat`이라는 네임스페이스를 사용하였으므로 전체 클라이언트에게 메세지를 전송하기 위해선 `io.emit()` 대신 `chatNamespace.emit()`을 사용해야 합니다.
 
-## Step 2 - 클라이언트 설정하기
+## 5. Step 2 - 클라이언트 설정하기
 
-### socket.io-client 패키지 설치하기
+### 5.1. socket.io-client 패키지 설치하기
 
 먼저 다음 명령어를 입력하여 `socket.io-client` 패키지를 설치합니다.
 
@@ -258,7 +258,7 @@ chatNamespace.on("connection", async (socket) => {
 npm install socket.io-client
 ```
 
-### 채팅 컴포넌트 구현하기
+### 5.2. 채팅 컴포넌트 구현하기
 
 다음과 같이 `socket.io-client`를 사용하여 채팅 기능을 구현하는 컴포넌트를 생성합니다.
 
@@ -385,12 +385,12 @@ const sendMessage = () => {
 };
 ```
 
-## Step 3 - 테스트 결과
+## 6. Step 3 - 테스트 결과
 
 테스트 결과는 다음과 같습니다.
 
 <img src="/assets/img/back-end/expressjs-socket/pic1.avif" alt="pic1" />
 
-## 참고 자료
+## 7. 참고 자료
 
 - <a href="https://socket.io" target="_blank">Socket.IO</a>

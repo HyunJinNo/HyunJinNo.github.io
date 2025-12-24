@@ -15,11 +15,11 @@ comments: true
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
 TypeScript</p></blockquote>
 
-## 개요
+## 1. 개요
 
 `타입스크립트(TypeScript)`에 대해 정리한 페이지입니다.
 
-## 타입스크립트란?
+## 2. 타입스크립트란?
 
 `타입스크립트(TypeScript)`란 자바스크립트에 타입을 추가한 언어입니다. 타입스크립트는 타입을 지정하지 않고 인터프리터가 타입을 유추하는 `동적 타입` 언어인 자바스크립트와 달리, 타입이 같지 않다면 컴파일 에러를 내는 `강 타입` 언어입니다. 확장자로는 `.ts`를 사용하며, 자바스크립트로 컴파일(트랜스파일)되는 언어입니다.
 
@@ -30,7 +30,7 @@ TypeScript</p></blockquote>
 <b>약 타입</b>: <b>비슷한 타입 간에는 자동으로 변환</b>하는 언어 (Ex. Java - float 형 변수에 int 변수를 할당하는 경우 컴파일 에러가 나지 않고, 컴파일러가 내부적으로 float로 변경) <br />
 <b>강 타입</b>: <b>타입이 같지 않다면 컴파일 에러</b>를 내는 언어</p></blockquote>
 
-## 타입스크립트의 이점
+## 3. 타입스크립트의 이점
 
 타입스크립트를 사용하면 다음과 같은 이점이 있습니다.
 
@@ -66,7 +66,7 @@ TypeScript</p></blockquote>
 
   타입스크립트 코드 작성 시에 IDE에서 함수 정의와 함수 매개변수 타입을 알고 있기 때문에 <b>코드 자동 완성, 잘못된 변수/함수 사용에 대한 에러 알림</b>과 같은 피드백을 받을 수 있습니다. 이를 통해 순수 자바스크립트를 사용하는 것에 비해 생산성이 크게 향상됩니다.
 
-## 타입스크립트 개발 환경 구축 방법
+## 4. 타입스크립트 개발 환경 구축 방법
 
 터미널에서 다음 명령어를 입력하여 타입스크립트를 전역으로 설치합니다.
 
@@ -138,9 +138,9 @@ npm install -g ts-node
 
 <img src="/assets/img/cs/typescript/pic5.avif" alt="pic5" />
 
-## 타입스크립트 문법
+## 5. 타입스크립트 문법
 
-### 변수 선언
+### 5.1. 변수 선언
 
 자바스크립트와 마찬가지로 `var`, `let`, `const` 3가지 키워드로 변수를 선언할 수 있습니다.
 
@@ -150,7 +150,7 @@ let b = 2;
 const c = 3;
 ```
 
-### 타입 애너테이션
+### 5.2. 타입 애너테이션
 
 `타입 애너테이션(Type Annotation)`은 타입을 명시하는 방법을 의미합니다.
 
@@ -203,7 +203,7 @@ function add(a: number, b: number, c?: number): number {
 }
 ```
 
-### 기본 타입
+### 5.3. 기본 타입
 
 타입스크립트는 7가지 기본 자료형을 갖고 있습니다.
 
@@ -227,7 +227,7 @@ const myBigint: bigint = 123n;
 const mySymbol: symbol = Symbol("mySymbol");
 ```
 
-### 배열과 튜플
+### 5.4. 배열과 튜플
 
 배열과 튜플은 여러 개의 데이터를 저장한다면 점에서 비슷하지만, 배열은 크기가 고정이 아니며, 튜플은 크기가 고정된다는 점이 다릅니다.
 
@@ -244,7 +244,7 @@ const arr2: Array<number> = [1, 2, 3];
 const tuple: [string, number] = ["string", 123];
 ```
 
-### any
+### 5.5. any
 
 `any` 타입은 `unknown` 타입을 제외하고 가장 상위에 있는 타입입니다. `any`는 타입을 모르거나 지정할 수 없을 때 유용할 수 있습니다. 보통 서드파티 라이브러리에서 코드에 타입이 없는 경우 `any`를 사용해 컴파일이 안되는 문제를 해결할 수 있습니다. `any`로 타입을 선언하는 경우 컴파일 시점이 아닌 런타임 시점에 에러가 날 가능성이 높으므로 `any` 타입 사용은 가능하면 지양하는 것이 좋습니다.
 
@@ -254,7 +254,7 @@ anyValue = "Hello, World!";
 anyValue = true;
 ```
 
-### unknown
+### 5.6. unknown
 
 `any`와 같이 최상위 타입인 `unknown` 타입은 알 수 없는 타입을 의미합니다. `any`와 같이 `unknown`에는 어떤 타입의 값도 할당할 수 있지만, `unknown` 타입은 `any` 타입 외의 어떤 타입에도 할당할 수 없습니다. `unknown` 타입을 `any` 타입 외에 어떤 타입에 할당하려면 `타입 단언`이나 `타입 가드`가 필요하므로 `any` 타입보다 더 안전합니다.
 
@@ -267,7 +267,7 @@ let d: number = b as number;
 let e: number = b; // Error: Type 'unknown' is not assignable to type 'number'.ts(2322)
 ```
 
-### void
+### 5.7. void
 
 `void`는 함수의 반환값에 지정하는 타입으로, 함수의 반환값이 없는 경우(실제로는 `undefined`를 반환)에 사용합니다.
 
@@ -277,7 +277,7 @@ function sayHello(): void {
 }
 ```
 
-### never
+### 5.8. never
 
 `never`는 함수의 반환값에 지정하는 타입으로, 의도적으로 값을 반환하지 않는 때 사용합니다. 예외를 발생시키는 함수이거나 무한 루프를 실행하는 함수가 이에 해당합니다.
 
@@ -287,7 +287,7 @@ function throwError(message: string): never {
 }
 ```
 
-### Union
+### 5.9. Union
 
 `유니온(Union)`은 2개 이상의 타입을 허용하는 것을 의미합니다. `|(Vertical Bar)` 기호를 사용하여 타입을 구분해 여러 타입을 정의합니다.
 
@@ -297,7 +297,7 @@ anyValue = "Hello, World!";
 anyValue = true;
 ```
 
-### Intersection
+### 5.10. Intersection
 
 `&`를 사용해 2개 이상의 타입을 조합하는 경우를 `Intersection`이라고 합니다. 여러 개의 타입 중 하나만 만족하면 되는 `Union`과 달리, `Intersection`은 조합한 모든 타입을 만족해야 합니다. `Union`이 `or`에 해당한다면, `Intersection`은 `and`에 해당합니다.
 
@@ -319,11 +319,11 @@ type Impossible = number & string;
 let impossible: Impossible = 10; // Error: Type '10' is not assignable to type 'never'.ts(2322)
 ```
 
-### 타입 가드
+### 5.11. 타입 가드
 
 `Type Narrowing`이란 타입의 범위를 좁히는 작업을 의미합니다. 타입의 범위를 좁히는 데 사용하는 검사 방법을 `타입 가드(Type Guard)`라 하며, 값 할당 또는 조건문으로 검사해 타입의 범위를 좁힙니다. 타입 가드를 선언하는 방법으로 `typeof`, `instanceof`, `in` 등이 있습니다.
 
-#### typeof 연산자
+#### 5.11.1. typeof 연산자
 
 `typeof` 연산자를 사용하면 원시 타입(`string`, `number`, `boolean`, `symbol`, `bigint`, `function`, `object`, `undefined`)를 구별할 수 있습니다. 단, `typeof`는 객체 타입(`object`, `array`, `null`)을 구별하기 어렵습니다.
 
@@ -337,7 +337,7 @@ function printLength(value: string | number) {
 }
 ```
 
-#### instanceof 연산자
+#### 5.11.2. instanceof 연산자
 
 `instanceof` 연산자를 사용하면 객체가 특정 클래스의 인스턴스인지 확인할 수 있습니다. 단, `instanceof`는 클래스 기반 객체에서만 사용 가능하며, 인터페이스나 일반 객체에는 사용할 수 없습니다.
 
@@ -363,7 +363,7 @@ function makeSound(animal: Cat | Dog) {
 }
 ```
 
-#### in 연산자
+#### 5.11.3. in 연산자
 
 `in` 연산자를 사용하면 객체가 특정 속성을 가지고 있는지 확인할 수 있습니다. `in` 연산자는 인터페이스, 객체 리터럴, 클래스 등 여러 곳에서 활용할 수 있습니다.
 
@@ -380,7 +380,7 @@ function printInfo(entity: Person | Robot) {
 }
 ```
 
-#### is - 사용자 정의 타입 가드
+#### 5.11.4. is - 사용자 정의 타입 가드
 
 `is` 키워드는 `사용자 정의 타입 가드(User-Defined Type Guards)`를 정의하는데 사용됩니다. 함수를 활용하여 타입 검사를 직접 수행하고 특정 타입임을 보장하는 방식으로, 더 복잡한 조건에서도 `Type Narrowing`을 적용할 수 있습니다.
 
@@ -405,7 +405,7 @@ const person: Person = { name: "HyunJinNo" };
 PrintInfo(person); // "HyunJinNo"
 ```
 
-#### Non-null assertion 연산자
+#### 5.11.5. Non-null assertion 연산자
 
 `!`를 사용하는 Non-null assertion 연산자를 사용하여 피연산자의 값이 `null`이나 `undefined`가 아님을 단언할 수 있습니다.
 
@@ -419,13 +419,13 @@ function printLength2(str: string | undefined | null) {
 }
 ```
 
-### 타입 단언
+### 5.12. 타입 단언
 
 `타입 단언(Type Assertion)`은 컴파일러에게 특정 값의 타입을 알려주는 것을 말합니다. 타입을 강제 변환하는 것이 아니라, 컴파일러가 타입을 추론하는 방식에 개입하는 역할을 합니다.
 
 타입 단언에는 두 가지 문법이 존재합니다.
 
-#### <타입> 문법
+#### 5.12.1. <타입> 문법
 
 `<타입>` 형식으로 타입 단언을 선언할 수 있습니다. 다만 해당 방식은 JSX 문법과 충돌할 수 있으며, 제네릭(Generic)과 헷갈릴 수 있으므로 사용이 지양됩니다.
 
@@ -434,7 +434,7 @@ let value: any = "Hello, World!";
 let strLength: number = (<string>value).length;
 ```
 
-#### as 문법
+#### 5.12.2. as 문법
 
 `as` 문법을 통해 타입 단언을 선언할 수 있습니다.
 
@@ -443,7 +443,7 @@ let value: any = "Hello, World!";
 let strLength: number = (value as string).length;
 ```
 
-### 타입 별칭 (type)
+### 5.13. 타입 별칭 (type)
 
 `type` 키워드를 사용하여 타입 별칭을 만들 수 있습니다. `type`은 튜플 등 복잡한 타입을 사용하고 유연한 연산자를 통해 복잡한 타입 조합을 표현하는 데 적합합니다.
 
@@ -454,7 +454,7 @@ let len: Length = 10;
 len = "10km";
 ```
 
-### 리터럴 타입
+### 5.14. 리터럴 타입
 
 `리터럴 타입(Literal Type)`이란 기본 타입의 값들을 조합해서 한정적인 값들만 나타내는 타입입니다. 다음과 같이 `size`가 `10`, `20`, `30`만 있다고 가정할 때 `10`, `20`, `30`만 허용하는 리터럴 타입을 정의할 수 있습니다.
 
@@ -467,7 +467,7 @@ let size3: Size = 30;
 let size4: Size = 40; // Error: Type '40' is not assignable to type 'Size'.ts(2322)
 ```
 
-### 인터페이스
+### 5.15. 인터페이스
 
 `인터페이스(Interface)`는 `타입 별칭`보다 더 읽기 쉬운 오류 메세지, 더 빠른 컴파일러 성능, 클래스와 함께 사용할 수 있는 장점을 제공합니다.
 
@@ -514,7 +514,7 @@ const man: Man = {
 };
 ```
 
-### 클래스
+### 5.16. 클래스
 
 `class` 키워드를 사용하여 클래스를 정의할 수 있습니다.
 
@@ -552,7 +552,7 @@ const person = new Person("HyunJin", "No");
 console.log(person.getName()); // "HyunJin No"
 ```
 
-#### implements
+#### 5.16.1. implements
 
 `implements` 키워드를 사용하여 인터페이스를 구현할 수 있습니다.
 
@@ -575,7 +575,7 @@ const person = new Person("HyunJin", "No");
 console.log(person.getName()); // "HyunJin No"
 ```
 
-#### abstract
+#### 5.16.2. abstract
 
 `abstract` 키워드를 사용하여 추상 클래스를 정의할 수 있습니다.
 
@@ -602,7 +602,7 @@ const man = new Man("HyunJin", "No");
 console.log(man.getName()); // "HyunJin No"
 ```
 
-#### 접근 제한자
+#### 5.16.3. 접근 제한자
 
 타입스크립트에는 클래스 내에 변수와 메서드에서 사용할 수 있는 `접근 제한자(Access Modifiers)`들이 있습니다. 접근 제한자가 있는 변수와 메서드는 클래스 외부에서 해당 클래스의 구현을 공개할지 여부를 결정합니다. 접근 제한자는 타입스크립트의 기능으로, 자바스크립트로 컴파일된 후에는 제거됩니다.
 
@@ -614,7 +614,7 @@ console.log(man.getName()); // "HyunJin No"
 | `protected` | 클래스 내부 또는 자식 클래스에서만 접근 가능 |
 | `private`   | 클래스 내부에서만 접근 가능                  |
 
-### readonly
+### 5.17. readonly
 
 `readonly` 키워드를 사용하면 처음 속성의 값이 결정되면 이후에는 변경할 수 없는 `읽기 전용 속성`을 정의할 수 있습니다.
 
@@ -630,11 +630,11 @@ person.age = 28;
 person.name = "HyunJin"; // Error: Cannot assign to 'name' because it is a read-only property.ts(2540)
 ```
 
-### 유틸리티 타입
+### 5.18. 유틸리티 타입
 
 `유틸리티 타입(Utility Types)`은 기본 타입을 변환하거나 조작하는 데 사용할 수 있는 타입입니다. 유틸리티 타입을 사용하면 간결한 방식으로 타입을 정의하거나 이미 정의된 타입을 변환할 수 있습니다.
 
-#### Partial
+#### 5.18.1. Partial
 
 `Partial`을 사용하면 객체 내 모든 프로퍼티를 `선택적 속성(Optional Property)`으로 변경할 수 있습니다.
 
@@ -649,7 +649,7 @@ console.log(point.x); // 1
 console.log(point.y); // undefined
 ```
 
-#### Required
+#### 5.18.2. Required
 
 `Required`를 사용하면 객체 내 모든 프로퍼티를 필수 속성으로 변경할 수 있습니다.
 
@@ -664,7 +664,7 @@ console.log(point.x); // 1
 console.log(point.y); // 2
 ```
 
-#### Record
+#### 5.18.3. Record
 
 `Record`를 사용하면 특정 key 타입과 value 타입을 갖는 객체 타입을 정의할 수 있습니다.
 
@@ -676,7 +676,7 @@ const peopleAgeInfo: Record<string, number> = {
 };
 ```
 
-#### Omit
+#### 5.18.4. Omit
 
 `Omit`을 사용하면 한 객체 타입에서 특정 프로퍼티를 제외한 새로운 타입을 정의할 수 있습니다.
 
@@ -694,7 +694,7 @@ const person: Omit<Person, "location" | "gender"> = {
 };
 ```
 
-#### Pick
+#### 5.18.5. Pick
 
 `Pick`을 사용하면 한 객체 타입에서 특정 프로퍼티만 존재하는 객체 타입을 정의할 수 있습니다.
 
@@ -712,7 +712,7 @@ const person: Pick<Person, "name" | "age"> = {
 };
 ```
 
-#### Exclude
+#### 5.18.6. Exclude
 
 `Exclude`를 사용하면 `Union` 타입에서 특정 타입을 제외한 새로운 `Union` 타입을 정의할 수 있습니다.
 
@@ -725,7 +725,7 @@ let value: Exclude<Type3, number> = "string";
 value = true;
 ```
 
-#### ReturnType
+#### 5.18.7. ReturnType
 
 `ReturnType`을 사용하면 특정 함수의 반환 타입으로 구성된 타입을 정의할 수 있습니다.
 
@@ -739,7 +739,7 @@ const value1: MyType = "a";
 const value2: ReturnType<typeof myFunc> = "b";
 ```
 
-#### Parameters
+#### 5.18.8. Parameters
 
 `Parameters`를 사용하면 함수의 매개변수 타입들의 튜플 타입을 정의할 수 있습니다.
 
@@ -751,7 +751,7 @@ type MyType3 = Parameters<MyType1>;
 const value: MyType3 = ["string", true];
 ```
 
-#### Readonly
+#### 5.18.9. Readonly
 
 `Readonly`를 사용하면 객체 내 모든 프로퍼티를 `읽기 전용(readonly)`으로 변경할 수 있습니다.
 
@@ -769,7 +769,7 @@ const person: Readonly<Person> = {
 person.name = "HyunJin"; // Error: Cannot assign to 'name' because it is a read-only property.ts(2540)
 ```
 
-## 참고 자료
+## 6. 참고 자료
 
 - <a href="https://velog.io/@jee/%EA%B0%95%ED%83%80%EC%9E%85%EA%B3%BC-%EC%95%BD%ED%83%80%EC%9E%85-%ED%98%B9%EC%9D%80-%EC%A0%95%EC%A0%81%ED%83%80%EC%9E%85%EA%B3%BC-%EB%8F%99%EC%A0%81%ED%83%80%EC%9E%85" target="_blank">강타입과 약타입 혹은 정적타입과 동적타입</a>
 - <a href="https://www.heropy.dev/p/WhqSC8" target="_blank">한눈에 보는 타입스크립트 | HEROPY.DEV</a>

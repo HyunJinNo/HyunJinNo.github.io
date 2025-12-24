@@ -18,7 +18,7 @@ React, Next.js, FSD, Development History, TypeScript</p></blockquote>
 <blockquote class="prompt-info"><p><strong><u>Environment</u></strong><br />
 Next.js v15.2.2</p></blockquote>
 
-## 개요
+## 1. 개요
 
 Next.js 프로젝트에서 FSD 아키텍처를 적용하면서 경험한 내용에 대해 정리한 페이지입니다. FSD 아키텍처의 개념에 대해선 다음 링크를 참고하시길 바랍니다.
 

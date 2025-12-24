@@ -19,13 +19,13 @@ Troubleshooting, TypeScript, React Native, Mobile</p></blockquote>
 OS: Windows 11 <br />
 react-native v0.76.5 </p></blockquote>
 
-## ✅ 개요
+## 1. ✅ 개요
 
 React Native 프로젝트에서 FlatList 내 Modal을 사용하면서 발생한 문제를 해결한 과정에 대해 기록한 페이지입니다.
 
-## ❓ 문제
+## 2. ❓ 문제
 
-### ⚠️ 오류
+### 2.1. ⚠️ 오류
 
 <blockquote class="prompt-tip"><p><strong><u>Tips</u></strong> <br>
 발생한 버그를 간략히 설명해 주세요.</p></blockquote>
@@ -37,7 +37,7 @@ React Native 프로젝트에서 FlatList 내 Modal을 사용하면서 발생한 
 Your browser does not support the video format. Please try a different browser.
 </video>
 
-### 🖥️ 발생 환경
+### 2.2. 🖥️ 발생 환경
 
 <blockquote class="prompt-tip"><p><strong><u>Tips</u></strong> <br>
 운영체제, 브라우저, 의존성 목록 등을 작성해 주세요.</p></blockquote>
@@ -46,14 +46,14 @@ Your browser does not support the video format. Please try a different browser.
 - Galaxy S8+
 - react-native v0.76.5
 
-### 🕘 발생 일시
+### 2.3. 🕘 발생 일시
 
 <blockquote class="prompt-tip"><p><strong><u>Tips</u></strong> <br>
 버그가 발생한 날짜와 시간을 입력해 주세요. (Ex. 2024년 10월 1일, 오후 3시 30분)</p></blockquote>
 
 - 2025년 2월 18일, 오후 2시 30분
 
-## 📖 해결 과정
+## 3. 📖 해결 과정
 
 먼저 문제가 발생하는 상황에 대해 분석하였습니다. 문제 상황을 분석한 결과 Modal 컴포넌트를 포함하는 상위 컴포넌트가 TextInput을 클릭함으로써 키보드에 의해 가려질 때 Modal이 화면이 사라지는 것을 확인하였습니다. 이는 다음과 같이 `React Native`의 `FlatList`를 사용함으로써 발생한 문제였습니다.
 
@@ -225,7 +225,7 @@ export const TourItemList = () => {
 Your browser does not support the video format. Please try a different browser.
 </video>
 
-## 📚 참고 자료
+## 4. 📚 참고 자료
 
 - <a href="https://reactnative.dev/docs/modal" target="_blank">Modal · React Native</a>
 - <a href="https://reactnative.dev/docs/virtualizedlist" target="_blank">VirtualizedList · React Native</a>

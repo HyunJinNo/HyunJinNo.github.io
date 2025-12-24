@@ -23,15 +23,15 @@ VSCode v1.96.0 <br />
 Android Studio Ladybug | 2024.2.1 Patch 3 <br />
 react-native v0.76.5</p></blockquote>
 
-## 개요
+## 1. 개요
 
 이번 글에서는 `React Native CLI`를 사용하여 리액트 네이티브(React Native) 개발 환경 설정 및 애플리케이션 실행 방법에 대해 설명하겠습니다.
 
-## Step 1 - 개발 환경 준비하기
+## 2. Step 1 - 개발 환경 준비하기
 
 <b>iOS 앱을 빌드하기 위해선 `macOS`와 `Xcode`가 필요합니다. 저의 운영체제는 `Windows 11`이므로 iOS 앱을 빌드할 수 없습니다. 따라서 이번 글에서는 Android 플랫폼을 대상으로 React Native 개발 환경을 구축하는 방법을 설명하겠습니다.</b>
 
-### Node.js 설치하기
+### 2.1. Node.js 설치하기
 
 다음 링크에 접속하여 `Node.js`를 설치합니다. 18 버전 이상의 Node.js를 설치하면 됩니다.
 
@@ -46,7 +46,7 @@ npm -v
 
 <img src="/assets/img/front-end/react-native-basic/pic1.avif" alt="pic1" />
 
-### JDK 설치하기
+### 2.2. JDK 설치하기
 
 Android를 대상으로 `React Native` 개발 환경을 설정하기 위해선 `Java SE Development Kit (JDK)`가 필요합니다. Android 개발을 하려면 `JDK 11` 이상이 필요합니다. 공식 문서에서는 높은 버전의 JDK를 사용하면 문제가 발생할 수 있으므로 `JDK 17`을 권장하고 있습니다.
 
@@ -89,13 +89,13 @@ java --version
 
 <img src="/assets/img/front-end/react-native-basic/pic7.avif" alt="pic7" />
 
-### VSCode 설치하기
+### 2.3. VSCode 설치하기
 
 다음 링크에 접속하여 `VSCode`를 설치합니다.
 
 <a href="https://code.visualstudio.com/download" target="_blank">Download Visual Studio Code - Mac, Linux, Windows</a>
 
-### Android Studio 설치하기
+### 2.4. Android Studio 설치하기
 
 다음 링크에 접속하여 `Android Studio`를 설치합니다. 설치할 때 `Android SDK`,
 `Android Virtual Device` 항목을 체크합니다.
@@ -138,7 +138,7 @@ adb --version
 
 <img src="/assets/img/front-end/react-native-basic/pic13.avif" alt="pic13" />
 
-## Step 2 - React Native 애플리케이션 생성하기
+## 3. Step 2 - React Native 애플리케이션 생성하기
 
 > 만약 전역으로 react-native-cli 패키지를 설치한 경우 다음 명령어를 입력하여 삭제합니다.
 >
@@ -152,7 +152,7 @@ adb --version
 npx @react-native-community/cli@latest init <프로젝트 이름>
 ```
 
-## Step 3 - React Native 애플리케이션 실행하기
+## 4. Step 3 - React Native 애플리케이션 실행하기
 
 생성된 애플리케이션을 실행하기 위해선 `Android Studio`에서 Virtual Device를 설치하여 사용하거나, 실제 안드로이드 기기가 필요합니다. 이번 글에서는 실제 안드로이드 기기에서 애플리케이션을 실행하겠습니다.
 
@@ -283,6 +283,6 @@ Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.L
 
 <img src="/assets/img/front-end/react-native-basic/pic17.avif" alt="pic17" />
 
-## 참고 자료
+## 5. 참고 자료
 
 - <a href="https://reactnative.dev/" target="_blank">React Native · Learn once, write anywhere</a>

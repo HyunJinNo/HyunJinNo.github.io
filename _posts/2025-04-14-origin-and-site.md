@@ -29,7 +29,7 @@ Origin, Site</p></blockquote>
 
 예를 들어, `https://www.example.com:443/account`의 출처는 `https://www.example.com:443`입니다. 또한 프로토콜, 도메인, 포트 번호가 모두 동일한 경우 `동일 출처(Same-Origin)`로 간주되고, 하나라도 다른 경우 `교차 출처(Cross-Origin)`로 간주됩니다. 예를 들어, `https://www.example.com`과 `https://www.example.com:443`은 동일 출처로 간주됩니다.(`https://www.example.com`의 포트 번호가 443번으로 생략되어 있음.) 반면에 `https://www.example.com`과 `http://www.example.com`는 프로토콜이 다르므로 교차 출처로 간주됩니다.
 
-### 교차 출처와 동일 출처 예시
+### 2.2. 교차 출처와 동일 출처 예시
 
 `https://www.example.com:443`를 기준으로 교차 출처와 동일 출처를 구분한 예시는 다음과 같습니다.
 

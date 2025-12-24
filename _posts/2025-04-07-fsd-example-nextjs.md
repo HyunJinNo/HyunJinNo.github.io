@@ -24,7 +24,7 @@ Next.js 프로젝트에서 FSD 아키텍처를 적용하면서 경험한 내용�
 
 <a href="../fsd">FSD 아키텍처</a>
 
-## FSD 아키텍처 적용 전
+## 2. FSD 아키텍처 적용 전
 
 FSD 아키텍처 적용 전에는 다음과 같은 프론트엔드 아키텍처 구조를 채택하였습니다.
 
@@ -32,7 +32,7 @@ FSD 아키텍처 적용 전에는 다음과 같은 프론트엔드 아키텍처 
 
 위의 아키텍처 구조는 page 단위로 구분한 것으로 특정 페이지에서 사용하는 컴포넌트를 빠르게 찾을 수 있었습니다. 하지만 해당 폴더 구조는 특정 기능과 관련된 코드들이 너무 광범위하게 흩어져 있어서 기능을 수정하는 등 코드를 유지보수하기가 어려웠습니다. 특히 프로젝트 규모가 커지면서 공통 컴포넌트가 많아지다 보니 공통 컴포넌트를 관리하는 데 어려움을 겪었습니다. 따라서 기존의 아키텍처 구조를 변경하여 코드를 유지보수하기 쉽도록 개선할 필요성을 느꼈습니다. 이와 같은 상황에서 FSD 아키텍처를 적용하여 애플리케이션을 독립적인 비즈니스 기능 단위로 분할하면 유지보수하기 쉽다고 판단하여 아래와 같이 FSD 아키텍처를 적용하기로 결정하였습니다.
 
-## FSD 아키텍처 적용하기
+## 3. FSD 아키텍처 적용하기
 
 FSD 아키텍처는 다음과 같은 계층 구조를 갖습니다.
 
@@ -62,7 +62,7 @@ src
 
 각 레이어 구현 방식에 대해 설명하자면 아래와 같습니다.
 
-### shared
+### 3.1. shared
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic4.avif" alt="shared 레이어" />
 
@@ -79,7 +79,7 @@ shared
 └── ui      # 프로젝트 전반에 걸쳐 재사용할 수 있는 UI 컴포넌트
 ```
 
-#### api
+#### 3.1.1. api
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic5.avif" alt="shared 레이어의 api 세그먼트" />
 
@@ -144,7 +144,7 @@ export async function getNewAccessToken() {
 }
 ```
 
-#### config
+#### 3.1.2. config
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic6.avif" alt="shared 레이어의 config 세그먼트" />
 
@@ -176,13 +176,13 @@ export const LOCATION = [
 /* ... */
 ```
 
-#### lib
+#### 3.1.3. lib
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic7.avif" alt="shared 레이어의 lib 세그먼트" />
 
 `lib` 세그먼트에는 프로젝트 전반에 걸쳐 사용되는 유틸리티 함수나 커스텀 훅을 정의하였습니다. 유틸리티 함수와 커스텀 훅을 구분하기 위해 다음과 같이 `lib` 세그먼트 내에 `hooks` 폴더를 생성하여 커스텀 훅들을 모아두었고, `utils` 폴더를 생성하여 유틸리티 함수들을 모아두었습니다.
 
-#### model
+#### 3.1.4. model
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic8.avif" alt="shared 레이어의 model 세그먼트" />
 
@@ -227,7 +227,7 @@ export const useToastifyStore = create<ToastifyStoreType>(
 );
 ```
 
-#### ui
+#### 3.1.5. ui
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic9.avif" alt="shared 레이어의 ui 세그먼트" />
 
@@ -272,7 +272,7 @@ export const Breadcrumb = ({ categoryList }: BreadcrumbProps) => {
 };
 ```
 
-### entities
+### 3.2. entities
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic10.avif" alt="entities 레이어" />
 
@@ -294,7 +294,7 @@ entities
 └── (...)
 ```
 
-#### api
+#### 3.2.1. api
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic12.avif" alt="entities 레이어의 api 세그먼트" />
 
@@ -375,7 +375,7 @@ export async function getUserInfo() {
 }
 ```
 
-#### config
+#### 3.2.2. config
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic13.avif" alt="entities 레이어의 config 세그먼트" />
 
@@ -391,7 +391,7 @@ export const GENDER: Record<string, string> = {
 } as const;
 ```
 
-#### model
+#### 3.2.3. model
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic14.avif" alt="entities 레이어의 model 세그먼트" />
 
@@ -450,7 +450,7 @@ export const useUserStore = create<UserStoreType>(
 );
 ```
 
-#### ui
+#### 3.2.4. ui
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic15.avif" alt="entities 레이어의 ui 세그먼트" />
 
@@ -557,7 +557,7 @@ export const InformationItem = ({
 };
 ```
 
-### features
+### 3.3. features
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic16.avif" alt="features 레이어" />
 
@@ -578,7 +578,7 @@ features
 ├── (...)
 ```
 
-#### api
+#### 3.3.1. api
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic17.avif" alt="features 레이어의 api 세그먼트" />
 
@@ -639,7 +639,7 @@ export async function deleteInformationBookmark(informationId: number) {
 }
 ```
 
-#### config
+#### 3.3.2. config
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic18.avif" alt="features 레이어의 config 세그먼트" />
 
@@ -651,7 +651,7 @@ export async function deleteInformationBookmark(informationId: number) {
 export const NICKNAME_MAX_LENGTH = 30;
 ```
 
-#### model
+#### 3.3.3. model
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic19.avif" alt="features 레이어의 model 세그먼트" />
 
@@ -704,7 +704,7 @@ export const useInformationBookmark = (
 };
 ```
 
-#### ui
+#### 3.3.4. ui
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic20.avif" alt="features 레이어의 ui 세그먼트" />
 
@@ -760,7 +760,7 @@ export const InformationBookmark = ({
 };
 ```
 
-### widgets
+### 3.4. widgets
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic21.avif" alt="widgets 레이어" />
 
@@ -783,7 +783,7 @@ widgets
 <blockquote class="prompt-info"><p><strong><u>Info.</u></strong><br />
 일반적으로 FSD 아키텍처에서 <b>widgets</b> 레이어에는 여러 페이지에서 공용으로 사용될 수 있는 컴포넌트를 정의하는 곳입니다. UI 요소가 페이지의 대부분을 차지하고 재사용되지 않는 것이라면 <b>pages</b> 레이어에 배치하는 것이 적절하지만, 위에서 언급하였듯이 제가 진행한 <b>Next.js(App Router)</b> 프로젝트에 FSD 아키텍처를 적용할 때 <b>pages</b> 레이어를 사용하지 않기로 결정하였으므로 <b>widgets</b> 레이어에 UI 요소를 정의하였습니다.</p></blockquote>
 
-#### api
+#### 3.4.1. api
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic22.avif" alt="widgets 레이어의 api 세그먼트" />
 
@@ -857,7 +857,7 @@ export async function cancelGathering(gatheringId: number) {
 }
 ```
 
-#### config
+#### 3.4.2. config
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic23.avif" alt="widgets 레이어의 config 세그먼트" />
 
@@ -888,7 +888,7 @@ export const FAQList: FAQ[] = [
 ];
 ```
 
-#### model
+#### 3.4.3. model
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic24.avif" alt="widgets 레이어의 model 세그먼트" />
 
@@ -949,7 +949,7 @@ export const useGatheringStore = create<GatheringStoreType>(
 );
 ```
 
-#### ui
+#### 3.4.4. ui
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic25.avif" alt="widgets 레이어의 ui 세그먼트" />
 
@@ -991,7 +991,7 @@ export const MyPageProfileEditor = ({ userInfo }: MyPageProfileProps) => {
 };
 ```
 
-### app
+### 3.5. app
 
 <img src="/assets/img/front-end/fsd-example-nextjs/pic26.avif" alt="app 레이어" />
 
@@ -1016,7 +1016,7 @@ import Script from "next/script";
 /* ... */
 ```
 
-## FSD 아키텍처 적용 후기
+## 4. FSD 아키텍처 적용 후기
 
 FSD 아키텍처를 적용하면서 느낀 장점은 레이어별로 기능을 명확히 구분함으로써 코드를 유지보수하기 쉽다는 것이었습니다. 기존의 폴더 구조에서는 기능을 유지보수하고자 할 때 광범위하게 흩어져 있는 코드들을 추적하여야 했기 때문에 가독성이 떨어지고 코드를 이해하고 수정하기 쉽지 않았습니다. 하지만 FSD 아키텍처를 적용함으로써 기능별로 코드가 명확히 분리되어 있기 때문에 특정 기능 수정 시 특정 모듈만 집중해서 수정할 수 있으며 다른 부분에 미치는 영향을 최소화할 수 있어서 유지보수성을 크게 향상시킬 수 있었습니다.
 
@@ -1024,7 +1024,7 @@ FSD 아키텍처를 적용하면서 느낀 장점은 레이어별로 기능을 �
 
 <b>이렇듯 FSD 아키텍처는 가이드라인만을 제시할 뿐, 엄격한 기준이 없기 때문에 프로젝트를 진행하면서 팀원들이 혼란을 겪지 않고 일관성을 지킬 수 있도록 명확한 기준을 세우는 것이 좋을 것 같습니다.</b>
 
-## 참고 자료
+## 5. 참고 자료
 
 - <a href="https://github.com/TripInfoWeb/solitour-frontend" target="_blank">https://github.com/TripInfoWeb/solitour-frontend</a>
 - <a href="https://nextjs.org/docs#app-router-vs-pages-router" target="_blank">Introduction | Next.js</a>

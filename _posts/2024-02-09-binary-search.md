@@ -161,7 +161,7 @@ if (left >= 0) {
   console.log(answer.trim());
   ```
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://namu.wiki/w/이진%20탐색?from=이분%20탐색" target="_blank">이진 탐색 - 나무위키</a>
 - <a href="https://www.acmicpc.net/blog/view/109" target="_blank">이분 탐색(Binary Search) 헷갈리지 않게 구현하기</a>

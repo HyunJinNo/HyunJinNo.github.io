@@ -169,6 +169,6 @@ console.log(fib); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
   console.log(solution(0, 0));
   ```
 
-## 참고 자료
+## 4. 참고 자료
 
 - <a href="https://namu.wiki/w/동적%20계획법" target="_blank">동적 계획법 - 나무위키</a>

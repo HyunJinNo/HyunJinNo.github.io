@@ -3,7 +3,7 @@ title: WebRTC로 1:1 화상 회의 구현 방법
 description: WebRTC로 1:1 화상 회의 구현 방법에 대해 정리한 페이지입니다.
 date: 2025-11-21 00:00:00 +/-TTTT
 categories: [Computer Science]
-tags: [webrtc]
+tags: [react, webrtc]
 math: true
 toc: true
 pin: false
@@ -13,7 +13,7 @@ comments: true
 ---
 
 <blockquote class="prompt-info"><p><strong><u>Tags</u></strong><br />
-WebRTC</p></blockquote>
+React, WebRTC</p></blockquote>
 
 ## 1. 개요
 
@@ -137,7 +137,7 @@ const remoteVideo = document.getElementById("remoteVideo");
 let localStream;
 
 /**
- * @description P2P 연결을 관리한 RTCPeerConnection 객체를 담을 변수
+ * @description P2P 연결을 관리할 RTCPeerConnection 객체를 담을 변수
  * @type {RTCPeerConnection}
  */
 let peerConnection;
@@ -474,6 +474,243 @@ server.listen(port, () => {
 모바일과 맥북으로 1:1 화상 회의에 접속한 결과는 다음과 같습니다.
 
 <img src="/assets/img/cs/webrtc-example-part-1/pic3.avif" alt="1:1 화상 회의 구현 결과" />
+
+### 4.4. 번외: React에서의 구현
+
+[4.1. Front-end](#41-front-end)에서 구현한 WebRTC 코드를 React에서는 다음과 같이 작성할 수 있습니다.
+
+```tsx
+/* WebrtcMeshPage.tsx */
+
+import { useRef } from "react";
+import { useWebRTC } from "../model/useWebRTC";
+
+export const WebrtcMeshPage = () => {
+  /**
+   * @description 내 영상을 표시할 HTML <video> 요소
+   */
+  const localVideoRef = useRef<HTMLVideoElement>(null);
+
+  /**
+   * @description 상대 영상을 표시할 HTML <video> 요소
+   */
+  const remoteVideoRef = useRef<HTMLVideoElement>(null);
+
+  const { handleStartButtonClick, handleCallButtonClick } = useWebRTC({
+    localVideoRef,
+    remoteVideoRef
+  });
+
+  return (
+    <div className="flex flex-col items-center gap-8 py-40">
+      <div className="flex flex-row gap-8">
+        <div className="flex flex-col items-center gap-1">
+          <video
+            className="h-45 w-80 border"
+            autoPlay={true}
+            ref={localVideoRef}
+          />
+          <p>local</p>
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <video
+            className="h-45 w-80 border"
+            autoPlay={true}
+            ref={remoteVideoRef}
+          />
+          <p>Remote</p>
+        </div>
+      </div>
+      <div className="flex flex-row gap-4">
+        <button
+          className="rounded border border-gray-200 p-1 shadow hover:bg-gray-100 active:bg-gray-200"
+          onClick={() => handleStartButtonClick()}
+        >
+          Start
+        </button>
+        <button
+          className="rounded border border-gray-200 p-1 shadow hover:bg-gray-100 active:bg-gray-200"
+          onClick={() => handleCallButtonClick()}
+        >
+          Call
+        </button>
+      </div>
+    </div>
+  );
+};
+```
+
+```typescript
+/* useWebRTC.ts */
+
+import { useCallback, useEffect, useRef } from "react";
+import { io, type Socket } from "socket.io-client";
+
+interface useWebRTCProps {
+  localVideoRef: React.RefObject<HTMLVideoElement | null>;
+  remoteVideoRef: React.RefObject<HTMLVideoElement | null>;
+}
+
+/**
+ * 이 코드는 다음 순서로 동작합니다.
+ *
+ * 1. Socket.io 서버에 연결합니다.
+ * 2. Start 버튼을 누르면 카메라/마이크 스트림을 가져와 화면에 보여줍니다.
+ * 3. Call 버튼을 누르면 PeerConnection을 만들고 offer를 생성해 상대에게 전송합니다.
+ * 4. 상대는 offer를 받아 PeerConnection을 만들고 Answer로 응답합니다.
+ * 5. 두 브라우저는 서로의 ICE 후보를 주고받아 P2P 연결을 완성합니다.
+ * 6. 연결되면 각자의 영상이 상대 화면에 표시됩니다.
+ */
+export const useWebRTC = ({
+  localVideoRef,
+  remoteVideoRef
+}: useWebRTCProps) => {
+  /**
+   * @description 사용자 카메라/마이크 스트림
+   */
+  const localStreamRef = useRef<MediaStream>(null);
+
+  /**
+   * @description P2P 연결을 관리할 RTCPeerConnection 객체
+   */
+  const peerConnectionRef = useRef<RTCPeerConnection>(null);
+
+  /**
+   * @description socket.io 인스턴스
+   */
+  const socketRef = useRef<Socket>(null);
+
+  /**
+   * @description PeerConnection 생성 함수
+   */
+  const createPeerConnection = useCallback(() => {
+    peerConnectionRef.current = new RTCPeerConnection({
+      iceServers: [{ urls: "stun:stun.l.google.com:19302" }] // Google의 공용 STUN 서버
+    });
+
+    // 원격 트랙이 수신되면 원격 비디오에 연결합니다.
+    // 상대 영상이 들어오면 remoteVideo에 표시합니다.
+    peerConnectionRef.current.addEventListener(
+      "track",
+      (event: RTCTrackEvent) => {
+        if (remoteVideoRef.current) {
+          remoteVideoRef.current.srcObject = event.streams[0];
+        }
+      }
+    );
+
+    // ICE Candidate 발생 시 전송
+    peerConnectionRef.current.addEventListener(
+      "icecandidate",
+      (event: RTCPeerConnectionIceEvent) => {
+        if (event.candidate) {
+          // 생성된 ICE 후보를 시그널링 서버로 전송해 다른 피어가 네트워크 연결을 시도할 수 있게 합니다.
+          socketRef.current?.emit("candidate", event.candidate);
+        }
+      }
+    );
+  }, [remoteVideoRef]);
+
+  /**
+   * @description "Start" 버튼 클릭 시 카메라 & 마이크 권한을 요청한 후 스트림을 가져옵니다. 내 화면(localVideo)에 미리보기를 출력하며, 아직 WebRTC 연결을 시작하지 않습니다.
+   */
+  const handleStartButtonClick = async () => {
+    // 브라우저에 카메라/마이크 사용 권한을 요청하고 스트림을 얻습니다.
+    localStreamRef.current = await navigator.mediaDevices.getUserMedia({
+      video: true, // 카메라
+      audio: true // 마이크
+    });
+
+    // 얻은 로컬 미디어 스트림을 로컬 <video> 요소의 srcObject로 설정해 화면에 보여줍니다.
+    if (localVideoRef.current) {
+      localVideoRef.current.srcObject = localStreamRef.current;
+    }
+  };
+
+  /**
+   * @description "Call" 버튼 클릭 시 PeerConnection 생성 및 offer SDP (Session Description Protocol) 생성 후 전달합니다.
+   */
+  const handleCallButtonClick = async () => {
+    if (!localStreamRef.current) {
+      return;
+    }
+
+    createPeerConnection();
+
+    // 내 미디어를 PeerConnection에 추가하여 상대에게 전송 가능하게 합니다.
+    localStreamRef.current.getTracks().forEach((track) => {
+      peerConnectionRef.current?.addTrack(track, localStreamRef.current!);
+    });
+
+    // 로컬 SDP offer를 생성하고 저장합니다.
+    const offer = await peerConnectionRef.current!.createOffer();
+
+    // 생성한 offer를 로컬 설명으로 설정(로컬 상태에 반영)합니다.
+    await peerConnectionRef.current!.setLocalDescription(offer);
+
+    // offer를 시그널링 서버를 통해 상대에게 전달합니다.
+    socketRef.current?.emit("offer", offer);
+  };
+
+  useEffect(() => {
+    // socket.io 인스턴스를 생성합니다.
+    // 백엔드 시그널링 서버에 연결합니다.
+    // 여기서는 localtunnel 도메인을 사용합니다.
+    socketRef.current = io("https://wet-cases-roll.loca.lt");
+
+    // offer 수신 시 answer를 생성해 전송합니다.
+    socketRef.current.on("offer", async (offer: RTCSessionDescriptionInit) => {
+      if (!localStreamRef.current) {
+        return;
+      }
+
+      createPeerConnection();
+
+      await peerConnectionRef.current!.setRemoteDescription(offer);
+
+      // 내 미디어를 PeerConnection에 추가합니다.
+      localStreamRef.current.getTracks().forEach((track) => {
+        peerConnectionRef.current?.addTrack(track, localStreamRef.current!);
+      });
+
+      // 수신한 offer에 대한 SDP answer를 생성합니다.
+      const answer = await peerConnectionRef.current!.createAnswer();
+
+      // 생성한 answer를 로컬 설명으로 설정합니다.
+      await peerConnectionRef.current!.setLocalDescription(answer);
+
+      // 생성한 answer를 시그널링 서버로 전송해 offer를 전송한 쪽이 이를 수신하도록 합니다.
+      socketRef.current?.emit("answer", answer);
+    });
+
+    // answer 수신 시
+    socketRef.current.on(
+      "answer",
+      async (answer: RTCSessionDescriptionInit) => {
+        await peerConnectionRef.current?.setRemoteDescription(answer);
+      }
+    );
+
+    // ICE Candidate 수신 시
+    socketRef.current.on(
+      "candidate",
+      async (candidate: RTCIceCandidateInit) => {
+        try {
+          await peerConnectionRef.current?.addIceCandidate(candidate);
+        } catch (error) {
+          console.error(`Error adding ICE candidate: ${error}`);
+        }
+      }
+    );
+
+    return () => {
+      socketRef.current?.disconnect();
+    };
+  }, [createPeerConnection]);
+
+  return { handleStartButtonClick, handleCallButtonClick };
+};
+```
 
 ## 5. 참고 자료
 

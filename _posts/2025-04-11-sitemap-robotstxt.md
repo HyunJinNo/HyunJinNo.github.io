@@ -77,7 +77,7 @@ sitemap, robots.txt</p></blockquote>
 
 ## 3. robots.txt
 
-### 3.1. s개념
+### 3.1. 개념
 
 `robots.txt`은 웹 사이트의 최상위 경로(Ex. https://www.example.com/robots.txt)에 위치시키는 텍스트 파일로, 검색 엔진 크롤러에게 `sitemap.xml` 파일의 위치를 알려주고, 어떤 페이지나 섹션을 크롤링해도 되는지, 또는 크롤링하지 말아야 하는지를 지시하는 역할을 합니다.
 
